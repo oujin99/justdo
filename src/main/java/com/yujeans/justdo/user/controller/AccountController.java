@@ -1,0 +1,13 @@
+package com.yujeans.justdo.user.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.yujeans.justdo.user.service.AccountService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class AccountController {
+	private final AccountService accountService;
+}
