@@ -1,0 +1,84 @@
+h1 {
+  width: 1000px;
+  margin: 50px auto 10px;
+  text-align: left;
+}
+
+.linkbox {
+  font-size: 14px;
+}
+
+.container {
+  width: 1000px;
+  display: block;
+  margin: 30px auto;
+  justify-content: left;
+}
+
+#searchPro {
+  border: none;
+  border-radius: 8px;
+  background-color: var(--secondary);
+  padding: 10px;
+  height: auto;
+  font-size: 16px;
+  margin-top: 10px;
+  width: auto;
+  min-width: 300px;
+}
+
+.button {
+  display: flex;
+  justify-content: left;
+  margin: 10px 0 10px;
+}
+
+.button a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  color: #323232;
+  height: 40px;
+  padding: 8px;
+  margin: 5px 5px 5px 0;
+  text-decoration: none;
+  border: 1px solid var(--gray);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.gosulist {
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--secondary);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.gosulist a{
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+
+.picture img {
+  border-radius: 10px;
+  margin: 10px 0;
+
+}
+
+.profile {
+  margin-left: 10px;
+  padding: 5px;
+}
+.profile div{
+  margin-bottom: 5px;  
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.review {
+  font-size: 14px;
+}
