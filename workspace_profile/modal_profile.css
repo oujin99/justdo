@@ -38,11 +38,23 @@
    /* 15% from the top and centered */
    padding: 10px;
    border: 1px solid #888;
-   width: 60%;
+   width: 60%; 
+   /* width 60% */
    border-radius: 6px;
    /* Could be more or less, depending on screen size */
 }
 
+.modal-addform {
+   background-color: #fefefe;
+   margin: 5% auto;
+   /* 15% from the top and centered */
+   padding: 10px;
+   border: 1px solid #888;
+   width: 45%; 
+   /* width 60% */
+   border-radius: 6px;
+   /* Could be more or less, depending on screen size */
+}
 /* 모달 창 닫기 버튼  */
 .close {
    color: #aaa;
