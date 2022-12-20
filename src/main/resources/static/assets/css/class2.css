@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+}
+
+/*어떤 클래스인가요?*/
+/* .sec_input {
+    position: relative;
+    margin-bottom: 40px;
+    font-size: 0;
+} */
+
+article {
+    display: block;
+}
+/* 
+.sec_input .sec_title {
+    position: relative;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: bold;
+} */
+
+/* .ico_tooltip {
+    display: flex;
+    align-items: center;
+} */
+
+h4 {
+    /* display: block; */
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    /* font-weight: bold; */
+}
+
+.ico_tooltip .tooltip .tooltip_cnt {
+    z-index: 5;
+    display: none;
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 0;
+    width: 396px;
+    padding: 18px 20px;
+    border: 1px solid #f6f6f6;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 6%);
+    word-break: keep-all;
+    background-color: #fff;
+    white-space: normal;
+}
+
+.sec_input .input_area.text_field_wrap {
+    border-radius: 6px;
+    border: solid 1px #ddd;
+}
+.sec_input .input_area {
+    position: relative;
+}
+
+/*textarea*/
+element.style {
+    min-height: 153px;
+    height: 153px;
+}
+.sec_input .input_area.text_field_wrap .text_field {
+    width: 100%;
+    /* height: 100%; */
+    border: none;
+    resize: vertical;
+}
+
+.sec_input .input_area .text_field {
+    /* width: 100%;
+    height: 100%; */
+    padding: 20px 15px;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    color: #999;
+    line-height: 22px;
+    word-break: break-all;
+    /* border: 1px solid #eee;
+    resize: none; */
+}
+
+/*textarea 글자수*/
+.sec_input .input_area .text_status {
+    padding: 5px 10px 5px 0;
+    text-align: right;
+    line-height: 17px;
+    color: #999;
+}
+
+/*글자 수 alert*/
+.notice_msg.alert {
+    color: #ff1616;
+    background: url(//front-img.taling.me/Content/app3/img/icon/icon-alert-warning@2x.png) no-repeat left center/12px 12px;
+}
+
+.notice_msg {
+    padding-left: 17px;
+    margin-top: 7px;
+    font-size: 12px;
+    line-height: 17px;
+    /* color: #797d84;
+    background: url(//front-img.taling.me/Content/app3/img/icon/icon-alert-explanation@2x.png) no-repeat left center/12px 12px; */
+}
+
+
+.sec_input .input_area {
+    position: relative;
+}
+
+.sec_input .input_area .input_field.type_left {
+    float: left;
+    width: 467px;
+    margin-right: 7px;
+}
+.sec_input .input_area .input_field {
+    /* width: 100%; */
+    height: 48px;
+    padding: 16px 0 15px 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    color: #333;
+}
+input[type=text]{
+    /* -webkit-appearance: none;
+    -moz-appearance: none; */
+    appearance: none;
+    /* border-radius: 0; */
+}
+
+/* 추가 버튼 */
+.btn_submit.type_pink {
+    background: #ffe5ec;
+    color: #ff0045;
+}
+
+.btn_submit {
+    float: left;
+    display: block;
+    /* width: 100%; */
+    width: 126px;
+    height: 48px;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 48px;
+    font-weight: 500;
+    font-size: 14px;
+    /* color: #111;
+    background-color: #f6f6f6; */
+    cursor: pointer;
+}
+button {
+    /* background: none; */
+    border: none;
+    vertical-align: top;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*태그*/
+.tag_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 467px;
+    margin-top: 7px;
+}
+
+/*---------세번째---------*/
+.chk_area {
+    margin-top: 20px;
+}
+
+.chk_area label {
+    position: relative;
+    padding-left: 25px;
+    line-height: 18px;
+    letter-spacing: -0.4px;
+    color: #666;
+}
+
+.chk_area input:checked + label::before {
+    background: url(https://front-img.taling.me/Content/app3/img/btn/btn-checkbox-clicked-18px@2x.png) 50%/cover;
+}

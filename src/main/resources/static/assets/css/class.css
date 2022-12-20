@@ -1,0 +1,734 @@
+form{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #333;
+    line-height: 180%;
+    letter-spacing: -0.5px; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input[type=hidden] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+input {
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    letter-spacing: -0.25px;
+}
+
+#wrap {
+    min-width: 1200px;
+}
+
+div{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #333;
+    line-height: 180%;
+    letter-spacing: -0.5px;
+}
+
+.section_header {
+    padding-top: 63px;
+}
+
+/* 내 클래스 만들기 */
+.container {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.section_header h2 {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 21px;
+}
+
+h2{
+    letter-spacing: -0.5px;
+}
+
+.content {
+    margin: 40px 0 130px;
+}
+
+/* 튜터 등록 nav(왼쪽)*/
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nav li {
+    display: block;
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+li {
+    list-style: none;
+}
+
+/* 튜터 등록 nav(가운데) */
+.main {
+    width: 600px;
+    margin-left: 240px;
+}
+
+.sec_intro {
+    margin: 5px 0 40px;
+}
+
+.sec_intro h3 {
+    position: relative;
+    margin-bottom: 12px;
+    font-size: 24px;
+    line-height: 31px;
+    font-weight: bold;
+}
+
+/*클래스 제목과 커버 이미지가 고민된다면*/
+.sec_intro p, .sec_intro .sec_desc {
+    position: relative;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.3px;
+}
+
+/*이모티콘*/
+.link_text .emoji {
+    margin: 0 10px 0 5px;
+}
+
+/*클래스 커버 가이드 보기*/
+.btn_link {
+    padding: 6px 21px 4px 12px;
+    color: #ff0045;
+    font-weight: bold;
+    border: 1px solid #ff0045;
+    border-radius: 4px;
+    background: url(https://front-img.taling.me/Content/app3/img/icon/icon-arrow-right-talpink@2x.png) no-repeat right 11.5px top 11px/4px 8px;
+}
+
+.sec_intro .progress_bar {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    margin-top: 20px;
+    background-color: #efefef;
+}
+
+/*클래스 제목*/
+.sec_input {
+    position: relative;
+    margin-bottom: 40px;
+    font-size: 0;
+}
+
+.sec_input .sec_title {
+    position: relative;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: bold;
+}
+
+.ico_tooltip {
+    display: flex;
+    align-items: center;
+}
+
+/*물음표 아이콘*/
+.ico_tooltip .tooltip {
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin-left: 7px;
+    background: url(https://front-img.taling.me/Content/app3/img/icon/icon-question-circle@2x.png) no-repeat center/100% 100%;
+    cursor: pointer;
+}
+
+/*물음표 클릭 시 나오는 설명창*/
+.ico_tooltip .tooltip .tooltip_cnt {
+    z-index: 5;
+    display: none;
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 0;
+    width: 396px;
+    padding: 18px 20px;
+    border: 1px solid #f6f6f6;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 6%);
+    word-break: keep-all;
+    background-color: #fff;
+    white-space: normal;
+}
+
+.ico_tooltip .tooltip .tooltip_cnt p {
+    margin-bottom: 7px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #ff0045;
+}
+
+.ico_tooltip .tooltip .tooltip_cnt .tip_list li {
+    position: relative;
+    display: block;
+    padding-left: 9px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    line-height: 16px;
+    word-break: break-all;
+    color: #666;
+}
+
+/*어떤 재능을 가르쳐주나요?*/
+.sec_input .input_area.text_field_wrap {
+    border-radius: 6px;
+    border: solid 1px #ddd;
+}
+
+.sec_input .input_area {
+    position: relative;
+}
+
+.sec_input .input_area.text_field_wrap .input_field {
+    width: 87%;
+    border: none;
+    overflow: hidden;
+}
+
+.sec_input .input_area .input_field {
+    /* width: 100%; */
+    height: 48px;
+    padding: 16px 0 15px 15px;
+    border-radius: 4px;
+    /* border: 1px solid #ddd; */
+    color: #333;
+}
+
+/*글자수 표시 부분*/
+.sec_input .input_area .text_status.title {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+.sec_input .input_area .text_status {
+    padding: 5px 10px 5px 0;
+    text-align: right;
+    line-height: 17px;
+    color: #999;
+}
+
+/*글자수 밸리데이션 체크 css*/
+.notice_msg.alert {
+    color: #ff1616;
+    background: url(//front-img.taling.me/Content/app3/img/icon/icon-alert-warning@2x.png) no-repeat left center/12px 12px;
+}
+
+.notice_msg {
+    padding-left: 17px;
+    margin-top: 7px;
+    font-size: 12px;
+    line-height: 17px;
+    /* color: #797d84; */
+    /* background: url(//front-img.taling.me/Content/app3/img/icon/icon-alert-explanation@2x.png) no-repeat left center/12px 12px; */
+}
+
+/*---------------커버 이미지---------------*/
+.sec_input {
+    position: relative;
+    margin-bottom: 40px;
+    font-size: 0;
+}
+
+.sec_input .sec_title {
+    position: relative;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: bold;
+}
+
+.cover_img_area {
+    position: relative;
+    float: left;
+    width: 478px;
+    height: 325px;
+    margin-right: 7px;
+    border-radius: 6px;
+    background: #fafafa url(https://front-img.taling.me/Content/app3/img/bg/bg-add-img-grey-72px@2x.png) no-repeat center/72px 72px;
+}
+
+.upload_area {
+    /* position: relative;
+    width: 75px;
+    height: 75px; */
+    overflow: hidden;
+}
+
+.cover_img_area::before {
+    content: "클릭 또는 드래그로\a이미지 파일을 등록해주세요.";
+    position: absolute;
+    left: 50%;
+    bottom: 90px;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #666;
+    line-height: 15px;
+    white-space: pre;
+    text-align: center;
+}
+
+.upload_area input[type=file] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.upload_area .input_hide {
+    /* position: absolute; */
+    bottom: 0;
+    /* left: 0;
+    width: 100%;
+    height: 100%; */
+    border: 0;
+    /* opacity: 0; */
+    cursor: pointer;
+}
+
+.cover_img_area .btn_del {
+    top: 10px;
+    right: 10px;
+}
+
+/*메인 사진 오른쪽 작은 사진들*/
+.cover_img_list {
+    float: right;
+    width: 115px;
+    overflow: visible;
+}
+
+.swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    /* overflow: hidden; */
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.swiper-container-vertical.swiper-container-css-mode>.swiper-wrapper {
+    scroll-snap-type: y mandatory;
+}
+
+.cover_img_list .swiper-wrapper {
+    height: 325px;
+    overflow: hidden;
+}
+
+.swiper-container-vertical>.swiper-wrapper {
+    flex-direction: column;
+}
+
+.swiper-wrapper {
+    transform: translate3d(0px,0,0);
+    position: relative;
+    width: 100%;
+    /* height: 100%; */
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+
+element.style {
+    height: 76px;
+    margin-bottom: 7px;
+}
+
+.cover_img_list .swiper-wrapper .swiper-slide {
+    width: inherit;
+    /* height: 76px; */
+    border-radius: 6px;
+    background: #fafafa url(https://front-img.taling.me/Content/app3/img/bg/bg-add-img-grey-72px@2x.png) no-repeat center/72px 72px;
+}
+
+.swiper-container-css-mode>.swiper-wrapper>.swiper-slide {
+    scroll-snap-align: start start;
+}
+
+.upload_area {
+    position: relative;
+    /* width: 75px; */
+    /* height: 75px; */
+    overflow: hidden;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    /* width: 100%;
+    height: 100%;
+    position: relative; */
+    transition-property: transform;
+}
+
+.cover_img_list .swiper-wrapper .swiper-slide .btn_del {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+    background: url(https://front-img.taling.me/Content/app3/img/icon/ic-close-white-24px@2x.png) no-repeat 50%/cover;
+}
+
+button {
+    /* background: none; */
+    border: none;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.cover_img_list .swiper-button-prev.swiper-button-disabled {
+    background-image: url(https://front-img.taling.me/Content/app3/img/btn/btn-category-left@2x.png);
+}
+
+.cover_img_list .swiper-button-prev {
+    top: -30px;
+    background: url(https://front-img.taling.me/Content/app3/img/btn/btn-category-left-active@2x.png) no-repeat center/100% 100%;
+}
+
+.cover_img_list .swiper-button-prev {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    left: 50%;
+    right: 0;
+    /* top: 0; */
+    margin-top: 0;
+    opacity: 1;
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.swiper-button-prev.swiper-button-disabled {
+    /* opacity: .35; */
+    cursor: auto;
+    pointer-events: none;
+}
+.swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    /* top: 50%;
+    width: calc(var(--swiper-navigation-size)/ 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(-1 * var(--swiper-navigation-size)/ 2); */
+    z-index: 10;
+    /* cursor: pointer; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+}
+
+/*아래버튼*/
+.cover_img_list .swiper-button-next {
+    top: auto;
+    bottom: -30px;
+    background: url(https://front-img.taling.me/Content/app3/img/btn/btn-category-rignt-active@2x.png) no-repeat center/100% 100%;
+}
+
+.swiper-button-next {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    left: 50%;
+    right: 0;
+    top: 0;
+    margin-top: 0;
+    opacity: 1;
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.swiper-container .swiper-notification {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1000;
+}
+
+/*오른쪽 커버 이미지 적용*/
+.class_card {
+    position: absolute;
+    top: 30px;
+    right: -360px;
+    width: 286px;
+    min-height: 354px;
+    padding: 30px 20px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+/*커버 이미지가 적용된 모습은 다음과 같아요*/
+.class_card h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+}
+
+/*적용된 사진*/
+.class_card .thumb {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 157px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.4) url(https://front-img.taling.me/Content/app3/img/bg/bg-img-grey-72px@2x.png) no-repeat center/58px 47px;
+}
+
+/*하트*/
+.class_card .thumb .btn_wish {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    z-index: 1;
+    width: 38px;
+    height: 38px;
+    background: url(https://front-img.taling.me/Content/app3/img/icon/icWishUnclickedLine38Px@2x.png) no-repeat center/38px 38px;
+}
+
+/*오프라인, 온라인*/
+.class_card .text_area .badge_location.offline {
+    background-color: #3390ff;
+    background-image: url(//front-img.taling.me/Content/app3/img/icon/icClasscardOffline@2x.png);
+}
+
+.class_card .text_area .badge_location {
+    display: inline-block;
+    height: 18px;
+    padding: 0 6px 0 20px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #fff;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+}
+
+.class_card .text_area .class_title {
+    display: -webkit-box;
+    overflow: hidden;
+    /* -ms-text-overflow: ellipsis; */
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    height: 37px;
+    margin: 7px 0 5px;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.class_card .text_area .class_category, .class_card .text_area .tutor_name {
+    font-size: 11px;
+    color: #999;
+    font-weight: bold;
+    line-height: initial;
+}
+
+.class_card .text_area .class_category, .class_card .text_area .tutor_name {
+    font-size: 11px;
+    color: #999;
+    font-weight: bold;
+    line-height: initial;
+}
+
+.class_card .text_area .tutor_name::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5px;
+    height: 1.5px;
+    border-radius: 50%;
+    background-color: #999;
+}
+
+.notice_msg {
+    padding-left: 17px;
+    margin-top: 7px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #797d84;
+    background: url(//front-img.taling.me/Content/app3/img/icon/icon-alert-explanation@2x.png) no-repeat left center/12px 12px;
+}
+
+.notice_msg.alert {
+    color: #ff1616;
+    background: url(//front-img.taling.me/Content/app3/img/icon/icon-alert-warning@2x.png) no-repeat left center/12px 12px;
+}
+
+.chk_area {
+    margin-top: 20px;
+}
+
+.chk_area label {
+    position: relative;
+    padding-left: 25px;
+    line-height: 18px;
+    letter-spacing: -0.4px;
+    color: #666;
+}
+
+.chk_area input:checked + label::before {
+    background: url(https://front-img.taling.me/Content/app3/img/btn/btn-checkbox-clicked-18px@2x.png) 50%/cover;
+}
+
+.chk_area label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    /* background: url(https://front-img.taling.me/Content/app3/img/btn/btn-checkbox-default-18px@2x.png) 50%/cover; */
+}
+
+/*하단 '임시저장', '다음' 버튼*/
+.fixed_menu {
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 70px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+}
+
+/*임시저장 완료 토스트 팝업*/
+#pop_temp_save {
+    visibility: hidden;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+    height: 38px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#pop_temp_save .pop_temp_cnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#pop_temp_save .pop_temp_cnt::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    margin-right: 2.55px;
+    background: url(https://front-img.taling.me/Content/app3/img/icon/ic-check-circle-white-24@2x.png) no-repeat center/100% 100%;
+}
+
+/*하단 fixed*/
+.fixed_menu .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+/*버튼*/
+.fixed_menu .container .btn_wrap {
+    display: flex;
+}
+
+.fixed_menu .container .btn_wrap button {
+    width: 84px;
+    height: 40px;
+    border-radius: 6px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #111;
+    background: #f6f6f6;
+}
+
+.btn_submit {
+    float: left;
+    display: block;
+    /* width: 100%;
+    width: 126px;
+    height: 48px;
+    border-radius: 6px; */
+    text-align: center;
+    /* line-height: 48px; */
+    font-weight: 500;
+    /* font-size: 14px; */
+    /* color: #111;
+    background-color: #f6f6f6; */
+    cursor: pointer;
+}
+
+/*'다음' 버튼*/
+.fixed_menu .container .btn_wrap button.next {
+    margin-left: 10px;
+    color: #fff;
+    background-color: #ff0045;
+}
+
+/*팝업*/
+.modal {
+    display: none;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(17, 17, 17, 0.5);
+}
