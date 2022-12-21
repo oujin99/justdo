@@ -10,7 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndViewDefiningException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,7 +26,7 @@ public class KakaoController {
 	private final KakaoService kakaoService;
 	
 	@GetMapping("/kakao/login")
-	public String test(@RequestParam String code, Model model, HttpServletResponse response) {
+	public String kakaoLogin(@RequestParam String code, Model model, HttpServletResponse response, HttpServletRequest request) {
 //		System.out.println(code);
 		System.out.println("카카오가 불렀어");
 		
@@ -39,19 +43,12 @@ public class KakaoController {
 		
 		System.out.println("token : "+token);
 		
-		// id , nickname , profile_image , thumbnail_image , email 담겨있음
-		HashMap<String, Object> userInfo = kakaoService.getUserInfo(token);
-		
-//		System.out.println("닉네임 : "+userInfo.get("nickname"));
-//		System.out.println("프로필 이미지 : "+userInfo.get("profile_image"));
-		
-//		System.out.println(kakaoService.getAgreementInfo(token));
 		
 		return "redirect:/";
 	}
 	
 	@GetMapping("/kakao/logout")
-	public String kakao_logout(HttpServletRequest request, HttpServletResponse response) {
+	public String kakaoLogout(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("로그아웃 됩니다.");
 		Cookie[] cookies = request.getCookies();
 		

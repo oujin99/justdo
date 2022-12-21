@@ -22,6 +22,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
 		registry.addInterceptor(checkInterceptor)
 					.addPathPatterns("/kakao/cookietest1")
 					.addPathPatterns("/kakao/cookietest2");
+		
 	}
 	
 }

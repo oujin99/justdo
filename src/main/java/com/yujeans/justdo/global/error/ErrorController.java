@@ -8,7 +8,7 @@ public class ErrorController {
 	
 	@GetMapping("/error/isNotValidToken")
 	public String isNotVaildToken() {
-		System.out.println("isNotValidToken 컨트롤러 왔어요");
-		return "/error/notValidToken";
+		//System.out.println("isNotValidToken 컨트롤러 왔어요");
+		return "/error/notValidTokenError";
 	}
 }

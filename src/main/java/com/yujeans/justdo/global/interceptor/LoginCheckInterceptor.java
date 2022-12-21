@@ -1,8 +1,6 @@
 package com.yujeans.justdo.global.interceptor;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -13,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,6 +29,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor{
 		if(validToken) {
 			// 토큰이 유효하면 로그인 된 상태
 			// 페이지 묶지않고 인터셉터 true로 흘려보내주기
+			
 			return true;
 		}else {
 			// 로그인 되지 않은상태 (로그인 해야 이용할 수 있다는 메시지를 담은 페이지를 띄워줘야 함)
@@ -50,19 +50,18 @@ public class LoginCheckInterceptor implements HandlerInterceptor{
 			
 			for(Cookie cookie : cookies) {
 				
-//				System.out.println("cookie value : "+cookie.getValue());
-//				
-//				System.out.println("cookie name : "+cookie.getName());
-//				
-//				System.out.println("cookie length : "+cookies.length);
+				System.out.println("cookie value : "+cookie.getValue());
+				System.out.println("cookie name : "+cookie.getName());
+				System.out.println("cookie length : "+cookies.length);
 				
 				// 쿠키키값 얻어오면 키값.equals("access_token") 추가할 예정
 				if(cookie.getName().equals("access_token")) {
 					token = cookie.getValue();
-					System.out.println("access_token : " + token);
+//					System.out.println("access_token : " + token);
 				}
 			}
 		}else {
+			// 쿠키가 널일때
 			System.out.println("cookies : "+cookies);
 			
 		}
@@ -84,7 +83,6 @@ public class LoginCheckInterceptor implements HandlerInterceptor{
 			int responseCode = conn.getResponseCode();
 			System.out.println("request tokeninfo responseCode = " + responseCode);
 			
-			
 			// responseCode가 200이면 유효한 토큰 , 그외는 에러 (401 == 유효하지 않은 토큰 등..)
 			if(responseCode==200) {
 				return true;
@@ -94,7 +92,6 @@ public class LoginCheckInterceptor implements HandlerInterceptor{
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
