@@ -17,12 +17,54 @@
 
 }
 
+.dogether_title_price_wrapper{
+    display: flex;
+}
+
+.dogether_title_wrapper{
+    flex: 1;
+}
+
+.dogether_price_wrapper{
+    flex: 1;
+    margin-left: 30px;
+}
+
+.dogether_cover_category_wrapper{
+    display: block;
+}
+
+.dogether_cover_category_wrapper2{
+    /* display: block; */
+    width: 30%;
+    flex: 1;
+}
+
+.dogether_category_wrapper{
+    display: block;
+    flex: 1;
+    margin-left: 30px;
+    margin-bottom: 35px;
+}
+
+.dogether_category_wrapper2{
+    display: block;
+    flex: 1;
+    margin-left: 30px;
+    margin-bottom: 35px;
+}
+
 .dogether-regist-title {
     margin-top: 20px;
     margin-bottom: 30px;
 }
 
 .dogether-article{
+    margin-bottom: 35px;
+}
+
+.dogether-article2{
+    /* display: flex; */
     margin-bottom: 35px;
 }
 
@@ -53,7 +95,7 @@
 } 
 
 #dogether_image{
-    display: none!important;
+    display: none;
 }
 
 /* -------------------- 등록 폼 css 끝 -------------------- */

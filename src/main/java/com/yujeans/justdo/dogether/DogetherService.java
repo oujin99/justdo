@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.yujeans.justdo.category.FirstCategory;
+import com.yujeans.justdo.category.SecondCategory;
+import com.yujeans.justdo.category.ThirdCategory;
 import com.yujeans.justdo.user.Account;
 
 import lombok.RequiredArgsConstructor;
@@ -14,6 +17,23 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DogetherService {
 	private final DogetherRepository dogetherRepository;
+	
+	// dogether 등록 폼에 넣을 카테고리
+	public List<FirstCategory> selectFirstCategory() {
+		
+		return dogetherRepository.selectFirstCategory();
+	}
+	
+	public List<SecondCategory> selectSecondCategory(String selectFirst){
+
+		return dogetherRepository.selectSecondCategory(selectFirst);
+	}
+	
+	public List<ThirdCategory> selectThirdCategory(){
+		return dogetherRepository.selectThirdCategory();
+	}
+	
+	
 	
 	@Transactional
 	public void saveDogether(Dogether dogether){
