@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+    <g fill="none" fill-rule="evenodd" transform="translate(7.845 7.845)">
+        <path stroke="#323232" stroke-width="2" d="M22.88 22.227h-9.152v-4.73a.5.5 0 0 0-.5-.5H9.652a.5.5 0 0 0-.5.5v4.73H1.5a1.5 1.5 0 0 1-1.5-1.5V9.345a1.5 1.5 0 0 1 1.5-1.5h33.61a1.5 1.5 0 0 1 1.5 1.5v11.382a1.5 1.5 0 0 1-1.5 1.5h-7.653v-4.73a.5.5 0 0 0-.5-.5H23.38a.5.5 0 0 0-.5.5v4.73z"/>
+        <rect width="4.576" height="9.152" x="9.152" y="16.997" stroke="#323232" stroke-width="2" rx=".5"/>
+        <rect width="4.576" height="9.152" x="22.881" y="16.997" stroke="#323232" stroke-width="2" rx=".5"/>
+        <path stroke="#323232" stroke-width="2" d="M35.302 22.227v12.421a1.961 1.961 0 0 1-1.961 1.961H3.269a1.961 1.961 0 0 1-1.962-1.961V22.227"/>
+        <path stroke="#00C7AE" stroke-linecap="round" stroke-width="1.5" d="M11.44 20.714v1.569M25.169 20.714v1.569"/>
+        <g stroke="#323232" stroke-width="2">
+            <path d="M10.46 7.845v-5.23A2.615 2.615 0 0 1 13.075 0h9.152a2.615 2.615 0 0 1 2.615 2.615v5.23"/>
+            <path stroke-linecap="square" d="M10.688 3.922h14.154M14.382 4.576v2.615M20.92 4.576v2.615"/>
+        </g>
+    </g>
+</svg>

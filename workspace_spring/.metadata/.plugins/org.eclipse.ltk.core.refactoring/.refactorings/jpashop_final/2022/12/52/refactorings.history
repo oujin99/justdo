@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;templates&apos; to &apos;justdo/src/main/resources&apos;&#x0D;&#x0A;- Original project: &apos;jpashop_final&apos;&#x0D;&#x0A;- Destination element: &apos;justdo/src/main/resources&apos;&#x0D;&#x0A;- Original element: &apos;jpashop_final/src/main/resources/templates&apos;" description="Copy package" destination="=justdo/src\/main\/resources=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/" element1="/src\/main\/resources=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;templates" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1671608970620" version="1.0"/>
+</session>

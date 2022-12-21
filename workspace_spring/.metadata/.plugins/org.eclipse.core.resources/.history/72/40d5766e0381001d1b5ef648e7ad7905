@@ -1,0 +1,138 @@
+  /* freejoin */
+  .row {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    justify-content: center;
+    grid-template-columns: 3fr 1fr 3fr;
+  }
+  
+  .both__join {
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    width: 480px;
+  }
+  .joinblock {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    /* background-color: aqua; */
+  }
+  
+  .pro__join {
+    color: white;
+    background-image: url("/images/coffee.jpg");
+    background-color: transparent;
+    background-size: cover;
+    opacity: 1;
+  }
+  
+  .or {
+    padding: 80px 70px;
+  }
+  
+  .pro__join__Btn:hover {
+    background-color: var(--soomgo-light);
+  }
+  
+  .user__join__Btn:hover {
+    background-color: var(--soomgo-light);
+  }
+  
+  .joinblock h2 {
+    margin-top: 10px;
+  }
+  
+  .joinblock p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .joinblock a,
+  .gosu_signin a {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    color: var(--white);
+    background-color: var(--soomgo-dark);
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .row__login {
+    display: flex;
+    margin-bottom: 100px;
+  }
+  
+  .row__login p {
+    margin-right: 10px;
+  }
+  
+  .row__login a {
+    text-decoration: none;
+    color: var(--blue);
+  }
+  /* slider row */
+  .gosu_container {
+    display: flex;
+    margin: auto;
+    margin-bottom: 20px;
+    justify-content: center;
+    /* background-color: aqua; */
+  }
+  .gosu_signin {
+    width: 480px;
+    padding: 20px;
+    background-color: beige;
+  }
+  .gosu_signin p {
+    font-size: 30px;
+  }
+  
+  #small_Btn {
+    display: block;
+    width: 40%;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 8px;
+  }
+  
+  .gosu_slider {
+    margin-left: 80px;
+    width: 400px;
+    background-color: beige;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slider_controller {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray);
+    font-size: 30px;
+  }
+  
+  .dot {
+    display: flex;
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .slider_content {
+    display: flex;
+    width: 400px;
+    padding: 10px;
+  }
+  .slider_content p {
+    width: 400px;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  
+  
+  
