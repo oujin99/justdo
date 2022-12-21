@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 글</title>
+    <link rel="icon" type="images/png" href="/images/logo.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/fc26219ee3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/swiper-bundle.css">
+    <link rel="stylesheet" href="../css/board_style.css">
+    <link rel="stylesheet" href="../css/board_media.css">
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../js/script.js" defer></script>
+
+    <!-- header, footer 공통 부분 -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">   
+        $(document).ready( function() {
+
+        $("#headers").load("common/header.html");  // 원하는 파일 경로를 삽입하면 된다
+        $("#footers").load("common/footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+        $("#searcher").load("common/search.html");  
+    });
+    </script>
+
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+
+        <!-- 부가적인 테마 -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+    
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+</head>
+
+<body>
+    <ul id="skip">
+        <li><a href="#header">헤더 바로가기</a></li>
+        <li><a href="#nav">메뉴 바로가기</a></li>
+        <li><a href="#footer">푸터 바로가기</a></li>
+    </ul>
+    <header>
+    	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
+    </header>
+    <div id="searcher"></div>
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>글 내용</strong>
+        </div>
+        <div class="board_view_wrap">
+            <div class="board_view">
+                <div class="title">
+                    글 제목
+                </div>
+                <div class="info">
+                    <dl>
+                        <dt>번호</dt>
+                        <dd>1</dd>
+                    </dl>
+                    <dl>
+                        <dt>글쓴이</dt>
+                        <dd>박찬</dd>
+                    </dl>
+                    <dl>
+                        <dt>작성일</dt>
+                        <dd>2021.1.16</dd>
+                    </dl>
+                    <dl>
+                        <dt>조회</dt>
+                        <dd>33</dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                    빨리 끝나고 회식하러<br> 가자자아아아아아앙아
+                </div>
+                <br>
+                <!-- <div class="card mb-2">
+                    <div class="card-header bg-light">
+                        <i class="fa fa-comment fa"></i> REPLY
+                    </div>
+                    <br>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="form-inline mb-2">
+                                   
+                                </div>
+                                <br>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <br>
+                                <button type="button" class="btn btn-dark mt-3"
+                                    onClick="javascript:addReply();">댓글달기</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+            <div class="bt_wrap">
+                <a href="/html/board_list.html" class="on">목록</a>
+                <a href="'/'">삭제</a>
+                <a href="/html/board_edit.html">수정</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="footers"></div>
+    </footer>
+</body>
+
+</html>
