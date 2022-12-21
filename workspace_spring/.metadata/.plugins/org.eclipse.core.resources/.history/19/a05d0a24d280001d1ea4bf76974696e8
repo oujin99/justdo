@@ -1,0 +1,36 @@
+package com.yujeans.justdo.user.repository;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.stereotype.Repository;
+
+import com.yujeans.justdo.user.Account;
+
+import lombok.RequiredArgsConstructor;
+
+@Repository
+@RequiredArgsConstructor
+public class AccountRepository {
+	private final EntityManager em;
+
+	/*
+	 *  id 1건 조회 
+	 */
+	public Account findOne( Long id) {
+		return em.find(Account.class, id);
+	}
+	
+	/*
+	 *  id 통해 DB 내부의 name,e-mail,phone, img 조회 
+	 */
+	public List<Account> findProfileById(Long id) {
+		String sql = "select a.NAME, a.EMAIL, a.PHONE, a.IMG from ACCOUNT a where a.id = :id";
+		
+		return em.createQuery(sql, Account.class)
+				.setParameter("id", id)
+				.getResultList();
+		
+	}
+}

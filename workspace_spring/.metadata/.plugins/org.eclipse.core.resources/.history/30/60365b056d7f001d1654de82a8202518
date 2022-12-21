@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>저두 가입하기 - 저두, 숨은고수</title>
+
+    <!-- profile 추가 css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/modal_profile.css">
+    <link rel="stylesheet" href="assets/css/button_profile.css">
+
+    <script src="https://kit.fontawesome.com/fc26219ee3.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="images/png" href="assets/images/logo.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/stylesheets/signin.css" />
+    <link rel="stylesheet" href="assets/stylesheets/navbar.css" />
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/script.js" defer></script>
+
+</head>
+
+<body>
+    <ul id="skip">
+        <li><a href="#header">헤더 바로가기</a></li>
+        <li><a href="#nav">메뉴 바로가기</a></li>
+        <li><a href="#footer">푸터 바로가기</a></li>
+    </ul>
+    <header>
+        <div class="container">
+            <div class="pc_header">
+                <section class="h_inner">
+                    <div class="h_left">
+                        <h1 class="logo"><a href="index.html"><img src="assets/img/icon-navi-logo.svg" alt="로고"></a>
+                        </h1>
+                        <div class="h_search">
+                            <form action="#" method="post" name="service_search_p">
+                                <div class="search_icon"><img src="assets/img/icon-header-search.svg" alt="검색 아이콘">
+                                </div>
+                                <input type="text" name="service_search" id="service_search_pc"
+                                    placeholder="어떤 서비스가 필요하세요?">
+                            </form>
+                            <div class="search_tab_wrap">
+                                <div class="search_tab">
+                                    <div class="tab_title">
+                                        <ul>
+                                            <li class="keyword"><a class="active" href="javascript:">인기키워드</a></li>
+                                            <li class="recent"><a href="javascript:">최근 검색한 서비스</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab_keyword">
+                                        <ul class="list">
+                                            <li class="item"><a href="javascript:">영어 과외</a></li>
+                                            <li class="item"><a href="javascript:">퍼스널트레이닝(PT)</a></li>
+                                            <li class="item"><a href="javascript:">보컬 레슨</a></li>
+                                            <li class="item"><a href="javascript:">욕실/화장실 리모델링</a></li>
+                                            <li class="item"><a href="javascript:">도배장판 시공</a></li>
+                                            <li class="item"><a href="javascript:">전기 배선 설치 및 수리</a></li>
+                                            <li class="item"><a href="javascript:">집 인테리어</a></li>
+                                            <li class="item"><a href="javascript:">수학 과외</a></li>
+                                            <li class="item"><a href="javascript:">골프 레슨</a></li>
+                                            <li class="item"><a href="javascript:">수도 관련 설치 및 수리</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab_recent">
+                                        <p>최근 검색한 내역이 없습니다</p>
+                                    </div>
+                                </div>
+                                <div class="tab_btn">
+                                    <div class="tab_delete">전체 삭제</div>
+                                    <div class="tab_close">닫기</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h_right">
+                        <nav>
+                            <ul class="nav">
+                                <li><a href="#">멘토찾기</a></li>
+                                <li><a href="#">바로구매 <img src="assets/img/icon-new.svg" alt="new"></a></li>
+                                <li><a href="login.html">로그인</a></li>
+                                <li><a href="#">회원가입</a></li>
+                            </ul>
+                        </nav>
+                        <button class="sign_up">멘토가입</button>
+                    </div>
+                </section>
+            </div>
+            <div class="tab_mob_header">
+                <section class="h_inner">
+                    <div class="menu"><img src="assets/img/icon-menu-header.svg" alt="메뉴"></div>
+                    <h1 class="logo"><a href="#"><img src="assets/img/icon-navi-logo.svg" alt="로고"></a></h1>
+                    <div class="h_search"><img src="assets/img/icon-header-tab-search.svg" alt="검색"></div>
+                    <div class="menu_wrap">
+                        <div class="close_btn">
+                            <button><img src="assets/img/closeBtn.svg" alt="닫기"></button>
+                        </div>
+                        <div class="login">
+                            <h2>로그인 해주세요</h2>
+                            <p>로그인 <img src="assets/img/right_arrow.svg" alt="right_arrow"></p>
+                        </div>
+                        <nav>
+                            <ul class="nav">
+                                <li><a href="#">멘토가입</a></li>
+                                <li><a href="#">회원가입</a></li>
+                                <li><a href="#">멘토 찾기</a></li>
+                                <li class="market"><a href="#">마켓 <img src="assets/img/icon-new-full.svg" alt="new">
+                                    </a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </header>
+    <section class="search_wrap">
+        <h3 class="ir_so">검색창</h3>
+        <div class="container">
+            <div class="search">
+                <form action="#" method="post" name="service_search">
+                    <div class="search_icon"><img src="assets/img/icon-header-search.svg" alt="검색 아이콘"></div>
+                    <input type="text" name="service_search" id="service_search_m" placeholder="어떤 서비스가 필요하세요?">
+                </form>
+            </div>
+            <div class="search_tab_wrap">
+                <div class="tab_search">
+                    <form action="#" method="post" name="service_search">
+                        <div class="back_icon"><img src="assets/img/search_tab_back.svg" alt="뒤로가기"></div>
+                        <input type="text" name="service_search" id="service_search_m_inner"
+                            placeholder="어떤 서비스가 필요하세요?">
+                    </form>
+                </div>
+                <div class="search_tab">
+                    <div class="tab_title">
+                        <ul>
+                            <li class="keyword "><a class="active" href="javascript:">인기키워드</a></li>
+                            <li class="recent"><a href="javascript:">최근 검색한 서비스</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab_keyword">
+                        <ul class="list">
+                            <li class="item"><a href="javascript:">영어 과외</a></li>
+                            <li class="item"><a href="javascript:">퍼스널트레이닝(PT)</a></li>
+                            <li class="item"><a href="javascript:">보컬 레슨</a></li>
+                            <li class="item"><a href="javascript:">욕실/화장실 리모델링</a></li>
+                            <li class="item"><a href="javascript:">도배장판 시공</a></li>
+                            <li class="item"><a href="javascript:">전기 배선 설치 및 수리</a></li>
+                            <li class="item"><a href="javascript:">집 인테리어</a></li>
+                            <li class="item"><a href="javascript:">수학 과외</a></li>
+                            <li class="item"><a href="javascript:">골프 레슨</a></li>
+                            <li class="item"><a href="javascript:">수도 관련 설치 및 수리</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab_recent">
+                        <p>최근 검색한 내역이 없습니다</p>
+                    </div>
+                </div>
+                <div class="tab_btn">
+                    <div class="tab_delete">전체 삭제</div>
+                    <div class="tab_close">닫기</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row">
+        <h1 data-v-9eec7faa>저두 프로필 페이지</h1>
+    </div>
+
+    <div class="container">
+
+
+
+    </div>
+
+    <h1 style="font-size: 40px;" id="myBtn">마이페이지,강의 상세에서 프로필 모달 열기</h1>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- <button id="myBtn">프로필 보기</button> -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+
+        <!-- 모달 페이지  -->
+        <div class="modal-content" style="align-items: center;">
+            <span class="close">&times;</span>
+
+            <!-- 바디-->
+            <!-- 프로필 이미지-->
+            <!--<div class="row" style="padding: 0%;">-->
+            <div class="row" style="margin: auto; padding: 15px;">
+
+
+                <div style="margin: auto; padding: 0px;" class="col-lg-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/img/test.jpg" class="card-img-top" alt="profile_img">
+                    </div>
+                </div>
+
+                <!-- 프로필 텍스트 -->
+
+
+                <div style="margin: auto; padding: 15px;" class="col-lg-6">
+
+                    <br>
+                    <h1 style="font-size: 45px; text-align: center;"> 프로필 페이지 </h1><br>
+                    <br>
+                    
+
+                    <p style="font-size: 25px; text-align: center;" class="fw-bold text-info">안효빈</p>
+                    <p style="font-size: 20px; text-align: center;" class="text-muted">gyqlsdlrj@gmail.com</p>
+                    <p style="font-size: 20px; text-align: center;" class="text-muted">010-8011-7313</p>
+                    <br>
+                    <br>
+                    <!--
+                    <p style="font-size: 16px; text-align: center;"> 텍스트가 길면 길수록 페이지가 꽉차 보인다
+                        텍스트가 길면 길수록 페이지가 꽉차 보인다
+                        텍스트가 길면 길수록 페이지가 꽉차 보인다
+                        텍스트가 길면 길수록 페이지가 꽉차 보인다
+                        텍스트가 길면 길수록 페이지가 꽉차 보인다
+                        텍스트가 길면 길수록 페이지가 꽉차 보인다
+                    </p>
+-->
+
+
+                </div>
+            </div>
+
+            <h1 style="font-size: 45px; text-align: center;"> 강의 썸네일 </h1><br>
+            <br>
+
+            <!-- 클래스 썸네일 -->
+
+            <div class="row">
+
+                <div style="margin: auto; padding: 15px;" class="col-sm-7">
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <a href="profile_addForm.html"><img src="assets/img/class_4.png" class="d-block w-100" alt="thumbnail"></a>
+                            </div>
+                            <div class="carousel-item">
+                                 <a href="#"><img src="assets/img/class_2.png" class="d-block w-100" alt="thumbnail"></a>
+                            </div>
+                            <div class="carousel-item">
+                                 <a href="#"><img src="assets/img/class_3.jpg" class="d-block w-100" alt="thumbnail"></a>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- 채팅하기 수강하기 -->
+
+
+                <div style="margin: auto; padding: 15px;" class="col-sm-3">
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <div>
+                        <button th:onclick="|location.href='@{profile/profile_addForm.html}'|" class="button-my" role="button">채팅 하기</button><br>
+                        <br>
+                        <br>
+                        <button th:onclick="|location.href='@{수강.html}'|" class="button-my" role="button">수강 하기</button>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer_top">
+                <div class="ft_left">
+                    <p class="tel">1599-5319</p>
+                    <p class="time">평일 10:00 - 18:00 <br>
+                        (점심시간 13:00 - 14:00 제외 · 주말/공휴일 제외)
+                    </p>
+                    <a href="javascript:" class="download"><img src="assets/img/icon-download-appstore.svg"
+                            alt="appstore"> APP STORE</a>
+                    <a href="javascript:" class="download mr"><img src="assets/img/icon-download-palystore.svg"
+                            alt="playstore"> PLAY STORE</a>
+                </div>
+                <div class="ft_right">
+                    <ul>
+                        <li>
+                            <span>저두소개</span>
+                            <ul>
+                                <li><a href="javascript:">회사소개</a></li>
+                                <li><a href="javascript:">채용안내</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>고객안내</span>
+                            <ul>
+                                <li><a href="javascript:">이용안내</a></li>
+                                <li><a href="javascript:">안전정책</a></li>
+                                <li><a href="javascript:">예상금액</a></li>
+                                <li><a href="javascript:">고수찾기</a></li>
+                                <li><a href="javascript:">숨고보증</a></li>
+                                <li><a href="javascript:">고수에게묻다</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>멘토안내</span>
+                            <ul>
+                                <li><a href="javascript:">이용안내</a></li>
+                                <li><a href="javascript:">고수가이드</a></li>
+                                <li><a href="javascript:">고수가입</a></li>
+                                <li><a href="javascript:">고수센터</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>고객센터</span>
+                            <ul>
+                                <li><a href="javascript:">공지사항</a></li>
+                                <li><a href="javascript:">자주묻는질문</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="text">
+                    <ul>
+                        <li><a href="javascript:">이용약관</a></li>
+                        <li><a href="javascript:">개인정보처리방침</a></li>
+                        <li><a href="javascript:">사업자 정보확인</a></li>
+                    </ul>
+                    <p class="p_style">(주)브레이브모바일은 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한 의무와 책임은
+                        거래당사자에게 있습니다.</p>
+                    <p>상호명:(주)브레이브모바일 · 대표이사:KIM ROBIN H · 개인정보책임관리자:김태우 · 주소:서울특별시 강남구 테헤란로 415, L7 강남타워 5층</p>
+                    <p>사업자등록번호:120-88-22325 · 통신판매업신고증:제 2015-서울강남-00567 호 · 직업정보제공사업 신고번호:서울청 제 2019-21호</p>
+                    <p>고객센터:1599-5319 · 이메일:support@soomgo.com</p>
+                    <p>Copyright ©Brave Mobile Inc. All Rights Reserved.</p>
+                </div>
+                <ul class="sns">
+                    <li><a href="javascript:"><img src="assets/img/icon-footer-sns-facebook.svg" alt="페이스북"></a></li>
+                    <li><a href="javascript:"><img src="assets/img/icon-footer-sns-instagram.svg" alt="인스타그램"></a></li>
+                    <li><a href="javascript:"><img src="assets/img/icon-footer-sns-naverblog.svg" alt="네이버 블로그"></a>
+                    </li>
+                    <li><a href="javascript:"><img src="assets/img/icon-footer-sns-naverpost.svg" alt="네이퍼 포스트"></a>
+                    </li>
+                    <li><a href="javascript:"><img src="assets/img/icon-footer-sns-tistory.svg" alt="티스토리"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/javascripts/signin.js"></script>
+
+
+    <!-- 프로필 추가 JS-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/modal_profile.js"></script>
+</body>
+
+</html>

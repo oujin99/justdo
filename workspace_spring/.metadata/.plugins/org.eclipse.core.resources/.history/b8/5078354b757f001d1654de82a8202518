@@ -1,0 +1,323 @@
+body{
+    margin:0;
+}
+
+@font-face { font-family: 'GmarketSansBold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'NEXON Lv2 Gothic Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'InfinitySans-RegularA1'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff'); font-weight: normal; font-style: normal; }
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.header{
+    padding: 10px 10px;
+    display: flex;
+    flex-direction:row;
+    height: 50px;
+    font-family: 'GmarketSansBold';
+    align-items: center;
+    justify-content:space-between;
+}
+
+.item{
+    padding: 10px;
+    font-size: 1.2em;
+    flex-shrink:0;
+}
+
+.item:nth-child(1){
+    align-self: flex-end;
+    padding:0;
+    margin-right:10px;
+}
+
+.logo{
+    height: 35px;
+}
+
+input{
+    grid-column: 2/3;
+    height:100%;
+    border:none;
+    z-index:0;
+}
+
+.blank{
+    width: 1000px;
+    flex-shrink:1;
+}
+
+.header .profile-img{
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+#chatting_count{
+    position:relative;
+    bottom:3px;
+
+    width:3ex;
+    height:3ex;
+    border-radius: 3ex;
+    border:none;
+    
+    color:white;
+    background-color:red;
+    text-align:center;
+}
+
+/* #header_grid > #logo > img{
+    height: 80%;
+}
+
+#header_grid > #sent_request{
+    grid-column: 2/3;
+}
+#header_grid > #chatting{
+    grid-column: 3/4;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items:center;
+    text-align:center;
+}
+#header_grid > #chatting > a{
+    grid-area: 1/1;
+}
+#header_grid > #chatting > a > #chatting_count{
+    position:relative;
+    left:5ex;
+    bottom:3px;
+
+    width:3ex;
+    height:3ex;
+    border-radius: 3ex;
+    border:none;
+    
+    color:white;
+    background-color:red;
+    text-align:center;
+}
+#header_grid > #search_gosu{
+    grid-column: 4/5;
+}
+#header_grid > #search_bar{
+    grid-column: 5/6;
+    align-content: center;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    grid-template-columns: 3ex 1fr;
+}
+
+#header_grid > #search_bar > img{
+    grid-column: 1/2;
+    height:50%;
+}
+#header_grid > #search_bar > input{
+    grid-column: 2/3;
+    height:100%;
+    border:none;
+    z-index:0;
+}
+
+#header_grid > #notification{
+    grid-column:7/8;
+    justify-content: right;
+    align-content: center;
+}
+#header_grid > #notification > img{
+    height: 50%;
+    margin-right: 2em;
+}
+
+#header_grid > #user_info{
+    grid-column:8/9;
+    justify-content: normal;
+    align-content: center;
+    font-family: 'InfinitySans-RegularA1'
+}
+
+#header_grid > #user_info > .flex_container {
+    display: flex;
+    align-items: center;
+}
+
+#header_grid > #user_info > .flex_container > img{
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    margin-right: 1em
+} */
+
+
+.idbar {
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70px; right: 20px;
+    width: 200px;
+    height: 250px;
+    font-size: var(--font-small);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.1px solid var(--grey-light-color);
+    box-shadow: 0.2px 0.2px 10px rgb(224, 224, 224);
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 20px 15px 0px 15px;
+    display: none;
+}
+
+
+.idbar.active {
+    display: flex;
+}
+
+.idbar .greetings{
+    font-size: 15px;
+    font-weight: lighter;
+    color: var(--black-color);
+    display : inline-block;
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.idbar .list ul{
+    font-size: 13px;
+    margin-top: 10px;
+    height: 60px;
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.idbar hr{
+    width: 170px;
+    border-top: 0.2px;
+    color: rgb(247, 247, 247);
+}
+
+.idbar .join {
+    font-size: 13px;
+    color: var(--grey-dark-color);
+    cursor: pointer;
+}
+
+.idbar .logout {
+    font-size: 13px;
+    background-color: rgb(247, 247, 247);
+    width: 198px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 3px ;
+    cursor: pointer;
+}
+
+
+#content_grid {
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto;
+    font-family: 'InfinitySans-RegularA1'
+}
+
+#content_grid > #background_image{
+    grid-column: 1/4;
+    grid-row: 1/2;
+    background-image: url('../images/bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#content_grid > #banner{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    color:gray;
+}
+
+#content_grid > #banner > #title{
+    margin-top: 1em;
+    font-size: 3em;
+    align-self: flex-end;
+}
+
+#content_grid > #banner > #date{
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#content_grid > #banner > div > #my_estimates{
+    font-size: 1.5em;
+    height: 2em;
+    width: 12em;
+    background-color: #00C7AE;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    border:none;
+    font-family: 'InfinitySans-RegularA1'
+}
+
+#content_grid > .estimate{
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    grid-template-rows: 128px;
+    padding: 30px 30px 30px 30px;
+    border-bottom: 1px solid grey;
+}
+#content_grid > #estimate_1 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+#content_grid > #estimate_2 {
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+#content_grid > .estimate > .gosu_image{
+    height: 128px;
+    width: 128px;
+    border-radius: 10px;
+    border:1px solid gray;
+
+}
+
+#content_grid > .estimate > .gosu_content{
+    margin-left: 30px;
+    padding: 10px 10px 10px 10px
+}
+
+.gosu_name{
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+.gosu_score{
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+.gosu_score > img{
+    height: 1em;
+    padding: 0px;
+    margin: 0px;
+   
+}
+.gosu_price{
+    font-size:1.2em;
+}
+.gosu_price > img {
+    height:1.2em;
+}

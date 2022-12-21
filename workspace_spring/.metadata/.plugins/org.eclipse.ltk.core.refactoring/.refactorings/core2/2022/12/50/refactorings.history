@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;MemberService.java&apos; to &apos;Springtest3/src/main/java/com.koreait.Springtest3.service&apos;&#x0D;&#x0A;- Original project: &apos;core2&apos;&#x0D;&#x0A;- Destination element: &apos;Springtest3/src/main/java/com.koreait.Springtest3.service&apos;&#x0D;&#x0A;- Original element: &apos;com.koreait.core2.service.MemberService.java&apos;" description="Copy compilation unit" destination="=Springtest3/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.koreait.Springtest3.service" element1="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.koreait.core2.service{MemberService.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1670308394453" units="1" version="1.0"/>
+</session>

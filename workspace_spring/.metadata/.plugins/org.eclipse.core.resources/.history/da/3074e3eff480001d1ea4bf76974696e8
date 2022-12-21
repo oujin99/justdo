@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='Title' content='저두'>
+    <meta name='Subject' content='저두'>
+    <meta name='Keywords' content='저두 레슨 취미 클래스 저스트두 이벤트'>
+    <meta name='Author' content='minjeong'>
+    <meta name='Publisher' content='minjeong'>
+    <meta name='Description' content='저두 오신 것을 환영합니다.'>
+    <meta name='Author-Date' content='20220323'>
+    <meta name='Robots' content='index,follow'>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/script.js" defer></script>
+</head>
+
+<body>
+    <ul id="skip">
+        <li><a href="#header">헤더 바로가기</a></li>
+        <li><a href="#nav">메뉴 바로가기</a></li>
+        <li><a href="#footer">푸터 바로가기</a></li>
+    </ul>
+    <header>
+        <div class="container">
+            <div class="pc_header">
+                <section class="h_inner">
+                    <div class="h_left">
+                        <h1 class="logo"><a href="index.html"><img src="assets/img/icon-navi-logo.svg" alt="로고"></a>
+                        </h1>
+                        <div class="h_search">
+                            <form action="#" method="post" name="service_search_p">
+                                <div class="search_icon"><img src="assets/img/icon-header-search.svg" alt="검색 아이콘">
+                                </div>
+                                <input type="text" name="service_search" id="service_search_pc"
+                                    placeholder="어떤 서비스가 필요하세요?">
+                            </form>
+                            <div class="search_tab_wrap">
+                                <div class="search_tab">
+                                    <div class="tab_title">
+                                        <ul>
+                                            <li class="keyword"><a class="active" href="javascript:">인기키워드</a></li>
+                                            <li class="recent"><a href="javascript:">최근 검색한 서비스</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab_keyword">
+                                        <ul class="list">
+                                            <li class="item"><a href="javascript:">영어 과외</a></li>
+                                            <li class="item"><a href="javascript:">퍼스널트레이닝(PT)</a></li>
+                                            <li class="item"><a href="javascript:">보컬 레슨</a></li>
+                                            <li class="item"><a href="javascript:">욕실/화장실 리모델링</a></li>
+                                            <li class="item"><a href="javascript:">도배장판 시공</a></li>
+                                            <li class="item"><a href="javascript:">전기 배선 설치 및 수리</a></li>
+                                            <li class="item"><a href="javascript:">집 인테리어</a></li>
+                                            <li class="item"><a href="javascript:">수학 과외</a></li>
+                                            <li class="item"><a href="javascript:">골프 레슨</a></li>
+                                            <li class="item"><a href="javascript:">수도 관련 설치 및 수리</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab_recent">
+                                        <p>최근 검색한 내역이 없습니다</p>
+                                    </div>
+                                </div>
+                                <div class="tab_btn">
+                                    <div class="tab_delete">전체 삭제</div>
+                                    <div class="tab_close">닫기</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h_right">
+                        <nav>
+                            <ul class="nav">
+                                <li><a href="#">멘토찾기</a></li>
+                                <li><a href="#">바로구매 <img src="assets/img/icon-new.svg" alt="new"></a></li>
+                                <li><a href="login.html">로그인</a></li>
+                                <li><a href="signin.html">회원가입</a></li>
+                            </ul>
+                        </nav>
+                        <button class="sign_up">멘토가입</button>
+                    </div>
+                </section>
+            </div>
+            <div class="tab_mob_header">
+                <section class="h_inner">
+                    <div class="menu"><img src="assets/img/icon-menu-header.svg" alt="메뉴"></div>
+                    <h1 class="logo"><a href="#"><img src="assets/img/icon-navi-logo.svg" alt="로고"></a></h1>
+                    <div class="h_search"><img src="assets/img/icon-header-tab-search.svg" alt="검색"></div>
+                    <div class="menu_wrap">
+                        <div class="close_btn">
+                            <button><img src="assets/img/closeBtn.svg" alt="닫기"></button>
+                        </div>
+                        <div class="login">
+                            <h2>로그인 해주세요</h2>
+                            <p>로그인 <img src="assets/img/right_arrow.svg" alt="right_arrow"></p>
+                        </div>
+                        <nav>
+                            <ul class="nav">
+                                <li><a href="#">멘토가입</a></li>
+                                <li><a href="#">회원가입</a></li>
+                                <li><a href="#">멘토 찾기</a></li>
+                                <li class="market"><a href="#">마켓 <img src="assets/img/icon-new-full.svg" alt="new">
+                                    </a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="search_wrap">
+            <h3 class="ir_so">검색창</h3>
+            <div class="container">
+                <div class="search">
+                    <form action="#" method="post" name="service_search">
+                        <div class="search_icon"><img src="assets/img/icon-header-search.svg" alt="검색 아이콘"></div>
+                        <input type="text" name="service_search" id="service_search_m" placeholder="어떤 서비스가 필요하세요?">
+                    </form>
+                </div>
+                <div class="search_tab_wrap">
+                    <div class="tab_search">
+                        <form action="#" method="post" name="service_search">
+                            <div class="back_icon"><img src="assets/img/search_tab_back.svg" alt="뒤로가기"></div>
+                            <input type="text" name="service_search" id="service_search_m_inner"
+                                placeholder="어떤 서비스가 필요하세요?">
+                        </form>
+                    </div>
+                    <div class="search_tab">
+                        <div class="tab_title">
+                            <ul>
+                                <li class="keyword "><a class="active" href="javascript:">인기키워드</a></li>
+                                <li class="recent"><a href="javascript:">최근 검색한 서비스</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_keyword">
+                            <ul class="list">
+                                <li class="item"><a href="javascript:">영어 과외</a></li>
+                                <li class="item"><a href="javascript:">퍼스널트레이닝(PT)</a></li>
+                                <li class="item"><a href="javascript:">보컬 레슨</a></li>
+                                <li class="item"><a href="javascript:">욕실/화장실 리모델링</a></li>
+                                <li class="item"><a href="javascript:">도배장판 시공</a></li>
+                                <li class="item"><a href="javascript:">전기 배선 설치 및 수리</a></li>
+                                <li class="item"><a href="javascript:">집 인테리어</a></li>
+                                <li class="item"><a href="javascript:">수학 과외</a></li>
+                                <li class="item"><a href="javascript:">골프 레슨</a></li>
+                                <li class="item"><a href="javascript:">수도 관련 설치 및 수리</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_recent">
+                            <p>최근 검색한 내역이 없습니다</p>
+                        </div>
+                    </div>
+                    <div class="tab_btn">
+                        <div class="tab_delete">전체 삭제</div>
+                        <div class="tab_close">닫기</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="banner_slider">
+            <h3 class="ir_so">배너 슬라이드</h3>
+            <div class="container">
+                <div class="bannerS swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><a href="javascript:"><img src="assets/img/banner-slide1.png"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:"><img src="assets/img/banner-slide2.png"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:"><img src="assets/img/banner-slide3.png"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:"><img src="assets/img/banner-slide4.png"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:"><img src="assets/img/banner-slide5.png"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:"><img src="assets/img/banner-slide6.png"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:"><img src="assets/img/banner-slide7.png"
+                                    alt=""></a></div>
+                    </div>
+                    <div class="bannerS_next swiper-button-next"></div>
+                    <div class="bannerS_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="category_wrap">
+            <h3 class="ir_so">카테고리</h3>
+            <div class="container">
+                <ul class="category_list">
+                    <li><a href="javascript:"><img src="assets/img/lesson.svg" alt="레슨">레슨</a></li>
+                    <li><a href="javascript:"><img src="assets/img/home-living.svg" alt="홈/리빙">홈/리빙</a></li>
+                    <li><a href="javascript:"><img src="assets/img/event.svg" alt="이벤트">이벤트</a></li>
+                    <li><a href="javascript:"><img src="assets/img/business.svg" alt="비즈니스">비즈니스</a></li>
+                    <li><a href="javascript:"><img src="assets/img/design-development.svg" alt="디자인/개발">디자인/개발</a></li>
+                    <li><a href="javascript:"><img src="assets/img/health-beauty.svg" alt="건강/미용">건강/미용</a></li>
+                    <li><a href="javascript:"><img src="assets/img/part-time-job.svg" alt="알바">알바</a></li>
+                    <li><a href="javascript:"><img src="assets/img/etc.svg" alt="기타">기타</a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="mini_banner_wrap">
+            <h3 class="ir_so">미니 배너</h3>
+            <div class="container">
+                <div class="mini_banner">
+                    <a href="javascript:">
+                        <span class="desc">VOD</span>
+                        <span class="title">저두 클래스</span>
+                        <img src="assets/img/vod.svg" alt="숨고 클래스">
+                    </a>
+                    <a href="javascript:">
+                        <span class="desc">서비스상품</span>
+                        <span class="title">바로구매</span>
+                        <img src="assets/img/purchase.svg" alt="바로구매">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="pro_knowhow con_slider">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">멘토의 노하우</h2>
+                    <a href="javascript:" class="go_link">멘토의 노하우 홈 가기 <img src="assets/img/slider-link-arrow.svg"
+                            alt="rightBtn"></a>
+                </div>
+                <div class="main_slider pro_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/pro_knowhow-1.jpg" alt="">
+                                <p class="service">상업공간 인테리어</p>
+                                <p class="title">매출 상승을 위한 상업 인테리어 노하우</p>
+                                <p class="author">김산</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/pro_knowhow-2.jpg" alt="">
+                                <p class="service">프로그래밍/코딩 레슨</p>
+                                <p class="title">웹디자인 기초부터 취업까지 알아보기</p>
+                                <p class="author">신효원</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/pro_knowhow-3.jpg" alt="">
+                                <p class="service">영어 과외</p>
+                                <p class="title">직업계 필독! 지역인재 9급 공무원이란?</p>
+                                <p class="author">김정은</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/pro_knowhow-4.jpg" alt="">
+                                <p class="service">노트북/PC 렌탈</p>
+                                <p class="title">복합기 구매와 렌탈 중 고민이시라면?</p>
+                                <p class="author">양주현</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/pro_knowhow-5.jpg" alt="">
+                                <p class="service">전기 배선 설치 및 수리</p>
+                                <p class="title">전등, 콘센트, 스위치 교체 시 주의사항</p>
+                                <p class="author">맥가이버김기사</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/pro_knowhow-6.jpg" alt="">
+                                <p class="service">과학 과외</p>
+                                <p class="title">과학 올림피아드는 어떻게 준비할까?</p>
+                                <p class="author">Gene</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pro_S_next swiper-button-next"></div>
+                    <div class="pro_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="best_service">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">저두 인기 서비스</h2>
+                </div>
+                <div class="main_slider b_service_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_service-1.png" alt="">
+                                <p class="title">영어과외</p>
+                                <div class="request">
+                                    <img src="assets/img/icon-mail.svg" alt="request_icon">
+                                    <span>456,042명 요청</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_service-2.png" alt="">
+                                <p class="title">퍼스널트레이닝(PT)</p>
+                                <div class="request">
+                                    <img src="assets/img/icon-mail.svg" alt="request_icon">
+                                    <span>335,344명 요청</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_service-3.png" alt="">
+                                <p class="title">보컬레슨</p>
+                                <div class="request">
+                                    <img src="assets/img/icon-mail.svg" alt="request_icon">
+                                    <span>244,994명 요청</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_service-4.png" alt="">
+                                <p class="title">욕실/화장실 리모델링</p>
+                                <div class="request">
+                                    <img src="assets/img/icon-mail.svg" alt="request_icon">
+                                    <span>187,840명 요청</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_service-5.png" alt="">
+                                <p class="title">도배장판 시공</p>
+                                <div class="request">
+                                    <img src="assets/img/icon-mail.svg" alt="request_icon">
+                                    <span>183,621명 요청</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_service-6.jpg" alt="">
+                                <p class="title">전기 배선 설치 및 수리</p>
+                                <div class="request">
+                                    <img src="assets/img/icon-mail.svg" alt="request_icon">
+                                    <span>110,649명 요청</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_service-7.png" alt="">
+                                <p class="title">집 인테리어</p>
+                                <div class="request">
+                                    <img src="assets/img/icon-mail.svg" alt="request_icon">
+                                    <span>190,219명 요청</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_service-8.png" alt="">
+                                <p class="title">수학과외</p>
+                                <div class="request">
+                                    <img src="assets/img/icon-mail.svg" alt="request_icon">
+                                    <span>140,271명 요청</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="b_service_S_next swiper-button-next"></div>
+                    <div class="b_service_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="best_pro">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">인기 숨은멘토</h2>
+                    <a href="javascript:" class="go_link">전체보기<img src="assets/img/slider-link-arrow.svg"
+                            alt="rightBtn"></a>
+                </div>
+                <div class="b_pro_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-1.jpg" alt="">
+                                <p class="name">이두열(하랑)</p>
+                                <p class="service">에어컨 청소</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(35)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-2.jfif" alt="">
+                                <p class="name">김민지</p>
+                                <p class="service">기타 레슨</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(30)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-3.jpg" alt="">
+                                <p class="name">송준빈</p>
+                                <p class="service">수학 과외</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(5)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-5.jpg" alt="">
+                                <p class="name">ELI_XMX</p>
+                                <p class="service">보컬 레슨</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(4)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-6.jpg" alt="">
+                                <p class="name">이태민</p>
+                                <p class="service">축구 레슨</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(20)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-7.jpg" alt="">
+                                <p class="name">미나</p>
+                                <p class="service">보컬 레슨</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(4)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-8.jpg" alt="">
+                                <p class="name">방문요가PT</p>
+                                <p class="service">요가</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(3)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-9.jpg" alt="">
+                                <p class="name">Fixel [이민호]</p>
+                                <p class="service">사진 편집·보정</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(8)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-10.jpg" alt="">
+                                <p class="name">홍라영</p>
+                                <p class="service">사진 편집·보정</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(3)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-11.jpg" alt="">
+                                <p class="name">이예림</p>
+                                <p class="service">성악 레슨</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(3)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-12.jpg" alt="">
+                                <p class="name">플로리쌤</p>
+                                <p class="service">DELE 과외</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(23)</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/best_pro-1.jpg" alt="">
+                                <p class="name">Jack</p>
+                                <p class="service">스노우보드 강습</p>
+                                <div class="review">
+                                    <img src="assets/img/review_star.svg" alt="별점">
+                                    <span><strong>5.0</strong>(3)</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="b_pro_S_next swiper-button-next"></div>
+                    <div class="b_pro_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="banner_appdown_wrap">
+            <h3 class="ir_so">앱 다운로드 안내</h3>
+            <div class="container">
+                <div class="banner_appdown">
+                    <img class="web" src="assets/img/banner-downloadapp-web.png" alt="web 어플 다운로드">
+                    <img class="mob" src="assets/img/banner-downloadapp-mobile@2x.png" alt="mob 어플 다운로드">
+                </div>
+            </div>
+        </section>
+        <section class="cleaning">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">쓱싹쓱싹 청소하는 날</h2>
+                </div>
+                <div class="main_slider cleaning_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/cleaning-1.png" alt="">
+                                <p class="service">이사/입주 청소 업체</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/cleaning-2.jpg" alt="">
+                                <p class="service">출장 세차</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/cleaning-3.png" alt="">
+                                <p class="service">정리수납 컨설팅</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/cleaning-4.png" alt="">
+                                <p class="service">세탁기 청소</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/cleaning-5.png" alt="">
+                                <p class="service">곰팡이 제거</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/cleaning-6.png" alt="">
+                                <p class="service">침대/매트리스 청소</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="b_service_S_next swiper-button-next"></div>
+                    <div class="b_service_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="hobby">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">취미의 재발견</h2>
+                </div>
+                <div class="main_slider hobby_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/hobby-1.png" alt="">
+                                <p class="service">보컬 레슨</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/hobby-2.png" alt="">
+                                <p class="service">골프 레슨</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/hobby-3.png" alt="">
+                                <p class="service">피아노/키보드 레슨</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/hobby-4.png" alt="">
+                                <p class="service">미술/회화 레슨</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/hobby-5.png" alt="">
+                                <p class="service">기타 레슨</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/hobby-6.png" alt="">
+                                <p class="service">방송댄스 레슨</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="b_service_S_next swiper-button-next"></div>
+                    <div class="b_service_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="consulting">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">2022 취준을 부탁해</h2>
+                </div>
+                <div class="main_slider consulting_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/consulting-1.png" alt="">
+                                <p class="service">이력서/자소서 컨설팅</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/consulting-2.jpg" alt="">
+                                <p class="service">면접 컨설팅</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/consulting-3.jpg" alt="">
+                                <p class="service">취업 컨설팅</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/consulting-4.jpg" alt="">
+                                <p class="service">스피치 컨설팅</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/consulting-5.jpg" alt="">
+                                <p class="service">컴퓨터 활용 레슨</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/consulting-6.jpg" alt="">
+                                <p class="service">TOEIC/speaking/writing 과외</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="b_service_S_next swiper-button-next"></div>
+                    <div class="b_service_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="fix">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">무엇이든 고치는 멘토들</h2>
+                </div>
+                <div class="main_slider fix_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/fix-1.jpg" alt="">
+                                <p class="service">전기 배선 설치 및 수리</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/fix-2.jpg" alt="">
+                                <p class="service">블라인드/커튼 제작/설치/수리</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/fix-3.jpg" alt="">
+                                <p class="service">문 설치 및 수리</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/fix-4.jpg" alt="">
+                                <p class="service">벽걸이TV 설치 및 철거</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/fix-5.jpg" alt="">
+                                <p class="service">휴대폰/태블릿/스마트기기 수리</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/fix-6.png" alt="">
+                                <p class="service">에어컨 설치 및 수리</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fix_S_next swiper-button-next"></div>
+                    <div class="fix_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="location_wrap">
+            <div class="container">
+                <div class="location">
+                    <div class="text">
+                        <h2>전국 숨은 멘토</h2>
+                        <p>믿을 수 있는 전문가를 <br> 멘토 단 한 곳에서 찾으세요</p>
+                    </div>
+                    <ul class="location_list">
+                        <li><a href="javascript:">서울</a></li>
+                        <li><a href="javascript:">세종</a></li>
+                        <li><a href="javascript:">강원</a></li>
+                        <li><a href="javascript:">인천</a></li>
+                        <li><a href="javascript:">경기</a></li>
+                        <li><a href="javascript:">충북</a></li>
+                        <li><a href="javascript:">충남</a></li>
+                        <li><a href="javascript:">경북</a></li>
+                        <li><a href="javascript:">대전</a></li>
+                        <li><a href="javascript:">대구</a></li>
+                        <li><a href="javascript:">전북</a></li>
+                        <li><a href="javascript:">경남</a></li>
+                        <li><a href="javascript:">울산</a></li>
+                        <li><a href="javascript:">광주</a></li>
+                        <li><a href="javascript:">부산</a></li>
+                        <li><a href="javascript:">전남</a></li>
+                        <li><a href="javascript:">제주</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="story">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">멘토 이야기</h2>
+                </div>
+                <div class="story_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/story-1.jpeg" alt="">
+                                <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/story-2.jpeg" alt="">
+                                <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/story-3.jpg" alt="">
+                                <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/story-4.jpg" alt="">
+                                <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/story-5.jpeg" alt="">
+                                <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/story-6.png" alt="">
+                                <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/story-7.png" alt="">
+                                <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="assets/img/story-8.jpg" alt="">
+                                <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="story_S_next swiper-button-next"></div>
+                    <div class="story_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="pro_signup_wrap">
+            <h3 class="ir_so">멘토 가입</h3>
+            <div class="container">
+                <div class="pro_signup">
+                    <div class="text">
+                        <p>전문가로 활동하시나요? <br> 저두에서 새로운 고객을 <br> 만나보세요</p>
+                        <a href="javascript:" class="signup_Btn">멘토가입</a>
+                    </div>
+                    <div class="ps_S swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div data-hash="slide1" class="swiper-slide"><img
+                                    src="assets/img/img-main-signup-pro-step-1.png" alt="">
+                                <p>고객의 요청서를 무료로 받으세요</p>
+                            </div>
+                            <div data-hash="slide2" class="swiper-slide"><img
+                                    src="assets/img/img-main-signup-pro-step-2.png" alt="">
+                                <p>조건이 맞는 고객에게 견적을 보내세요</p>
+                            </div>
+                            <div data-hash="slide3" class="swiper-slide"><img
+                                    src="assets/img/img-main-signup-pro-step-3.png" alt="">
+                                <p>채팅, 전화로 빠르게 상담하고 거래하세요</p>
+                            </div>
+                        </div>
+                        <div class="ps_S_next swiper-button-next"></div>
+                        <div class="ps_S_prev swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <div class="footer_top">
+                    <div class="ft_left">
+                        <p class="tel">1599-5319</p>
+                        <p class="time">평일 10:00 - 18:00 <br>
+                            (점심시간 13:00 - 14:00 제외 · 주말/공휴일 제외)
+                        </p>
+                        <a href="javascript:" class="download"><img src="assets/img/icon-download-appstore.svg"
+                                alt="appstore"> APP STORE</a>
+                        <a href="javascript:" class="download mr"><img src="assets/img/icon-download-palystore.svg"
+                                alt="playstore"> PLAY STORE</a>
+                    </div>
+                    <div class="ft_right">
+                        <ul>
+                            <li>
+                                <span>저두소개</span>
+                                <ul>
+                                    <li><a href="javascript:">회사소개</a></li>
+                                    <li><a href="javascript:">채용안내</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>고객안내</span>
+                                <ul>
+                                    <li><a href="javascript:">이용안내</a></li>
+                                    <li><a href="javascript:">안전정책</a></li>
+                                    <li><a href="javascript:">예상금액</a></li>
+                                    <li><a href="javascript:">멘토찾기</a></li>
+                                    <li><a href="javascript:">숨고보증</a></li>
+                                    <li><a href="javascript:">고수에게묻다</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>멘토안내</span>
+                                <ul>
+                                    <li><a href="javascript:">이용안내</a></li>
+                                    <li><a href="javascript:">멘토가이드</a></li>
+                                    <li><a href="javascript:">멘토가입</a></li>
+                                    <li><a href="javascript:">멘토센터</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>고객센터</span>
+                                <ul>
+                                    <li><a href="javascript:">공지사항</a></li>
+                                    <li><a href="javascript:">자주묻는질문</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer_bottom">
+                    <div class="text">
+                        <ul>
+                            <li><a href="javascript:">이용약관</a></li>
+                            <li><a href="javascript:">개인정보처리방침</a></li>
+                            <li><a href="javascript:">사업자 정보확인</a></li>
+                        </ul>
+                        <p class="p_style">(주)브레이브모바일은 통신판매중개자로서 통신판매의 당사자가 아니며 개별 판매자가 제공하는 서비스에 대한 이행, 계약사항 등과 관련한 의무와
+                            책임은 거래당사자에게 있습니다.</p>
+                        <p>상호명:(주)브레이브모바일 · 대표이사:KIM ROBIN H · 개인정보책임관리자:김태우 · 주소:서울특별시 강남구 테헤란로 415, L7 강남타워 5층</p>
+                        <p>사업자등록번호:120-88-22325 · 통신판매업신고증:제 2015-서울강남-00567 호 · 직업정보제공사업 신고번호:서울청 제 2019-21호</p>
+                        <p>고객센터:1599-5319 · 이메일:support@soomgo.com</p>
+                        <p>Copyright ©Brave Mobile Inc. All Rights Reserved.</p>
+                    </div>
+                    <ul class="sns">
+                        <li><a href="javascript:"><img src="assets/img/icon-footer-sns-facebook.svg" alt="페이스북"></a>
+                        </li>
+                        <li><a href="javascript:"><img src="assets/img/icon-footer-sns-instagram.svg" alt="인스타그램"></a>
+                        </li>
+                        <li><a href="javascript:"><img src="assets/img/icon-footer-sns-naverblog.svg" alt="네이버 블로그"></a>
+                        </li>
+                        <li><a href="javascript:"><img src="assets/img/icon-footer-sns-naverpost.svg" alt="네이퍼 포스트"></a>
+                        </li>
+                        <li><a href="javascript:"><img src="assets/img/icon-footer-sns-tistory.svg" alt="티스토리"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>

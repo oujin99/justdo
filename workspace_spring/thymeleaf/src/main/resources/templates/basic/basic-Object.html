@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>기본 객체</h1>
+	<ul>
+		<li>request = <span th:text="${#request}"></span> </li>	
+		<li>response = <span th:text="${#response}"></span> </li>	
+		<li>session = <span th:text="${#session}"></span> </li>	
+		<li>servletContext = <span th:text="${#servletContext}"></span> </li>	
+		<li>locale = <span th:text="${#locale}"></span> </li>	
+	</ul>
+	
+	<hr>
+	
+	<!--  /basic/basic-objects?paramData=paramValue -->
+	<h1>편의 객체</h1>
+	<ul>
+		<li>Request Parameter = 
+			<span th:text="${#httpServletRequest.getParameter('paramData')}"></span>	
+		</li>
+		<li>Request Parameter2 = 
+			<span th:text="${#request.getParameter('paramData')}"></span>	
+		</li>
+		<li>Request Parameter3 = 
+			<span th:text="${param.paramData}"></span>	
+		</li>
+		<li>session = 
+			<span th:text="${session.sessionData}"></span>	
+		</li>
+		<li>
+			spring bean =
+				<span th:text="${@helloBean.hello('user!')}"></span>
+		</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

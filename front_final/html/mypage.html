@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='Author-Date' content='20220323'>
+    <meta name='Robots' content='index,follow'>
+    <link rel="icon" type="images/png" href="/images/logo.png" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/swiper-bundle.css">
+    <link rel="stylesheet" href="../css/style-mypage.css">
+    <link rel="stylesheet" href="../css/mypage.css">
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../js/script.js" defer></script>
+
+    <!-- header, footer 공통 부분 -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">   
+        $(document).ready( function() {
+
+        $("#headers").load("common/header.html");  // 원하는 파일 경로를 삽입하면 된다
+        $("#footers").load("common/footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+        $("#searcher").load("common/search.html");  
+
+    });
+    </script>
+
+</head>
+
+<body>
+    <ul id="skip">
+        <li><a href="#header">헤더 바로가기</a></li>
+        <li><a href="#nav">메뉴 바로가기</a></li>
+        <li><a href="#footer">푸터 바로가기</a></li>
+    </ul>
+    <header>
+        <div id="headers"></div>
+    </header>
+    <main>
+        <div id="searcher"></div>
+        
+        <div class="app-body">
+            <div class="container-mypage container-md">
+                <div class="mypage-container">
+                    <h1 class="mypage-title">마이페이지</h1>
+
+                    <div class="profile-container underline">
+                        <a href="상세페이지">
+                            <div class="thumb">
+                                <div class="user-profile-picture h-100">
+                                    <div date-name="image" class="is-square" style="width: 68px; height: 68px; border-radius: 5px !important;">
+                                        <img src="../">
+                                    </div>
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">
+                                        <span class="name-length">아무개</span>
+                                        <span class="name-length">저두님</span>
+                                    </div>
+                                    <div class="user-id">
+                                        <img class="user-id-img" src="https://assets.cdn.soomgo.com/icons/icon-mypage-kakaotalk-signin.svg">
+                                        <span class="id-length">카카오톡 이메일</span>
+                                    </div>
+                                </div>
+                                <div class="account-setting">
+                                    <button type="button" class="btn-btn-account-setting">계정설정</button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>  
+                            
+                <!-- 회원정보수정 -->
+                <div class="my-page-menu">
+                    <ul class="underline">
+                        <li class="main-menu">두리더</li>
+                        <div class="sub-header"></div>
+                        <li class="sub-menu-container username-modify">
+                            <a href="" class="sub-menu-list">
+                                <div class="sub-content">
+                                    <div class="sub-menu">
+                                        <span class="sub-menu-title updated">회원정보 수정</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-container username-modify">
+                            <a href="" class="sub-menu-list">
+                                <div class="sub-content">
+                                    <div class="sub-menu">
+                                        <span class="sub-menu-title updated">프로필 수정</span>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 클래스 -->
+                <div class="my-page-menu">
+                    <ul class="underline">
+                        <li class="main-menu">두게더 목록</li>
+                        <div class="sub-header"></div>
+                        <li class="sub-menu-container username-modify">
+                            <a href="" class="sub-menu-list">
+                                <div class="sub-content">
+                                    <div class="sub-menu">
+                                        <span class="sub-menu-title updated">현재 수강 두게더</span>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="story_S swiper mySwiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
+                                                    <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
+                                                    <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-3.jpg" alt="">
+                                                    <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-4.jpg" alt="">
+                                                    <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
+                                                    <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-6.png" alt="">
+                                                    <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-7.png" alt="">
+                                                    <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-8.jpg" alt="">
+                                                    <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="story_S_next swiper-button-next"></div>
+                                        <div class="story_S_prev swiper-button-prev"></div> -->
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-container username-modify">
+                            <a href="" class="sub-menu-list">
+                                <div class="sub-content">
+                                    <div class="sub-menu">
+                                        <span class="sub-menu-title updated">수강 완료 두게더</span>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="story_S swiper mySwiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
+                                                    <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
+                                                    <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-3.jpg" alt="">
+                                                    <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-4.jpg" alt="">
+                                                    <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
+                                                    <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-6.png" alt="">
+                                                    <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-7.png" alt="">
+                                                    <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="javascript:"><img src="../img/story-8.jpg" alt="">
+                                                    <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="story_S_next swiper-button-next"></div>
+                                        <div class="story_S_prev swiper-button-prev"></div> -->
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                
+                
+            </div>
+        </div>
+        
+        <section class="search_wrap">
+            <h3 class="ir_so">검색창</h3>
+            <div class="container">
+                <div class="search">
+                    <form action="#" method="post" name="service_search">
+                        <div class="search_icon"><img src="../img/icon-header-search.svg" alt="검색 아이콘"></div>
+                        <input type="text" name="service_search" id="service_search_m" placeholder="어떤 서비스가 필요하세요?">
+                    </form>
+                </div>
+                <div class="search_tab_wrap">
+                    <div class="tab_search">
+                        <form action="#" method="post" name="service_search">
+                            <div class="back_icon"><img src="../img/search_tab_back.svg" alt="뒤로가기"></div>
+                            <input type="text" name="service_search" id="service_search_m_inner"
+                                placeholder="어떤 서비스가 필요하세요?">
+                        </form>
+                    </div>
+                    <div class="search_tab">
+                        <div class="tab_title">
+                            <ul>
+                                <li class="keyword "><a class="active" href="javascript:">인기키워드</a></li>
+                                <li class="recent"><a href="javascript:">최근 검색한 서비스</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_keyword">
+                            <ul class="list">
+                                <li class="item"><a href="javascript:">영어 과외</a></li>
+                                <li class="item"><a href="javascript:">퍼스널트레이닝(PT)</a></li>
+                                <li class="item"><a href="javascript:">보컬 레슨</a></li>
+                                <li class="item"><a href="javascript:">욕실/화장실 리모델링</a></li>
+                                <li class="item"><a href="javascript:">도배장판 시공</a></li>
+                                <li class="item"><a href="javascript:">전기 배선 설치 및 수리</a></li>
+                                <li class="item"><a href="javascript:">집 인테리어</a></li>
+                                <li class="item"><a href="javascript:">수학 과외</a></li>
+                                <li class="item"><a href="javascript:">골프 레슨</a></li>
+                                <li class="item"><a href="javascript:">수도 관련 설치 및 수리</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab_recent">
+                            <p>최근 검색한 내역이 없습니다</p>
+                        </div>
+                    </div>
+                    <div class="tab_btn">
+                        <div class="tab_delete">전체 삭제</div>
+                        <div class="tab_close">닫기</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <footer>
+            <div id="footers"></div>
+        </footer>
+    </main>
+</body>
+
+</html>

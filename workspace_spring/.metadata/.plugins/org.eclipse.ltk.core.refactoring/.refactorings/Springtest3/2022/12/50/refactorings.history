@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;Springtest3&apos;&#x0D;&#x0A;- Original project: &apos;Springtest3&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Springtest3/src/main/java/com.koreait.Springtest3.repository&#x0D;&#x0A;     Springtest3/src/main/java/com.koreait.Springtest3.service" description="Delete elements" element1="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.koreait.Springtest3.service" element2="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.koreait.Springtest3.repository" elements="2" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1670308480191" subPackages="false" version="1.0"/>
+</session>

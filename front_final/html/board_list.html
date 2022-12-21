@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시글</title>
+    <link rel="icon" type="images/png" href="/images/logo.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/fc26219ee3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/swiper-bundle.css">
+    <link rel="stylesheet" href="../css/board_style.css">
+    <link rel="stylesheet" href="../css/board_media.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../js/script.js" defer></script>
+
+    <!-- header, footer 공통 부분 -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">   
+        $(document).ready( function() {
+
+        $("#headers").load("common/header.html");  // 원하는 파일 경로를 삽입하면 된다
+        $("#footers").load("common/footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+        $("#searcher").load("common/search.html");  
+    });
+    </script>
+
+</head>
+
+<body>
+    <ul id="skip">
+        <li><a href="#header">헤더 바로가기</a></li>
+        <li><a href="#nav">메뉴 바로가기</a></li>
+        <li><a href="#footer">푸터 바로가기</a></li>
+    </ul>
+    <header>
+        <div id="headers"></div>
+    </header>
+    <div id="searcher"></div>
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>저두 자유게시판</strong>
+        </div>
+        <div class="board_list_wrap">
+            <div class="board_list">
+                <div class="top">
+                    <div class="num">번호</div>
+                    <div class="title">제목</div>
+                    <div class="writer">글쓴이</div>
+                    <div class="date">작성일</div>
+                    <div class="count">조회</div>
+                </div>
+                <div>
+                    <div class="num">5</div>
+                    <div class="title"><a href="/html/board_view.html">유진스 초코 중독 아저씨</a></div>
+                    <div class="writer">강태석</div>
+                    <div class="date">2021.1.15</div>
+                    <div class="count">33</div>
+                </div>
+                <div>
+                    <div class="num">4</div>
+                    <div class="title"><a href="/html/board_view.html">유진스 마루 아빠</a></div>
+                    <div class="writer">전상현</div>
+                    <div class="date">2021.1.15</div>
+                    <div class="count">33</div>
+                </div>
+            </div>
+            <div class="board_page">
+                <a href="#" class="bt first">
+                    <<< </a>
+                        <a href="#" class="bt prev">
+                            << </a>
+                                <a href="#" class="num on">1</a>
+                                <a href="#" class="num">2</a>
+                                <a href="#" class="num">3</a>
+                                <a href="#" class="num">4</a>
+                                <a href="#" class="num">5</a>
+                                <a href="#" class="bt next">></a>
+                                <a href="#" class="bt last">>></a>
+            </div>
+            <div class="bt_wrap">
+                <a href="/html/board_write.html" class="on">등록</a>
+                <!--<a href="#">수정</a>-->
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="footers"></div>
+    </footer>
+</body>
+
+</html>

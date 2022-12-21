@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- 전체 사이트에서 가져다 쓰는 공통 layout -->
+<head th:fragment="common_header(title,links)">
+
+<meta charset="UTF-8">
+<title th:replace="${title}">레이아웃 타이틀</title>
+
+	<!-- 공통 -->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+	<script type="text/javascript" th:src="@{/sh/scripts/base.js}"></script>
+	
+	<!-- 추가 -->
+	<th:block th:replace="${links}" />
+
+</head>
+<body>
+
+</body>
+</html>
+
+
+

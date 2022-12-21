@@ -1,0 +1,118 @@
+/*  모바일 우선 */
+@media all and (min-width:768px) {}
+
+@media all and (min-width:1024px) {}
+
+
+/* PC 우선 */
+@media all and (max-width:1024px) {}
+
+@media all and (max-width:768px) {}
+
+/* 모달 메인 */
+.modal {
+   display: none;
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgb(0, 0, 0);
+   background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 모달 전체 창 */
+.modal-content {
+   display: flex;
+   background-color: #fefefe;
+   margin: 5% auto;
+   padding: 10px;
+   border: 1px solid #888;
+   width: 50%; 
+   border-radius: 6px;
+}
+
+
+.modal-addform {
+   display: flex;
+   background-color: #fefefe;
+   margin: 5% auto;
+   padding: 10px;
+   border: 1px solid #888;
+   width: 45%; 
+   border-radius: 6px;
+}
+/* 모달 창 닫기 버튼  */
+.close {
+   color: #aaa;
+   float: right;
+   font-size: 2em;
+   font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+
+.profile-modal{
+   display: flex; 
+   padding: 0.5em;
+}
+
+.col-lg-3{
+   margin: auto ; 
+   display: flex; 
+   align-items : center; 
+   width : 15em ;
+}
+
+.col-lg-3 div{
+   width: 100%
+}
+
+.col-lg-6{
+   margin: auto; 
+   padding: 0.5em;
+   text-align: center
+}
+
+.col-lg-6 h1{
+   font-size: 45px; 
+   text-align: center
+}
+
+.fw-bold text-info{
+   font-size: 25px; 
+   text-align: center
+}
+
+.text-muted{
+   font-size: 20px; 
+   text-align: center
+}
+
+.profile-thumbnail{
+   font-size: 3em; 
+   text-align: center; 
+   margin-top: 1em
+}
+
+.col-sm-7{
+   margin: auto; 
+   padding: 15px
+}
+
+.profile-page-col{
+   display: flex;
+}
+
+.col-sm{
+   text-align: center;
+}
+

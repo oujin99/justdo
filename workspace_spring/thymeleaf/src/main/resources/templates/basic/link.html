@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>url 링크</h1>
+	<ul>
+		<li>
+			<a th:href="@{/hello}">basic url</a>
+		</li>
+		<li>
+			<a th:href="@{/hello(param1=${param1}, param2=${param2})}">param url</a>
+		</li>
+		<li>
+			<a th:href="@{/hello/{param1}/{param2}(param1=${param1}, param2=${param2})}">
+				path url
+			</a>
+		</li>
+		<li>
+			<a th:href="@{/hello/{param1}(param1=${param1},param2=${param2})}">
+				pram + path url
+			</a>
+		</li>
+	
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

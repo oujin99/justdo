@@ -1,0 +1,55 @@
+package com.yujeans.justdo.user.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.yujeans.justdo.dogether.AccountDogether;
+import com.yujeans.justdo.user.Account;
+import com.yujeans.justdo.user.service.AccountService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class AccountController {
+	private final AccountService accountService;
+	
+	/* 1. 
+	 * DB Account 테이블의 name,e-mail, phone, img 를 가져와
+	 * profile.html 에 thymeleaf object 를 통해 적용 
+	 */
+	  
+	@GetMapping("/profile")
+	public String list_profile(Long id, Model model) {
+		List<Account> user_profile = accountService.findprofileById(id);
+		
+		model.addAttribute("user_profile", user_profile);
+		return "profile";
+	}
+	
+	/* 2. 
+	 *  썸네일 의 고유 id 값( href) 를 
+	 *  썸네일 슬라이드에 담고 클릭시 해당 썸네일 ( = 강의 페이지 ) 로 이동 
+	
+	
+	@GetMapping("/profile")
+	public String thumbnail_profile(Long id, Model model) {
+		List<AccountDogether> thumbnail = accountService.findThumbnail(id);
+		
+		model.addAttribute("thumbnail", thumbnail);
+		
+		
+		return "profile";
+	*/
+	}
+	
+	
+	/* 3.
+	 * 프로필 수정 ( profile_addForm.html ) 에서 수정한 값을 
+	 * DB에 적용 
+	 */
+	
+}
