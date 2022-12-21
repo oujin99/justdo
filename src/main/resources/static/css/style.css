@@ -411,4 +411,20 @@ align-items: center;
     color: white;
 } 
 
+.header-myprofile{
+	display: flex;
+	cursor: pointer;
+}
+
+.header-myprofile img{
+		width: 40px;
+    	border-radius: 30px;
+    	margin-left: 30px;
+}
+
+.header-myprofile a{
+		padding: 7px;
+    	font-weight: bold;
+}
+
 /* -------------------- 등록 폼 css 끝 -------------------- */

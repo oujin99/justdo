@@ -37,7 +37,7 @@
         <li><a href="#footer">푸터 바로가기</a></li>
     </ul>
     <header>
-        <div id="headers"></div>
+    	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
     </header>
     <div id="searcher"></div>
     <div data-testid=".signup-page" class=".signup-page" data-v-9eec7faa>

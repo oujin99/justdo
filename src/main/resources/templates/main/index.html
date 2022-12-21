@@ -48,7 +48,7 @@
 
 
 
-<body>
+<body style="overflow: hidden">
     <ul id="skip">
         <li><a href="#header">헤더 바로가기</a></li>
         <li><a href="#nav">메뉴 바로가기</a></li>
@@ -56,7 +56,7 @@
     </ul>
 
     <header>
-    	<th:bloack th:replace="fragments/header.html :: header(${loginState})"></th:bloack>
+    	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
     </header>
     <main>
     	<th:bloack th:replace="fragments/search.html :: search"></th:bloack>
@@ -75,198 +75,9 @@
             </div>
         </section>
        
-        <section class="pro_knowhow con_slider">
-            <div class="container">
-                <div class="header">
-                    <h2 class="title">멘토의 노하우</h2>
-                    <a href="../html/class_list.html" class="go_link">멘토의 노하우 홈 가기 <img src="../img/slider-link-arrow.svg"
-                            alt="rightBtn"></a>
-                </div>
-                <div class="main_slider pro_S swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/pro_knowhow-1.jpg" alt="">
-                                <p class="service">상업공간 인테리어</p>
-                                <p class="title">매출 상승을 위한 상업 인테리어 노하우</p>
-                                <p class="author">김산</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/pro_knowhow-2.jpg" alt="">
-                                <p class="service">프로그래밍/코딩 레슨</p>
-                                <p class="title">웹디자인 기초부터 취업까지 알아보기</p>
-                                <p class="author">신효원</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/pro_knowhow-3.jpg" alt="">
-                                <p class="service">영어 과외</p>
-                                <p class="title">직업계 필독! 지역인재 9급 공무원이란?</p>
-                                <p class="author">김정은</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/pro_knowhow-4.jpg" alt="">
-                                <p class="service">노트북/PC 렌탈</p>
-                                <p class="title">복합기 구매와 렌탈 중 고민이시라면?</p>
-                                <p class="author">양주현</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/pro_knowhow-5.jpg" alt="">
-                                <p class="service">전기 배선 설치 및 수리</p>
-                                <p class="title">전등, 콘센트, 스위치 교체 시 주의사항</p>
-                                <p class="author">맥가이버김기사</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/pro_knowhow-6.jpg" alt="">
-                                <p class="service">과학 과외</p>
-                                <p class="title">과학 올림피아드는 어떻게 준비할까?</p>
-                                <p class="author">Gene</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="pro_S_next swiper-button-next"></div>
-                    <div class="pro_S_prev swiper-button-prev"></div>
-                </div>
-            </div>
-        </section>
         
-        <section class="best_pro">
-            <div class="container">
-                <div class="header">
-                    <h2 class="title">인기 숨은멘토</h2>
-                   
-                </div>
-                <div class="b_pro_S swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-1.jpg" alt="">
-                                <p class="name">강태석</p>
-                                <p class="service">에어컨 청소</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(35)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-2.jfif" alt="">
-                                <p class="name">박찬</p>
-                                <p class="service">기타 레슨</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(30)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-3.jpg" alt="">
-                                <p class="name">안효빈</p>
-                                <p class="service">수학 과외</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(5)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-5.jpg" alt="">
-                                <p class="name">한바울</p>
-                                <p class="service">보컬 레슨</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(4)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-6.jpg" alt="">
-                                <p class="name">전상현</p>
-                                <p class="service">축구 레슨</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(20)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-7.jpg" alt="">
-                                <p class="name">서유진</p>
-                                <p class="service">보컬 레슨</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(4)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-8.jpg" alt="">
-                                <p class="name">안국범</p>
-                                <p class="service">요가</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(3)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-9.jpg" alt="">
-                                <p class="name">홍길동</p>
-                                <p class="service">사진 편집·보정</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(8)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-10.jpg" alt="">
-                                <p class="name">홍라영</p>
-                                <p class="service">사진 편집·보정</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(3)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-11.jpg" alt="">
-                                <p class="name">이예림</p>
-                                <p class="service">성악 레슨</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(3)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-12.jpg" alt="">
-                                <p class="name">플로리쌤</p>
-                                <p class="service">DELE 과외</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(23)</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/best_pro-1.jpg" alt="">
-                                <p class="name">Jack</p>
-                                <p class="service">스노우보드 강습</p>
-                                <div class="review">
-                                    <img src="../img/review_star.svg" alt="별점">
-                                    <span><strong>5.0</strong>(3)</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="b_pro_S_next swiper-button-next"></div>
-                    <div class="b_pro_S_prev swiper-button-prev"></div>
-                </div>
-            </div>
-        </section>
+        
+        
 
         <!-- 모달창 -->
         <div class="modal-wrap" >
@@ -334,12 +145,6 @@
         </div>
         <!-- 모달창 종료 -->
 
-
-       
-        <footer>
-            
-            <th:bloack th:replace="fragments/footer.html :: footer"></th:bloack>
-        </footer>
     </main>
 
 

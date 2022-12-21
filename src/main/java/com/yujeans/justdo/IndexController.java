@@ -41,6 +41,7 @@ public class IndexController {
 					// 모델에 값 넣기
 					model.addAttribute("nickname", userInfoMap.get("nickname"));
 					model.addAttribute("profile_image", userInfoMap.get("profile_image"));
+					model.addAttribute("thumbnail_image", userInfoMap.get("thumbnail_image"));
 					model.addAttribute("email", userInfoMap.get("email"));
 					model.addAttribute("loginState", "ok");
 				}

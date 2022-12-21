@@ -25,7 +25,7 @@
     <script src="/js/script.js" defer></script>
 </head>
 <body>
-	<div th:fragment="header(loginState)">
+	<div th:fragment="header(loginState, nickname, thumbnail_image, profile_image)">
 	
 		<th:block th:unless="${loginState}=='ok'">
 	        <!-- 로그인 안 되어있을 때의 경우 -->
@@ -33,7 +33,7 @@
 		        <div class="pc_header">
 		            <section class="h_inner">
 		                <div class="h_left">
-		                    <h1 class="logo"><a href="index.html"><img src="../images/judo_logo.png" alt="로고"></a>
+		                    <h1 class="logo"><a href="index.html" th:href="@{http://localhost:9090/}"><img src="../images/judo_logo.png" alt="로고"></a>
 		                    </h1>
 		                    <div class="h_search">
 		                        <form action="#" method="post" name="service_search_p">
@@ -118,7 +118,7 @@
 		        <div class="pc_header">
 		            <section class="h_inner">
 		                <div class="h_left">
-		                    <h1 class="logo"><a href="index.html"><img src="/img/judo_logo.png" alt="로고"></a>
+		                    <h1 class="logo"><a href="index.html" th:href="@{http://localhost:9090/}"><img src="/img/judo_logo.png" alt="로고"></a>
 		                    </h1>
 		                    <div class="h_search">
 		                        <form action="#" method="post" name="service_search_p">
@@ -163,11 +163,14 @@
 		                <div class="h_right">
 		                    <nav>
 		                        <ul class="nav">
-		                            <li><a href="/html/board_list.html">게시판</a></li>
-		                            <li><a href="/html/mypage.html">마이페이지</a></li>
-		                            <li><a href="/html/dogether_regist.html">클래스 등록</a></li>
+		                            <li><a href="/html/board_list.html" th:href="@{/board/boardListForm}">게시판</a></li>
+		                            <li><a href="/html/dogether_regist.html" th:href="@{/dogether/registForm}">두게더 등록</a></li>
 		                        </ul>
 		                    </nav>
+		                    <div class="header-myprofile" onclick="location.href='/html/mypage.html';" th:onclick="|location.href='@{/account/mypage}'|">
+	                            <img th:src="${thumbnail_image}"/>
+	                            <a th:text="|${nickname} 님|">마이페이지</a>
+		                    </div>
 		                    <button class="index" style="cursor: pointer;" onclick="location.href='login.html';" th:onclick="|location.href='@{https://kauth.kakao.com/oauth/logout?client_id=14fc3afe3224a3ab568b44392a0f3115&logout_redirect_uri=http://localhost:9090/kakao/logout}'|">로그아웃</button>
 		                </div>
 		            </section>
@@ -175,7 +178,7 @@
 		        <div class="tab_mob_header">
 		            <section class="h_inner">
 		                <div class="menu"><img src="/img/icon-menu-header.svg" alt="메뉴"></div>
-		                <h1 class="logo"><a href="/html/index.html"><img src="/img/judo_logo.png" alt="로고"></a></h1>
+		                <h1 class="logo"><a href="/html/index.html" th:href="@{http://localhost:9090/}"><img src="/img/judo_logo.png" alt="로고"></a></h1>
 		                <div class="h_search"><img src="/img/icon-header-tab-search.svg" alt="검색"></div>
 		                <div class="menu_wrap">
 		                    <div class="close_btn">
