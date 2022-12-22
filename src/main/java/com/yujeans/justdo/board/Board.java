@@ -11,10 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
-
 import com.yujeans.justdo.user.Account;
 import lombok.Getter;
 import lombok.Setter;
+
 
 @Entity
 @Getter @Setter
@@ -29,12 +29,16 @@ public class Board {
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Board_seq_generator")
 	private Long id;
 	
+	@Column(length = 500, nullable = false)
 	private String title;
+	
+	@Column(columnDefinition = "TEXT", nullable = false)
 	private String content;
+	
 	private String startDate;
 	
 	@Column(columnDefinition = "integer default 0", nullable = false)
-	private Long views;
+	private int views;
 	
 	@ManyToOne
 	@JoinColumn

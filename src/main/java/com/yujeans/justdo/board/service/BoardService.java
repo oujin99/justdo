@@ -2,6 +2,8 @@ package com.yujeans.justdo.board.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.yujeans.justdo.board.Board;
@@ -40,6 +42,13 @@ public class BoardService {
         
     	boardRepository.deleteById(id);
     }
+    
+//    @Transactional
+//    public Page<Board> getBoardList(Pageable pageable) {
+//
+//        return boardRepository.findAll(pageable);
+//
+//    }
 
     
 }
