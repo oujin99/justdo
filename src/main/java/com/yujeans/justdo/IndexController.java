@@ -20,6 +20,9 @@ public class IndexController {
 //		System.out.println("request attribute nickname : "+request.getAttribute("nickname"));
 //		System.out.println("request attribute id : "+request.getAttribute("id"));
 		
+		System.out.println("nickname : "+request.getAttribute("nickname"));
+		System.out.println("id : "+request.getAttribute("id"));
+		
 		return "/main/index";
 	}
 }

@@ -10,6 +10,8 @@ public class DogetherController {
 	
 	@GetMapping("/dogether/registForm")
 	public String dogetherRegistForm(HttpServletRequest request) {
+		System.out.println("nickname : "+request.getAttribute("nickname"));
+		System.out.println("id : "+request.getAttribute("id"));
 		
 		return "dogether/dogether_regist";
 	}

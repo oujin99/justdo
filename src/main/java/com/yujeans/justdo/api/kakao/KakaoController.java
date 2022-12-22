@@ -20,7 +20,7 @@ public class KakaoController {
 	private final KakaoService kakaoService;
 	
 	@GetMapping("/kakao/login")
-	public String kakaoLogin(@RequestParam String code, Model model, HttpServletResponse response, HttpServletRequest request) {
+	public String kakaoLogin(@RequestParam String code, HttpServletResponse response, HttpServletRequest request) {
 //		System.out.println(code);
 		System.out.println("카카오가 불렀어");
 		
