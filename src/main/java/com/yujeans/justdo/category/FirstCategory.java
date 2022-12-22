@@ -8,7 +8,6 @@ import javax.persistence.SequenceGenerator;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Getter
@@ -19,7 +18,6 @@ import lombok.ToString;
 	initialValue = 1,
 	allocationSize = 1
 )
-@ToString
 public class FirstCategory {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FirstCategory_seq_generator")

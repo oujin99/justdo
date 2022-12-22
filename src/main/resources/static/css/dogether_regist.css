@@ -1,0 +1,99 @@
+/* -------------------- 등록 폼 css 시작 -------------------- */
+
+.dogether-regist-wrapper h5{
+    font-weight: bold;
+    font-size: 40px;
+    color: #d29fd7;
+}
+
+.dogether-regist-wrapper label{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.dogether-regist-wrapper input::placeholder, textarea::placeholder{
+    font-size: 14px;
+    color: #000
+
+}
+
+/*-----추가 유진------*/
+
+.dogether_title_price_wrapper{
+    display: flex;
+}
+
+.dogether_title_wrapper{
+    flex: 1;
+}
+
+.dogether_price_wrapper{
+    flex: 1;
+    margin-left: 30px;
+}
+
+.dogether_cover_category_wrapper{
+    display: block;
+}
+
+.dogether_cover_category_wrapper2{
+    /* display: block; */
+    width: 30%;
+    flex: 1;
+}
+
+.dogether_category_wrapper{
+    display: block;
+    flex: 1;
+    margin-left: 30px;
+    margin-bottom: 35px;
+}
+
+.dogether_category_wrapper2{
+    display: block;
+    flex: 1;
+    margin-left: 30px;
+    margin-bottom: 35px;
+}
+/*--------------------*/
+
+.dogether-regist-title {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.dogether-article{
+    margin-bottom: 35px;
+}
+
+.dogether-submit{
+    text-align: right;
+    margin-bottom: 2%;
+}
+
+.dogether-submit button{
+    color: white;
+    background-color: #d29fd7;
+    border: 1px solid #d29fd7;
+    width: 5.5rem;
+    height: 2.4rem;
+    border-radius: 6px;
+} 
+
+.dogether-submit button:hover{
+    background-color: white;
+    color: #d29fd7;
+    border: 1px solid #d29fd7;
+} 
+
+.dogether-submit button:active{
+    background-color: #da81ff;
+    border: 1px solid #da81ff;
+    color: white;
+} 
+
+#dogether_image{
+    display: none!important;
+}
+
+/* -------------------- 등록 폼 css 끝 -------------------- */

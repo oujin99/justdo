@@ -1,0 +1,108 @@
+@media all and (min-width:1024px){
+  .error-page{
+      font-size: 40px;
+  }
+  .error-page{
+      width: auto;
+      float: none;
+  }
+}
+/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) { 
+.error-page{
+      font-size: 40px;
+  }
+  .error-page{
+      width: auto;
+      float: none;
+  }
+
+}
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/ 
+@media all and (min-width:480px) and (max-width:767px) {
+  .modal-wrap{
+      font-size: 18px;
+  }
+  .modal-content{
+      width: auto;
+      float: none;
+  }
+
+} 
+
+/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/ 
+@media all and (max-width:479px) {
+  .modal-wrap{
+      font-size: 18px;
+  }
+  .modal-content{
+      width: auto;
+      float: none;
+  }
+
+}
+
+
+
+.error-page{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.error-h1{
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.125rem;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.card {
+  margin-top: 2em;
+    width: 100%;
+    max-width: 15rem;
+    margin: 0 auto;
+    box-shadow: none;
+
+}
+
+.error-img{
+  width: 100%;
+}
+
+.new-btn {
+    background-color: #d29fd7;
+    border: 2px solid #d29fd7;
+}
+
+.error-btn {
+    width: 100%;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 0.5em;
+}
+button {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.noId {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 20px;
+}
+
+.error-img img{
+  margin-top: 1em;
+}

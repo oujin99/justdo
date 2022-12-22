@@ -20,7 +20,7 @@ import com.yujeans.justdo.user.Account;
 
 import lombok.RequiredArgsConstructor;
 
-@Controller
+//@Controller
 @RequestMapping("/regist")
 @RequiredArgsConstructor
 public class DogetherController {
@@ -47,7 +47,7 @@ public class DogetherController {
 	@PostMapping("/firstcategory")
 	public String secondCategory(@RequestParam("selectFirst") String selectFirst) {
 //		System.out.println("test");
-		List<Tuple> secondCategoryList = categoryService.findCategory(selectFirst);
+//		List<Tuple> secondCategoryList = categoryService.findCategory(selectFirst);
 //		for(Tuple t : secondCategoryList) {
 //			System.out.println(t.get(0).toString());
 //		}

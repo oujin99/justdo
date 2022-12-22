@@ -29,6 +29,10 @@ public class AccountDogether {
 	
 	@ManyToOne
 	@JoinColumn
+	private Account leaderAccount;
+	
+	@ManyToOne
+	@JoinColumn
 	private Account followerAccount;
 	
 	@ManyToOne
