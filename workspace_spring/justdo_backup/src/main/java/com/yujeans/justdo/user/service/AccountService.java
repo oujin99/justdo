@@ -20,9 +20,16 @@ public class AccountService {
 	private final AccountRepository accountRepository;
 
 
-	// id 통해 name email phone img 가져오기 
+	// 1. id 통해 name email phone img 가져오기 
 	public List<Account> findprofileById(Long id) {
 		return accountRepository.findProfileById(id);
+	}
+
+	
+	
+	// 3. edit Controller 서비스 실행 
+	public void update(Long id, Account account) {
+		
 	}
 /*
 	@Transactional

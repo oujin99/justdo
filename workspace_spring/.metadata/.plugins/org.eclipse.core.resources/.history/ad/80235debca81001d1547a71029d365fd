@@ -1,0 +1,101 @@
+package com.yujeans.justdo.user.repository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.stereotype.Repository;
+
+import com.yujeans.justdo.dogether.AccountDogether;
+import com.yujeans.justdo.user.Account;
+
+import lombok.RequiredArgsConstructor;
+
+@Repository
+@RequiredArgsConstructor
+public class AccountRepository extends JPA{
+	private final EntityManager em;
+	
+	/* 
+	 *  id 통해 DB 내부의 name,e-mail,phone, img 조회 
+	 */
+	
+	public List<Account> findProfileById(Long id) {
+//		String sql = "select a.name, a.email, a.phone, a.image from Account a where 	a.id = :id";
+		String backup = "select a from Account a where a.id = :id";
+		
+		return em.createQuery(backup, Account.class)
+				.setParameter("id", id)
+				.getResultList();
+		
+	}
+
+
+	/*
+	 *  파라미터 id 를통해 
+	 *  Account 테이블 id 조회하기 
+	
+	
+	public List<Account> findId(Long id) {
+		String url = "select a.id from Account a where a.id = :id";
+		
+		return em.createQuery(url, Account.class)
+				.setParameter("id", id)
+				.getResultList();
+	}
+	
+	
+	
+	/* 	2.
+	 *  dogether 테이블의 img 값  = 썸네일 이미지 가져오기 
+	 *  "|location.href='@{profile_addForm.html}'|"
+	 *  
+	*/
+	
+	public List<AccountDogether> findThumbnailById(Long id){
+		String sql = "select ad.image from account_doghther ad where ad.id = :id ";
+		return em.createQuery(sql, AccountDogether.class)
+				.setParameter("id", id)
+				.getResultList();
+		//.getSingleResult() 
+		
+	}
+
+	/* 3. (View -> DB ) 
+	 * id 값을 조회하여 view 단에 입력한 값을 
+	 * account 테이블에 update 하기보단 get( set(변경값 ) 으로 수정 
+	 * 
+	 * 혹은 em.createQuery()해서 업데이트 시키기 
+	 */
+	
+//	String sql = "UPDATE Account SET NAME = :name , "
+//			+ "EMAIL = :email , PHONE = :phone,  IMAGE = :img "
+//			+ " WHERE ID  = :id" ;
+//	
+//	private static final Map<Long, Account> store = new HashMap<Long, Account>();
+//	
+//	public Account findById(Long id) {
+//		return store.get(id);
+//		
+//
+////		em.createQuery(sql, Account.class);
+//	}
+	
+	
+	
+//	public void update_Profile(Long id, Account updateParam) {
+//		
+//		Account findUser = findById(id);
+//		
+//		findUser.setName(updateParam.getName());
+//		findUser.setEmail(updateParam.getEmail());
+//		findUser.setPhone(updateParam.getPhone());
+//		findUser.setImage(updateParam.getImage());
+		
+		
+		
+		
+}
+

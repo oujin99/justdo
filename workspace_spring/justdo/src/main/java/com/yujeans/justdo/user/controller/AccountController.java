@@ -2,47 +2,67 @@ package com.yujeans.justdo.user.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.yujeans.justdo.dogether.AccountDogether;
 import com.yujeans.justdo.user.Account;
-import com.yujeans.justdo.user.EditAccount;
 import com.yujeans.justdo.user.service.AccountService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller
-//@RequestMapping("/")
 @RequiredArgsConstructor
 public class AccountController {
+	
+	@Autowired
 	private final AccountService accountService;
 	
+	@GetMapping("/user/login")
+	public String loginForm() {
+		
+		return "/user/login";
+	}
+	
+	@GetMapping("/user/signup")
+	public String signupForm() {
+		
+		return "/user/signup";
+	}
+	
+	@GetMapping("/user/mypage")
+	public String myPageForm() {
+		return "/user/mypage";
+	}
+
 	/* 1. 
 	 * DB Account 테이블의 name,e-mail, phone, img 를 가져와
 	 * profile.html 에 thymeleaf object 를 통해 적용 
 	 */
 	  
-	@GetMapping("/")
-	public String list_profile(Long id, Model model) {
-		List<Account> user_profile = accountService.findprofileById(1L);
+	@GetMapping("/profile/profile_backup")
+	public String list_profile(HttpServletRequest request, Model model) {
+		// id 값 가져오기 
+		Long id = (Long) request.getAttribute("id");
+		
+		
+		List<Account> user_profile = accountService.findprofileById(4L);
 		
 		model.addAttribute("user_profile", user_profile);
 		
 		for( Account account : user_profile) {
-			System.out.println(account);
-			System.out.println("user_profile"+user_profile.toString());
+			System.out.println(" account 할당 값 = "+ account);
+			System.out.println("user_profile 할당 값 = "+user_profile.toString());
 //			Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)
 //			[Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)]
 		}
-		return "index";
+		return "profile/profile_backup";
 	}
 	
 	/* 2. 
@@ -60,37 +80,12 @@ public class AccountController {
 		return "profile";
 	*/
 
-	
-	
-	/* 3.
-	 * 프로필 수정 ( profile_addForm.html ) 에서 수정한 값을 
-	 * DB에 적용 
-	 
-	
-	@GetMapping("/")
-//	@PostMapping("/profile_addForm/edit") // th:action="@{/profile_addForm/edit}" th:object="${edit}" method="post"
-	public String edit_profile(@ModelAttribute EditAccount edit, BindingResult result) throws IllegalAccessException{
-		
-		// error 발생시
-		if( result.hasErrors()) {
-			return "profile/profile";
-		}
-		
-		Account account = new Account();
-		
-		account.setName(edit.getName());
-		account.setEmail(edit.getEmail());
-		account.setPhone(edit.getPhone());
-		account.setImage(edit.getImage());
-		
-		accountService.join(account);
-		return "redirect:/";
-	}
-	*/
-	
+
 	/*
 	 *  4. th:if , th:each 를 사용해서 
 	 *  프로필 수정 <button> 자기 id 일 때만 보이게하기  
 	 */
+	
+
 	
 }

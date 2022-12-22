@@ -190,11 +190,11 @@
             </div>
             <!-- 바디-->
             <!-- 프로필 이미지-->
-            <div class="profile-modal" >
+            <div th:each="profile : ${user_profile}" class="profile-modal" >
 
                 <div class="col-lg-3">
                     <div>
-                        <img src="../images/avatar.jpg" class="card-img-top" alt="profile_img">
+                        <img th:src="${profile.image}" src="../images/avatar.jpg" class="card-img-top" alt="profile_img">
                     </div>
                 </div>
 
@@ -202,9 +202,9 @@
 
                 <div class="col-lg-6">
                     <h1 > 프로필 페이지 </h1><br>
-                    <p th:text="${user_profile[0].name}" class="fw-bold text-info">안효빈</p>
-                    <p class="text-muted">gyqlsdlrj@gmail.com</p>
-                    <p class="text-muted">010-8011-7313</p>
+                    <p th:text="${profile.name}" class="fw-bold text-info">안효빈</p>
+                    <p th:text="${profile.email}" class="text-muted">gyqlsdlrj@gmail.com</p>
+                    <p th:text="${profile.phone}" class="text-muted">010-8011-7313</p>
                     <br>
                     <br>
                     <button id="myBtn_edit" class="button-41" role="button" type="submit">프로필 수정</button>

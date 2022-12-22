@@ -1,0 +1,5 @@
+package com.yujeans.justdo.user.controller;
+
+public class EditProfileController {
+
+}

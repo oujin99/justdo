@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에러페이지</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/fc26219ee3.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="images/png" href="/images/logo.png" />
+    <link rel="stylesheet" href="../css/error.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+</head>
+<body>
+
+    <div class="error-page">
+        <h1 class="error-h1">로그인이<br> 필요한 페이지입니다.</h1> 
+        <div class="card">
+             <div class="error-img">
+                 <img src="/img/error.png">
+                 <button type="submit" class="error-btn new-btn" th:onclick="|location.href='@{/user/login}'|">로그인하러가기</button>
+             </div>
+        </div>
+        <a href="/html/signup.html" class="noId" th:href="@{/user/signup}">계정이 없으신가요?</a>
+    </div>
+
+
+</body>
+</html>

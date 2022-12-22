@@ -1,0 +1,64 @@
+package com.yujeans.justdo.user.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.yujeans.justdo.user.Account;
+import com.yujeans.justdo.user.service.AccountService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class AccountController {
+	
+	@Autowired
+	private final AccountService accountService;
+	
+	@GetMapping("/user/login")
+	public String loginForm() {
+		
+		return "/user/login";
+	}
+	
+	@GetMapping("/user/signup")
+	public String signupForm() {
+		
+		return "/user/signup";
+	}
+	
+	@GetMapping("/user/mypage")
+	public String myPageForm() {
+		return "/user/mypage";
+	}
+
+	/* 1. 
+	 * DB Account 테이블의 name,e-mail, phone, img 를 가져와
+	 * profile.html 에 thymeleaf object 를 통해 적용 
+	 */
+	  
+	@GetMapping("/profile/profile_backup")
+	public String list_profile(HttpServletRequest request, Model model) {
+		Long id = (Long) request.getAttribute("id");
+		
+		List<Account> user_profile = accountService.findprofileById(id);
+		
+		model.addAttribute("user_profile", user_profile);
+		
+		for( Account account : user_profile) {
+			System.out.println(" account 할당 값 = "+ account);
+			System.out.println("user_profile 할당 값 = "+user_profile.toString());
+//			Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)
+//			[Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)]
+		}
+		return "profile/profile_backup";
+	}
+	
+	
+}

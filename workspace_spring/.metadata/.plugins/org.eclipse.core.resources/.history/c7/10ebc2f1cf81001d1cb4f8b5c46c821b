@@ -1,0 +1,10 @@
+package com.yujeans.justdo.user.repository;
+
+
+import com.yujeans.justdo.user.Account;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EditProfileRepository extends JpaRepository<Account, Long> {
+	
+}

@@ -3,12 +3,13 @@ server:
 
 spring:
   datasource:
-    url: jdbc:oracle:thin:@220.85.6.86:50256:xe
-    username: jd
-    password: jd
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: springjpa
+    password: 1234
     driver-class-name: oracle.jdbc.driver.OracleDriver
 
   jpa:
+    generate-ddl: true
 #    hibernate:
 #      ddl-auto: create
     properties:
@@ -16,7 +17,30 @@ spring:
         show_sql: true
         format_sql: true
       
-#logging.level:
-#  org.hibernate.SQL: debug
-#  org.hibernate.type: trace
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
+  
+
+
+## 공용 DB 
+#spring:
+#  datasource:
+#    url: jdbc:oracle:thin:@220.85.6.86:50256:xe
+#    username: jd
+#    password: jd
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#
+#  jpa:
+#   generate-ddl: true
+##    hibernate:
+##      ddl-auto: create
+#    properties:
+#      hibernate:
+#        show_sql: true
+#        format_sql: true
+#      
+##logging.level:
+##  org.hibernate.SQL: debug
+##  org.hibernate.type: trace
   

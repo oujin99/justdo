@@ -1,6 +1,8 @@
 package com.yujeans.justdo.user.repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 
@@ -14,13 +16,13 @@ import lombok.RequiredArgsConstructor;
 @Repository
 @RequiredArgsConstructor
 public class AccountRepository {
+	
 	private final EntityManager em;
-
-
 	
 	/* 
 	 *  id 통해 DB 내부의 name,e-mail,phone, img 조회 
 	 */
+	
 	public List<Account> findProfileById(Long id) {
 //		String sql = "select a.name, a.email, a.phone, a.image from Account a where 	a.id = :id";
 		String backup = "select a from Account a where a.id = :id";
@@ -51,14 +53,25 @@ public class AccountRepository {
 	 *  dogether 테이블의 img 값  = 썸네일 이미지 가져오기 
 	 *  "|location.href='@{profile_addForm.html}'|"
 	 *  
+	*/
 	
 	public List<AccountDogether> findThumbnailById(Long id){
-		String sql = "select ad.img from account_doghther ad where ad.id = :id ";
+		String sql = "select ad.image from account_doghther ad where ad.id = :id ";
 		return em.createQuery(sql, AccountDogether.class)
 				.setParameter("id", id)
 				.getResultList();
 		//.getSingleResult() 
 		
 	}
+
+	/* 3. 수정하기 
+	 * id 값을 조회하여 view 단에 입력한 값을 통해  
+	 * 프로필 수정 
 	 */
+	
+		
+		
+		
+		
 }
+

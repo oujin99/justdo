@@ -8,12 +8,10 @@ import javax.persistence.SequenceGenerator;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
-@ToString
 @SequenceGenerator(
 	name = "Account_seq_generator",
 	sequenceName = "Account_seq",

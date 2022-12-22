@@ -1,0 +1,17 @@
+package com.yujeans.justdo.user.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.yujeans.justdo.user.service.EditProfileService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class EditProfileController {
+
+	@Autowired
+	private final EditProfileService editProfileService;
+	
+}
