@@ -78,6 +78,8 @@
 		                <div class="h_right">
 		                    <nav>
 		                        <ul class="nav">
+		                        	<li><a href="/html/board_list.html" th:href="@{/board/boardListForm}">게시판</a></li>
+		                            <li><a href="/html/dogether_regist.html" th:href="@{/dogether/registForm}">두게더 등록</a></li>
 		                            <li><a href="/user/login.html" th:href="|@{/user/login}|">로그인</a></li>
 		                        </ul>
 		                    </nav>
@@ -167,7 +169,7 @@
 		                            <li><a href="/html/dogether_regist.html" th:href="@{/dogether/registForm}">두게더 등록</a></li>
 		                        </ul>
 		                    </nav>
-		                    <div class="header-myprofile" onclick="location.href='/html/mypage.html';" th:onclick="|location.href='@{/account/mypage}'|">
+		                    <div class="header-myprofile" onclick="location.href='/html/mypage.html';" th:onclick="|location.href='@{/user/mypage}'|">
 	                            <img th:src="${thumbnail_image}"/>
 	                            <a th:text="|${nickname} 님|">마이페이지</a>
 		                    </div>
