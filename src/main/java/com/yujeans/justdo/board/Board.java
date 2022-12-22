@@ -29,12 +29,8 @@ public class Board {
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Board_seq_generator")
 	private Long id;
 	
-	@Column(length = 500, nullable = false)
 	private String title;
-	
-	@Column(columnDefinition = "TEXT", nullable = false)
 	private String content;
-	
 	private String startDate;
 	
 	@Column(columnDefinition = "integer default 0", nullable = false)
@@ -52,5 +48,8 @@ public class Board {
 		this.replys.add(reply);
 	}	
 	
+	 public void addViewCount() {
+	        this.views++;
+	    }
 	
 }

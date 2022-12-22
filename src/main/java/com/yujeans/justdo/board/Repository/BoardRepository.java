@@ -7,5 +7,5 @@ import com.yujeans.justdo.board.Board;
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long>{
 
-	
+
 }

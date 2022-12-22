@@ -1,6 +1,10 @@
 package com.yujeans.justdo.board.controller;
 
 import java.time.LocalDate;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,7 +58,7 @@ public class BoardController {
     // 상세보기 이동
     @GetMapping("/board/boardView")
     public String boardView(Model model , Long id){
-
+    	
         model.addAttribute("boardView",boardService.boardView(id));
         return "/board/board_view";
     }
@@ -90,8 +94,9 @@ public class BoardController {
         
         return "redirect:/board/boardEdit/{id}";
     }
+
     
-    
- 
+
+
 
 }
