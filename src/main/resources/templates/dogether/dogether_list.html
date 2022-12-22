@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='Title' content='저두'>
+    <meta name='Subject' content='저두'>
+    <meta name='Keywords' content='저두 레슨 취미 클래스 저스트두 이벤트'>
+    <meta name='Author' content='minjeong'>
+    <meta name='Publisher' content='minjeong'>
+    <meta name='Description' content='저두 오신 것을 환영합니다.'>
+    <meta name='Author-Date' content='20220323'>
+    <meta name='Robots' content='index,follow'>
+    <link rel="icon" type="images/png" href="/images/logo.png" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/swiper-bundle.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../js/script.js" defer></script>
+
+    <!-- header, footer 공통 부분 -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">   
+        $(document).ready( function() {
+
+        $("#headers").load("common/header.html");  // 원하는 파일 경로를 삽입하면 된다
+        $("#footers").load("common/footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
+        $("#searcher").load("common/search.html");  
+    });
+    </script>
+
+</head>
+
+<body>
+    <ul id="skip">
+        <li><a href="#header">헤더 바로가기</a></li>
+        <li><a href="#nav">메뉴 바로가기</a></li>
+        <li><a href="#footer">푸터 바로가기</a></li>
+    </ul>
+    <header>
+    	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
+    </header>
+    <main>
+        <div id="searcher"></div>
+
+        <section class="story">
+            <div class="container">
+                <div class="header">
+                    <h2 class="title">멘토 이야기</h2>
+                </div>
+                <div class="story_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
+                                <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
+                                <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-3.jpg" alt="">
+                                <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-4.jpg" alt="">
+                                <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
+                                <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-6.png" alt="">
+                                <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-7.png" alt="">
+                                <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-8.jpg" alt="">
+                                <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="story_S_next swiper-button-next"></div>
+                    <div class="story_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="story">
+            <div class="container">
+                <div class="story_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
+                                <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
+                                <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-3.jpg" alt="">
+                                <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-4.jpg" alt="">
+                                <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
+                                <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-6.png" alt="">
+                                <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-7.png" alt="">
+                                <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-8.jpg" alt="">
+                                <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="story_S_next swiper-button-next"></div>
+                    <div class="story_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="story">
+            <div class="container">
+                <div class="story_S swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
+                                <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
+                                <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-3.jpg" alt="">
+                                <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-4.jpg" alt="">
+                                <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
+                                <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-6.png" alt="">
+                                <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-7.png" alt="">
+                                <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:"><img src="../img/story-8.jpg" alt="">
+                                <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="story_S_next swiper-button-next"></div>
+                    <div class="story_S_prev swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div id="footers"></div>
+        </footer>
+    </main>
+</body>
+
+</html>

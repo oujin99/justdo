@@ -16,7 +16,7 @@ public class BoardService {
 	@Autowired
 	private final BoardRepository boardRepository;
 
-	// 게시글 작성
+	// 게시글 작성 / 수정
 	@Transactional
 	public void write(Board board) {
 		boardRepository.save(board);
@@ -40,7 +40,6 @@ public class BoardService {
         
     	boardRepository.deleteById(id);
     }
-
 
     
 }
