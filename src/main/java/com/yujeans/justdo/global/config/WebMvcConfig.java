@@ -26,7 +26,8 @@ public class WebMvcConfig implements WebMvcConfigurer{
 		registry.addInterceptor(loginNecessaryPageInterceptor)
 					.addPathPatterns("/kakao/cookietest1")
 					.addPathPatterns("/kakao/cookietest2")
-					.addPathPatterns("/dogether/registForm");
+					.addPathPatterns("/dogether/registForm")
+					.addPathPatterns("/user/mypage");
 		
 		registry.addInterceptor(allPageLoginCheckInterceptor)
 					.addPathPatterns("/**")
