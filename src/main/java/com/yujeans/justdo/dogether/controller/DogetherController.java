@@ -1,11 +1,5 @@
 package com.yujeans.justdo.dogether.controller;
 
-import java.net.http.HttpRequest;
-import java.util.List;
-
-import javax.persistence.Tuple;
-
-import org.json.simple.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,18 +38,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DogetherController {
 	
-	private final CategoryService categoryService;
-	private final DogetherService dogetherService;
-	
-	@GetMapping("/regist")
-	public String registForm(Model model) {
-		
-		List<FirstCategory> firstCategory = dogetherService.selectFirstCategory();
-//		AccountDogether ad = new AccountDogether();
-		
-		model.addAttribute("firstCategory", firstCategory);
-		model.addAttribute("dogether", new Dogether());
-		
+	@GetMapping("/dogether/registForm")
+	public String dogetherRegistForm() {
 		
 		return "dogether/dogether_regist";
 	}
