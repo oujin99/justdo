@@ -51,8 +51,9 @@
 
         <div class="container">
             <section class="dogether-regist-wrapper">
-                <form action="" class=""  method="post"
-                		th:object="${dogether}"><!-- th:action="@{/regist/{dogetherId}(dogetherId=*{id})}"  -->
+                <form action="" th:action="@{/regist/dogether}"
+                		class=""  method="post"
+                		th:object="${dogether}">
                     <div class="dogether-regist-title">
                         <h5>두게더 등록</h5>
                     </div>
@@ -65,7 +66,7 @@
                             </div>
                             <div class="dogether_price_wrapper" style="width: 30%;">
                                 <label for="dogether_price" class="form-label">두게더 가격</label><br>
-                                <input type="text" class="form-control" id="dogether_price" placeholder="등록 가격을 입력해주세요">
+                                <input type="text" class="form-control" th:field="*{price}" id="dogether_price" placeholder="등록 가격을 입력해주세요">
                             </div>
                         </div>
                     </article>
@@ -92,6 +93,7 @@
                                         <option value="" style="text-align: center;">--------------카테고리 선택--------------</option>
                                         <option value="" th:each="firstCategory : ${firstCategory}"
                                         	th:id="${firstCategory.id}" th:value="${firstCategory.name}"
+                                        	th:name="${firstCategory.name}"
                                         	th:text="${firstCategory.name}"></option>
                                     </select>
                                 </div>
@@ -106,7 +108,7 @@
                                 <!--------------------소분류--------------------->
                                 <div class="dogether_category_wrapper" >
                                     <label class="form-label">소분류 선택</label><br>
-                                    <select name="category" id="thirdCategory" class="form-control" style="border-radius: 0;">
+                                    <select name="category" id="thirdCategory" th:name="thirdCateSelect" class="form-control" style="border-radius: 0;" onchange="chooseThird()">
                                         <option value="" style="text-align: center;">--------------카테고리 선택--------------</option>
                                         <option value="">소분류</option>
                                     </select>
@@ -191,16 +193,16 @@ function showSecondCategory(){
 		data: JSON.stringify(selectedData),
 		success: function(data){
 			secondCategoryList = data;
+			
 			//옵션 삭제
 			$("select#secondCategory option").remove();
 			//옵션 추가
 			$("#secondCategory").append("<option value='option' style='text-align: center;'>--------------카테고리 선택--------------</option>");
 
 				for(var i=0; i<secondCategoryList.length; i++){
-	// 				alert(secondCategoryList[i].name);
 					var optionValue = secondCategoryList[i].name;
 					var optionId = secondCategoryList[i].id;
-					var option = $("<option value=" + optionValue + " id=" + optionId + ">" + optionValue +
+					var option = $("<option value=" + optionValue + " id=" + optionId + " name=" + optionValue + ">" + optionValue +
 							"</option>");
 					$('#secondCategory').append(option);
 				}
@@ -214,8 +216,8 @@ function showSecondCategory(){
 	
 function showThirdCategory(){
 	var selectBox2 = document.getElementById("secondCategory");
-	var selectedSecond2 = selectBox2.options[selectBox2.selectedIndex].text;
-	var selectedData2 = { "firstData" : selectedSecond2 };
+	var selectedSecond = selectBox2.options[selectBox2.selectedIndex].text;
+	var selectedData2 = { "firstData" : selectedSecond };
 	
 	$.ajax({
 		url: "/secondcategory",
@@ -225,6 +227,7 @@ function showThirdCategory(){
 		data: JSON.stringify(selectedData2),
 		success: function(data){
 			thirdCategoryList = data;
+			
 			//옵션 삭제
 			$("select#thirdCategory option").remove();
 			//옵션 추가
@@ -241,6 +244,14 @@ function showThirdCategory(){
 		}
 	})
 }
+
+function chooseThird(){
+	var selectBox3 = document.getElementById("thirdCategory");
+	var selectedThird = selectBox3.options[selectBox3.selectedIndex].text;
+	alert(selectedThird)
+}
+
+
 	
 </script>
 </html>

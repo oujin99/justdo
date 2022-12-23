@@ -1,5 +1,6 @@
 package com.yujeans.justdo.dogether.controller;
 
+import java.net.http.HttpRequest;
 import java.util.List;
 
 import javax.persistence.Tuple;
@@ -8,6 +9,7 @@ import org.json.simple.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,12 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yujeans.justdo.category.Category;
 import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.category.SecondCategory;
 import com.yujeans.justdo.category.ThirdCategory;
 import com.yujeans.justdo.category.service.CategoryService;
 import com.yujeans.justdo.dogether.AccountDogether;
 import com.yujeans.justdo.dogether.Dogether;
+import com.yujeans.justdo.dogether.DogetherRegistDTO;
 import com.yujeans.justdo.dogether.DogetherService;
 import com.yujeans.justdo.user.Account;
 
@@ -47,13 +51,11 @@ public class DogetherController {
 	public String registForm(Model model) {
 		
 		List<FirstCategory> firstCategory = dogetherService.selectFirstCategory();
-//		List<SecondCategory> secondCategory = dogetherService.selectSecondCategory(null);
-		List<ThirdCategory> thirdCategory = dogetherService.selectThirdCategory();
+//		AccountDogether ad = new AccountDogether();
 		
 		model.addAttribute("firstCategory", firstCategory);
-//		model.addAttribute("secondCategory", secondCategory);
-		model.addAttribute("thirdCategory", thirdCategory);
 		model.addAttribute("dogether", new Dogether());
+		
 		
 		return "dogether/dogether_regist";
 	}
@@ -61,21 +63,12 @@ public class DogetherController {
 	//두번째 카테고리 가져오기
 	@ResponseBody
 	@PostMapping("/firstcategory")
-//	@RequestMapping(value = "firstcategory", method = { RequestMethod.POST })
 	public List<SecondCategory> secondCategory(@RequestBody CategoryDto selectedData, Model model) {
 		System.out.println("selectFirst::" + selectedData.getFirstData());
 		List<SecondCategory> secondCategoryList = categoryService.findSecondCategory(selectedData.getFirstData());
-		for(int i = 0; i < secondCategoryList.size(); i ++) {
-			System.out.println("secondCategoryList입니다아아아아22 : " + secondCategoryList.get(i));
-			System.out.println("----------------------");
-		}
+
 		model.addAttribute(secondCategoryList);
 
-		//오류
-//		for(SecondCategory t : secondCategoryList) {
-//			System.out.println("t에 담아서 넣을 거지롱ㅋㅋ =" + t.getName() + t.getId());
-//		}
-		
 		return secondCategoryList;
 	}
 	
@@ -85,43 +78,60 @@ public class DogetherController {
 		public List<ThirdCategory> thirdCategory(@RequestBody CategoryDto selectedData, Model model) {
 			System.out.println("selectSecond::" + selectedData.getFirstData());
 			List<ThirdCategory> thirdCategoryList = categoryService.findThirdCategory(selectedData.getFirstData());
-			for(int i = 0; i < thirdCategoryList.size(); i ++) {
-				System.out.println("thirdCategoryList입니다아아아아33 : " + thirdCategoryList.get(i));
-			}
-			System.out.println("----------------------");
+
 			model.addAttribute(thirdCategoryList);
 
-			//오류
-//			for(SecondCategory t : secondCategoryList) {
-//				System.out.println("t에 담아서 넣을 거지롱ㅋㅋ =" + t.getName() + t.getId());
-//			}
-			
 			return thirdCategoryList;
 		}
 
 	
-//	@PostMapping
-	public String saveDogether(Dogether dogetherForm,
-								Model model) {
+	@PostMapping("/regist/dogether")
+	public String saveDogether(@ModelAttribute DogetherRegistDTO dogetherForm, Model model) {//@RequestParam("thirdCateSelect") String thirdCateSelect,
+		
+		//---------------테스트---------------------
+		System.out.println("도착-----------------------**");
+		System.out.println("dto에서 가져온 값 ::" + dogetherForm.getThirdCateSelect());
+//		System.out.println("requestParam에서 가져온 값 ::" + thirdCateSelect);
+		//---------------테스트---------------------
+		
+		String selectedThird = dogetherForm.getThirdCateSelect();
+		
+		System.out.println("제목 : " + dogetherForm.getTitle());
+
+		// 카테고리 아아디 가져오기 & Category 클래스의 id set
+		Long categoryId = categoryService.findCategoryId(selectedThird);
+		Category cate = new Category();
+		cate.setId(categoryId);
 		
 		Dogether dogether = new Dogether();
-		dogether.setTitle(dogetherForm.getTitle());
-		dogether.setImage(dogetherForm.getImage());
-		dogether.setLeaderInfo(dogetherForm.getLeaderInfo());
-		dogether.setSummary(dogetherForm.getSummary());
-		dogether.setRecommendTo(dogetherForm.getRecommendTo());
-		dogether.setNotice(dogetherForm.getRecommendTo());
+		dogether.setTitle(dogetherForm.getTitle()); 			// 제목
+		dogether.setImage(dogetherForm.getImage());				// 두리더 이미지
+		dogether.setLeaderInfo(dogetherForm.getLeaderInfo());	// 두리더 정보
+		dogether.setSummary(dogetherForm.getSummary());			// 요약
+		dogether.setRecommendTo(dogetherForm.getRecommendTo());	// 추천 대상
+		dogether.setDetail(dogetherForm.getDetail());			// 상세설명
+		dogether.setNotice(dogetherForm.getNotice());			// 공지사항
+		dogether.setPrice(dogetherForm.getPrice());				// 가격
+		dogether.setCategory(cate);								// 카테고리 id
 		
-//		dogether.getCategory().setId(dogetherForm.getCategory().getId());
+		System.out.println("카테고리 설정한 id값 확인 ~~~ :: " + dogether.getCategory().getId());
+		//----- 안됨 ---
+		System.out.println("카테고리 설정한 firstCate 값 확인 ~~~ :: " + dogether.getCategory().getFirstCategory().getName());
+		System.out.println("카테고리 설정한 secondCate 값 확인 ~~~ :: " + dogether.getCategory().getSecondCategory().getName());
+		System.out.println("카테고리 설정한 thirdCate 값 확인 ~~~ :: " + dogether.getCategory().getThirdCategory().getName());
+		//--- 안 됨---
 		
-		dogetherService.saveDogether(dogether);
+		// 없는 부분 : accountId
+		
+		
+//		dogetherService.saveDogether(dogether);
 		
 		return "redirect:/{dogetherId}/detail(dogetherId=${dogether.id})";
 	}
 	
 	
-//	@GetMapping("/{dogetherId}/detail")
-	public String dogetherDetail(@PathVariable("dogetherId")Long dogetherId, Model model){
+	@GetMapping("/{dogetherId}/detail")
+	public String dogetherDetail(@RequestParam("dogetherId")Long dogetherId, Model model){
 		
 		Dogether findDogether = dogetherService.findDogether(dogetherId);
 		model.addAttribute("findDogether", findDogether);

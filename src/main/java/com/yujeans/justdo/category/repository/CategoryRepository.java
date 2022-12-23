@@ -25,6 +25,13 @@ public interface CategoryRepository extends JpaRepository<Category, Long>{
 	          + "LEFT OUTER JOIN c.secondCategory sc "
 	          + "LEFT OUTER JOIN c.thirdCategory tc WHERE sc.name = :name")
 	 public List<ThirdCategory> findThirdCategory(@Param("name")String name);
+	 
+	 
+	 @Query(value = "SELECT c.id FROM Category c "
+	 		+ "LEFT OUTER JOIN c.firstCategory fc "
+	 		+ "LEFT OUTER JOIN c.secondCategory sc "
+	 		+ "LEFT OUTER JOIN c.thirdCategory tc WHERE tc.name = :selectedThird")
+	 public Long findCategoryId(@Param("selectedThird")String selectedThird);
 }
 
 

@@ -24,4 +24,9 @@ public class CategoryService {
 	public List<ThirdCategory> findThirdCategory(String selectSecond){
 		return categoryRepostiory.findThirdCategory(selectSecond);
 	}
+	
+	public Long findCategoryId(String selectedThird) {
+		
+		return categoryRepostiory.findCategoryId(selectedThird);
+	}
 }
