@@ -1,0 +1,24 @@
+diff a/src/main/java/com/yujeans/justdo/user/controller/AccountController.java b/src/main/java/com/yujeans/justdo/user/controller/AccountController.java	(rejected hunks)
+@@ -11,5 +11,22 @@
+ @Controller
+ @RequiredArgsConstructor
+ public class AccountController {
++	
++	@Autowired
+ 	private final AccountService accountService;
++	
++	@GetMapping("/user/login")
++	public String loginForm() {
++		
++		return "/user/login";
++	}
++	
++	@GetMapping("/user/signup")
++	public String signupForm() {
++		
++		return "/user/signup";
++	}
++	
++	
++	
+ }
