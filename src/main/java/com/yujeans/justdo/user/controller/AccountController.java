@@ -27,6 +27,11 @@ public class AccountController {
 		return "/user/signup";
 	}
 	
+	@GetMapping("/user/mypage")
+	public String myPageForm() {
+		return "/user/mypage";
+	}
+	
 	
 	
 }

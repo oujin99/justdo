@@ -14,19 +14,7 @@
     <meta name='Author-Date' content='20220323'>
     <meta name='Robots' content='index,follow'>
     <link rel="icon" type="images/png" href="/images/logo.png" />
-    <!-- <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"> -->
+    
     <link rel="manifest" href="../manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -65,79 +53,36 @@
             <h3 class="ir_so">카테고리</h3>
             <div class="container">
                 <ul class="category_list">
-                    <li><button id="btn1"><img src="../img/health.png" alt="운동">운동</button></li>
-                    <li><button id="btn2"><img src="../img/music.png" alt="음악">음악</button></li>
-                    <li><button id="btn3"><img src="../img/cook.png" alt="요리">요리</button></li>
-                    <li><button id="btn4"><img src="../img/art.png" alt="디자인/개발">디자인/개발</button></li>
-                    <li><button id="btn5"><img src="../img/beautiy.png" alt="뷰티">뷰티</button></li>
-                    <li><button id="btn6"><img src="../img/game.png" alt="오락">오락</button></li>
+                    <li><button id="btn1" value="운동" onclick="getCategory(this);"><img src="../img/health.png" alt="운동">운동</button></li>
+                    <li><button id="btn2" value="음악" onclick="getCategory(this);"><img src="../img/music.png" alt="음악">음악</button></li>
+                    <li><button id="btn3" value="요리" onclick="getCategory(this);"><img src="../img/cook.png" alt="요리">요리</button></li>
+                    <li><button id="btn4" value="디자인" onclick="getCategory(this);"><img src="../img/art.png" alt="디자인/개발">디자인/개발</button></li>
+                    <li><button id="btn5" value="뷰티" onclick="getCategory(this);"><img src="../img/beauty.png" alt="뷰티">뷰티</button></li>
+                    <li><button id="btn6" value="오락" onclick="getCategory(this);"><img src="../img/game.png" alt="오락">오락</button></li>
                 </ul>
             </div>
         </section>
        
-        
-        
-        
-
         <!-- 모달창 -->
         <div class="modal-wrap" >
             <div class="modal-background"></div>
                 <div class="modal-content">
                     <div class="modal-content-header"> 
                         <div class="title">
-                            <img class="title-img" src="../img/lesson.svg" alt="음악">
+                            <img class="title-img" id="title_img" src="../img/lesson.svg" alt="음악">
                         </div>
-                        <div class="title-font">음악</div>
+                        <div class="title-font" id="first_category_title">음악</div>
                     </div>
                     <div class="toggles">
-                        <button id="showall">전체보기</button> 
-                        <button id="web">악기</button>
-                        <button id="UX">보컬</button>
-                        <button id="graphic">작곡/작사</button>
-                        <button id="motion">프로그램</button>
+                        <button id="second_category_0" onclick="getThirdCategory(this)">악기</button>
+                        <button id="second_category_1" onclick="getThirdCategory(this)">보컬</button>
+                        <button id="second_category_2" onclick="getThirdCategory(this)">작곡/작사</button>
+                        <button id="second_category_3" onclick="getThirdCategory(this)">프로그램</button>
                     </div>
                     <div class="modal-content-main">
-                        <div class="categorys">
-                            <button class="graphic category" onclick="location.href='class_detail.html';">작사</button> 
-                            <button class="UX category" onclick="location.href='class_detail.html';">1대1트레이닝</button>
-                            <button class="UX category" onclick="location.href='class_detail.html';">집중 프로그램</button>
-                            <button class="graphic category">작곡 프로그램</button>
-                            <button class="graphic category">작곡 기초</button>
-                            <button class="web category">바이올린</button> 
-                            <button class="web category">피아노</button>
-                            <button class="motion category">EDM</button>
-                            <button class="motion category">GarageBand</button>
-                            <button class="motion category">Qtractor</button>
-                            <button class="web category">바이올린</button> 
-                            <button class="web category">피아노</button>
-                            <button class="web category">피아노</button>
-                            <button class="motion category">EDM</button>
-                            <button class="motion category">GarageBand</button>
-                            <button class="motion category">Qtractor</button>
-                            <button class="web category">바이올린</button> 
-                            <button class="web category">피아노</button>
-                            <button class="motion category">EDM</button>
-                            <button class="motion category">GarageBand</button>
-                            <button class="motion category">Qtractor</button>
-                            <button class="web category">바이올린</button> 
-                            <button class="web category">피아노</button>
-                            <button class="motion category">EDM</button>
-                            <button class="motion category">GarageBand</button>
-                            <button class="motion category">Qtractor</button>
-                            <button class="web category">피아노</button>
-                            <button class="motion category">EDM</button>
-                            <button class="motion category">GarageBand</button>
-                            <button class="motion category">Qtractor</button>
-                            <button class="web category">바이올린</button> 
-                            <button class="web category">피아노</button>
-                            <button class="motion category">EDM</button>
-                            <button class="motion category">GarageBand</button>
-                            <button class="motion category">Qtractor</button>
-                            <button class="web category">바이올린</button> 
-                            <button class="web category">피아노</button>
-                            <button class="motion category">EDM</button>
-                            <button class="motion category">GarageBand</button>
-                            <button class="motion category">Qtractor</button>
+                        <div class="categorys" id="third_category_container">
+                        
+                            
                         </div>
                     </div>
                 </div>
@@ -150,7 +95,68 @@
 
     <script src="../js/modal-category-2.js"></script>
     <script src="../js/modal-category.js"></script>
+	
+	<script src="/json/category.json" type="text/javascript"></script>
+	
+    <script th:inline="javascript">
+		const category_json = JSON.parse(JSON.stringify(Category));
+    	let firstCategory_init = null;
+		
+		function getCategory(firstCategory){
+			$("#third_category_container").empty();
+			firstCategory_init = firstCategory; 
+			
+			switch(firstCategory.value){
+				case "운동" : $("#title_img").attr("src", "../img/health.png"); break;
+				case "음악" : $("#title_img").attr("src", "../img/music.png"); break;
+				case "요리" : $("#title_img").attr("src", "../img/cook.png"); break;
+				case "디자인" : $("#title_img").attr("src", "../img/art.png"); break;
+				case "뷰티" : $("#title_img").attr("src", "../img/beauty.png"); break;
+				case "오락" : $("#title_img").attr("src", "../img/game.png"); break;
+			}
+			
+			$("#first_category_title").html(firstCategory.value);
+			//console.log(category_json);
+			//console.log(firstCategory.value);
+			//console.log(category_json.요리.조리);
+			//console.log(Object.keys(category_json));
+			
+			// 해당 first category의 second category들 가져오기 
+			//console.log(category_json[firstCategory.value]);
+				
+			let second_category_names = Object.keys(category_json[firstCategory.value]);
+			
+			for(let i=0; i<second_category_names.length; i++){
+				//console.log(second_category_names[i]);
+				$("#second_category_"+i).html(second_category_names[i]);
+				$("#second_category_"+i).val(second_category_names[i]);
+			}
+
+		}
+		
+		function getThirdCategory(secondCategory){
+			$("#third_category_container").empty();
+			// console.log(secondCategory.id);
+			// console.log(secondCategory.value);
+			// console.log(firstCategory_init.value);
+			
+			// third category
+			// console.log(category_json[firstCategory_init.value][secondCategory.value]);
+			let third_category_names = category_json[firstCategory_init.value][secondCategory.value];
+			
+			for(let i=0; i<third_category_names.length; i++){
+				
+				//console.log(third_category_names[i]);
+				
+		    	$("#third_category_container").append($("<button class='"+secondCategory.id+" category' onclick='location.href=\"/dogether/listForm/"+third_category_names[i]+"\"'>"+third_category_names[i]+"</button>"));
+		    	
+			}
+			
+		}
+    
+    </script>
     
 </body>
+
 
 </html>
