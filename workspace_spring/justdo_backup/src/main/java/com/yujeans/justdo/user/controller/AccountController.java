@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,8 @@ import lombok.RequiredArgsConstructor;
 //@RequestMapping("/")
 @RequiredArgsConstructor
 public class AccountController {
+	
+	@Autowired
 	private final AccountService accountService;
 	
 	/* 1. 
@@ -33,11 +36,11 @@ public class AccountController {
 	 * profile.html 에 thymeleaf object 를 통해 적용 
 	 */
 	  
-	@GetMapping("/profile/profile_backup")
+	@GetMapping("/profile/profile")
 	public String list_profile(HttpServletRequest request, Model model) {
 		Long id = (Long) request.getAttribute("id");
 		
-		List<Account> user_profile = accountService.findprofileById(id);
+		List<Account> user_profile = accountService.findprofileById(5L);
 		
 		model.addAttribute("user_profile", user_profile);
 		
@@ -47,7 +50,7 @@ public class AccountController {
 //			Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)
 //			[Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)]
 		}
-		return "profile/profile_backup";
+		return "profile/profile";
 	}
 	
 	/* 2. 
@@ -68,7 +71,7 @@ public class AccountController {
 	/* 3. 
 	 * 프로필 수정 페이지 에서 수정하기 클릭시
 	 * 해당 user id 를 통해 DB 테이블 값 변경 
-	 */
+	 
 	
 	@PostMapping("/{userId}/edit")
 	public String edit_profile(@PathVariable Long id, @ModelAttribute Account account) {
@@ -79,7 +82,7 @@ public class AccountController {
 		
 		
 	}
-	
+	*/
 	
 	
 	/*

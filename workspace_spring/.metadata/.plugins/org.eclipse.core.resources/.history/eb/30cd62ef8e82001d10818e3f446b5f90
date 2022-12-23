@@ -1,0 +1,80 @@
+package com.yujeans.justdo.user.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.yujeans.justdo.profileDto.EditProfileDTO;
+import com.yujeans.justdo.user.Account;
+import com.yujeans.justdo.user.service.EditProfileService;
+
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class EditProfileController {
+
+	@Autowired
+	private final EditProfileService editProfileService;
+	
+//	@GetMapping("/profile/profile_edit/{id}")
+//	public String viewprofileEdit(@PathVariable("id")Long id) {
+//		return "profile/profile_edit";
+//	}
+	
+	@GetMapping("/profile/profile_edit/{id}")
+//	@GetMapping("/profile/profile_edit/{id}")
+	public String profileEdit (@PathVariable("id") Long id, @ModelAttribute EditProfileDTO eDto, Model model) {
+		
+//		Account account = new Account();
+//		
+//		account.setId(id); // 임시 하드코딩 
+//		account.setName("이름");
+//		account.setEmail("이메일");
+//		account.setPhone("폰번호");
+//		account.setImage("/image.png");
+		
+		// 수정값 객체 view에 보내기 = ?? 
+//		model.addAttribute("eDto", eDto);
+		
+		// edto - > Account 테이블로 
+//		editProfileService.save(account);
+		
+		// Account 테이블 -> Model 객체로 
+//		model.addAttribute("editProfile", editProfileService.AccountList() );
+//		Optional<Account> accountTest = editProfileService.findByAccountId(id);
+//		System.out.println("test : " + accountTest.get.get().getId());
+		model.addAttribute("editProfile", editProfileService.findByAccountId(id).get());
+		System.out.println("AccountList : " + editProfileService.AccountList());
+		
+		
+		return "/profile/profile_edit";
+	}
+	
+	@PostMapping("/profile/profile_edit/{id}")
+	public String profileEditForm(@PathVariable("id") Long id, @ModelAttribute EditProfileDTO eDto, Model model) {
+		
+		Account account = new Account();
+		
+		account.setId(id); // 임시 하드코딩 
+		account.setName(eDto.getName());
+		account.setEmail(eDto.getEmail());
+		account.setPhone(eDto.getPhone());
+		account.setImage(eDto.getImage());
+		
+		editProfileService.save(account);
+		System.out.println(eDto.toString());
+		model.addAttribute("edto", account);
+		
+		return "/profile/profile_edit";
+	}
+	
+}

@@ -46,13 +46,13 @@ public class AccountController {
 	 * profile.html 에 thymeleaf object 를 통해 적용 
 	 */
 	  
-	@GetMapping("/profile/profile_backup")
+	@GetMapping("/profile/profile")
 	public String list_profile(HttpServletRequest request, Model model) {
 		// id 값 가져오기 
 		Long id = (Long) request.getAttribute("id");
 		
 		
-		List<Account> user_profile = accountService.findprofileById(4L);
+		List<Account> user_profile = accountService.findprofileById(id);
 		
 		model.addAttribute("user_profile", user_profile);
 		
@@ -62,7 +62,7 @@ public class AccountController {
 //			Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)
 //			[Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)]
 		}
-		return "profile/profile_backup";
+		return "profile/profile";
 	}
 	
 	/* 2. 

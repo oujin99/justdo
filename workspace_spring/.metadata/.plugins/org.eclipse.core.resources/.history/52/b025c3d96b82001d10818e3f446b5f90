@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='Title' content='저두'>
+    <meta name='Subject' content='저두'>
+    <meta name='Keywords' content='저두 레슨 취미 클래스 저스트두 이벤트'>
+    <meta name='Author' content='minjeong'>
+    <meta name='Publisher' content='minjeong'>
+    <meta name='Description' content='저두 오신 것을 환영합니다.'>
+    <meta name='Author-Date' content='20220323'>
+    <meta name='Robots' content='index,follow'>
+    <link rel="icon" type="images/png" href="/images/logo.png" />
+    
+    <link rel="manifest" href="../manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/swiper-bundle.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/category_modal.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../js/script.js" defer></script>
+    <!-- header, footer 공통 부분 -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+   	<!-- <script type="text/javascript">history.replaceState({}, null, location.pathname);</script> --> 
+</head>
+
+
+
+<body style="overflow: hidden">
+    <ul id="skip">
+        <li><a href="#header">헤더 바로가기</a></li>
+        <li><a href="#nav">메뉴 바로가기</a></li>
+        <li><a href="#footer">푸터 바로가기</a></li>
+    </ul>
+
+    <header>
+    	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
+    </header>
+    <main>
+    	<th:bloack th:replace="fragments/search.html :: search"></th:bloack>
+        
+        <section class="category_wrap">
+            <h3 class="ir_so">카테고리</h3>
+            <div class="container">
+                <ul class="category_list">
+                    <li><button id="btn1"><img src="../img/health.png" alt="운동">운동</button></li>
+                    <li><button id="btn2"><img src="../img/music.png" alt="음악">음악</button></li>
+                    <li><button id="btn3"><img src="../img/cook.png" alt="요리">요리</button></li>
+                    <li><button id="btn4"><img src="../img/art.png" alt="디자인/개발">디자인/개발</button></li>
+                    <li><button id="btn5"><img src="../img/beautiy.png" alt="뷰티">뷰티</button></li>
+                    <li><button id="btn6"><img src="../img/game.png" alt="오락">오락</button></li>
+                </ul>
+            </div>
+            
+           
+            
+        </section>
+       
+        
+        
+        
+
+        <!-- 모달창 -->
+        <div class="modal-wrap" >
+            <div class="modal-background"></div>
+                <div class="modal-content">
+                    <div class="modal-content-header"> 
+                        <div class="title">
+                            <img class="title-img" src="../img/lesson.svg" alt="음악">
+                        </div>
+                        <div class="title-font">음악</div>
+                    </div>
+                    <div class="toggles">
+                        <button id="showall">전체보기</button> 
+                        <button id="web">악기</button>
+                        <button id="UX">보컬</button>
+                        <button id="graphic">작곡/작사</button>
+                        <button id="motion">프로그램</button>
+                    </div>
+                    <div class="modal-content-main">
+                        <div class="categorys">
+                            <button class="graphic category" onclick="location.href='class_detail.html';">작사</button> 
+                            <button class="UX category" onclick="location.href='class_detail.html';">1대1트레이닝</button>
+                            <button class="UX category" onclick="location.href='class_detail.html';">집중 프로그램</button>
+                            <button class="graphic category">작곡 프로그램</button>
+                            <button class="graphic category">작곡 기초</button>
+                            <button class="web category">바이올린</button> 
+                            <button class="web category">피아노</button>
+                            <button class="motion category">EDM</button>
+                            <button class="motion category">GarageBand</button>
+                            <button class="motion category">Qtractor</button>
+                            <button class="web category">바이올린</button> 
+                            <button class="web category">피아노</button>
+                            <button class="web category">피아노</button>
+                            <button class="motion category">EDM</button>
+                            <button class="motion category">GarageBand</button>
+                            <button class="motion category">Qtractor</button>
+                            <button class="web category">바이올린</button> 
+                            <button class="web category">피아노</button>
+                            <button class="motion category">EDM</button>
+                            <button class="motion category">GarageBand</button>
+                            <button class="motion category">Qtractor</button>
+                            <button class="web category">바이올린</button> 
+                            <button class="web category">피아노</button>
+                            <button class="motion category">EDM</button>
+                            <button class="motion category">GarageBand</button>
+                            <button class="motion category">Qtractor</button>
+                            <button class="web category">피아노</button>
+                            <button class="motion category">EDM</button>
+                            <button class="motion category">GarageBand</button>
+                            <button class="motion category">Qtractor</button>
+                            <button class="web category">바이올린</button> 
+                            <button class="web category">피아노</button>
+                            <button class="motion category">EDM</button>
+                            <button class="motion category">GarageBand</button>
+                            <button class="motion category">Qtractor</button>
+                            <button class="web category">바이올린</button> 
+                            <button class="web category">피아노</button>
+                            <button class="motion category">EDM</button>
+                            <button class="motion category">GarageBand</button>
+                            <button class="motion category">Qtractor</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 모달창 종료 -->
+
+
+	
+	
+    </main>
+
+
+    <script src="../js/modal-category-2.js"></script>
+    <script src="../js/modal-category.js"></script>
+    
+</body>
+
+</html>

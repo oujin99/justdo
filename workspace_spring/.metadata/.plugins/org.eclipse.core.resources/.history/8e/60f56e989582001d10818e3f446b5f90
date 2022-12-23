@@ -1,0 +1,273 @@
+@media all and (min-width:1024px){
+    .modal-wrap{
+        font-size: 40px;
+    }
+    .modal-content{
+        width: auto;
+        float: none;
+    }
+
+    .category{
+        width: auto;
+    }
+
+    .toggles{
+        width: auto;
+    }
+}
+/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/ 
+@media all and (min-width:768px) and (max-width:1023px) { 
+    .modal-wrap{
+        font-size: 32px;
+    }
+    .modal-content{
+        width: auto;
+        float: none;
+    }
+
+    .category{
+        width: auto;
+    }
+
+    .toggles{
+        width: auto;
+    }
+}
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/ 
+@media all and (min-width:480px) and (max-width:767px) {
+    .modal-wrap{
+        font-size: 18px;
+    }
+    .modal-content{
+        width: auto;
+        float: none;
+    }
+
+    .category{
+        width: auto;
+    }
+
+    .toggles{
+        width: auto;
+    }
+} 
+  
+/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/ 
+@media all and (max-width:479px) {
+    .modal-wrap{
+        font-size: 18px;
+    }
+    .modal-content{
+        width: auto;
+        float: none;
+    }
+
+    .category{
+        width: auto;
+    }
+
+    .toggles{
+        width: auto;
+    }
+}
+
+.modal-wrap{
+    z-index: 1050;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:none;
+}
+
+.modal-wrap.show{
+    display:block;
+}
+
+.modal-background{
+    width:100vw;
+    height:100vh;
+    background-color: #eee;
+    opacity: 80%;
+    cursor:pointer;
+}
+
+
+.modal-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:60%;
+    height:58%;
+    /* margin:50px; */
+    padding: 10px;
+    background-color: white;
+    border-radius:25px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
+    /* box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px; */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+    transform: translateX(-50%) translateY(-50%);
+    overflow: hidden;
+    
+}
+
+.modal-content-header{
+    font-size: 1em;
+    text-align:center;
+    margin: 20px;
+    height: 50px;
+    line-height: 50px;
+}
+
+
+.modal-content .modal-content-body{
+    font-size:0.5em;
+    margin:20px;
+    width:100%;
+    height:calc(80vh - 60px);
+    overflow-y: auto;
+}
+
+
+.modal-content .modal-content-body-category{
+    display:flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: 100%;
+    flex-flow: row wrap;
+    
+}
+
+/* 내가 추가한 것 */
+.modal-wrap h1 {
+    text-align: center;
+    color: #d29fd7;
+    font: bold 50px Arial;
+    padding: 10px;
+    border-bottom: 1px solid;
+    width: 250px;
+    margin: 0 auto 25px;
+  }
+  
+  .toggles {
+    width: 100%;
+    margin: auto;
+    /* display: block;
+    clear: both;
+    overflow: hidden; */
+    display: flex;
+    justify-content: center;
+    /* margin-top: 30px; */
+  }
+  
+ .modal-wrap button{
+    border: 2px solid #d29fd7;
+    border-radius: 40px;
+    background-color: white;
+    color: #9a53a1;
+    display: block;
+    float: left;
+    margin: auto;
+    padding: 10px;
+    width: 10em     ;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 5px;
+  }
+  
+  .modal-wrap button:hover{
+    color: white;
+    border-color: #ffffff;
+    background-color: #d29fd7;
+  }
+
+  .modal-wrap button:active-color{
+    color: white;
+    border-color: #da81ff;
+    background-color: #d29fd7;
+}
+  
+  
+    .categorys > button{ 
+      margin-top: 0.5rem;
+      /* margin-right: 0.5rem; */
+      padding: 0.25rem 0.5rem;
+      border: 1px solid #c5d0d1;
+      width: 180px;
+      border-radius: 6px;
+      font-size: 1.0rem;
+      line-height: 3.2;
+      cursor: pointer;
+      justify-content: center;
+  }
+  
+  .modal-content-main {
+    width: 100%;
+    height: 70%;
+    overflow: auto;
+    margin-top: 10px;
+    /* margin: auto; */
+    display: block;
+    padding-left: 0.9em;
+    
+  }
+
+  @font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+  .title {
+    display: block;
+    float: left;
+   
+  }
+
+  .title-img{
+    display: flex;
+    width: 1.5em;
+    margin-right: 0.1em;
+    margin-left: 0.5em;
+  }
+
+  .title-font{
+    display: block;
+    float: left;
+    font-size: 0.9em;
+    font-family: 'Tenada';
+    padding: 0.1em;
+    text-align: center;
+    line-height: 1.9em;
+  }
+
+  /* 스크롤바 */
+  
+  .modal-content-main::-webkit-scrollbar {
+    width: 10px;
+  }
+  .contamodal-content-maininer::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+  }
+  .modal-content-main::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
+
+/* 모달 창 버튼 */
+.category_list > li{
+   text-align:center;
+}
+
+.category_list > li > button{
+    width: 55%;
+    background-color: white;
+    cursor: pointer;
+ }

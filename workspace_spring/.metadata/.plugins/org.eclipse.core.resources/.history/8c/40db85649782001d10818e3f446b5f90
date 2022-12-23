@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="/profile/profile"><h1>프로필 페이지</h1></a>
+	<a href="/profile/profile_write"><h1>프로필 작성 페이지</h1></a>
+	<a href="/profile/profile_edit/1"><h1>프로필 수정 페이지</h1></a>
+</body>
+</html>

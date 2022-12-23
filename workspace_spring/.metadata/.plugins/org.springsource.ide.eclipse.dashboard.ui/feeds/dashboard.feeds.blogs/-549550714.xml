@@ -5,7 +5,50 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-12-20T13:00:00Z</updated>
+  <updated>2022-12-23T00:00:00Z</updated>
+  <entry>
+    <title>Spring Boot 3.0.1 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/12/22/spring-boot-3-0-1-available-now" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Phil Webb</name>
+    </author>
+    <id>tag:spring.io,2022-12-23:5045</id>
+    <updated>2022-12-23T00:00:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;3.0.1&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
+&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v3.0.1"&gt;54 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/3.0.1/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>A Bootiful Podcast: Field CTO and Chief Evangelist at Gradle Justin Reock</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/12/22/a-bootiful-podcast-field-cto-and-chief-evangelist-at-gradle-justin-reock" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-12-22:5044</id>
+    <updated>2022-12-22T19:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans and happy holidays!! In this installment, Josh Long talks to Field CTO and Chief Evangelist at Gradle Justin Reock. &lt;/p&gt;
+&lt;iframe title="Field CTO and Chief Evangelist at Gradle Justin Reock" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=2u8rh-1345c58-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot 2.7.7 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/12/22/spring-boot-2-7-7-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Scott Frederick</name>
+    </author>
+    <id>tag:spring.io,2022-12-22:5043</id>
+    <updated>2022-12-22T18:40:50Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.7.7&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
+&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.7.7"&gt;24 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.7.7/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - December 20th, 2022</title>
     <link rel="alternate" href="https://spring.io/blog/2022/12/20/this-week-in-spring-december-20th-2022" />
@@ -996,112 +1039,6 @@ dependencies {&#xD;
   implementation &amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-eureka-client&amp;#39;&#xD;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>A Bootiful Podcast: Java Champion Gunnar Morling about messaging middleware, Debezium, change data capture, and more.</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/12/01/a-bootiful-podcast-java-champion-gunnar-morling-about-messaging-middleware-debezium-change-data-capture-and-more" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-12-01:5024</id>
-    <updated>2022-12-01T09:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to Java Champion &lt;a href="https://twitter.com/gunnarmorling"&gt;Gunnar Morling (@gunnarmorling)&lt;/a&gt; about messaging middleware, Debezium, and more. &lt;/p&gt;
-&lt;iframe title="Java Champion Gunnar Morling about messaging middleware, Debezium, change data capture, and more. " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=vqxmw-132b15f-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - November 29th, 2022 (Spring Boot 3 has arrived)</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/11/29/this-week-in-spring-november-29th-2022-spring-boot-3-has-arrived" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-11-29:5023</id>
-    <updated>2022-11-29T18:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! It&amp;rsquo;s here! It&amp;rsquo;s finally here, at long last! &lt;a href="https://spring.io/blog/2022/11/24/spring-boot-3-0-goes-ga"&gt;Spring Boot 3!&lt;/a&gt;! And of course with Spring Boot 3.0 comes a whole portfolio of integrated projects that have also been updated! Remember, a &lt;em&gt;huge&lt;/em&gt; theme in this release is support for GraalVM native images, and that&amp;rsquo;s now supported across the board. You know what to do: &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt;. &lt;/p&gt;
-&lt;p&gt;I put together a Spring Tipds video introducing some of the &lt;a href="https://www.youtube.com/watch?v=aUm5WZjh8RA&amp;t=1s0"&gt;major themes of Spring Framework 6 / Spring Boot 3&lt;/a&gt;. &lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/aUm5WZjh8RA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;p&gt;I also did an in-depth look at &lt;a href="https://www.youtube.com/watch?v=TOfYlLjXufw&amp;t=4s"&gt;the new GraalVM support powered by Spring&amp;rsquo;s ahead-of-time (AOT) engine&lt;/a&gt;. &lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/TOfYlLjXufw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;p&gt;There&amp;rsquo;s so much else to talk about this week, but I really can&amp;rsquo;t stress this enough: Spring Boot 3 is &lt;em&gt;here&lt;/em&gt;! In some ways, it feels like this release has been more than four years in the making! It&amp;rsquo;s amazing, and I can&amp;rsquo;t wait for people to get to production with it. Without further ado, this week&amp;rsquo;s roundup:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/24/spring-boot-3-0-goes-ga"&gt;Spring Boot 3.0 Goes GA&lt;/a&gt; (Hah! Did you think I&amp;rsquo;d skip it as part of the roundup? No sirree no way! This is a big release. Did I mention that?)&lt;/li&gt;
-  &lt;li&gt;I did an extensive, roving interview with InfoQ ahead of the new Spring Boot 3 release: &lt;a href="https://www.infoq.com/articles/josh-long-spring-6/"&gt;Java Champion Josh Long on Spring Framework 6 and Spring Boot 3&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/24/spring-boot-2-6-14-available-now"&gt;Spring Boot 2.6.14 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/24/spring-boot-2-7-6-available-now"&gt;Spring Boot 2.7.6 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/720646446/0/baeldung~Spring-Boot-FeignClient-vs-WebClient"&gt;Spring Boot FeignClient vs. WebClient&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/23/spring-framework-6-0-1-available-now"&gt;Spring Framework 6.0.1 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/24/spring-framework-6-0-2-available-now"&gt;Spring Framework 6.0.2 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/24/spring-modulith-0-1-ga-released"&gt;Spring Modulith 0.1 GA released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/23/spring-tips-the-road-to-spring-framework-6-the-new-ahead-of-time-compilation-engine-and-graalvm"&gt;Spring Tips: the road to Spring Framework 6: the new Ahead-of-Time Compilation Engine and GraalVM&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/28/spring-vault-3-0-goes-ga"&gt;Spring Vault 3.0 goes GA&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/23/spring-for-graphql-1-1-0-released"&gt;Spring for GraphQL 1.1.0 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/720263708/0/baeldung~BuildScripts-Blocks-in-Gradle"&gt;BuildScripts Blocks in Gradle&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/720570638/0/baeldung~Enum-Mapping-in-Spring-Boot"&gt;Enum Mapping in Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://betterprogramming.pub/going-native-with-spring-boot-3-ga-4e8d91ab21d3"&gt;Going Native With Spring Boot 3 GA&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Baeldung.com, the site whose content often appears in this very roundup, is hiring! They&amp;rsquo;re looking for a Spring Boot developer. Apply now! &lt;a href="https://feeds.feedblitz.com/~/720208984/0/baeldung~Java-Course-Team-Lead-with-Spring-Experience-Remote-Part-Time"&gt;Java Course Team Lead with Spring Experience (Remote) (Part Time)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/720645532/0/baeldung~Overriding-the-Values-of-Remote-Properties-in-Spring-Cloud-Config"&gt;Overriding the Values of Remote Properties in Spring Cloud Config&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://vived.io/new-era-for-spring-spring-framework-6-0-spring-boot-3-0-and-only-jdk-17-jvm-weekly-22/"&gt;The New Age for Spring - Spring Framework 6.0, Spring Boot 3.0&lt;/a&gt; I think this was on the whole a thoughtful look at the exciting new Spring Boot 3.0 release.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/11/24/spring-boot-3-0-goes-ga"&gt;Spring Boot 3.0 Goes GA&lt;/a&gt; One more reminder for the road&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Integration 6.0 goes GA</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/11/29/spring-integration-6-0-goes-ga" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Artem Bilan</name>
-    </author>
-    <id>tag:spring.io,2022-11-29:5022</id>
-    <updated>2022-11-29T17:55:29Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;Dear Spring community,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team, it is my very great pleasure to announce that Spring Integration &lt;code&gt;6.0.0&lt;/code&gt; is now generally available and can be found in Maven Central.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This release is the culmination of more than a year of work.
-A massive thank you to everyone that has contributed, and to all the early adopters that have been providing vital feedback on the milestones.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This version is fully based on &lt;a href="https://spring.io/blog/2022/11/16/spring-framework-6-0-goes-ga"&gt;Spring Framework 6.0&lt;/a&gt;, &lt;a href="https://spring.io/blog/2022/11/18/spring-data-2022-0-goes-ga"&gt;Spring Data 2022.0&lt;/a&gt;, &lt;a href="https://spring.io/blog/2022/11/23/spring-for-graphql-1-1-0-released"&gt;Spring for GraphQL 1.1&lt;/a&gt;, &lt;a href="https://spring.io/blog/2022/11/21/spring-web-services-4-0-0-is-now-ga"&gt;Spring WebServices 4.0&lt;/a&gt; and many other major releases of Spring portfolio projects which contribute to their respective integration modules.
-On the other hand Spring Integration &lt;code&gt;6.0&lt;/code&gt; is a part of recently released &lt;a href="https://spring.io/blog/2022/11/24/spring-boot-3-0-goes-ga"&gt;Spring Boot 3.0&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Highlights of the new release include:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A Java &lt;code&gt;17&lt;/code&gt; baseline&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Support for native images with GraalVM and Spring AOT engine&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Observability instrumentation with Micrometer and Micrometer Tracing&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Support for Jakarta EE &lt;code&gt;10&lt;/code&gt; with an EE &lt;code&gt;9&lt;/code&gt; baseline&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;There&amp;#8217;s far too many features to list them all here in detail, so head over to the &lt;a href="https://docs.spring.io/spring-integration/docs/current/reference/html/whats-new.html#whats-new"&gt;What&amp;#8217;s New&lt;/a&gt; documentation page and check out a &lt;a href="https://github.com/spring-projects/spring-integration/wiki/Spring-Integration-5.x-to-6.0-Migration-Guide"&gt;Migration Guide&lt;/a&gt; on GitHub.
-If you just want to get started, you can easily bootstrap a new project on &lt;a href="https://start.spring.io"&gt;start.spring.io&lt;/a&gt;.
-If you&amp;#8217;d like to try out the GraalVM support, &lt;a href="https://start.spring.io/#!platformVersion=3.0.0&amp;amp;dependencies=native,integration"&gt;start.spring.io can help with that too&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Cheers,&amp;#160;&lt;br&gt;
-Artem&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-integration/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-integration"&gt;Chat&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

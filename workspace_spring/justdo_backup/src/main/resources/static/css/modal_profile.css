@@ -100,14 +100,17 @@
    font-size: 45px; 
    text-align: center
 }
+.fw-bold {
+    font-weight: 700!important;
+    font-size: 30px;
+}
 
 .fw-bold text-info{
-   font-size: 25px; 
-   text-align: center
+   text-align: center;
 }
 
 .text-muted{
-   font-size: 20px; 
+   font-size: 25px; 
    text-align: center
 }
 

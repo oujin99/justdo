@@ -8,13 +8,20 @@
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="update"/>
+		<item key="selection" value="/"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="../"/>
+			<item value="submit"/>
+			<item value="test :"/>
+			<item value="editProfile.id"/>
+			<item value="AccountList :"/>
+			<item value="${"/>
+			<item value="post"/>
 			<item value="update"/>
 			<item value="updatg"/>
 			<item value="updatge"/>
@@ -23,11 +30,9 @@
 			<item value="find"/>
 			<item value="basic"/>
 			<item value="RedirectAttributes"/>
-			<item value="redirect"/>
-			<item value="addform"/>
-			<item value="addfrom"/>
 		</list>
 		<list key="replacehistory">
+			<item value="/"/>
 			<item value="items"/>
 			<item value="item"/>
 			<item value=""/>

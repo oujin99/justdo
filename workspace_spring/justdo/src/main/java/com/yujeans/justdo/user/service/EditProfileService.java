@@ -17,11 +17,12 @@ public class EditProfileService {
 	@Autowired
 	private final EditProfileRepository editProfileRepository;
 	
-	public void edit(Account account) {
+	// edto 값을 -> Account 테이블로 
+	public void save(Account account) {
 		editProfileRepository.save(account);
 	}
 	
-	// 전체 리턴 
+	// Account 테이블 값을 - > "editProfile" Model 객체로 
 	public List<Account> AccountList(){
 		return editProfileRepository.findAll();
 	}
