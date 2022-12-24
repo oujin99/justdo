@@ -131,13 +131,15 @@ li {
 .plus_left{
     float: left; 
     width: 50%; 
-/*     height: 500px;  */
+    height: 500px; 
     padding: 10px;
 }
 
 .p2p_class_img img{
     border-radius: 10px;
 }
+
+
 
 img {
     max-width: 100%;
@@ -417,16 +419,20 @@ button {
     width: 200px; 
     height: 200px;
     border-radius: 10px;
-    margin-bottom: 10px;
 }
 
 .plus_right_text{
     line-height: 2.5;
 }
 
-/* .price_div{ */
-/*     background-color: rgba(0, 0, 0, 0.02); */
-/* } */
+/*가격*/
+.price{
+    margin-top: 10px;
+}
+
+.price_div{
+    background-color: rgba(0, 0, 0, 0.02);
+}
 
 .price_dl{
     display: flex; 

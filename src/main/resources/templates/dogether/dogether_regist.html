@@ -25,21 +25,14 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/swiper-bundle.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/dogether_regist.css">
+    <link rel="stylesheet" href="/css/dogether_regist.css" th:href="@{../css/dogether_regist.css}">
 
     <sript src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/js/script.js" defer></script>
 
     <!-- header, footer 공통 부분 -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript">   
-        $(document).ready( function() {
 
-        $("#headers").load("common/header.html");  // 원하는 파일 경로를 삽입하면 된다
-        $("#footers").load("common/footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
-        $("#searcher").load("common/search.html");  
-    });
-    </script>
 
 </head>
 
@@ -58,36 +51,79 @@
 
         <div class="container">
             <section class="dogether-regist-wrapper">
-                <form action="" class="">
+                <form action="" th:action="@{/dogether/regist}"
+                		class=""  method="post"
+                		th:object="${dogether}">
                     <div class="dogether-regist-title">
                         <h5>두게더 등록</h5>
                     </div>
 
                     <article class="dogether-article">
-                        <div>
-                            <label for="dogether_title" class="form-label">두게더 제목</label><br>
-                            <input type="text" class="form-control" id="dogether_title" placeholder="어떤걸 함께 배우나요?">
+                    	<div class="dogether_title_price_wrapper">
+                            <div class="dogther_title_wrapper" style="width: 60%;">
+                                <label for="dogether_title" class="form-label">두게더 제목</label><br>
+                                <input type="text" class="form-control" th:field="*{title}" id="dogether_title" placeholder="어떤걸 함께 배우나요?">
+                            </div>
+                            <div class="dogether_price_wrapper" style="width: 30%;">
+                                <label for="dogether_price" class="form-label">두게더 가격</label><br>
+                                <input type="text" class="form-control" th:field="*{price}" id="dogether_price" placeholder="등록 가격을 입력해주세요">
+                            </div>
                         </div>
                     </article>
 
-                    <article class="dogether-article">
-                        <label for="dogether_image" class="form-label">커버 이미지</label><br>
-                        <input id="dogether_image" type="file" accept="image/*">
-                        <div class="card mb-3" style="max-width: 45%; max-height: 500px;">
-                            <div class="row g-0" style="cursor: pointer;" id="image_card1">
-                                <div class="col-md-4" style="width: 100%;" >
-                                    <img src="../img/no-images.png" id="dogether_image_img" class="img-fluid rounded-start" alt="...">
+                    <article class="dogether-article2">
+                        <div style="display: flex;">
+                            <div class="dogether_cover_category_wrapper3" style="width: 60%;">
+                                <div class="dogether_img_wrapper" style="width: 100%;">
+                                    <label for="dogether_image" class="form-label">커버 이미지</label><br>
+                                    <input id="dogether_image" th:field="*{image}" type="file" th:type="file" accept="image/*">
+                                    <div class="card mb-3" style="max-height: 500px;">
+                                        <div class="row g-0" style="cursor: pointer;" id="image_card1">
+                                            <div class="col-md-4" style="width: 100%;max-width: 90%; margin: auto;" >
+                                                <img src="/imag/no-images.png"
+                                                	th:src="@{/img/no-images.png}"
+                                                	 id="dogether_image_img" class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dogether_cover_category_wrapper2">
+                                <div class="dogether_category_wrapper2">
+                                    <label class="form-label">카테고리 선택</label><br>
+                                    <select name="category" class="form-control" id="firstCategory" style="border-radius: 0;" onchange="showSecondCategory()">
+                                        <option value="" style="text-align: center;">--------------카테고리 선택--------------</option>
+                                        <option value="" th:each="firstCategory : ${firstCategory}"
+                                        	th:id="${firstCategory.id}" th:value="${firstCategory.name}"
+                                        	th:name="${firstCategory.name}"
+                                        	th:text="${firstCategory.name}"></option>
+                                    </select>
+                                </div>
+                                <!--------------------중분류---------------------------->
+                                <div class="dogether_category_wrapper"  >
+                                    <label class="form-label">중분류 선택</label><br>
+                                    <select name="category" class="form-control" id="secondCategory" style="border-radius: 0;" onchange="showThirdCategory()">
+                                        <option value="" style="text-align: center;">--------------카테고리 선택--------------</option>
+<!--                                         <option value="" class="secondCate_form"></option> -->
+                                    </select>
+                                </div>
+                                <!--------------------소분류--------------------->
+                                <div class="dogether_category_wrapper" >
+                                    <label class="form-label">소분류 선택</label><br>
+                                    <select name="category" id="thirdCategory" th:name="thirdCateSelect" class="form-control" style="border-radius: 0;" onchange="chooseThird()">
+                                        <option value="" style="text-align: center;">--------------카테고리 선택--------------</option>
+                                        <option value="">소분류</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
-                        
-
                     </article>
 
                     <article class="dogether-article">
                         <div class="mb-3">
                             <label for="dogether_leaderInfo" class="form-label">두리더 소개</label>
                             <textarea class="form-control" id="dogether_leaderInfo" rows="6" 
+                            	th:field="*{leaderInfo}"
                                 placeholder="★ 경력 소개&#13;&#10; - 두게더에서 펼칠 재능에 대한 간략한 소개글을 작성해주세요&#13;&#10;   (참여하셨던 프로젝트 , 입상경력 , 근무했던 분야 등)&#13;&#10;&#13;&#10;★ 두리더 재능 이야기&#13;&#10; - 해당 재능을 두리더님은 어떻게 키우게 되셨나요?"></textarea>
                         </div>
                     </article>
@@ -95,7 +131,8 @@
                     <article class="dogether-article">
                         <div class="mb-3">
                             <label for="dogether_summary" class="form-label">어떤 두게더 인가요?</label>
-                            <textarea class="form-control" id="dogether_summary" rows="5" 
+                            <textarea class="form-control" id="dogether_summary" rows="5"
+                            	th:field="*{summary}" 
                                 placeholder="★ 두게더 목표&#13;&#10; - 무엇을 배우며 무엇을 얻을 수 있나요?&#13;&#10;&#13;&#10;★ 두게더의 차별점&#13;&#10; - 해당 카테고리의 다른 클래스들과 어떻게 다른가요?"></textarea>
                         </div>
                     </article>
@@ -104,6 +141,7 @@
                         <div class="mb-3">
                             <label for="dogether_recommendTo" class="form-label">이런분들이 들으면 좋아요.</label>
                             <textarea class="form-control" id="dogether_recommendTo" rows="3" 
+                            	th:field="*{recommendTo}"
                                 placeholder="★ 추천 대상 / 비추천 대상&#13;&#10; - 해당 주제에 관심이 있는분&#13;&#10; - 몸이 안좋으신 분"></textarea>
                         </div>
                     </article>
@@ -112,6 +150,7 @@
                         <div class="mb-3">
                             <label for="dogether_detail" class="form-label">두게더 상세소개</label>
                             <textarea class="form-control" id="dogether_detail" rows="8" 
+                            	th:field="*{detail}" 
                                 placeholder="★ 진행방식&#13;&#10; - 두게더 형식과 내용은 어떤식으로 진행되나요&#13;&#10;&#13;&#10;★ 프로젝트&#13;&#10; - 두게더에서 함께 만들어보는 게 있나요?&#13;&#10;&#13;&#10;★ 지난 두게더 성과&#13;&#10; - 지난 두게더에서 만든 결과물이 있으면 올려주세요 (이미지 등)"></textarea>
                         </div>
                     </article>
@@ -120,6 +159,7 @@
                         <div class="mb-3">
                             <label for="dogether_notice" class="form-label">두게더 공지사항</label>
                             <textarea class="form-control" id="dogether_notice" rows="3" 
+                            	th:field="*{notice}"
                                 placeholder="★ 공지사항&#13;&#10; - 두게더 참여 전 숙지해야 할 사항이 있으면 적어주세요&#13;&#10; - 스터디룸 , 준비물 등 추가 비용이 있는 경우 반드시 적어주세요"></textarea>
                         </div>
                     </article>
@@ -132,9 +172,9 @@
             </section>
         </div>
         
-       
         <footer>
-            <div id="footers"></div>
+        <th:bolack th:replace="fragments/footer.html :: footer"></th:bolack>
+<!--             <div id="footers"></div> -->
         </footer>
     </main>
 </body>
@@ -142,6 +182,78 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="../js/dogether_regist.js"></script>
 <script>
+function showSecondCategory(){
+	var selectBox = document.getElementById("firstCategory");
+	var selectedFirst = selectBox.options[selectBox.selectedIndex].text;
+	var selectedData = { "firstData" : selectedFirst }; // Data로 바꿨을 때 안 됨, 대/소문자 관련?
+			
+	$.ajax({
+		url: "/dogether/firstcategory",
+		type: 'POST',
+		dataType : 'json',
+		contentType:"application/json; charset=UTF-8",
+		data: JSON.stringify(selectedData),
+		success: function(data){
+			secondCategoryList = data;
+			
+			//옵션 삭제
+			$("select#secondCategory option").remove();
+			//옵션 추가
+			$("#secondCategory").append("<option value='option' style='text-align: center;'>--------------카테고리 선택--------------</option>");
 
+				for(var i=0; i<secondCategoryList.length; i++){
+					var optionValue = secondCategoryList[i].name;
+					var optionId = secondCategoryList[i].id;
+					var option = $("<option value=" + optionValue + " id=" + optionId + " name=" + optionValue + ">" + optionValue +
+							"</option>");
+					$('#secondCategory').append(option);
+				}
+			
+// 			$(".secondCate_form").append("<option th:each='secondCategory : '" + secondCategoryList + " th:id" + )
+// 				for(var i=0; i<=secondCategoryList.length; i++)
+// 					alert(secondCategoryList[i].name); //필드값 orderId확인
+		}
+	})	
+}
+	
+function showThirdCategory(){
+	var selectBox2 = document.getElementById("secondCategory");
+	var selectedSecond = selectBox2.options[selectBox2.selectedIndex].text;
+	var selectedData2 = { "firstData" : selectedSecond };
+	
+	$.ajax({
+		url: "/dogether/secondcategory",
+		type: 'POST',
+		dataType : 'json',
+		contentType:"application/json; charset=UTF-8",
+		data: JSON.stringify(selectedData2),
+		success: function(data){
+			thirdCategoryList = data;
+			
+			//옵션 삭제
+			$("select#thirdCategory option").remove();
+			//옵션 추가
+			$("#thirdCategory").append("<option value='option' style='text-align: center;'>--------------카테고리 선택--------------</option>");
+
+			for(var i=0; i<thirdCategoryList.length; i++){
+				var optionValue = thirdCategoryList[i].name;
+				var optionId = thirdCategoryList[i].id;
+				var option = $("<option value=" + optionValue + " id=" + optionId + ">" + optionValue +
+						"</option>");
+				$('#thirdCategory').append(option);
+			}
+		
+		}
+	})
+}
+
+function chooseThird(){
+	var selectBox3 = document.getElementById("thirdCategory");
+	var selectedThird = selectBox3.options[selectBox3.selectedIndex].text;
+	alert(selectedThird)
+}
+
+
+	
 </script>
 </html>

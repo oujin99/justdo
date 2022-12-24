@@ -30,6 +30,7 @@ public class KakaoController {
 		
 		// 카카오로부터 받은 토큰 쿠키에 저장
 		Cookie cookie = new Cookie("access_token", token);
+		cookie.setMaxAge(6*60*60); // 6시간
 		cookie.setHttpOnly(true); // XSS 공격 방지
 		cookie.setSecure(true);
 		cookie.setPath("/");

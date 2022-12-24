@@ -34,13 +34,17 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <!-- <link rel="stylesheet" href="../css/swiper-bundle.css"> -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- <link rel="stylesheet" href="../css/mobile_css.css"> -->
-    <link rel="stylesheet" href="../css/class_detail.css">
-    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
-    <script src="../js/script.js" defer></script>
+    <link rel="stylesheet" href="/css/class_detail.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/js/script.js" defer></script>
+    
+     <link rel="stylesheet" href="/css/comment_modal.css">
+     <link rel="stylesheet" href="/css/modal_profile.css">
+     <link rel="stylesheet" href="/css/button_profile.css">
 
     <!-- header, footer 공통 부분 -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -70,14 +74,14 @@
 
 
     <main id="wrap">
-        <div id="searcher"></div>
+	   <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
         <div>
-            <div class="container">
+            <div class="container" th:object="${findDogether}">
                 <div class="p2p_class_wrap">
 
                     <!-- 수업명, 튜터이름, 별점 -->
                     <section class="p2p_class_info">
-                        <h1 class="p_title">심리와 접목하여 나만의 작품 푸어링아트 원데이클래스</h1>
+                        <h1 class="p_title" th:text="*{title}">심리와 접목하여 나만의 작품 푸어링아트 원데이클래스</h1>
                     </section>
                     <!-- <section>             -->
                     <div class="simple_class">
@@ -86,6 +90,7 @@
                         <!-- 수업 이미지 -->
                         <div class="plus_left">
                             <section class="p2p_class_img">
+                            <!-- th:src="*{image}" -->
                                 <img src="../img/dog.jpg">
                             </section>
                             <!--//p2p_class_img-->
@@ -94,10 +99,12 @@
                         <!--// 수업 이미지 -->
                         <!-- 두리더 소개 부분 -->
                         <div class="plus_right">
+                            <div class="price">
+                                <div class="price_div">
                             <div class="plus_right_div">
-                                <img class="plus_right_img" src="../img/dog.jpg">
+                                <img class="plus_right_img" id="myBtn" src="../img/dog.jpg"><!-- th:src="${findAccount.image}" -->
                             </div>
-                            <div class="plus_right_text">
+                            <div class="plus_right_text" th:text="*{leaderInfo}">
                                 - 성신여대 미술대학 공예과 학사졸업<br>
                                 - 서울과학기술대 조형대학 금속공예디자인 석사수료<br>
                                 - 문화예술교육사 자격증 2급<br>
@@ -107,14 +114,12 @@
                                 기업/학교/센터/어린이집/유치원 등 출강도 매달 나가고 있습니다.<br>
                                 학교를 다니면서 아동연극치료, 미술치료, 심리적인 부분에도 관심을 가져왔습니다.<br>
                             </div>
-                            <div class="price">
-                                <div class="price_div">
                                     <dl class="price_dl">
                                         <dt class="price_dt">
                                             <p>가격</p>
                                         </dt>
                                         <dd class="price_dd">
-                                            <span>10000</span>원 / 기본 1회 1시간
+                                            <span th:text="*{price}">10000</span>원 / 기본 1회 1시간
                                         </dd>
                                     </dl>
                                 </div>
@@ -134,7 +139,7 @@
                                 </div>
                                 <div class="p_col_right">
                                     <div class="text_wrap">
-                                        <p class="text_area">
+                                        <p class="text_area" th:text="*{notice}">
                                             서울 정릉역에서 도보 10분입니다.<br><br>
                                             무료주차 가능합니다.<br><br>
                                             장소- 신청완료 후 문자로 공지해드립니다.<br><br>
@@ -158,7 +163,7 @@
                                 </div>
                                 <div class="p_col_right">
                                     <div class="text_wrap">
-                                        <p class="text_area">
+                                        <p class="text_area" th:text="*{summary}">
                                             푸어링아트(플루이드아트)란? 물감을 흘려, 우연적인 효과로 캔버스에 무늬를 만들어내는 추상미술 입니다.<br>
                                             심리적 요소를 함께 적용하여 진행하기 때문에 예상치 못한 다양한 형태로 작품이 만들어집니다.<br><br>
                                             스튜디오 푸어링에서 진행하는 푸어링아트 클래스는 힐링과 심리치료를 접목합니다.<br><br>
@@ -181,7 +186,7 @@
                                 <!--//p_col_left-->
                                 <div class="p_col_right">
                                     <div class="text_wrap">
-                                        <p class="text_area">
+                                        <p class="text_area" th:text="*{recommendTo}">
                                             심적으로 힐링하고 싶으신 분<br>
                                             데이트 코스로 원데이클래스 듣고 싶으신 분<br>
                                             가족들과 즐겁게 미술놀이하며, 멋진 작품도 가져가고 싶으신 분<br>
@@ -206,8 +211,7 @@
                                     <p class="col_title">두게더 상세소개</p>
                                 </div>
                                 <div class="p_col_right">
-                                    <div class="text_wrap">
-                                        <p class="text_area">경력<br>
+                                    <div class="text_wrap" th:text="*{detail}">
                                             - 성신여대 미술대학 공예과 학사졸업<br>
                                             - 서울과학기술대 조형대학 금속공예디자인 석사수료<br>
                                             - 문화예술교육사 자격증 2급<br>
@@ -223,7 +227,6 @@
                                             잊을 수 없는 나만의 작품이 탄생할 것입니다.<br><br>
                                             힐링은 기본이며, 힘들었던 일, 즐거웠던 일들을 푸어링아트로 담아보세요.
 
-                                        </p>
                                     </div>
                                     <button class="btn_show" style="display: none;">
                                         <span class="more">더보기</span>
@@ -249,8 +252,7 @@
                                             <li>친절도<span class="avg">0</span></li>
                                         </ul>
                                     </div>
-                                    <button type="button" class="btn_cmt"
-                                        onclick="writeReview(49128,'newReview',0,1);">리뷰 작성하기</button>
+                                    <button type="button" class="btn_cmt" id="board_modal_btn">리뷰 작성하기</button>
                                     <!-- 댓글 영역 -->
                                     <div id="innerReviewDiv">
                                         <span style="display: inline-block;margin-top: 15px;">
@@ -260,7 +262,7 @@
                                             <li class="list">
                                                 <div class="tutee_info">
                                                     <span class="img">
-                                                        <img src="../img/dog.jpg"
+                                                        <img src="/img/dog.jpg"
                                                             onerror="profileImgError(this,0)" alt="">
                                                     </span>
                                                     <div class="tutee">
@@ -279,90 +281,6 @@
                                                     </p>
                                                 </div>
                                             </li>
-                                            <li class="list">
-                                                <div class="tutee_info">
-                                                    <span class="img">
-                                                        <img src="../img/dog.jpg"
-                                                            onerror="profileImgError(this,0)" alt="">
-                                                    </span>
-                                                    <div class="tutee">
-                                                        <span class="name">현좌</span>
-                                                        <div class="date">
-                                                            <p>2022-12-01 13:18:51</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="cmt">
-                                                    <p>
-                                                        너무 만족스러웠어요! 남편이랑 같이 수업 들었었는데, 남자의 경우 머리랑 옷 스타일링도 잡아주셔서 만족했습니다.
-                                                        여자는 파운데이션 색도 알려주시고 맞는 메이크업 제품도 추천해주셔서 너무 만족했어요!! 다녀와서 지인들한테
-                                                        추천했습니다!
-                                                    </p>
-                                                </div>
-                                            </li>
-                                            <li class="list">
-                                                <div class="tutee_info">
-                                                    <span class="img">
-                                                        <img src="../img/dog.jpg"
-                                                            onerror="profileImgError(this,0)" alt="">
-                                                    </span>
-                                                    <div class="tutee">
-                                                        <span class="name">정수진</span>
-                                                        <div class="date">
-                                                            <p>2022-11-18 12:42:15</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="cmt">
-                                                    <p class="hide">
-                                                        시간 잘 지켜주시고 성실하게 진행해 주십니다.<br><br>
-                                                        5명이서 2시간 동안 충분히 들을 수 있었고 다른 사람 컬러 보면서 공부도 한 것 같아요.<br><br>
-                                                        감사합니다.
-                                                    </p>
-                                                </div>
-                                            </li>
-                                            <li class="list">
-                                                <div class="tutee_info">
-                                                    <span class="img">
-                                                        <img src="../img/dog.jpg"
-                                                            onerror="profileImgError(this,0)" alt="">
-                                                    </span>
-                                                    <div class="tutee">
-                                                        <span class="name">위경주</span>
-                                                        <div class="date">
-                                                            <p>2022-11-17 20:42:17</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="cmt">
-                                                    <p class="hide">친구랑 처음으로 퍼컬진단받아보려고 신청했는데, 결과적으로 대만족입니다 ㅎㅎ 그동안 예상해왔던
-                                                        톤이랑은 정반대 결과가 나와서 신기하기도 하구 재밌기도 해여!!! <br>
-                                                        톤도 자세히 설명해주시고 한명한명씩 세심하게 봐주시니까 이해도 엄청 잘되구요 ㅎㅎㅎㅎ <br>
-                                                        퍼스널컬러가 쉽게 바뀌진 않는다지만 나이나 그 외 컨디션에 따하서 변하기도 한다니, 담번에도 신청하고
-                                                        싶어요😆😆😆</p>
-                                                </div>
-                                            </li>
-                                            <li class="list">
-                                                <div class="tutee_info"><span class="img"><img
-                                                            src="../img/dog.jpg"
-                                                            onerror="profileImgError(this,0)" alt=""></span>
-                                                    <div class="tutee"><span class="name">하나</span>
-                                                        <div class="date">
-                                                            <p>2022-11-17 18:09:55</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="cmt">
-                                                    <p class="hide">진짜 대박이예요!! 엄청 섬세하게 자세히 알려주시고! 제가 알던 퍼스널컬러랑 완전 다르게
-                                                        나와서 놀랐는데 또 그게 너무 정답같아서 오늘 진단받은게 너무 맘에 들었습니다!ㅎㅎ<br>
-                                                        화장품이랑 염색스타일도 추천해주시고! 가격대비 너무 고퀄리티같아요! 시간지나고 베이직말고 더 깊게 찾는거로 또
-                                                        방문예정입니다!<br>
-                                                        친절하게 자세히 설명해주셔서 감사합니다! ㅎㅎ<br>
-                                                        혼자갔는데도 아예 모르는사람들이 같이 봐주니까 더 정확한거같아요! 강추합니다! ㅎㅎ<br>
-                                                        연예인 들어서 설명해주셔서 좀더 이해도 빨랐어요! ㅎㅎ 제 퍼스널컬러가 김혜수님이랑 같다하니 그것도 기분이
-                                                        좋았습니다 ㅎㅎ 선생님 최고예용!</p>
-                                                </div>
-                                            </li>
                                         </ul>
                                     </div>
                                     <!--// 댓글영역 -->
@@ -376,23 +294,23 @@
                 </div>
                 <!--------------추가------------------>
                 <!-- alert 디자인 팝업 -->
-                <div id="alreadyPopup" class="modal_popup_list" style="display: none;">
-                    <div class="pop_alert_msg">
-                        <h3>앗!</h3>
-                        <p>이미 작성하신 리뷰가 있어요.</p>
-                        <button type="button" class="btn_close">확인</button>
-                    </div>
-                </div>
-                <div id="deletePopup" class="modal_popup_list" style="display: none;">
-                    <div class="pop_alert_msg">
-                        <h3>정말 삭제하시겠어요?</h3>
-                        <p>리뷰를 삭제하시면, 해당 수업에 새로운 리뷰를 작성하실 수 없어요.</p>
-                        <div class="btn_area">
-                            <button type="button" class="btn_review_del" onclick="delReview(49128)">리뷰 삭제</button>
-                            <button type="button" class="btn_close cancle">취소</button>
-                        </div>
-                    </div>
-                </div>
+<!--                 <div id="alreadyPopup" class="modal_popup_list" style="display: none;"> -->
+<!--                     <div class="pop_alert_msg"> -->
+<!--                         <h3>앗!</h3> -->
+<!--                         <p>이미 작성하신 리뷰가 있어요.</p> -->
+<!--                         <button type="button" class="btn_close">확인</button> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--                 <div id="deletePopup" class="modal_popup_list" style="display: none;"> -->
+<!--                     <div class="pop_alert_msg"> -->
+<!--                         <h3>정말 삭제하시겠어요?</h3> -->
+<!--                         <p>리뷰를 삭제하시면, 해당 수업에 새로운 리뷰를 작성하실 수 없어요.</p> -->
+<!--                         <div class="btn_area"> -->
+<!--                             <button type="button" class="btn_review_del" onclick="delReview(49128)">리뷰 삭제</button> -->
+<!--                             <button type="button" class="btn_close cancle">취소</button> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
                 <!-- // alert 디자인 팝업 -->
             </div>
 
@@ -414,12 +332,200 @@
         </footer>
     </main>
     <!-- </div> -->
+    <!--모달창 !!!!!!!!!!! 댓글 !!!!!!!!!!!!!!!!!!11-->
+	<div class="css-14gy7wr" id="modal_comment">
+        <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
+           <div class="css-1p257d1-modalAddStyle">
+              <header title="" class="css-166ww79-HeaderBarPrimitive-headerAddStyle">
+                 <div class="css-19pxr9t"></div>
+                 <em class="css-10mjbgt">유저 이름</em>
+                 <div class="css-19pxr9t">
+                    <button class="css-1lvet1d-StylelessButton" id="close_board_btn"></button>
+                 </div>
+              </header>
+              <div class="css-1iv0iqc">
+                 <div height="100%" class="css-2zu8pq">
+                    <div class="css-cdzmq7">
+                       <div class="css-iowq1w">
+                          <div class="css-iowq1w">
+                                <textarea maxlength="10000" placeholder="이 클래스에 대한 생각을 자유롭게 표현해주세요."
+                                   class="css-1k5ei58" id="modal_writecomment1"
+                                   name="board_content"></textarea>
 
+                                <div class="css-238o9r"></div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="css-183vuuo">
+                 <div class="css-a2jbfo">
+                    <!------>
+                    <div class="css-5d0dfn">
+                       <div data-type="spoiler" class="css-hyoixq">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                             fill="none" class="css-7zhfhb">
+                             <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M11.9998 1.89462C6.41882 1.89462 1.89453 6.41891 1.89453 11.9999C1.89453 17.5809 6.41882 22.1052 11.9998 22.1052C17.5808 22.1052 22.1051 17.5809 22.1051 11.9999C22.1051 6.41891 17.5808 1.89462 11.9998 1.89462ZM7.78928 11.4662C8.02183 11.0634 8.53685 10.9254 8.93962 11.158L12.0061 12.9284L15.0612 11.1645C15.464 10.932 15.979 11.07 16.2116 11.4728C16.4441 11.8755 16.3061 12.3906 15.9034 12.6231L13.6903 13.9008L15.8678 15.158C16.2706 15.3905 16.4086 15.9055 16.1761 16.3083C15.9435 16.7111 15.4285 16.8491 15.0257 16.6165L12.0061 14.8732L8.97515 16.6231C8.57237 16.8556 8.05735 16.7176 7.82481 16.3149C7.59227 15.9121 7.73027 15.3971 8.13304 15.1645L10.3219 13.9008L8.09752 12.6165C7.69474 12.384 7.55674 11.869 7.78928 11.4662ZM7.9998 8.21074C7.9998 7.74566 8.37682 7.36864 8.8419 7.36864H9.05243C9.51751 7.36864 9.89454 7.74566 9.89454 8.21074V8.84232C9.89454 9.3074 9.51751 9.68443 9.05243 9.68443H8.8419C8.37682 9.68443 7.9998 9.3074 7.9998 8.84232V8.21074ZM14.9472 7.36864C14.4821 7.36864 14.1051 7.74566 14.1051 8.21074V8.84232C14.1051 9.3074 14.4821 9.68443 14.9472 9.68443H15.1577C15.6228 9.68443 15.9998 9.3074 15.9998 8.84232V8.21074C15.9998 7.74566 15.6228 7.36864 15.1577 7.36864H14.9472Z"
+                                fill="#C4C4C4" class="css-7zhfhb"></path>
+                          </svg>
+                       </div>
+                    </div>
+                    <!------>
+                    <div class="css-6qnjre"></div>
+                    <div class="css-6qnjre">
+                       <p class="css-1s08rlk"></p>
+                       <p class="css-ynpx67" id="reCount">0/10000</p>
+                          <input class="css-1ukikc-StylelessButton" type="button" id="boardbtn" value="저장">
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!----모달창 !!! 댓글 끝!!!!!------>
+
+      <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+
+        <!-- 모달 페이지  -->
+        <div class="modal-content" >
+            <div >
+                <span class="close">&times;</span>
+            </div>
+            <!-- 바디-->
+            <!-- 프로필 이미지-->
+            <div class="profile-modal" >
+
+                <div class="col-lg-3">
+                    <div>
+                        <img src="/images/avatar.jpg" class="card-img-top" alt="profile_img">
+                    </div>
+                </div>
+
+                <!-- 프로필 텍스트 -->
+
+                <div class="col-lg-6">
+                    <h1 > 프로필 페이지 </h1><br>
+                    <p class="fw-bold text-info">안효빈</p>
+                    <p class="text-muted">gyqlsdlrj@gmail.com</p>
+                    <p class="text-muted">010-8011-7313</p>
+                    <br>
+                    <br>
+                    <button class="button-41" role="button" type="submit">프로필 수정</button>
+
+                </div>
+            </div>
+
+            <h1 class="profile-thumbnail"> 강의 썸네일 </h1><br>
+            <br>
+
+            <!-- 클래스 썸네일 -->
+
+            <div class="row">
+
+                <div class="col-sm-7">
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <a href="#"><img src="assets/img/best_pro-1.jpg" class="d-block w-100" alt="thumbnail"></a>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="#"><img src="assets/img/best_pro-10.jpg" class="d-block w-100" alt="thumbnail"></a>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="#"><img src="assets/img/best_pro-11.jpg" class="d-block w-100" alt="thumbnail"></a>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
     <!--------------------------------------------------->
-    
+     <!-- 프로필 추가 JS-->
+    <script src="/js/modal_profile.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous">
+    </script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    var modal_comment = document.getElementById("modal_comment")
+    var board_modal_btn = document.getElementById("board_modal_btn");
+
+// var board_modal_btn = document.querySelector("#board_modal_btn")
+    board_modal_btn.addEventListener("click", e => {
+        document.getElementById("modal_comment").style.display="block";
+        // document.querySelector("#modal").show();
+
+    // document.getElementById("modal").show();
+        // $("#modal").show();
+    })
+
+    /*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
+    var closeBtn = modal_comment.querySelector(".css-1lvet1d-StylelessButton")
+    closeBtn.addEventListener("click", e => {
+        modal_comment.style.display = "none"
+    })
+
+    /*코멘트 남기기 바깥 부분 클릭 시 모달창 꺼짐*/
+    modal_comment.addEventListener("click", e => {
+        const evTarget = e.target
+        if (evTarget.classList.contains("css-rpyl6s")) {
+            modal_comment.style.display = "none"
+        }
+    })
+
+    var boardbtn = document.getElementById('boardbtn')
+    var modal_writecomment1 = document.getElementById('modal_writecomment1')
+    boardbtn.disabled = true;
+    modal_writecomment1.addEventListener('keyup', button)
+
+    function button() {
+        if (!(modal_writecomment1.value == "")) {
+            boardbtn.disabled = false;
+            document.getElementById("reCount").innerHTML = modal_writecomment1.value.length + "/" + 10000;
+        } else {
+            boardbtn.disabled = true;
+        }
+    }
+
+
+               /*---------------------------댓글 남기기 모달창 끝---------------------------------*/
+
+</script>
 
 </html>
