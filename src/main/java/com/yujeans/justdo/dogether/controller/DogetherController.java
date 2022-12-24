@@ -118,8 +118,10 @@ public class DogetherController {
       
       // 카테고리 아아디 가져오기 & Category 클래스의 id set
       Long categoryId = categoryService.findCategoryId(selectedThird);
+      System.out.println("****카테고리 아이디**** : " + categoryId);
       Category cate = new Category();
       cate.setId(categoryId);
+      System.out.println("****클래스 아이디**** : "+ cate.getId());
       
       /*
        *SELECT a.ID  FROM CREDENTIAL c 
@@ -132,6 +134,7 @@ public class DogetherController {
       //request.getAttribute("id") : Object타입 -> String으로 형변환 -> Long으로 형변환
       Account account = new Account();
       account.setId(accountId);
+      System.out.println("**** 어카운트 아이디 **** : " + account.getId());
       
       Dogether dogether = new Dogether();
       dogether.setTitle(dogetherForm.getTitle());          // 제목
@@ -147,7 +150,7 @@ public class DogetherController {
       dogether.setAccount(account);
       
       //----카테고리 id 확인
-//      System.out.println("카테고리 설정한 id값 확인 ~~~ :: " + dogether.getCategory().getId());
+      System.out.println("카테고리 설정한 id값 확인 ~~~ :: " + dogether.getCategory().getId());
       
       // 작성한 dogether 저장
       dogetherService.saveDogether(dogether);

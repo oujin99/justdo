@@ -48,6 +48,9 @@ public class AllPageLoginCheckInterceptor implements HandlerInterceptor{
 						request.setAttribute("thumbnail_image", userInfoMap.get("thumbnail_image"));
 						request.setAttribute("email", userInfoMap.get("email"));
 						request.setAttribute("loginState", "ok");
+						
+						System.out.println("id : "+userInfoMap.get("id"));
+					
 					}
 				}
 			}
