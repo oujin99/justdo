@@ -2,8 +2,6 @@ package com.yujeans.justdo.category.repository;
 
 import java.util.List;
 
-
-import org.springframework.boot.autoconfigure.data.ConditionalOnRepositoryType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -59,9 +59,12 @@ public class DogetherController {
          return "dogether/dogether_regist";
       }
 
-    @GetMapping("/dogether/listForm")
-      public String dogetherListForm() {
-         return "dogether/dogether_list";
+    @GetMapping("/dogether/listForm/{thirdCategoryName}")
+      public String dogetherListForm(@PathVariable("thirdCategoryName") String thirdCategoryName) {
+    	
+    	// System.out.println("thirdCategoryName : "+thirdCategoryName);
+    	
+        return "dogether/dogether_list";
     }
 
    //두번째 카테고리 가져오기(ajax)

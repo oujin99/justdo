@@ -18,10 +18,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @SequenceGenerator(
-	name = "Dogether_seq_generator",
-	sequenceName = "Dogether_seq",
-	initialValue = 1,
-	allocationSize = 1
+   name = "Dogether_seq_generator",
+   sequenceName = "Dogether_seq",
+   initialValue = 1,
+   allocationSize = 1
 )
 public class Dogether {
 	@Id
