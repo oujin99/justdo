@@ -2,8 +2,6 @@ package com.yujeans.justdo.category.service;
 
 import java.util.List;
 
-import javax.persistence.Tuple;
-
 import org.springframework.stereotype.Service;
 
 import com.yujeans.justdo.category.SecondCategory;

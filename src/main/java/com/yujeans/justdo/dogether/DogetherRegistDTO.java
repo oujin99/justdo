@@ -1,7 +1,5 @@
 package com.yujeans.justdo.dogether;
 
-import com.yujeans.justdo.category.ThirdCategory;
-
 import lombok.Getter;
 import lombok.Setter;
 

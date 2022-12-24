@@ -2,7 +2,6 @@ package com.yujeans.justdo.category.repository;
 
 import java.util.List;
 
-import javax.persistence.Tuple;
 
 import org.springframework.boot.autoconfigure.data.ConditionalOnRepositoryType;
 import org.springframework.data.jpa.repository.JpaRepository;
