@@ -4,6 +4,9 @@ import java.security.Key;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.yujeans.justdo.jwt.token.TokenInfo;
+import com.yujeans.justdo.user.Account;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -41,7 +45,7 @@ public class JwtTokenProvider {
     }
  
     // 유저 정보를 가지고 AccessToken, RefreshToken 을 생성하는 메서드
-    public TokenInfo generateToken(Authentication authentication) {
+    public TokenInfo generateToken(Authentication authentication, Account account) {
     	
         // 권한 가져오기
         String authorities = authentication.getAuthorities().stream()
@@ -52,12 +56,17 @@ public class JwtTokenProvider {
         // Access Token 생성
         // 86400000
         
-        // 3분
-        int accessTokenExp = 1000 * 60 * 60 * 3;
+        // 6시간
+        int accessTokenExp = 1000 * 60 * 60 * 6;
         Date accessTokenExpiresIn = new Date(now + accessTokenExp);
         String accessToken = Jwts.builder()
                 .setSubject(authentication.getName())
                 .claim("auth", authorities)
+                .claim("email", account.getEmail())
+                .claim("nickname", account.getName())
+                .claim("id", authentication.getName())
+                .claim("phone", account.getPhone())
+                .claim("thumnail_image", account.getImage())
                 .setExpiration(accessTokenExpiresIn)
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
@@ -65,8 +74,8 @@ public class JwtTokenProvider {
         // Refresh Token 생성
         // 86400000
         
-        // 1달
-        int refreshTokenExp = 1000 * 60 * 60 * 24 * 30;
+        // 6시간
+        int refreshTokenExp = 1000 * 60 * 60 * 6;
         String refreshToken = Jwts.builder()
                 .setExpiration(new Date(now + refreshTokenExp))
                 .signWith(key, SignatureAlgorithm.HS256)
@@ -79,6 +88,13 @@ public class JwtTokenProvider {
                 .build();
     }
  
+    public Map<String, Object> getUserInfo(String accessToken) {
+    	Claims claims = parseClaims(accessToken);
+    	Map<String, Object> claimMap = new HashMap<String, Object>(claims);
+
+    	return claimMap;
+    }
+    
     // JWT 토큰을 복호화하여 토큰에 들어있는 정보를 꺼내는 메서드
     public Authentication getAuthentication(String accessToken) {
         // 토큰 복호화
@@ -87,6 +103,26 @@ public class JwtTokenProvider {
         if (claims.get("auth") == null) {
             throw new RuntimeException("권한 정보가 없는 토큰입니다.");
         }
+ 
+        // 클레임에서 권한 정보 가져오기
+        Collection<? extends GrantedAuthority> authorities =
+                Arrays.stream(claims.get("auth").toString().split(","))
+                        .map(SimpleGrantedAuthority::new)
+                        .collect(Collectors.toList());
+ 
+        // UserDetails 객체를 만들어서 Authentication 리턴
+        UserDetails principal = new User(claims.getSubject(), "", authorities);
+        return new UsernamePasswordAuthenticationToken(principal, "", authorities);
+    }
+    
+    // 카카오 로그인 체크
+    public Authentication getTest(String accessToken) {
+        // 토큰 복호화
+        Claims claims = parseClaims(accessToken);
+//        System.out.println("claims : " + claims);
+//        if (claims.get("auth") == null) {
+//            throw new RuntimeException("권한 정보가 없는 토큰입니다.");
+//        }
  
         // 클레임에서 권한 정보 가져오기
         Collection<? extends GrantedAuthority> authorities =

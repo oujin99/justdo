@@ -1,7 +1,5 @@
 package com.yujeans.justdo.user.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.yujeans.justdo.jwt.provider.JwtTokenProvider;
 import com.yujeans.justdo.jwt.token.TokenInfo;
+import com.yujeans.justdo.user.Account;
 import com.yujeans.justdo.user.Credential;
 import com.yujeans.justdo.user.LoginMethod;
+import com.yujeans.justdo.user.repository.AccountRepository;
 import com.yujeans.justdo.user.repository.CredentialRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -47,9 +47,11 @@ public class CredentialService {
         // authenticate 매서드가 실행될 때 CustomUserDetailsService 에서 만든 loadUserByUsername 메서드가 실행
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         
+        // 로그인 정보
+        Account account = credentialRepository.findAccountByUsername(username);
+        
         // 3. 인증 정보를 기반으로 JWT 토큰 생성
-        TokenInfo tokenInfo = jwtTokenProvider.generateToken(authentication);
-        System.out.println("test token : " + tokenInfo);
+        TokenInfo tokenInfo = jwtTokenProvider.generateToken(authentication, account);
         return tokenInfo;
     }
 
