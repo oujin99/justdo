@@ -9,19 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet" />
     <script src="https://kit.fontawesome.com/fc26219ee3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/swiper-bundle.css">
-    <link rel="stylesheet" href="../css/board_style.css">
-    <link rel="stylesheet" href="../css/board_media.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="../css/board_style.css">
-    <link rel="stylesheet" href="../css/board_media.css">
-    
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.css">
+    <link rel="stylesheet" href="/css/board_style.css">
+    <link rel="stylesheet" href="/css/board_media.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="../js/script.js" defer></script>
+    <script src="/js/script.js" defer></script>
 
     <!-- header, footer 공통 부분 -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -43,7 +38,7 @@
         <li><a href="#footer">푸터 바로가기</a></li>
     </ul>
     <header>
-    	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
+    	<th:bloack th:replace="/fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
     </header>
     <div id="searcher"></div>
     <div class="board_wrap">

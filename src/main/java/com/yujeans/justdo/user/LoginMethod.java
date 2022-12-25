@@ -11,7 +11,6 @@ import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
 @SequenceGenerator(
 	name = "LoginMethod_seq_generator",
 	sequenceName = "LoginMethod_seq",

@@ -1,13 +1,10 @@
 package com.yujeans.justdo.user.repository;
 
-import javax.persistence.EntityManager;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import lombok.RequiredArgsConstructor;
+import com.yujeans.justdo.user.Account;
 
-@Repository
-@RequiredArgsConstructor
-public class AccountRepository {
-	private final EntityManager em;
+public interface AccountRepository extends JpaRepository<Account, Long>{
+	
 }
