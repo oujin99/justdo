@@ -36,13 +36,13 @@ public class SecurityConfig {
 		        .csrf().disable()
 		        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		        .and()
-		        
 		        .authorizeRequests()
 		        .antMatchers("/api/login").permitAll()
 		        .antMatchers("/api/test").hasRole("USER")
 		        .antMatchers("/user/mypage").hasRole("USER")
 		        .antMatchers("/dogether/registForm").hasRole("USER")
 		        .and()
+		        
 		        .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, kakaoService), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

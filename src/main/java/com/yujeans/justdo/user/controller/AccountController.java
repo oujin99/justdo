@@ -15,13 +15,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.yujeans.justdo.jwt.provider.JwtTokenProvider;
 import com.yujeans.justdo.user.Account;
 import com.yujeans.justdo.user.Credential;
 import com.yujeans.justdo.user.dto.CredentialLoginRequestDto;
@@ -34,9 +35,6 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class AccountController {
-	
-	@Autowired
-	private final JwtTokenProvider jwtTokenProvider;
 	
 	@Autowired
 	private final AccountService accountService;
@@ -116,16 +114,32 @@ public class AccountController {
 	}
 	
 	@GetMapping("/user/signup")
-	public String signupForm() {
+	public String signupForm(@ModelAttribute SignUpFormDto signUpFormDto) {
+		
 		return "/user/signup";
 	}
 	
 	@PostMapping("/user/signup")
-	public String signUpFormSave(@ModelAttribute SignUpFormDto signUpFormDto) {
+	public String signUpFormSave(@Validated @ModelAttribute SignUpFormDto signUpFormDto
+								,BindingResult bindingResult) {
+		String password = signUpFormDto.getPassword();
+		String rePassword = signUpFormDto.getRePassword();
+		
+		if(!password.equals(rePassword)) {
+			System.out.println("패스워드 틀림");
+			bindingResult.addError(new FieldError("signUpFormDto", "rePassword", "패스워드와 틀립니다 확인해주세요"));
+		}
+		if(bindingResult.hasErrors()) {
+			System.out.println("========= bindingResult Error =========");
+			
+			return "/user/signup";
+		}
+		
 		Account account = new Account();
 		account.setName(signUpFormDto.getName());
 		account.setPhone(signUpFormDto.getPhone());
 		account.setEmail(signUpFormDto.getEmail());
+		account.setImage("/images/default_image.png");
 		accountService.save(account);
 		
 		Credential credential = new Credential();

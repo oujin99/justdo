@@ -66,7 +66,7 @@ public class JwtTokenProvider {
                 .claim("nickname", account.getName())
                 .claim("id", authentication.getName())
                 .claim("phone", account.getPhone())
-                .claim("thumnail_image", account.getImage())
+                .claim("thumbnail_image", account.getImage())
                 .setExpiration(accessTokenExpiresIn)
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
