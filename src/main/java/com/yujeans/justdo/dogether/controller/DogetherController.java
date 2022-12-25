@@ -59,10 +59,17 @@ public class DogetherController {
          return "dogether/dogether_regist";
       }
 
+   	// 인덱스 페이지에서 받은 소분류 카테고리를 이용해 두게더 썸네일 리스트 보여주기
     @GetMapping("/dogether/listForm/{thirdCategoryName}")
-      public String dogetherListForm(@PathVariable("thirdCategoryName") String thirdCategoryName) {
+      public String dogetherListForm(@PathVariable("thirdCategoryName") String thirdCategoryName, Model model) {
     	
-    	// System.out.println("thirdCategoryName : "+thirdCategoryName);
+    	model.addAttribute("thirdCategoryName", thirdCategoryName);
+    	
+    	List<Dogether> dogetherFromThirdList = dogetherService.findDogetherByThirdCategoryName(thirdCategoryName);
+    	
+    	if(dogetherFromThirdList.size()>0) {
+    		model.addAttribute("dogetherList", dogetherFromThirdList);
+    	}
     	
         return "dogether/dogether_list";
     }
@@ -159,17 +166,15 @@ public class DogetherController {
       Long dogetherSeq = dogetherService.selectDogetherId();
       
       //가져온 시퀀스값 확인(currval)
-      System.out.println("두게더 시퀀스 :::: " + dogetherSeq);
+//      System.out.println("두게더 시퀀스 :::: " + dogetherSeq);
       
-      redirectAttributes.addAttribute("dogetherSeq", dogetherSeq);
-      
-      return "redirect:/dogether/detail";
+      return "redirect:/dogether/detail/"+dogetherSeq;
    }
    
    
-   @GetMapping("/dogether/detail")
+   @GetMapping("/dogether/detail/{dogetherSeq}")
 //   @RequestMapping(value = "/dogether/detail", method = RequestMethod.GET)
-   public String dogetherDetail(@RequestParam("dogetherSeq")Long dogetherSeq, Model model){
+   public String dogetherDetail(@PathVariable("dogetherSeq")Long dogetherSeq, Model model){
       
       Dogether findDogether = dogetherService.findDogether(dogetherSeq);
       model.addAttribute("findDogether", findDogether);
