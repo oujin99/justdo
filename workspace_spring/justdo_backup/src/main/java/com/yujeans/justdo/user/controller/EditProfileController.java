@@ -25,73 +25,27 @@ public class EditProfileController {
 	@Autowired
 	private final EditProfileService editProfileService;
 	
-	/*
-	 *  GET 방식으로 id 값을 받으면 
-	 *  id에 맞는 profile_edit 페이지가 post 방식으로 open 
-	 *  id 는 ??? 
-	 *  
-	 */
-	
-	/*
-	 * 작성 페이지 이동   
-	 */
 	@GetMapping("/profile/profile_write")
 	public String profile_Write() {
 		
 		return "/profile/profile_write";
 	}
-	
-	/*
-	 *  get 으로 id 를 받아와서 
-	 *  post -> "/profile/profile_edit" 전환 
-	 */
-	
+
 	@GetMapping("/profile/profile_edit/{id}")
 	public String profileEdit (@PathVariable("id") Long id, @ModelAttribute EditProfileDTO eDto, Model model) {
 		
-//		Account account = new Account();
-//		
-//		account.setId(id); // 임시 하드코딩 
-//		account.setName("이름");
-//		account.setEmail("이메일");
-//		account.setPhone("폰번호");
-//		account.setImage("/image.png");
-		
-		// 수정값 객체 view에 보내기 = ?? 
-//		model.addAttribute("eDto", eDto);
-		
-		// edto - > Account 테이블로 
-//		editProfileService.save(account);
-		
-		// Account 테이블 -> Model 객체로 
-//		model.addAttribute("editProfile", editProfileService.AccountList() );
-//		Optional<Account> accountTest = editProfileService.findByAccountId(id);
-//		System.out.println("test : " + accountTest.get.get().getId());
-//		model.addAttribute("editProfile", editProfileService.findByAccountId(id).get());
-//		System.out.println("AccountList : " + editProfileService.AccountList());
-//		model.addAttribute("editProfile", editProfileService.AccountList());
-//		System.out.println(editProfileService.AccountList());
-		
-//		model.addAttribute("edto", account);
-//		System.out.println(eDto.toString());
-		
-//		model.addAttribute("editProfile", editProfileService.AccountList());
-//		System.out.println(editProfileService.AccountList());
-		
-		return "/profile/profile_edit";
+		model.addAttribute("editProfile", editProfileService.AccountView(id));
+		return "profile/profile_edit";
 	}
 
-	/*
-	 *  post -> "/profile/profile_edit" 받아와서 실행하는 메소드 
-	 *  리턴 값은 redirect로 새로고침?
-	 */
+
 	
-	@PostMapping("/profile/profile_edit/{id}")
+	@PostMapping("/profile/profile_update/{id}")
 	public String profileEditForm(@PathVariable("id") Long id, @ModelAttribute EditProfileDTO eDto, Model model) {
 		
 		Account account = new Account();
 		
-//		account.setId(1L); 
+//		account.setId(4L); 
 		account.setId(id); 
 		account.setName(eDto.getName());
 		account.setEmail(eDto.getEmail());
@@ -99,12 +53,11 @@ public class EditProfileController {
 		account.setImage(eDto.getImage());
 		
 		editProfileService.save(account);
-//		System.out.println(eDto.toString());
 		
-		model.addAttribute("editProfile", editProfileService.AccountList());
+		model.addAttribute("UpdateProfile", editProfileService.AccountList());
 
 		
-		return "redirect:/profile/profile_edit{id}";
+		return "redirect:profile/profile_edit{id}";
 	}
 	
 }

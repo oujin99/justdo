@@ -173,14 +173,14 @@
     <div class="container">
         <br>
         <h1 style="font-size: 45px ; color: #d29fd7;"> 프로필 페이지 수정 </h1>
-        <form th:action="@{/profile/profile_edit/{id}(id=${editProfile.id})}" th:object="${edto}" method="post" >
+        <form th:action="@{/profile/profile_update/{id}(id=${editProfile.id})}" method="post" >
 
             <div class="row">
 
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
                         <label for="formFile" class="form-label">이미지 파일 선택</label><br>
-                        <input th:field="*{img}" class="form-control" type="file" id="formFile">
+                        <input th:value="${editProfile.image}" class="form-control" type="file" id="formFile">
                     </div>
                     <div class="col-lg-2"></div>
             </div>
@@ -190,7 +190,7 @@
                 </div>
                 <div class="col-lg-8">
                     <label for="exampleFormControlInput1" class="form-label">이메일</label><br>
-                    <input th:field="*{email}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="E-mail">
+                    <input th:value="${editProfile.email}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="E-mail">
                 </div>
                 <div class="col-lg-2">
 
@@ -201,7 +201,7 @@
                 </div>
                 <div class="col-lg-8">
                     <label for="exampleFormControlInput1" class="form-label">이름</label><br>
-                    <input th:field="*{name}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+                    <input th:value="${editProfile.name}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
                 </div>
                 <div class="col-lg-2">
 
@@ -212,7 +212,7 @@
                 </div>
                 <div class="col-lg-8">
                     <label for="exampleFormControlInput1" class="form-label">전화번호</label><br>
-                    <input th:field="*{phone}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="010-0000-0000">
+                    <input th:value="${editProfile.phone}" type="text" class="form-control" id="exampleFormControlInput1" placeholder="010-0000-0000">
                 </div>
                 <div class="col-lg-2">
 

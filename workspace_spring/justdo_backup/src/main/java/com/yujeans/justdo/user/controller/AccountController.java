@@ -34,22 +34,20 @@ public class AccountController {
 	/* 1. 
 	 * DB Account 테이블의 name,e-mail, phone, img 를 가져와
 	 * profile.html 에 thymeleaf object 를 통해 적용 
+	 * 
+	 *  현재 수정 DB 적용 안된 상태 
 	 */
 	  
 	@GetMapping("/profile/profile")
 	public String list_profile(HttpServletRequest request, Model model) {
 		Long id = (Long) request.getAttribute("id");
 		
-		List<Account> user_profile = accountService.findprofileById(5L);
+		// DB - Account 테이블 값 가져오기 
+		// id 파라미터  변경 필요
+		List<Account> user_profile = accountService.findprofileById(4L);  
 		
 		model.addAttribute("user_profile", user_profile);
 		
-		for( Account account : user_profile) {
-			System.out.println(" account 할당 값 = "+ account);
-			System.out.println("user_profile 할당 값 = "+user_profile.toString());
-//			Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)
-//			[Account(id=1, name=user1, email=test2@gmail.com, phone=010-1234-4567, address=서울, image=assets/img/class_2.png)]
-		}
 		return "profile/profile";
 	}
 	
@@ -68,52 +66,5 @@ public class AccountController {
 		return "profile";
 	*/
 
-	/* 3. 
-	 * 프로필 수정 페이지 에서 수정하기 클릭시
-	 * 해당 user id 를 통해 DB 테이블 값 변경 
-	 
-	
-	@PostMapping("/{userId}/edit")
-	public String edit_profile(@PathVariable Long id, @ModelAttribute Account account) {
-		
-		accountService.update(id,account);
-		
-		return "redirect:/profile/profile_backup/{userId}";
-		
-		
-	}
-	*/
-	
-	
-	/*
-	 *  4. th:if , th:each 를 사용해서 
-	 *  프로필 수정 <button> 자기 id 일 때만 보이게하기  
-	 */
-	
-	/* 3.
-	 * 프로필 수정 ( profile_addForm.html ) 에서 수정한 값을 
-	 * DB에 적용 
-	
-	
-//	@GetMapping("/profile/profile_backup")
-	@PostMapping("/{userId}/edit") // th:action="@{/profile_addForm/edit}" th:object="${edit}" method="post"
-	public String edit_profile(@ModelAttribute EditAccount edit, BindingResult result) throws IllegalAccessException{
-		
-		// error 발생시
-		if( result.hasErrors()) {
-			return "redirect:/";
-		}
-		
-		Account account = new Account();
-		
-		account.setName(edit.getName());
-		account.setEmail(edit.getEmail());
-		account.setPhone(edit.getPhone());
-		account.setImage(edit.getImage());
-		
-		accountService.join(account);
-		return "profile/profile_backup";
-	}
-	 */
 	
 }
