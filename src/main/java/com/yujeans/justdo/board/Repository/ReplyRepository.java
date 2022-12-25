@@ -1,10 +1,8 @@
 package com.yujeans.justdo.board.Repository;
 
-import org.springframework.stereotype.Repository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.yujeans.justdo.board.Reply;
 
-@Repository
-@RequiredArgsConstructor
-public class ReplyRepository {
+public interface ReplyRepository extends JpaRepository<Reply, Long>{
 
 }

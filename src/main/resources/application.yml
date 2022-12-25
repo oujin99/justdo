@@ -10,11 +10,11 @@ spring:
     driver-class-name: oracle.jdbc.driver.OracleDriver
 
   jpa:
-    generate-ddl: true
-    hibernate:
+    #generate-ddl: true
+#    hibernate:
 #     ddl-auto: create
-#    properties:
-      hibernate:
+    properties:
+       hibernate:
          show_sql: true
          format_sql: true
 #logging.level:

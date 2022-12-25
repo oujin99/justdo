@@ -1,19 +1,11 @@
 package com.yujeans.justdo.board.service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneOffset;
 import java.util.List;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import com.yujeans.justdo.board.Board;
 import com.yujeans.justdo.board.Repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -50,6 +42,20 @@ public class BoardService {
         
     	boardRepository.deleteById(id);
     }
+
+    // 페이징 처리
+    @Transactional
+	public Page<Board> getBoardList(Pageable pageable) {
+    	Page<Board> boardList = boardRepository.findAll(pageable);
+		return boardList;
+	}
     
- 
+    // 페이징 검색
+    @Transactional
+    public Page<Board> getSearchList(String keyword, Pageable pageable) {
+        Page<Board> searchList = boardRepository.findByTitleContaining(keyword, pageable);
+        return searchList;
+    }
+    
+    
 }

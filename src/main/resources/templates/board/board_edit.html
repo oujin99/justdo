@@ -51,7 +51,7 @@
     <header>
     	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
     </header>
-    <div id="searcher"></div>
+    <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
     <div class="board_wrap">
         <div class="board_title">
             <strong>게시글 수정</strong>
@@ -70,14 +70,18 @@
 	                </div>
 	            </div>
 	            <div class="bt_wrap">
-	                <a href="/html/board_view.html" th:href="@{/board/boardList}">취소</a>
+	            	<div class="qwe"></div>
+	            	<div class="asd">
+	                <a href="/html/board_view.html" th:href="@{/board/boardView(id=${boardEdit.id})}">취소</a>
 	                <a href="javascript:boardEditForm.submit();" class="on" >수정</a>
+	                </div>
 	            </div>
 	        </div>
         </form>
     </div>
+    <div style="padding: 15px"></div>
    <footer>
-        <th:bolack th:replace="fragments/footer.html :: footer"></th:bolack>
+<!--         <th:bolack th:replace="fragments/footer.html :: footer"></th:bolack> -->
     </footer>
 </body>
 

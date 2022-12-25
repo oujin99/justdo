@@ -76,17 +76,17 @@
                     <div class="count">조회</div>
                 </div>
                 
-                <th:block th:if="${total < 0}">
+               <th:block th:if="${total < 0}">
                		<div>
 	                    <div class="num" ></div>
-	                    <div class="title" style="padding: 3em 0em 3em 8em;">데이터가 없습니다.</div>
+	                    <div class="title" style="padding: 3em 0em 3em 8em;" >데이터가 없습니다.</div>
 						<div class="writer"></div>
 						<div class="date"></div>
 	                    <div class="count"></div>
                		</div>
                </th:block>
-                
-               <div th:each="board : ${boardList}">
+               
+               <div th:each="board : ${searchList}">
                     <div class="num" ><a href="view.html" th:text="${board.id}" th:href="@{/board/boardView(id=${board.id})}"></a></div>
                     <div class="title" ><a href="view.html" th:text="${board.title}" th:href="@{/board/boardView(id=${board.id})}"></a></div>
 					<div class="writer" th:text="${board.account.name}"></div>
@@ -96,38 +96,38 @@
             </div>
             
             <div class="board_page">
-            			<th:block th:unless="${total < 0}">
-	            			<ul style="display: inline-flex;">
-		            			<li>
-			                	 	<a th:href="@{/board/boardList(page=${first})}" class="pg-bt2 bt first" th:if="${hasPrev} ? 'disabled'" >&lt;&lt;</a>
-			                        <a th:href="@{/board/boardList(page=${previous})}" class="pg-bt1 bt prev"  th:if="${hasPrev} ? 'disabled'">&lt; </a>
-		                        </li>
-		                        
-		                        <li>
-		                        	<th:block th:each="page:${#numbers.sequence(startPage, endPage)}">
-		                        		<a th:if="${page != nowPage}" th:href="@{/board/boardList(page=${page -1})}" th:text="${page}"></a>
-		                        		<strong th:if="${page == nowPage}"  th:text="${page}" style="color: #0076d3;"></strong>
-		                        	</th:block>
-		                        </li>
-		                        
-		                        <li>
-			                        <a th:href="@{/board/boardList(page=${next})}" class="pg-bt1 bt next" th:if="${hasNext} ? 'disabled'">&gt;</a>
-			                		<a th:href="@{/board/boardList(page=${total})}" class="pg-bt2 bt last" th:if="${hasNext} ? 'disabled'">&gt;&gt;</a>
-		                		</li>
-		                	</ul>
-            			</th:block>
+            	<th:block th:unless="${total < 0}">
+            		<ul style="display: inline-flex;">
+            			<li>
+	                	 	<a th:href="@{/board/boardSearchList(page=${first}, keyword=${param.keyword})}" class="pg-bt2 bt first" th:if="${hasPrev} ? 'disabled'" >&lt;&lt;</a>
+	                        <a th:href="@{/board/boardSearchList(page=${previous}, keyword=${param.keyword})}" class="pg-bt1 bt prev"  th:if="${hasPrev} ? 'disabled'">&lt; </a>
+                        </li>
+                        
+                        <li>
+                        	<th:block th:each="page:${#numbers.sequence(startPage, endPage)}">
+                        		<a th:if="${page != nowPage}" th:href="@{/board/boardSearchList(page=${page -1}, keyword=${param.keyword})}" th:text="${page}"></a>
+                        		<strong th:if="${page == nowPage}"  th:text="${page}" style="color: #0076d3;"></strong>
+                        	</th:block>
+                        </li>
+                        
+                        <li>
+	                        <a th:href="@{/board/boardSearchList(page=${next}, keyword=${param.keyword})}" class="pg-bt1 bt next" th:if="${hasNext} ? 'disabled'">&gt;</a>
+	                		<a th:href="@{/board/boardSearchList(page=${total}, keyword=${param.keyword})}" class="pg-bt2 bt last" th:if="${hasNext} ? 'disabled'">&gt;&gt;</a>
+                		</li>
+                	</ul>
+                </th:block>
             </div>
             
             <div class="bt_wrap">
             	<div class="qwe"></div>
                 <a href="write.html" class="on" th:href="@{/board/boardWrite}">게시물 등록</a>
-                <!--<a href="#">수정</a>-->
             </div>
         </div>
+        
     </div>
     
     <div style="padding: 15px"></div>
-   
+    
     <footer>
 <!--         <th:bolack th:replace="fragments/footer.html :: footer"></th:bolack> -->
     </footer>

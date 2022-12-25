@@ -1,6 +1,5 @@
 package com.yujeans.justdo.board;
 
-import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.CreatedDate;
 import com.yujeans.justdo.user.Account;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,12 +27,11 @@ public class Reply {
 	private Long id;
 	
 	private String content;
-	
-	@CreatedDate
-	private LocalDateTime startDate;
+	private String startDate;
 	
 	@ManyToOne
 	@JoinColumn
+	@NotNull
 	private Account account;
 	
 	@ManyToOne
