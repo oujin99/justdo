@@ -121,11 +121,6 @@ public class DogetherController {
       Category cate = new Category();
       cate.setId(categoryId);
       
-      /*
-       *SELECT a.ID  FROM CREDENTIAL c 
-   LEFT OUTER JOIN ACCOUNT a ON a.id = c.ACCOUNT_ID WHERE c.USERNAME = 'bbbb@naver.com'; 
-       */
-      
       // id 세팅
       
       Long accountId = Long.parseLong(String.valueOf(request.getAttribute("id"))); 
