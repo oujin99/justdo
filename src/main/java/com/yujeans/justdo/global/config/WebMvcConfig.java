@@ -30,7 +30,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
 		
 		registry.addInterceptor(allPageLoginCheckInterceptor)
 					.addPathPatterns("/**")
-					.excludePathPatterns("/css/**", "/favicon/**", "/images/**", "/img/**", "/javascripts/**", "/js/**", "/manifest.*", "/error")
+					.excludePathPatterns("/css/**", "/favicon/**", "/images/**", "/img/**", "/javascripts/**", "/js/**", "/manifest.*", "/error", "/json/**", "/*.json")
 					.excludePathPatterns("/**/*.html", "/*.ico")
 					.excludePathPatterns("/user/login", "/user/signup", "/kakao/login", "/kakao/logout");
 	}
