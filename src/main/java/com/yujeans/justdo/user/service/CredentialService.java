@@ -73,4 +73,8 @@ public class CredentialService {
     public LoginMethod findLoginMethodByType(String type) {
 		return loginMethodRepository.findByType(type);
     }
+    
+    public Account findUserInfo(String username) {
+		return credentialRepository.findAccountByUsername(username);
+	}
 }

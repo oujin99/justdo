@@ -24,14 +24,11 @@ import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.category.SecondCategory;
 import com.yujeans.justdo.category.ThirdCategory;
 import com.yujeans.justdo.category.service.CategoryService;
-import com.yujeans.justdo.credential.service.CredentialService;
-import com.yujeans.justdo.dogether.AccountDogether;
 import com.yujeans.justdo.dogether.Dogether;
 import com.yujeans.justdo.dogether.DogetherRegistDTO;
 import com.yujeans.justdo.dogether.service.DogetherService;
 import com.yujeans.justdo.user.Account;
-import com.yujeans.justdo.user.Credential;
-import com.yujeans.justdo.user.service.AccountService;
+import com.yujeans.justdo.user.service.CredentialService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -183,6 +180,8 @@ public class DogetherController {
       // 두게더 상세보기로 바로 넘어가기 위해 redirect로 dogether_id 넘기기
       Long dogetherSeq = dogetherService.selectDogetherId();
       
+//      redirectAttributes.addAttribute("dogether", dogether);
+      
       //가져온 시퀀스값 확인(currval)
 //      System.out.println("두게더 시퀀스 :::: " + dogetherSeq);
       
@@ -194,11 +193,12 @@ public class DogetherController {
 //   @RequestMapping(value = "/dogether/detail", method = RequestMethod.GET)
    public String dogetherDetail(@PathVariable("dogetherSeq")Long dogetherSeq, Model model){
       
+	   
       Dogether findDogether = dogetherService.findDogether(dogetherSeq);
       model.addAttribute("findDogether", findDogether);
       
       // 두리더 정보 찾아오기
-      Account doleaderInfo = dogether.getAccount();
+      Account doleaderInfo = findDogether.getAccount();
       System.out.println("디테일 페이지로 넘어온 후 두리더 이름 :::: " + doleaderInfo.getName());
       model.addAttribute("doleaderInfo", doleaderInfo);
       
