@@ -24,11 +24,14 @@ import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.category.SecondCategory;
 import com.yujeans.justdo.category.ThirdCategory;
 import com.yujeans.justdo.category.service.CategoryService;
+import com.yujeans.justdo.credential.service.CredentialService;
 import com.yujeans.justdo.dogether.AccountDogether;
 import com.yujeans.justdo.dogether.Dogether;
 import com.yujeans.justdo.dogether.DogetherRegistDTO;
 import com.yujeans.justdo.dogether.service.DogetherService;
 import com.yujeans.justdo.user.Account;
+import com.yujeans.justdo.user.Credential;
+import com.yujeans.justdo.user.service.AccountService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -41,20 +44,28 @@ public class DogetherController {
    @Autowired
    private final DogetherService dogetherService;
    private final CategoryService categoryService;
+//   private final AccountService accountService;
+   private final CredentialService credentialService;
    
    //메인 페이지에서 '두게더 등록' 클릭 시 두게더 등록 페이지로 이동
    @GetMapping("/dogether/registForm")
       public String dogetherRegistForm(HttpServletRequest request, Model model) {
-         System.out.println("nickname : "+request.getAttribute("nickname"));
-         System.out.println("id : "+request.getAttribute("id"));
+//         System.out.println("nickname : "+request.getAttribute("nickname"));
+//         System.out.println("id : "+request.getAttribute("id")); // 유저네임(회원가입할 때 적었던 아아디) -> 이걸로 db 조회
         
          // 대분류 조회 후 전달
          List<FirstCategory> firstCategory = dogetherService.selectFirstCategory();
          model.addAttribute("firstCategory", firstCategory);
          
+//         //유저 정보 찾아오기
+//         String username = String.valueOf(request.getAttribute("id"));
+//         Account findUserInfo = accountService.findUserInfo(username);
+//         
+         
          // 빈 객체 전달
          Dogether dogether = new Dogether();
          model.addAttribute("dogether", dogether);
+//         model.addAttribute("findUserInfo", findUserInfo);
          
          return "dogether/dogether_regist";
       }
@@ -114,34 +125,41 @@ public class DogetherController {
       String selectedThird = dogetherForm.getThirdCateSelect();
 
       //---------------테스트---------------------
-      System.out.println("닉네임 출력해보기 : " + request.getAttribute("nickname"));
-      System.out.println("아이디 출력해보기 : " + request.getAttribute("id"));
-
-      System.out.println("dto에서 가져온 세번째 카테고리 value 값 ::" + dogetherForm.getThirdCateSelect());
-      System.out.println("두게더 제목 : " + dogetherForm.getTitle());
+//      System.out.println("닉네임 출력해보기 : " + request.getAttribute("nickname"));
+//      System.out.println("아이디 출력해보기 : " + request.getAttribute("id"));
+//
+//      System.out.println("dto에서 가져온 세번째 카테고리 value 값 ::" + dogetherForm.getThirdCateSelect());
+//      System.out.println("두게더 제목 : " + dogetherForm.getTitle());
       
 //      System.out.println("requestParam에서 가져온 값 ::" + thirdCateSelect);
       //---------------테스트---------------------
       
       // 카테고리 아아디 가져오기 & Category 클래스의 id set
       Long categoryId = categoryService.findCategoryId(selectedThird);
-      System.out.println("****카테고리 아이디**** : " + categoryId);
+//      System.out.println("****카테고리 아이디**** : " + categoryId);
       Category cate = new Category();
       cate.setId(categoryId);
-      System.out.println("****클래스 아이디**** : "+ cate.getId());
+//      System.out.println("****클래스 아이디**** : "+ cate.getId());
       
       /*
        *SELECT a.ID  FROM CREDENTIAL c 
    LEFT OUTER JOIN ACCOUNT a ON a.id = c.ACCOUNT_ID WHERE c.USERNAME = 'bbbb@naver.com'; 
        */
+
       
       // id 세팅
+      //유저 정보 찾아오기
+      String username = String.valueOf(request.getAttribute("id")); //회원가입할 때 쓰는 아이디
+      Account findUserInfo = credentialService.findUserInfo(username); // account 테이블
+//    		  accountService.findUserInfo(username); // account 테이블
+      System.out.println("****찾아온 어카운트 아이디 ::: " + findUserInfo.getId());
       
-      Long accountId = Long.parseLong(String.valueOf(request.getAttribute("id"))); 
-      //request.getAttribute("id") : Object타입 -> String으로 형변환 -> Long으로 형변환
-      Account account = new Account();
-      account.setId(accountId);
-      System.out.println("**** 어카운트 아이디 **** : " + account.getId());
+      // 기존 account 아이디 세팅(일반 로그인 하기 전, 카카오로그인만 구현됐을 때)
+//      Long accountId = Long.parseLong(String.valueOf(request.getAttribute("id"))); 
+//      //request.getAttribute("id") : Object타입 -> String으로 형변환 -> Long으로 형변환
+//      Account account = new Account();
+//      account.setId(accountId);
+//      System.out.println("**** 어카운트 아이디 **** : " + account.getId());
       
       Dogether dogether = new Dogether();
       dogether.setTitle(dogetherForm.getTitle());          // 제목
@@ -154,7 +172,7 @@ public class DogetherController {
       dogether.setNotice(dogetherForm.getNotice());         // 공지사항
       dogether.setPrice(dogetherForm.getPrice());            // 가격
       dogether.setCategory(cate);                        // 카테고리 id
-      dogether.setAccount(account);
+      dogether.setAccount(findUserInfo);
       
       //----카테고리 id 확인
       System.out.println("카테고리 설정한 id값 확인 ~~~ :: " + dogether.getCategory().getId());
@@ -179,7 +197,12 @@ public class DogetherController {
       Dogether findDogether = dogetherService.findDogether(dogetherSeq);
       model.addAttribute("findDogether", findDogether);
       
-      // 두게더에 두리더 사진 넣기 위함
+      // 두리더 정보 찾아오기
+      Account doleaderInfo = dogether.getAccount();
+      System.out.println("디테일 페이지로 넘어온 후 두리더 이름 :::: " + doleaderInfo.getName());
+      model.addAttribute("doleaderInfo", doleaderInfo);
+      
+      //강의 썸네일????
       
       //AccountDogether 테이블 select *
 //      AccountDogether userId = dogetherService.findAccountDogether(dogetherId);

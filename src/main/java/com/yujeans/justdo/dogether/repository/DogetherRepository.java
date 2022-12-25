@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.dogether.Dogether;
+import com.yujeans.justdo.user.Account;
 
 
 @Repository
