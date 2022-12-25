@@ -157,7 +157,7 @@ public class AccountController {
 		credential.setLoginMethod(credentialService.findLoginMethodByType("basic"));
 		credentialService.save(credential);
 		
-		return "redirect:/";
+		return "redirect:/?joinStatus=true";
 	}
 	
 	@GetMapping("/user/mypage")

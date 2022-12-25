@@ -138,7 +138,13 @@
 
     <script src="../js/modal-category-2.js"></script>
     <script src="../js/modal-category.js"></script>
-    
+    <script th:inline="javascript">
+		console.log('hihi');
+		console.log([[joinStatus]]);
+		if([[joinStatus]]){
+			alert('회원가입이 완료되었습니다.');
+		}
+	</script>
 </body>
 
 </html>
