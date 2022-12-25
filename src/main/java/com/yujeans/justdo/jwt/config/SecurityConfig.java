@@ -36,7 +36,6 @@ public class SecurityConfig {
 		        .csrf().disable()
 		        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		        .and()
-		        
 		        .authorizeRequests()
 		        .antMatchers("/api/login").permitAll()
 		        .antMatchers("/api/test").hasRole("USER")
