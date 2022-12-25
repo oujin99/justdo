@@ -133,7 +133,7 @@ public class AccountController {
 		credential.setUsername(signUpFormDto.getEmail());
 		credential.setPassword(signUpFormDto.getPassword());
 		credential.setRoles(Arrays.asList("USER"));
-		credential.setLoginMethod(credentialService.findLoginMethodType("basic"));
+		credential.setLoginMethod(credentialService.findLoginMethodByType("basic"));
 		credentialService.save(credential);
 		
 		return "/user/signup";

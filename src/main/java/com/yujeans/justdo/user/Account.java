@@ -29,5 +29,6 @@ public class Account {
 	private String phone;
 	private String address;
 	private String image;
+	private String profile;
 	
 }

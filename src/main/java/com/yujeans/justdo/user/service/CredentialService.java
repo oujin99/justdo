@@ -1,5 +1,7 @@
 package com.yujeans.justdo.user.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -64,7 +66,11 @@ public class CredentialService {
     	credentialRepository.save(credential);
 	}
     
-    public LoginMethod findLoginMethodType(String type) {
+    public Optional<Credential> findByUsername(String username) {
+    	return credentialRepository.findByUsername(username);
+    }
+    
+    public LoginMethod findLoginMethodByType(String type) {
 		return loginMethodRepository.findByType(type);
     }
 }
