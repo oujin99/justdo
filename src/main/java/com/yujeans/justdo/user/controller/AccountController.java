@@ -122,8 +122,15 @@ public class AccountController {
 	@PostMapping("/user/signup")
 	public String signUpFormSave(@Validated @ModelAttribute SignUpFormDto signUpFormDto
 								,BindingResult bindingResult) {
+		String username = signUpFormDto.getEmail();
 		String password = signUpFormDto.getPassword();
 		String rePassword = signUpFormDto.getRePassword();
+		
+		Boolean isDuplication = credentialService.findByUsername(username).isPresent();
+		if(isDuplication) {
+			System.out.println("아이디 중복");
+			bindingResult.addError(new FieldError("signUpFormDto", "email", "아이디가 중복되었습니다. 다시 확인해주세요"));
+		}
 		
 		if(!password.equals(rePassword)) {
 			System.out.println("패스워드 틀림");
@@ -150,7 +157,7 @@ public class AccountController {
 		credential.setLoginMethod(credentialService.findLoginMethodByType("basic"));
 		credentialService.save(credential);
 		
-		return "/user/signup";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/user/mypage")
