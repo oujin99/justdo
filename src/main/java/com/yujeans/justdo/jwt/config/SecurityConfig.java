@@ -42,6 +42,7 @@ public class SecurityConfig {
 		        .antMatchers("/user/mypage").hasRole("USER")
 		        .antMatchers("/dogether/registForm").hasRole("USER")
 		        .and()
+		        
 		        .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, kakaoService), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
