@@ -13,7 +13,7 @@
 .modal {
    display: none;
    position: fixed;
-   z-index: 1;
+/*    z-index: 1; */
    left: 0;
    top: 0;
    width: 100%;
@@ -31,7 +31,7 @@
    padding: 10px;
    border: 1px solid #888;
    width: 50%; 
-   border-radius: 6px;
+   border-radius: 30px;
 }
 
 
@@ -58,6 +58,12 @@
    cursor: pointer;
 }
 
+.profile_modal_title{
+	text-align : center;
+	font-size : 200%;
+	margin : 10px;
+}
+
 
 .profile-modal{
    display: flex; 
@@ -76,13 +82,13 @@
 }
 
 .col-lg-6{
-   margin: auto; 
+/*    margin: auto;  */
    padding: 0.5em;
    text-align: center
 }
 
 .col-lg-6 h1{
-   font-size: 45px; 
+   font-size: 250%; 
    text-align: center
 }
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.dogether.Dogether;
+import com.yujeans.justdo.user.Account;
 
 
 @Repository
@@ -25,4 +26,7 @@ public interface DogetherRepository extends JpaRepository<Dogether, Long>{
 	@Query(value = "SELECT d FROM Dogether d "
 			+ "WHERE d.id = :id")
 	public Dogether findDogether(@Param("id")Long id);
+	
+	
+
 }

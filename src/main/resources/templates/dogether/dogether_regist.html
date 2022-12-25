@@ -79,8 +79,8 @@
                                     <input id="dogether_image" th:field="*{image}" type="file" th:type="file" accept="image/*">
                                     <div class="card mb-3" style="max-height: 500px;">
                                         <div class="row g-0" style="cursor: pointer;" id="image_card1">
-                                            <div class="col-md-4" style="width: 100%;max-width: 90%; margin: auto;" >
-                                                <img src="/imag/no-images.png"
+                                            <div class="col-md-4" style="width: 100%;" >
+                                                <img src="./assets/images/no-images.png"
                                                 	th:src="@{/img/no-images.png}"
                                                 	 id="dogether_image_img" class="img-fluid rounded-start" alt="...">
                                             </div>
@@ -250,7 +250,7 @@ function showThirdCategory(){
 function chooseThird(){
 	var selectBox3 = document.getElementById("thirdCategory");
 	var selectedThird = selectBox3.options[selectBox3.selectedIndex].text;
-	alert(selectedThird)
+	//alert(selectedThird)
 }
 
 
