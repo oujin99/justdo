@@ -1,23 +1,23 @@
-package com.yujeans.justdo.user.service;
+package com.yujeans.justdo.credential.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.yujeans.justdo.credential.repository.CredentialRepository;
 import com.yujeans.justdo.user.Account;
-import com.yujeans.justdo.user.repository.AccountRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class AccountService {
+public class CredentialService {
+	
 	@Autowired
-	private final AccountRepository accountRepository;
+	private final CredentialRepository credentialRepository;
 	
-	
-//	public Account findUserInfo(String username) {
-//		return accountRepository.findUserInfo(username);
-//	}
+	public Account findUserInfo(String username) {
+		return credentialRepository.findUserInfo(username);
+	}
 }

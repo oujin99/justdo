@@ -1,5 +1,5 @@
 #wrap {
-    margin-top: 150px;
+    margin-top: 100px;
     min-width: 1100px;
 }
 
@@ -131,7 +131,7 @@ li {
 .plus_left{
     float: left; 
     width: 50%; 
-    height: 500px; 
+/*     height: 500px;  */
     padding: 10px;
 }
 
@@ -419,6 +419,7 @@ button {
     width: 200px; 
     height: 200px;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .plus_right_text{
@@ -430,9 +431,9 @@ button {
     margin-top: 10px;
 }
 
-.price_div{
-    background-color: rgba(0, 0, 0, 0.02);
-}
+/* .price_div{ */
+/*     background-color: rgba(0, 0, 0, 0.02); */
+/* } */
 
 .price_dl{
     display: flex; 
@@ -444,7 +445,7 @@ button {
 }
 
 .price_dt{
-    padding: 20px 0px 20px 40px; 
+    padding: 20px 0px 20px 30px; 
     font-weight: bold
 }
 
@@ -454,7 +455,7 @@ button {
 }
 
 .price_dd{
-    padding: 20px 0px 0px 80px; 
+    padding: 40px 0px 0px 20px; 
     font-size: 20px;
 }
 
