@@ -36,9 +36,6 @@ import lombok.RequiredArgsConstructor;
 public class AccountController {
 	
 	@Autowired
-	private final JwtTokenProvider jwtTokenProvider;
-	
-	@Autowired
 	private final AccountService accountService;
 	
 	@Autowired

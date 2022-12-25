@@ -49,7 +49,7 @@ public class SecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
       return web -> web.ignoring()
-    		  .antMatchers("/css/**", "/favicon/**", "/images/**", "/img/**", "/javascripts/**", "/js/**", "/manifest.*", "/error", "/**/*.html", "/*.ico");
+    		  .antMatchers("/css/**", "/favicon/**", "/images/**", "/img/**", "/javascripts/**", "/js/**", "/manifest.*", "/error", "/**/*.html", "/*.ico", "/*.json");
     }
     
     @Bean
