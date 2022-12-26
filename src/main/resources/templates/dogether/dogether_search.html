@@ -56,10 +56,11 @@
 	                	<th:block th:each="dogether:${dogetherList}">
 		                    <div class="infinite_item">
 		                        <a href="javascript:" th:href="@{/dogether/detail/{dogetherId}(dogetherId=${dogether.id})}">
-		        					<th:block th:if="${not #strings.isEmpty(dogether.image)}">                	
-			                        	<img src="/img/story-1.jpeg" alt="" th:src="${dogether.image}">
+		        					<th:block th:if="${not #strings.isEmpty(dogether.images)}">                	
+			                        	<img src="/img/story-1.jpeg" alt="" th:src="|/dogether/${dogether.images.savedNm}|">
+			                            <p class="title" th:text="${dogether.title}">두게더 타이틀</p>
 		                            </th:block>
-		                            <th:block th:unless="${not #strings.isEmpty(dogether.image)}">
+		                            <th:block th:unless="${not #strings.isEmpty(dogether.images)}">
 			                        	<img src="/img/no-thumbnail.png" alt="">
 		                            <p class="title" th:text="${dogether.title}">두게더 타이틀</p>
 		                        </a>

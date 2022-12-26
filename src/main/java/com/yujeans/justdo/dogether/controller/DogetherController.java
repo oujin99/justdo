@@ -202,7 +202,7 @@ public class DogetherController {
    
    
    @GetMapping("/dogether/detail/{dogetherSeq}")
-   public String dogetherDetail(@RequestParam("dogetherSeq")Long dogetherSeq,
+   public String dogetherDetail(@PathVariable("dogetherSeq")Long dogetherSeq,
 //		   						@RequestParam("dogether")Dogether dogether,
 		   						HttpServletRequest request,
 		   						Model model) throws IOException{
@@ -242,15 +242,13 @@ public class DogetherController {
       System.out.println("isEnrolled"+isEnrolled);
       
       model.addAttribute("isEnrolled", isEnrolled);
+      
       // 사진 불러오기-------------------------
       Images fileInfo = imageService.getFileInfo(findDogether.getImages().getId()); // 파일 정보 찾기
       String path = "/dogether/" + fileInfo.getSavedNm(); // 파일의 공통 경로
 
       System.out.println("path : " + path);
       model.addAttribute("path", path);
-      
-      
-      model.addAttribute("leaderimage", request.getAttribute("profile_image"));
       
 //      StringBuilder sb = new StringBuilder(path); // 파일이 실제로 저장되어 있는 경로에
 //      String fileName = fileInfo.getSavedNm();
@@ -312,7 +310,7 @@ public class DogetherController {
    }
    
 
-}
+
    @GetMapping("/test/{id}")
    public void imgTest(@PathVariable(name = "id") Long id, HttpServletResponse response)throws IOException {
 	// 사진 불러오기-------------------------

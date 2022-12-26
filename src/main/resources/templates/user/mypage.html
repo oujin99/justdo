@@ -125,15 +125,14 @@
                                             <th:block th:each="followDogether : ${followDogetherList}">
 	                                            <div class="swiper-slide">
 	                                                <a href="javascript:" th:href="@{/dogether/detail/{dogetherId}(dogetherId=${followDogether.id})}">
-	                                                	
-	                                                	<th:block th:if="${not #strings.isEmpty(followDogether.image)}">
-		                                                	<img src="../img/story-1.jpeg" alt="" th:src="${followDogether.image}">
+	                                                	<th:block th:if="${not #strings.isEmpty(followDogether.images)}">
+		                                                	<img src="../img/story-1.jpeg" alt="" th:src="|/dogether/${followDogether.images.savedNm}|">
 	                                                	</th:block>
-	                                                	<th:block th:if="${#strings.isEmpty(followDogether.image)}">
+	                                                	<th:block th:if="${#strings.isEmpty(followDogether.images)}">
 		                                                	<img src="/img/no-thumbnail.png" alt="">
 	                                                	</th:block>
+		                                                    <p class="title" th:text="${followDogether.title}">두게더 타이틀</p>
 	                                                	
-	                                                    <p class="title" th:text="${followDogether.title}">두게더 타이틀</p>
 	                                                </a>
 	                                            </div>
 		                                     </th:block>
@@ -162,10 +161,10 @@
 	                                            <div class="swiper-slide">
 	                                                <a href="javascript:" th:href="@{/dogether/detail/{dogetherId}(dogetherId=${leadDogether.id})}">
 	                                                	
-	                                                	<th:block th:if="${not #strings.isEmpty(leadDogether.image)}">
-		                                                	<img src="../img/story-1.jpeg" alt="" th:src="${leadDogether.image}">
+	                                                	<th:block th:if="${not #strings.isEmpty(leadDogether.images)}">
+		                                                	<img src="../img/story-1.jpeg" alt="" th:src="|/dogether/${leadDogether.images.savedNm}|">
 	                                                	</th:block>
-	                                                	<th:block th:if="${#strings.isEmpty(leadDogether.image)}">
+	                                                	<th:block th:if="${#strings.isEmpty(leadDogether.images)}">
 		                                                	<img src="/img/no-thumbnail.png" alt="">
 	                                                	</th:block>
 	                                                	
