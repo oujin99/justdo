@@ -1,10 +1,19 @@
 package com.yujeans.justdo.dogether.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.FileSystems;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -124,64 +133,34 @@ public class DogetherController {
    public String saveDogether(@ModelAttribute DogetherRegistDTO dogetherForm, 
                         HttpServletRequest request,
                         RedirectAttributes redirectAttributes,
-                        @RequestParam("orgNm") MultipartFile orgNm) throws IOException {//@RequestParam("thirdCateSelect") String thirdCateSelect,
+                        @RequestParam("orgNm") MultipartFile orgNm
+                       ) throws IOException {//@RequestParam("thirdCateSelect") String thirdCateSelect,
       
       String selectedThird = dogetherForm.getThirdCateSelect();
-
-      //---------------테스트---------------------
-//      System.out.println("닉네임 출력해보기 : " + request.getAttribute("nickname"));
-//      System.out.println("아이디 출력해보기 : " + request.getAttribute("id"));
-//
-//      System.out.println("dto에서 가져온 세번째 카테고리 value 값 ::" + dogetherForm.getThirdCateSelect());
-//      System.out.println("두게더 제목 : " + dogetherForm.getTitle());
-      
-//      System.out.println("requestParam에서 가져온 값 ::" + thirdCateSelect);
-      //---------------테스트---------------------
       
       // 카테고리 아아디 가져오기 & Category 클래스의 id set
       Long categoryId = categoryService.findCategoryId(selectedThird);
-//      System.out.println("****카테고리 아이디**** : " + categoryId);
       Category cate = new Category();
       cate.setId(categoryId);
-//      System.out.println("****클래스 아이디**** : "+ cate.getId());
       
-      /*
-       *SELECT a.ID  FROM CREDENTIAL c 
-   LEFT OUTER JOIN ACCOUNT a ON a.id = c.ACCOUNT_ID WHERE c.USERNAME = 'bbbb@naver.com'; 
-       */
-
       
       // id 세팅
       //유저 정보 찾아오기
       String username = String.valueOf(request.getAttribute("id")); //회원가입할 때 쓰는 아이디
       Account findUserInfo = credentialService.findUserInfo(username); // account 테이블
-//    		  accountService.findUserInfo(username); // account 테이블
-      System.out.println("****찾아온 어카운트 아이디 ::: " + findUserInfo.getId());
-      
-      // 기존 account 아이디 세팅(일반 로그인 하기 전, 카카오로그인만 구현됐을 때)
-//      Long accountId = Long.parseLong(String.valueOf(request.getAttribute("id"))); 
-//      //request.getAttribute("id") : Object타입 -> String으로 형변환 -> Long으로 형변환
-//      Account account = new Account();
-//      account.setId(accountId);
-//      System.out.println("**** 어카운트 아이디 **** : " + account.getId());
-      
-      
+
       // 사진 저장---------------------------
       Long fileId = imageService.saveFile(orgNm);
       Images imageEntity = new Images();
       imageEntity.setId(fileId);
-//      File file = new File();
-//      file.setId(fileId);
       
       
-      //----------------------------------
       
       Dogether dogether = new Dogether();
       dogether.setTitle(dogetherForm.getTitle());          // 제목
 //      dogether.setImage(dogetherForm.getImage());            // 두리더 이미지
       dogether.setImages(imageEntity);
 //fileService      dogether.setImage(dogetherForm.getImage());            // 두리더 이미지
-      System.out.println("이미지 경로 :: "+dogetherForm.getImage());
       dogether.setLeaderInfo(dogetherForm.getLeaderInfo());   // 두리더 정보
       dogether.setSummary(dogetherForm.getSummary());         // 요약
       dogether.setRecommendTo(dogetherForm.getRecommendTo());   // 추천 대상
@@ -200,41 +179,81 @@ public class DogetherController {
       // 두게더 상세보기로 바로 넘어가기 위해 redirect로 dogether_id 넘기기
       Long dogetherSeq = dogetherService.selectDogetherId();
       
+      // where 이미지 아이디로 가져와서 넘기기!
+      
       //가져온 시퀀스값 확인(currval)
       System.out.println("두게더 시퀀스 :::: " + dogetherSeq);
       
       redirectAttributes.addAttribute("dogetherSeq", dogetherSeq);
-      redirectAttributes.addAttribute("dogether", dogether); //저장된 두게더 넘기기(두리더 프로필 위해)
+//      redirectAttributes.addAttribute("dogether", dogether); //저장된 두게더 넘기기(두리더 프로필 위해)
       
-      return "redirect:/dogether/detail";
+      return "redirect:/dogether/detail/" + dogetherSeq;
    }
    
    
-   @GetMapping("/dogether/detail")
-//   @RequestMapping(value = "/dogether/detail", method = RequestMethod.GET)
+   @GetMapping("/dogether/detail/{dogetherSeq}")
    public String dogetherDetail(@RequestParam("dogetherSeq")Long dogetherSeq,
-		   						@RequestParam("dogether")Dogether dogether,
-		   						Model model){
+//		   						@RequestParam("dogether")Dogether dogether,
+		   						HttpServletRequest request,
+		   						Model model) throws IOException{
       
       Dogether findDogether = dogetherService.findDogether(dogetherSeq);
       model.addAttribute("findDogether", findDogether);
       
       // 두리더 정보 찾아오기
-      Account doleaderInfo = dogether.getAccount();
+      Account doleaderInfo = findDogether.getAccount();
       System.out.println("디테일 페이지로 넘어온 후 두리더 이름 :::: " + doleaderInfo.getName());
       model.addAttribute("doleaderInfo", doleaderInfo);
       
-      //강의 썸네일????
+      // 사진 불러오기-------------------------
+      Images fileInfo = imageService.getFileInfo(findDogether.getImages().getId()); // 파일 정보 찾기
+      String path = "/dogether/" + fileInfo.getSavedNm(); // 파일의 공통 경로
+
+      System.out.println("path : " + path);
+      model.addAttribute("path", path);
       
-      //AccountDogether 테이블 select *
-//      AccountDogether userId = dogetherService.findAccountDogether(dogetherId);
       
-//      Account findAccount = dogetherService.findAccount(userId.getId());
-//      model.addAttribute("findAccount", findAccount); // 두리더 사진 넣기 위함
+      model.addAttribute("leaderimage", request.getAttribute("profile_image"));
+      
+//      StringBuilder sb = new StringBuilder(path); // 파일이 실제로 저장되어 있는 경로에
+//      String fileName = fileInfo.getSavedNm();
+//      sb.append(fileName); // 파일 이름 더하기
 //      
+//      URL fileUrl = new URL(sb.toString()); // file URL 생성
+//      //-----------
+//      InputStream imageStream = new FileInputStream(path);
+//      
+//      IOUtils.copy(fileUrl.openStream(), response.getOutputStream());
+////      IOUtils.toByteArray(imageStream);
+//      imageStream.close();
+      //----------
       
+      
+      //----------------------------------
+      try {
+		Thread.sleep(2000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
       return "dogether/dogether_detail";
    }
    
-
+   @GetMapping("/test/{id}")
+   public void imgTest(@PathVariable(name = "id") Long id, HttpServletResponse response)throws IOException {
+	// 사진 불러오기-------------------------
+	      Images fileInfo = imageService.getFileInfo(1L); // 파일 정보 찾기
+	      String path = "file://img/"; // 파일의 공통 경로
+	      StringBuilder sb = new StringBuilder(path); // 파일이 실제로 저장되어 있는 경로에
+	      String fileName = fileInfo.getSavedNm();
+	      sb.append(fileName); // 파일 이름 더하기
+	      System.out.println("hi : " + sb.toString());
+	      URL fileUrl = new URL(sb.toString()); // file URL 생성
+	      //-----------
+	      InputStream imageStream = new FileInputStream(path);
+	      System.out.println("fileUrl : " + fileUrl);
+	      IOUtils.copy(fileUrl.openStream(), response.getOutputStream());
+//	      IOUtils.toByteArray(imageStream);
+	      imageStream.close();
+   }
 }

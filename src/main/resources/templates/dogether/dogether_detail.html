@@ -90,7 +90,7 @@
                         <!-- 수업 이미지 -->
                         <div class="plus_left">
                             <section class="p2p_class_img">
-                                <img src="../img/dog.jpg">
+                                <img th:src="${path}">
                             </section>
                             <!--//p2p_class_img-->
 
@@ -99,7 +99,8 @@
                         <!-- 두리더 소개 부분 -->
                         <div class="plus_right">
                             <div class="plus_right_div">
-                                <img class="plus_right_img" id="myBtn" src="../img/dog.jpg">
+                                <img class="plus_right_img" id="myBtn" src="../img/dog.jpg"
+                                	th:src="${leaderimage}">
                             </div>
                             <div class="plus_right_text" th:text="*{leaderInfo}"
                             		style="white-space: pre-wrap;">
@@ -375,7 +376,7 @@
                 <div class="col-lg-3">
                     <div>
                         <img src="/images/avatar.jpg" class="card-img-top" alt="profile_img"
-                        	style="border-radius: 30px;"><!-- th:text="*{image}" -->
+                        	style="border-radius: 30px;" th:src="*{image}"><!-- th:text="*{image}" -->
                     </div>
                 </div>
 
@@ -387,55 +388,55 @@
                     <p class="text-muted" th:text="*{phone}">010-8011-7313</p>
                     <br>
                     <br>
-                    <button class="button-41" role="button" type="submit">프로필 수정</button>
+<!--                     <button class="button-41" role="button" type="submit">프로필 수정</button> -->
 
                 </div>
             </div>
 
-            <h1 class="profile-thumbnail"> 강의 썸네일 </h1><br>
+<!--             <h1 class="profile-thumbnail"> 강의 썸네일 </h1><br> -->
 <!--             <br> -->
 
             <!-- 클래스 썸네일 -->
 
-            <div class="row">
+<!--             <div class="row"> -->
 
-                <div class="col-sm-7">
+<!--                 <div class="col-sm-7"> -->
 
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <a href="#"><img src="/img/best_pro-1.jpg" class="d-block w-100" alt="thumbnail"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"><img src="/img/best_pro-10.jpg" class="d-block w-100" alt="thumbnail"></a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="#"><img src="/img/best_pro-11.jpg" class="d-block w-100" alt="thumbnail"></a>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+<!--                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"> -->
+<!--                         <div class="carousel-indicators"> -->
+<!--                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" -->
+<!--                                 class="active" aria-current="true" aria-label="Slide 1"></button> -->
+<!--                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" -->
+<!--                                 aria-label="Slide 2"></button> -->
+<!--                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" -->
+<!--                                 aria-label="Slide 3"></button> -->
+<!--                         </div> -->
+<!--                         <div class="carousel-inner"> -->
+<!--                             <div class="carousel-item active"> -->
+<!--                                 <a href="#"><img src="/img/best_pro-1.jpg" class="d-block w-100" alt="thumbnail"></a> -->
+<!--                             </div> -->
+<!--                             <div class="carousel-item"> -->
+<!--                                 <a href="#"><img src="/img/best_pro-10.jpg" class="d-block w-100" alt="thumbnail"></a> -->
+<!--                             </div> -->
+<!--                             <div class="carousel-item"> -->
+<!--                                 <a href="#"><img src="/img/best_pro-11.jpg" class="d-block w-100" alt="thumbnail"></a> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" -->
+<!--                             data-bs-slide="prev"> -->
+<!--                             <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+<!--                             <span class="visually-hidden">Previous</span> -->
+<!--                         </button> -->
+<!--                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" -->
+<!--                             data-bs-slide="next"> -->
+<!--                             <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+<!--                             <span class="visually-hidden">Next</span> -->
+<!--                         </button> -->
+<!--                     </div> -->
 
-                </div>
+<!--                 </div> -->
 
-            </div>
+<!--             </div> -->
         </div>
     </div>
     <!--------------------------------------------------->

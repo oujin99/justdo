@@ -23,16 +23,13 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class ImageService {
 	
-	@Value("${file.dir}")
-	private String fileDir;
-	
 	private final ImageRepository imageRepository;
 	
 //	public FileService(FileRepository fileRepository) {
 //		this.fileRepository = fileRepository;
 //	}
 	
-	public Long saveFile(MultipartFile imageFile) throws IOException {
+	public Long saveFile(MultipartFile imageFile) {
 		if(imageFile.isEmpty()) {
 			return null;
 		}
@@ -50,8 +47,11 @@ public class ImageService {
 		String savedName = uuid + extension;
 		
 		// 파일을 불러올 때 사용할 파일 경로
-		String savedPath = fileDir + savedName;
-		
+	    String userDirectory = System.getProperty("user.dir");
+	    userDirectory += "\\src\\main\\resources\\static\\dogether\\";
+	    String savedPath = userDirectory + savedName;
+	    System.out.println("userDirectory : " + userDirectory);
+	    
 		// 파일 엔티티 생성
 		Images image = Images.builder()
 				.orgNm(origName)
@@ -60,12 +60,25 @@ public class ImageService {
 				.build();
 		
 		// 실제로 로컬에 uuid를 파일명으로 저장
-		imageFile.transferTo(new File(savedPath));
+		try {
+			imageFile.transferTo(new File(savedPath));
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		// 데이터베이스에 파일 정보 저장
 		Images savedFile = imageRepository.save(image);
 		
 		return savedFile.getId();
+	}
+	
+	public Images getFileInfo(Long id) {
+		
+		return imageRepository.getFileInfo(id);
 	}
 	
 //	// id 값을 사용하여 파일에 대한 정보를 가져옴(getFile())
