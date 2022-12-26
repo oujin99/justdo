@@ -197,7 +197,7 @@
       /* margin-right: 0.5rem; */
       padding: 0.25rem 0.5rem;
       border: 1px solid #c5d0d1;
-      width: 180px;
+      width: 10em;
       border-radius: 6px;
       font-size: 1.0rem;
       line-height: 3.2;
@@ -212,7 +212,7 @@
     margin-top: 10px;
     /* margin: auto; */
     display: block;
-    padding-left: 0.9em;
+    padding-left: 0.7em;
     
   }
 
@@ -232,6 +232,7 @@
   .title-img{
     display: flex;
     width: 1.5em;
+    height: 1.7em;
     margin-right: 0.1em;
     margin-left: 0.5em;
   }

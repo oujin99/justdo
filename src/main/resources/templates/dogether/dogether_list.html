@@ -20,22 +20,16 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/swiper-bundle.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/infiniteScroll.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="../js/script.js" defer></script>
+    <script src="/js/script.js" defer></script>
+
 
     <!-- header, footer 공통 부분 -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript">   
-        $(document).ready( function() {
-
-        $("#headers").load("common/header.html");  // 원하는 파일 경로를 삽입하면 된다
-        $("#footers").load("common/footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
-        $("#searcher").load("common/search.html");  
-    });
-    </script>
 
 </head>
 
@@ -49,166 +43,68 @@
     	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
     </header>
     <main>
-        <div id="searcher"></div>
+        <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
 
-        <section class="story">
-            <div class="container">
+		<section class="story">
+            <div class="container-header">
                 <div class="header">
-                    <h2 class="title">멘토 이야기</h2>
+                    <h2 class="title" th:text="|${thirdCategoryName} 관련 두게더|">선택한 카테고리 이름</h2>
                 </div>
-                <div class="story_S swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
-                                <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
-                                <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-3.jpg" alt="">
-                                <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-4.jpg" alt="">
-                                <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
-                                <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-6.png" alt="">
-                                <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-7.png" alt="">
-                                <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-8.jpg" alt="">
-                                <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="story_S_next swiper-button-next"></div>
-                    <div class="story_S_prev swiper-button-prev"></div>
-                </div>
-            </div>
-        </section>
-        <section class="story">
-            <div class="container">
-                <div class="story_S swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
-                                <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
-                                <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-3.jpg" alt="">
-                                <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-4.jpg" alt="">
-                                <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
-                                <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-6.png" alt="">
-                                <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-7.png" alt="">
-                                <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-8.jpg" alt="">
-                                <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="story_S_next swiper-button-next"></div>
-                    <div class="story_S_prev swiper-button-prev"></div>
-                </div>
-            </div>
-        </section>
-        <section class="story">
-            <div class="container">
-                <div class="story_S swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
-                                <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
-                                <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-3.jpg" alt="">
-                                <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-4.jpg" alt="">
-                                <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
-                                <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-6.png" alt="">
-                                <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-7.png" alt="">
-                                <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
-                            </a>
-                        </div>
-                        <div class="swiper-slide">
-                            <a href="javascript:"><img src="../img/story-8.jpg" alt="">
-                                <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="story_S_next swiper-button-next"></div>
-                    <div class="story_S_prev swiper-button-prev"></div>
-                </div>
-            </div>
-        </section>
-
+                
+                <th:block th:if="${not #strings.isEmpty(dogetherList)}">
+	                <div class="infinite">
+	                	<th:block th:each="dogether:${dogetherList}">
+		                    <div class="infinite_item">
+		                        <a href="javascript:" th:href="@{/dogether/detail/{dogetherId}(dogetherId=${dogether.id})}">
+		        					<th:block th:if="${not #strings.isEmpty(dogether.image)}">                	
+			                        	<img src="/img/story-1.jpeg" alt="" th:src="${dogether.image}">
+		                            </th:block>
+		                            <th:block th:unless="${not #strings.isEmpty(dogether.image)}">
+			                        	<img src="/img/no-thumbnail.png" alt="">
+		                            <p class="title" th:text="${dogether.title}">두게더 타이틀</p>
+		                        </a>
+		                    </div>
+	                	</th:block>
+	                    
+					</div>
+                </th:block>
+                <th:block th:unless="${not #strings.isEmpty(dogetherList)}">
+                	<div class="infinite">
+                		<div class="infinite_item">
+                			<div>아직 등록된 두게더가 없어요!</div>
+                		</div>
+                	</div>
+                </th:block>
+                
+			</div>
+		</section>
         <footer>
-            <div id="footers"></div>
         </footer>
     </main>
+    <script>
+	    $(".infinite div").slice(6).hide();
+	
+	    var mincount = 9;
+	    var maxcount = 15;
+		
+// 		var scrolltop = $(document).scrollTop();	
+// 	 	console.log(scrolltop);
+//         var height = $(document).height();
+//         console.log(height);
+//         var height_win = $(window).height();
+//         console.log(height_win);
+		
+	
+	    $(window).scroll(function () {
+	        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 60) {
+	            $(".infinite div").slice(mincount, maxcount).slideDown(600);
+	
+	            mincount = mincount + 3;
+	            maxcount = maxcount + 6;
+
+        }
+    });
+    </script>
 </body>
 
 </html>

@@ -1,6 +1,8 @@
 package com.yujeans.justdo.api.kakao;
 
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -8,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.ModelAndViewDefiningException;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.yujeans.justdo.user.Account;
+import com.yujeans.justdo.user.Credential;
+import com.yujeans.justdo.user.service.AccountService;
+import com.yujeans.justdo.user.service.CredentialService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,8 +27,14 @@ public class KakaoController {
 	@Autowired
 	private final KakaoService kakaoService;
 	
+	@Autowired
+	private final CredentialService credentialService;
+	
+	@Autowired
+	private final AccountService accountService;
+	
 	@GetMapping("/kakao/login")
-	public String kakaoLogin(@RequestParam String code, Model model, HttpServletResponse response, HttpServletRequest request) {
+	public String kakaoLogin(@RequestParam String code, HttpServletResponse response, HttpServletRequest request) {
 //		System.out.println(code);
 		System.out.println("카카오가 불렀어");
 		
@@ -36,13 +44,18 @@ public class KakaoController {
 		
 		// 카카오로부터 받은 토큰 쿠키에 저장
 		Cookie cookie = new Cookie("access_token", token);
+		cookie.setMaxAge(6*60*60); // 6시간
 		cookie.setHttpOnly(true); // XSS 공격 방지
 		cookie.setSecure(true);
 		cookie.setPath("/");
 		response.addCookie(cookie);
 		
-		System.out.println("token : "+token);
+		System.out.println("token : " + token);
 		
+		Map<String,Object> userInfoMap = kakaoService.getUserInfo(token);
+		String username = (String) userInfoMap.get("id");
+		Credential isFirstLogin = credentialService.findByUsername(username)
+							.orElseGet(() -> firstJoinUser(userInfoMap));
 		
 		return "redirect:/";
 	}
@@ -82,4 +95,21 @@ public class KakaoController {
 		return "/kakao/cookietest2";
 	}
 	
+	private Credential firstJoinUser(Map<String,Object> userInfoMap) {
+		Account account = new Account();
+		account.setName((String) userInfoMap.get("nickname"));
+		account.setImage((String) userInfoMap.get("thumbnail_image"));
+		account.setProfile((String) userInfoMap.get("profile_image"));
+		account.setEmail((String) userInfoMap.get("email"));
+		accountService.save(account);
+		
+		Credential credential = new Credential();
+		credential.setAccount(account);
+		credential.setUsername((String) userInfoMap.get("id"));
+		credential.setPassword("social_kakao");
+		credential.setLoginMethod(credentialService.findLoginMethodByType("kakao"));
+		credential.setRoles(Arrays.asList("USER"));
+		credentialService.save(credential);
+		return credential;
+	}
 }

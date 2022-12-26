@@ -13,6 +13,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>마이페이지</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/swiper-bundle.css">
     <link rel="stylesheet" href="../css/style-mypage.css">
@@ -45,7 +46,7 @@
     	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
     </header>
     <main>
-        <div id="searcher"></div>
+        <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
         
         <div class="app-body">
             <div class="container-mypage container-md">
@@ -57,17 +58,17 @@
                             <div class="thumb">
                                 <div class="user-profile-picture h-100">
                                     <div date-name="image" class="is-square" style="width: 68px; height: 68px; border-radius: 5px !important;">
-                                        <img src="../">
+                                        <img src="../" th:src="${thumbnail_image}">
                                     </div>
                                 </div>
                                 <div class="user-info">
                                     <div class="user-name">
-                                        <span class="name-length">아무개</span>
-                                        <span class="name-length">저두님</span>
+                                        <span class="name-length" th:text="${nickname}">아무개</span>
+                                        <span class="name-length">님</span>
                                     </div>
                                     <div class="user-id">
                                         <img class="user-id-img" src="https://assets.cdn.soomgo.com/icons/icon-mypage-kakaotalk-signin.svg">
-                                        <span class="id-length">카카오톡 이메일</span>
+                                        <span class="id-length" th:text="${email}">카카오톡 이메일</span>
                                     </div>
                                 </div>
                                 <div class="account-setting">
@@ -81,9 +82,9 @@
                 <!-- 회원정보수정 -->
                 <div class="my-page-menu">
                     <ul class="underline">
-                        <li class="main-menu">두리더</li>
+                        <li class="main-menu">계정 관리</li>
                         <div class="sub-header"></div>
-                        <li class="sub-menu-container username-modify">
+                        <!-- <li class="sub-menu-container username-modify">
                             <a href="" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
@@ -91,12 +92,12 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="sub-menu-container username-modify">
                             <a href="" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
-                                        <span class="sub-menu-title updated">프로필 수정</span>
+                                        <span class="sub-menu-title updated">프로필 페이지 관리</span>
                                     </div>
                                 </div>
                             </a>
@@ -108,13 +109,13 @@
                 <!-- 클래스 -->
                 <div class="my-page-menu">
                     <ul class="underline">
-                        <li class="main-menu">두게더 목록</li>
+                        <li class="main-menu">두게더 관리</li>
                         <div class="sub-header"></div>
                         <li class="sub-menu-container username-modify">
                             <a href="" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
-                                        <span class="sub-menu-title updated">현재 수강 두게더</span>
+                                        <span class="sub-menu-title updated">팔로우 두게더</span>
                                     </div>
                                     <br>
                                     <br>
@@ -171,7 +172,7 @@
                             <a href="" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
-                                        <span class="sub-menu-title updated">수강 완료 두게더</span>
+                                        <span class="sub-menu-title updated">리드 두게더</span>
                                     </div>
                                     <br>
                                     <br>

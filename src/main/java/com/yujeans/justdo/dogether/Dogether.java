@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.yujeans.justdo.category.Category;
+import com.yujeans.justdo.user.Account;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,10 +18,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @SequenceGenerator(
-	name = "Dogether_seq_generator",
-	sequenceName = "Dogether_seq",
-	initialValue = 1,
-	allocationSize = 1
+   name = "Dogether_seq_generator",
+   sequenceName = "Dogether_seq",
+   initialValue = 1,
+   allocationSize = 1
 )
 public class Dogether {
 	@Id
@@ -28,14 +29,18 @@ public class Dogether {
 	private Long id;
 	private String title;
 	private String image;
-	private String content;
 	private String leaderInfo;
 	private String summary;
 	private String recommendTo;
 	private String detail;
 	private String notice;
+	private Integer price;
 	
 	@ManyToOne
 	@JoinColumn
 	private Category category;
+	
+	@ManyToOne
+	@JoinColumn
+	private Account account;
 }

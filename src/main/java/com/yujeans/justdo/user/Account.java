@@ -38,6 +38,8 @@ public class Account {
 	private String phone;
 	private String address;
 	private String image;
+	private String profile;
+	
 	
 	@OneToMany(mappedBy = "account")
 	private List<Board> boards = new ArrayList<Board>();

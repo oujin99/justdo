@@ -11,13 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
-public class LoginCheckInterceptor implements HandlerInterceptor{
+public class LoginNecessaryPageInterceptor implements HandlerInterceptor{
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -31,10 +30,11 @@ public class LoginCheckInterceptor implements HandlerInterceptor{
 			// 페이지 묶지않고 인터셉터 true로 흘려보내주기
 			
 			return true;
-		}else {
-			// 로그인 되지 않은상태 (로그인 해야 이용할 수 있다는 메시지를 담은 페이지를 띄워줘야 함)
-			response.sendRedirect("/error/isNotValidToken");
 		}
+//		else {
+//			// 로그인 되지 않은상태 (로그인 해야 이용할 수 있다는 메시지를 담은 페이지를 띄워줘야 함)
+//			response.sendRedirect("/error/isNotValidToken");
+//		}
 		
 		return false;
 	}

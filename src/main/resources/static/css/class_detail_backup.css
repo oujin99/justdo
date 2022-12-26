@@ -1,0 +1,545 @@
+#wrap {
+    margin-top: 100px;
+    min-width: 1100px;
+}
+
+@media screen and (max-width: 1246px){
+#wrap {
+    min-width: 768px;
+    width: 100%;
+        /* min-width: 320px; */
+        padding: 0 30px;
+        box-sizing: border-box;
+}
+}
+
+* {
+    /* -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; */
+    box-sizing: border-box;
+}
+
+main {
+    display: block;
+}
+
+section {
+    display: block;
+}
+
+/**/
+@media screen and (max-width: 1024px){
+.p2p_class_wrap {
+    /* min-width: 768px; */
+}
+}
+
+@media screen and (max-width: 1246px){
+.p2p_class_wrap {
+    width: 97%;
+}
+}
+
+.p2p_class_wrap {
+    position: relative;
+    /* width: 1200px; */
+    margin: 40px auto 0;
+}
+
+@media screen and (max-width: 1024px){
+    .p2p_class_wrap2 {
+        min-width: 768px;
+    }
+    }
+    
+    @media screen and (max-width: 1246px){
+    .p2p_class_wrap2 {
+        width: 97%;
+    }
+    }
+    
+    .p2p_class_wrap2 {
+        position: relative;
+        /* width: 1200px; */
+        margin: 40px auto 0;
+    }
+/**/
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button, pre
+{
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        color: #111;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-weight: 400;
+}
+
+li {
+    list-style: none;
+}
+
+.p2p_class_container {
+    float: left;
+    width: calc(100% - 374px);
+}
+
+@media screen and (max-width: 990px){
+.p2p_class_container {
+    width: 100%;
+}
+}
+
+@media screen and (max-width: 1024px){
+.p2p_class_container {
+    margin-right: 0;
+}
+}
+
+@media screen and (max-width: 1246px){
+.p2p_class_container {
+    margin-right: 20px;
+}
+}
+
+/* ---------수업명, 튜텨이름, 별점---------- */
+
+.p2p_class_info {
+    margin-bottom: 28px;
+}
+
+
+/*제목*/
+.p2p_class_info .p_title {
+    margin: 6px 0 12px;
+    font-size: 30px;
+    line-height: 42px;
+    font-weight: bold;
+    letter-spacing: -0.45px;
+    word-break: break-all;
+    color: #d29fd7;
+}
+
+/*상단 클래스 간략한 설명, 멘토 정보 부분*/
+.simple_class{
+    justify-content:space-between; 
+    display: flex; 
+    margin-bottom: 90px;
+}
+
+/*왼쪽 상단 클래스 간략한 설명*/
+.plus_left{
+    float: left; 
+    width: 50%; 
+    height: 500px; 
+    padding: 10px;
+}
+
+.p2p_class_img img{
+    border-radius: 10px;
+}
+
+
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+}
+img, fieldset, iframe {
+    border: 0 none;
+}
+
+
+.p2p_class_info .p2p_tutor_info .short_info .class_review {
+    display: block;
+    font-size: 0;
+}
+a, span {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: none;
+}
+
+/* --------수업 전 숙지해주세요------- */
+.p2p_class_notice {
+    display: flex;
+    margin-bottom: 90px;
+}
+
+.p_col_left {
+    width: 152px;
+}
+
+.p_col_left .col_title {
+    font-size: 26px;
+    text-align: left;
+    line-height: 34px;
+    color: #333;
+    font-weight: bold;
+    word-break: keep-all;
+}
+
+/*박스*/
+.p_col_right {
+    margin-left: 60px;
+    width: calc(100% - 212px);
+}
+
+.p_col_right .text_wrap {
+    position: relative;
+}
+.p2p_class_notice .text_wrap {
+    /* position: relatvie; */
+    padding: 25px 97px 25px 20px;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.p_col_right .text_wrap .text_area {
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: normal;
+    letter-spacing: -0.22px;
+    word-break: break-all;
+}
+
+/* 튜터 공지 */
+.p2p_class_notice .text_wrap .badge_noti {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    width: 52px;
+    height: 18px;
+    border: 1px solid #d29fd7;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 18px;
+    color: #d29fd7;
+}
+
+/* 글이 길 경우 더보기 버튼*/
+.p_col_right .btn_show {
+    /* display: block; */
+    width: 114px;
+    margin: 0 auto;
+}
+
+.p_col_right .btn_show .more {
+    position: relative;
+    display: inline-block;
+    padding-left: 13px;
+    border-bottom: 1px solid #d29fd7;
+    text-align: center;
+    font-size: 15px;
+    color: #d29fd7;
+    line-height: 18px;
+}
+
+.p_col_right .btn_show .less {
+    position: relative;
+    display: none;
+    padding-left: 13px;
+    border-bottom: 1px solid #ff0045;
+    text-align: center;
+    font-size: 15px;
+    color: #ff0045;
+    line-height: 18px;
+}
+
+/*----------- 클래스 요약 -----------*/
+.sec_common {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    vertical-align: top;
+}
+
+/* 이런 분들이 들으면 좋아요 */
+
+/* 어떤 수업인가요 ? */
+.p_col_right .text_wrap.toggle {
+    overflow: hidden;
+    height: 600px;
+    transition: all 0.2s ease-in;
+}
+
+/* 접기 :: before*/
+.p_col_right .btn_show .less::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 9.5px;
+    height: 1.5px;
+    background: url(https://front-img.taling.me/Content/app3/images/p2p_class/ico_p2p_btn_less.png) no-repeat center/100% 100%;
+    transform: rotate(0.0001deg);
+}
+
+/* 수강생 리뷰 */
+.p2p_class_cmt .review_sum {
+    padding: 26px 40px 22px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.p2p_class_cmt .review_sum .review_list {
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.p2p_class_cmt .review_sum .review_list li {
+    width: 22%;
+    margin-right: 17%;
+    font-size: 15px;
+    line-height: 19px;
+    letter-spacing: -0.22px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.p2p_class_cmt .review_sum .review_list li .avg {
+    float: right;
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+}
+
+.p2p_class_cmt .review_sum .review_list li .avg::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 3px;
+    vertical-align: -1px;
+    background: url(https://front-img.taling.me/Content/Images/class/icon_star_new.png) no-repeat center/100%;
+}
+
+.p2p_class_cmt .review_sum .review_list li:nth-child(3) {
+    margin-right: 0;
+}
+
+/* 리뷰 작성하기 */
+.p2p_class_cmt .btn_cmt {
+    float: right;
+    display: block;
+    margin-top: 15px;
+    border-bottom: 1px solid #555;
+    font-size: 15px;
+}
+
+/* 클래스 신청하기 버튼 */
+.btn_area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+/*----------pc 수업 신청부분 끝------------*/
+
+.p2p_class_wrap::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+/*실시간 톡*/
+.btn_livechat {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_livechat2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_livechat button, .btn_livechat a {
+    position: fixed;
+    z-index: 2;
+    width: 109px;
+    height: 52px;
+    padding-left: 26px;
+    border-radius: 26px;
+    text-align: left;
+    letter-spacing: -0.35px;
+    line-height: 52px;
+    box-shadow: 0 2px 6px 0 rgb(17 17 17 / 14%);
+    /* background: url(https://front-img.taling.me/Content/app3/img/icon/icon_liveChat@2x.png); */
+    background:  #d29fd7 no-repeat 17px center/18px;
+    transition: all 0.3s ease-in;
+    color: #fff;
+}
+
+.btn_livechat2 button, .btn_livechat2 a {
+    position: fixed;
+    z-index: 2;
+    width: 109px;
+    height: 52px;
+    /* padding-left: 42px; */
+    padding-left: 30px;
+    border-radius: 26px;
+    text-align: left;
+    letter-spacing: -0.35px;
+    line-height: 52px;
+    box-shadow: 0 2px 6px 0 rgb(17 17 17 / 14%);
+    /* background: url(https://front-img.taling.me/Content/app3/img/icon/icon_liveChat@2x.png) */
+    background:  #fff no-repeat 17px center/18px;
+    transition: all 0.3s ease-in;
+}
+
+/*두리더 소개 부분*/
+.plus_right{
+    float: right; 
+    padding: 10px; 
+    height: auto; 
+    width: 50%;
+}
+
+.plus_right_div{
+    float: left; 
+    margin-right: 10px;
+}
+
+.plus_right_img{
+    width: 200px; 
+    height: 200px;
+    border-radius: 10px;
+}
+
+.plus_right_text{
+    line-height: 2.5;
+}
+
+/*가격*/
+.price{
+    margin-top: 10px;
+}
+
+.price_div{
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.price_dl{
+    display: flex; 
+    height: auto; 
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.02); 
+    border: none; 
+    border-radius: 10px;
+}
+
+.price_dt{
+    padding: 20px 0px 20px 40px; 
+    font-weight: bold
+}
+
+.price_dt p{
+    font-weight: bold; 
+    font-size: 20px;
+}
+
+.price_dd{
+    padding: 20px 0px 0px 80px; 
+    font-size: 20px;
+}
+
+/* 달린 댓글 */
+.p2p_class_cmt .cmt_wrap {
+    margin-top: 81px;
+}
+
+.p2p_class_cmt .cmt_wrap .list {
+    display: block;
+    padding: 22px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.p2p_class_cmt .cmt_wrap li .tutee_info {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.p2p_class_cmt .cmt_wrap li .tutee_info .img {
+    display: table-cell;
+    width: 50px;
+    height: 50px;
+}
+
+.p2p_class_cmt .cmt_wrap li .tutee_info .img img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    /* -o-object-fit: cover; */
+    object-fit: cover;
+    /* -o-object-position: center; */
+    object-position: center;
+}
+
+.p2p_class_cmt .cmt_wrap li .tutee_info .tutee {
+    position: relative;
+    display: table-cell;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+.p2p_class_cmt .cmt_wrap li .tutee_info .tutee .name {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.p2p_class_cmt .cmt_wrap li .tutee_info .tutee .date {
+    position: relative;
+}
+
+.p2p_class_cmt .cmt_wrap li .tutee_info .tutee .date p {
+    font-size: 14px;
+    color: #999;
+    font-weight: normal;
+}
+
+/* 내용 부분 */
+.p2p_class_cmt .cmt_wrap li .cmt {
+    margin: 8px 0 0 72px;
+}
+
+/*hide-접기 : 더 읽기 누르면 class="hide" 사라짐*/
+.p2p_class_cmt .cmt_wrap li .cmt p.hide {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.p2p_class_cmt .cmt_wrap li .cmt p {
+    font-size: 14px;
+    line-height: 23px;
+    word-break: break-all;
+}
+
+/*더 읽기, 접기 버튼*/
+.p2p_class_cmt .cmt_wrap li .cmt .more {
+    display: inline-block;
+    margin-top: 5px;
+    border-bottom: 1px solid #111;
+    color: #111;
+    line-height: 18px;
+    cursor: pointer;
+}

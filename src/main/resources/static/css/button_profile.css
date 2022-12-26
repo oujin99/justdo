@@ -1,0 +1,42 @@
+
+
+.button-my {
+    background-color: initial;
+    background-image: linear-gradient(#d29fd7, #d29fd7);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 3em;
+    margin-top: 0.5em;
+    pointer-events: auto;
+    text-align: center;
+    touch-action: manipulation;
+    width: 27%;
+}
+
+.button-my:hover {
+    background: #d29fd7;
+}
+
+.button-41 {
+    background-color: initial;
+    background-image: linear-gradient(#d29fd7, #d29fd7);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, -apple-system, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 3em;
+    margin: auto;
+    margin-top: 0.5em;
+    pointer-events: auto;
+    text-align: center;
+    touch-action: manipulation;
+    width: 75%;
+}
+
+.button-41:hover {
+    background: #d29fd7;
+}

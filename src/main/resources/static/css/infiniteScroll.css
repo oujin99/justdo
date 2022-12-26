@@ -1,0 +1,39 @@
+.story {
+	display :flex;
+	justify-content:center;
+}
+
+.container-header{
+	margin: -2em 1.2em;
+}
+
+.infinite{
+/* 	display: flex; */
+/*     flex-wrap: wrap; */
+/* 	justify-content: space-evenly; */
+	display: grid;
+ 	grid-template-rows: 20em 20em 20em;
+  	grid-template-columns: 20.5em 20.5em 20.5em;
+  	border-radious:6px;
+  	grid-gap: 0vw;
+  	justuify-content : space-evenly;
+  	
+}
+
+.infinite  .infinite_item{
+/* 	position : flex; */
+/*     width: 28em; */
+/*     text-align: center; */
+/*     magin : 2em 1.5em; */
+	font-size: 1.2em;
+  	padding: .5em;
+  	text-align: center;
+}
+
+.infinite > .p{
+	text-size:2em;
+}
+
+.infinite_item img{
+	border-radius: 25px;
+}
