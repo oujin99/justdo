@@ -1,5 +1,6 @@
 package com.yujeans.justdo.dogether.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.yujeans.justdo.category.Category;
@@ -29,6 +31,8 @@ import com.yujeans.justdo.dogether.AccountDogether;
 import com.yujeans.justdo.dogether.Dogether;
 import com.yujeans.justdo.dogether.DogetherRegistDTO;
 import com.yujeans.justdo.dogether.service.DogetherService;
+import com.yujeans.justdo.images.Images;
+import com.yujeans.justdo.images.service.ImageService;
 import com.yujeans.justdo.user.Account;
 import com.yujeans.justdo.user.Credential;
 import com.yujeans.justdo.user.service.AccountService;
@@ -46,6 +50,7 @@ public class DogetherController {
    private final CategoryService categoryService;
 //   private final AccountService accountService;
    private final CredentialService credentialService;
+   private final ImageService imageService;
    
    //메인 페이지에서 '두게더 등록' 클릭 시 두게더 등록 페이지로 이동
    @GetMapping("/dogether/registForm")
@@ -114,7 +119,8 @@ public class DogetherController {
    @PostMapping("/dogether/regist")
    public String saveDogether(@ModelAttribute DogetherRegistDTO dogetherForm, 
                         HttpServletRequest request,
-                        RedirectAttributes redirectAttributes) {//@RequestParam("thirdCateSelect") String thirdCateSelect,
+                        RedirectAttributes redirectAttributes,
+                        @RequestParam("image") MultipartFile image) throws IOException {//@RequestParam("thirdCateSelect") String thirdCateSelect,
       
       String selectedThird = dogetherForm.getThirdCateSelect();
 
@@ -155,9 +161,22 @@ public class DogetherController {
 //      account.setId(accountId);
 //      System.out.println("**** 어카운트 아이디 **** : " + account.getId());
       
+      
+      // 사진 저장---------------------------
+      Long fileId = imageService.saveFile(image);
+      Images imageEntity = new Images();
+      imageEntity.setId(fileId);
+//      File file = new File();
+//      file.setId(fileId);
+      
+      
+      //----------------------------------
+      
       Dogether dogether = new Dogether();
       dogether.setTitle(dogetherForm.getTitle());          // 제목
-      dogether.setImage(dogetherForm.getImage());            // 두리더 이미지
+//      dogether.setImage(dogetherForm.getImage());            // 두리더 이미지
+      dogether.setImages(imageEntity);
+//fileService      dogether.setImage(dogetherForm.getImage());            // 두리더 이미지
       System.out.println("이미지 경로 :: "+dogetherForm.getImage());
       dogether.setLeaderInfo(dogetherForm.getLeaderInfo());   // 두리더 정보
       dogether.setSummary(dogetherForm.getSummary());         // 요약

@@ -11,8 +11,8 @@ spring:
 
   jpa:
     generate-ddl: true
-    #hibernate:
-      #ddl-auto: create
+#    hibernate:
+#      ddl-auto: create
     properties:
       hibernate:
         show_sql: true
@@ -20,3 +20,6 @@ spring:
 #logging.level:
 #  org.hibernate.SQL: debug
 #  org.hibernate.type: trace
+file:
+  dir: C:/justdo_file/
+
