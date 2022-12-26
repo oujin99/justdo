@@ -87,8 +87,8 @@
                </th:block>
                 
                <div th:each="board : ${boardList}">
-                    <div class="num" ><a href="view.html" th:text="${board.id}" th:href="@{/board/boardView/{id}(id=${board.id})}"></a></div>
-                    <div class="title" ><a href="view.html" th:text="${board.title}" th:href="@{/board/boardView/{id}(id=${board.id})}"></a></div>
+                    <div class="num" ><a href="view.html" th:text="${board.id}" th:href="@{/board/boardView/{id}(id=${board.id}, page=${nowPage}-1)}"></a></div>
+                    <div class="title" ><a href="view.html" th:text="${board.title}" th:href="@{/board/boardView/{id}(id=${board.id}, page=${nowPage}-1)}"></a></div>
 					<div class="writer" th:text="${board.account.name}"></div>
 					<div class="date" th:text="${board.startDate}"></div>
                     <div class="count" th:text="${board.views}"></div>

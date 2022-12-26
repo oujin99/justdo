@@ -39,7 +39,6 @@
         $("#searcher").load("common/search.html");  
     });
     </script>
-
 </head>
 
 <body>
@@ -54,26 +53,22 @@
     <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
     <div class="board_wrap">
         <div class="board_title">
-            <strong>글 등록</strong>
+            <strong>게시물 등록</strong>
         </div>
-         <form name="boardForm" th:action="@{/board/boardWriteSub}" method="post">
+         <form th:object="${boardFormDto}" name="boardForm" th:action="@{/board/boardWriteSub}" method="post">
 	        <div class="board_write_wrap">
 	            <div class="board_write">
 	                <div class="title">
 	                    <dl>
 	                        <dt>제목</dt>
-	                        <dd><input type="text" name="title" placeholder="제목 입력"></dd>
+	                        <dd><input th:field="*{title}" th:errorclass="board-error" type="text" name="title" placeholder="제목 입력"></dd>
+	                        <dd class="board-error" th:errors="*{title}" style="color: tomato; margin-left: 3em;">제목 오류</dd>
 	                    </dl>
 	                </div><hr>
-	<!--                 <div class="info"> -->
-	<!--                     <dl> -->
-	<!--                         <dt>글쓴이</dt> -->
-	<!--                         <dd><input type="text" name="account" placeholder="글쓴이 입력"></dd> -->
-	<!--                     </dl> -->
-	<!--                 </div> -->
-	                <div class="cont">글내용<hr>
-	                    <textarea name="content" placeholder="내용 입력"></textarea>
+	                <div class="cont">글내용<hr> 
+	                    <textarea th:field="*{content}" th:errorclass="board-error" name="content" placeholder="내용 입력"></textarea>
 	                </div>
+	                    <div class="board-error" th:errors="*{content}" style="color: tomato;">내용 오류</div>
 	            </div>
 	            <div class="bt_wrap">
 	            	<div class="qwe"></div>

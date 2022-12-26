@@ -2,10 +2,8 @@ package com.yujeans.justdo.board.controller;
 
 import java.time.LocalDate;
 import java.util.Optional;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,18 +11,21 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.yujeans.justdo.board.Board;
+import com.yujeans.justdo.board.Reply;
 import com.yujeans.justdo.board.dto.BoardFormDto;
+import com.yujeans.justdo.board.dto.ReplyFormDto;
 import com.yujeans.justdo.board.service.BoardService;
+import com.yujeans.justdo.board.service.ReplyService;
 import com.yujeans.justdo.user.Account;
+import com.yujeans.justdo.user.Credential;
 import com.yujeans.justdo.user.service.CredentialService;
-
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -33,22 +34,34 @@ public class BoardController {
 
 	@Autowired
 	private final BoardService boardService;
+	
+	@Autowired
+	private final ReplyService replyService;
 
 	@Autowired
 	private final CredentialService credentialService;
 	
 	// 글작성 페이지 이동
 	@GetMapping("/board/boardWrite") 
-    public String boardwriteForm(){
+    public String boardwriteForm(@ModelAttribute BoardFormDto boardFormDto){
 
         return "/board/board_write";
     }
 
 	// 글작성 
     @PostMapping("/board/boardWriteSub")
-    public String boardWritePro(@ModelAttribute BoardFormDto boardFormDto, Model model, HttpServletRequest request){
-		Board board = new Board();
-		
+    public String boardWritePro(@Validated @ModelAttribute BoardFormDto boardFormDto
+			,BindingResult bindingResult, Model model, HttpServletRequest request){
+
+    	if(bindingResult.hasErrors()) {
+			System.out.println("========= bindingResult Error =========");
+			System.out.println(bindingResult.toString());
+			System.out.println(bindingResult.getAllErrors().get(0));
+			return "/board/board_write";
+		}
+    	
+    	Board board = new Board();
+    	
 		Account account  = credentialService.findUserInfo((String)request.getAttribute("id")); 
 		
 		board.setContent(boardFormDto.getContent());
@@ -64,17 +77,33 @@ public class BoardController {
     
     // 상세보기 이동
     @GetMapping("/board/boardView/{id}")
-    public String boardView(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response, Model model){
+    public String boardView(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response
+    		,Model model, ReplyFormDto replyFormDto){
+    	
+    	System.out.println("상세보기 id : " + id);
     	System.out.println("보드 뷰 테스트");
     	boardService.boardView(id, request, response);
     	Optional<Board> findResult =  boardService.findById(id);
     	Board board = findResult.get();
         model.addAttribute("boardView", board);
+        model.addAttribute("replyList", replyService.findByBoard(board));
+        
+        Credential credential = credentialService.findByAccountId(board.getAccount().getId());
+    	String isSameId = "false";
+    	if(credential.getUsername().equals(request.getAttribute("id"))) {
+    		isSameId = "true";
+    	}
+    	
+    	Optional<Credential> loginCredential = credentialService.findByUsername(request.getAttribute("id").toString());
+    	
+    	model.addAttribute("isSameId", isSameId);
+    	model.addAttribute("credentialId", loginCredential.get().getId());
+        
         return "/board/board_view";
     }
     
     // 게시글 삭제
-    @DeleteMapping("/board/boardDelete/{id}")
+    @GetMapping("/board/boardDelete/{id}")
     public String boardDelete(@PathVariable("id") Long id){
     	System.out.println("board_id : "+id);
         boardService.boardDelete(id);
@@ -88,6 +117,7 @@ public class BoardController {
         Optional<Board> result = boardService.findById(id);
     	Board board = result.get();
     	model.addAttribute("board", board);
+    	
     	
 //        model.addAttribute("boardEdit",boardService.boardView(id, request, response));
 
@@ -222,7 +252,7 @@ public class BoardController {
     	
     	return "/board/board_search_list";
     }
-
+    
   
 
 }

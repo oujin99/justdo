@@ -54,14 +54,21 @@
     <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
     <div class="board_wrap">
         <div class="board_title">
-            <strong>글 상세</strong>
+            <strong>게시글 상세</strong>
         </div>
         <div class="board_view_wrap">
+        		<div class="board-top-btn">
+        			<div class="qwe">
 	                <dl style="display: flex;">
 	                	<dt class="board-title">제목</dt>
 	                	<dd class="title-line"></dd>
 	                	<dd class="board-titlename" th:text="${boardView.title}"></dd>
 	                </dl>
+	                </div>
+	                <div class="bt_wrap">
+	                <a  href="list.html" class="on" th:href="@{/board/boardList(page=${param.page})}">목록</a>
+	                </div>
+	            </div>
             <div class="board_view">
                 <div class="info">
                     <dl>
@@ -83,14 +90,15 @@
                     	<hr>
                 		<div class="cont" th:text="${boardView.content}"></div>
                 </div>
-                <div class="bt_wrap">
-	                <div class="qwe"></div>
-	                <div class="asd">
-<!-- 		                <a href="list.html" class="on" th:href="@{/board/boardList/{id}(id=${boardView.id})}">목록</a> -->
-		                <a href="edit.html" th:href="@{/board/boardDelete/{id}(id=${boardView.id})}">삭제</a>
-		                <a href="edit.html" th:href="@{/board/boardEdit/{id}(id=${boardView.id})}" class="on">수정</a>
-		            </div>
-            	</div>
+                	<div class="bt_wrap">
+		                <div class="qwe"></div>
+		                <div class="asd">
+							<th:block th:if="${isSameId}=='true'">
+				                <a href="edit.html" th:href="@{/board/boardDelete/{id}(id=${boardView.id})}">삭제</a>
+				                <a href="edit.html" th:href="@{/board/boardEdit/{id}(id=${boardView.id})}" class="on">수정</a>
+			                </th:block>
+		            	</div>
+            		</div>
                 <div style="padding: 1em;"></div>
                 
                 <!-- 댓글 -->
@@ -99,36 +107,45 @@
                         <i class="fa fa-comment fa"></i> 댓글
                     </div>
                     
-                    <form name="commentForm" th:action="@{/board/commentWriteSub}" method="post">
+                    <form th:object="${replyFormDto}" name="commentForm" th:action="@{/board/commentWriteSub/{id}(id=${boardView.id})}" method="post">
 	                    <div class="card-body">
 	                        <ul class="list-group list-group-flush">
 	                            <li class="list-group-item">
-	                                <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
+	                                <textarea th:field="*{content}" th:errorclass="reply-error" name="content" class="form-control" rows="3"></textarea>
+	                                <div class="reply-error" th:errors="*{content}" style="color: tomato;">댓글 오류</div>
 	                            </li>
 	                        </ul>
 	                            <div>
-	                                <a href="javascript:boardForm.submit();" type="button" class="btn btn-dark mt-3">댓글달기</a>
+	                                <a href="javascript:commentForm.submit();" type="button" class="btn btn-dark mt-3">댓글달기</a>
 	                           </div>
 	                    </div>
                     </form>
                     
                 </div>
                 
-                <div class="comment-box" th:each="reply : ${replyList}">
-                	<dl>
-                		<dt class="comment-id" th:text="${reply.id}"></dt>
-                		<dd class="comment" th:text="${reply.account.name}"></dd>
-                		<dd class="line" ></dd>
-                		<dd class="com-content" th:text="${reply.content}"></dd>
-		                <dd class="comment-up-del">
-		                	<span>작성일 : </span>
-		                	<span class="com-date" th:text="${reply.startDate}"></span>
-		                	<a class="comment-btn">수정</a>
-		                	<a class="comment-btn">삭제</a>
-		                </dd>
-                	</dl>
-                </div>
-
+	                <div class="comment-box" th:each="reply : ${replyList}">
+	                	<dl>
+	                		<dt class="comment-id" th:text="${replyStat.count}"></dt>
+	                		<dd class="comment" th:text="${reply.account.name}"></dd>
+	                		<dd style="display: flex;">
+	                		<span class="line" ></span>
+	                		<span class="com-content" th:text="${reply.content}"></span>
+	                		</dd>
+			                <dd class="comment-up-del">
+			                	<span>작성일 : </span>
+			                	<span class="com-date" th:text="${reply.startDate}"></span>
+			                	<span style="display: flex; justify-content: space-between; margin-top: 5px;">
+			                	<span class="qwe"></span>
+			                	<span class="asd">
+			                	<th:block th:if="${reply.account.id}==${credentialId}">
+			                	<a class="comment-btn">수정</a>
+			                	<a class="comment-btn" th:href="@{/board/commentDelete/{boardId}/{replyId}(boardId=${boardView.id}, replyId=${reply.id})}">삭제</a>
+			                	</th:block>
+			                	</span>
+			                	</span>
+			                </dd>
+	                	</dl>
+	                </div>
             </div>
                 
             <div style="padding: 1em;"></div>

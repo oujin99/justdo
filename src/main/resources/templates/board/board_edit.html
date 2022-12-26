@@ -54,7 +54,7 @@
     <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
     <div class="board_wrap">
         <div class="board_title">
-            <strong>게시글 수정</strong>
+            <strong>게시물 수정</strong>
         </div>
         <form th:object="${board}" name="boardEditForm" th:action="@{/board/boardUpdate/{id}(id=${board.id})}" method="post">
 	        <div class="board_write_wrap">

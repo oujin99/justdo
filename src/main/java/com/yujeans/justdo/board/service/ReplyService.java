@@ -1,11 +1,16 @@
 package com.yujeans.justdo.board.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.yujeans.justdo.board.Board;
 import com.yujeans.justdo.board.Reply;
 import com.yujeans.justdo.board.Repository.ReplyRepository;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -22,17 +27,25 @@ public class ReplyService {
 		replyRepository.save(reply);
 	}
 	
-	// 댓글 상세보기
-    public Reply replyView(Long id){
-        
-    	return replyRepository.findById(id).get();
-    }
-    
     // 댓글 리스트 
  	public List<Reply> replyList() {
- 		
  		return replyRepository.findAll();
  	}
+ 	
+ 	// 게시글 아이디 찾기
+ 	public List<Reply> findByBoard(Board board){
+ 		return replyRepository.findByBoard(board);
+ 	}
+
+ 	// 댓글 삭제
+ 	@Transactional
+	public void replyDelete(Long id) {
+		replyRepository.deleteById(id);
+	}
+
+	public Optional<Reply> findById(Long id) {
+		return replyRepository.findById(id);
+	}
 	
 	
 }
