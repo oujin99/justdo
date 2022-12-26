@@ -16,6 +16,7 @@ import com.yujeans.justdo.board.Reply;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
@@ -26,6 +27,7 @@ import lombok.Setter;
 	initialValue = 1,
 	allocationSize = 1
 )
+@ToString
 public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Account_seq_generator")

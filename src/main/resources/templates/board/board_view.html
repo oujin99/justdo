@@ -24,13 +24,13 @@
     <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="../css/board_style.css">
-    <link rel="stylesheet" href="../css/board_media.css">
+    <link rel="stylesheet" href="/css/board_style.css">
+    <link rel="stylesheet" href="/css/board_media.css">
 
     <script src="/js/script.js" defer></script>
 
     <!-- header, footer 공통 부분 -->
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">   
         $(document).ready( function() {
 
@@ -86,9 +86,9 @@
                 <div class="bt_wrap">
 	                <div class="qwe"></div>
 	                <div class="asd">
-		                <a href="list.html" class="on" th:href="@{/board/boardList}">목록</a>
+<!-- 		                <a href="list.html" class="on" th:href="@{/board/boardList/{id}(id=${boardView.id})}">목록</a> -->
 		                <a href="edit.html" th:href="@{/board/boardDelete/{id}(id=${boardView.id})}">삭제</a>
-		                <a href="edit.html" th:href="@{/board/boardEdit/{id}(id=${boardView.id})}">수정</a>
+		                <a href="edit.html" th:href="@{/board/boardEdit/{id}(id=${boardView.id})}" class="on">수정</a>
 		            </div>
             	</div>
                 <div style="padding: 1em;"></div>

@@ -1,6 +1,11 @@
 package com.yujeans.justdo.board.controller;
 
 import java.time.LocalDate;
+import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,9 +18,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import com.yujeans.justdo.board.Board;
 import com.yujeans.justdo.board.dto.BoardFormDto;
 import com.yujeans.justdo.board.service.BoardService;
+import com.yujeans.justdo.user.Account;
+import com.yujeans.justdo.user.service.CredentialService;
+
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -25,6 +34,9 @@ public class BoardController {
 	@Autowired
 	private final BoardService boardService;
 
+	@Autowired
+	private final CredentialService credentialService;
+	
 	// 글작성 페이지 이동
 	@GetMapping("/board/boardWrite") 
     public String boardwriteForm(){
@@ -34,13 +46,15 @@ public class BoardController {
 
 	// 글작성 
     @PostMapping("/board/boardWriteSub")
-    public String boardWritePro(@ModelAttribute BoardFormDto boardFormDto, Model model){
+    public String boardWritePro(@ModelAttribute BoardFormDto boardFormDto, Model model, HttpServletRequest request){
 		Board board = new Board();
-		System.out.println("boardFormDto.getContent() : "+boardFormDto.getContent());
-		System.out.println("boardFormDto.getTitle() : "+boardFormDto.getTitle());
+		request.setAttribute("id", "test144");
+		Account account  = credentialService.findByUsername((String)request.getAttribute("id"));
+		
 		board.setContent(boardFormDto.getContent());
 		board.setTitle(boardFormDto.getTitle());
 		board.setStartDate(LocalDate.now().toString());
+		board.setAccount(account);
         boardService.write(board);
         
         model.addAttribute("boardList", boardService.boardList()) ;
@@ -49,10 +63,13 @@ public class BoardController {
     }
     
     // 상세보기 이동
-    @GetMapping("/board/boardView")
-    public String boardView(Model model , Long id){
-    	
-        model.addAttribute("boardView",boardService.boardView(id));
+    @GetMapping("/board/boardView/{id}")
+    public String boardView(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response, Model model){
+    	System.out.println("보드 뷰 테스트");
+    	boardService.boardView(id, request, response);
+    	Optional<Board> findResult =  boardService.findById(id);
+    	Board board = findResult.get();
+        model.addAttribute("boardView", board);
         return "/board/board_view";
     }
     
@@ -66,21 +83,30 @@ public class BoardController {
     
     // 게시글 수정 이동
     @GetMapping("/board/boardEdit/{id}")
-    public String boardEdit(@PathVariable("id") Long id , Model model){
+    public String boardEdit(@PathVariable("id") Long id, Model model){
         System.out.println("수정폼");
-        model.addAttribute("boardEdit",boardService.boardView(id));
+        Optional<Board> result = boardService.findById(id);
+    	Board board = result.get();
+    	model.addAttribute("board", board);
+    	
+//        model.addAttribute("boardEdit",boardService.boardView(id, request, response));
 
         return "/board/board_edit";
     }
     
 	// 게시글 수정
     @PostMapping("/board/boardUpdate/{id}")
-    public String boardUpdate(@PathVariable("id") Long id, @ModelAttribute  BoardFormDto boardFormDto, Model model){
-		Board board = new Board();
+    public String boardUpdate(@PathVariable("id") Long id, @ModelAttribute  BoardFormDto boardFormDto, Model model, HttpServletRequest request){
+    	Optional<Board> result = boardService.findById(id);
+//		request.setAttribute("id", "test144");
+//		Account account  = credentialService.findByUsername((String)request.getAttribute("id"));
+
+    	Board board = result.get();
 		board.setId(id);
 		board.setContent(boardFormDto.getContent());
 		board.setTitle(boardFormDto.getTitle());
 		board.setStartDate(LocalDate.now().toString());
+//		board.setAccount(account);
         boardService.write(board);
         
         model.addAttribute("boardUpdate", boardService.boardList()) ;
@@ -88,9 +114,8 @@ public class BoardController {
         return "redirect:/board/boardEdit/{id}";
     }
     
-    
     // 게시판 리스트 페이징
-    @GetMapping("/board/boardList")                 
+    @GetMapping("/board/boardList/{id}")                 
     public String paging(Model model, @PageableDefault(sort = "id", direction = Direction.DESC, size=7)
             Pageable pageable) {
     	
@@ -136,11 +161,6 @@ public class BoardController {
         model.addAttribute("nowPage", nowPage);
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
-        
-//        System.out.println("nowPage : "+nowPage);
-//        System.out.println("startPage : "+startPage);
-//        System.out.println("endPage : "+endPage);
-//        System.out.println("totalPage : "+boardList.getTotalPages());
         
         return "/board/board_list";
     }

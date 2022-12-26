@@ -24,13 +24,13 @@
     <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="../css/board_style.css">
-    <link rel="stylesheet" href="../css/board_media.css">
+    <link rel="stylesheet" href="/css/board_style.css">
+    <link rel="stylesheet" href="/css/board_media.css">
 
     <script src="/js/script.js" defer></script>
 
     <!-- header, footer 공통 부분 -->
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">   
         $(document).ready( function() {
 
@@ -87,8 +87,8 @@
                </th:block>
                 
                <div th:each="board : ${boardList}">
-                    <div class="num" ><a href="view.html" th:text="${board.id}" th:href="@{/board/boardView(id=${board.id})}"></a></div>
-                    <div class="title" ><a href="view.html" th:text="${board.title}" th:href="@{/board/boardView(id=${board.id})}"></a></div>
+                    <div class="num" ><a href="view.html" th:text="${board.id}" th:href="@{/board/boardView/{id}(id=${board.id})}"></a></div>
+                    <div class="title" ><a href="view.html" th:text="${board.title}" th:href="@{/board/boardView/{id}(id=${board.id})}"></a></div>
 					<div class="writer" th:text="${board.account.name}"></div>
 					<div class="date" th:text="${board.startDate}"></div>
                     <div class="count" th:text="${board.views}"></div>
