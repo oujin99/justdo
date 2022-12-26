@@ -70,6 +70,10 @@ public class DogetherController {
          // 빈 객체 전달
          Dogether dogether = new Dogether();
          model.addAttribute("dogether", dogether);
+         
+         //이미지 빈 객체 전달
+         Images images = new Images();
+         model.addAttribute("images", images);
 //         model.addAttribute("findUserInfo", findUserInfo);
          
          return "dogether/dogether_regist";
@@ -120,7 +124,7 @@ public class DogetherController {
    public String saveDogether(@ModelAttribute DogetherRegistDTO dogetherForm, 
                         HttpServletRequest request,
                         RedirectAttributes redirectAttributes,
-                        @RequestParam("image") MultipartFile image) throws IOException {//@RequestParam("thirdCateSelect") String thirdCateSelect,
+                        @RequestParam("orgNm") MultipartFile orgNm) throws IOException {//@RequestParam("thirdCateSelect") String thirdCateSelect,
       
       String selectedThird = dogetherForm.getThirdCateSelect();
 
@@ -163,7 +167,7 @@ public class DogetherController {
       
       
       // 사진 저장---------------------------
-      Long fileId = imageService.saveFile(image);
+      Long fileId = imageService.saveFile(orgNm);
       Images imageEntity = new Images();
       imageEntity.setId(fileId);
 //      File file = new File();

@@ -8,6 +8,10 @@ spring:
     username: jd
     password: jd
     driver-class-name: oracle.jdbc.driver.OracleDriver
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 10MB
 
   jpa:
     generate-ddl: true
@@ -20,6 +24,7 @@ spring:
 #logging.level:
 #  org.hibernate.SQL: debug
 #  org.hibernate.type: trace
+    
 file:
   dir: C:/justdo_file/
 
