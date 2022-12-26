@@ -1,5 +1,7 @@
 package com.yujeans.justdo.dogether.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,8 +24,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,7 +35,6 @@ import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.category.SecondCategory;
 import com.yujeans.justdo.category.ThirdCategory;
 import com.yujeans.justdo.category.service.CategoryService;
-import com.yujeans.justdo.credential.service.CredentialService;
 import com.yujeans.justdo.dogether.AccountDogether;
 import com.yujeans.justdo.dogether.Dogether;
 import com.yujeans.justdo.dogether.DogetherRegistDTO;
@@ -44,21 +43,26 @@ import com.yujeans.justdo.images.Images;
 import com.yujeans.justdo.images.service.ImageService;
 import com.yujeans.justdo.user.Account;
 import com.yujeans.justdo.user.Credential;
-import com.yujeans.justdo.user.service.AccountService;
+import com.yujeans.justdo.user.service.AccountDogetherService;
+import com.yujeans.justdo.user.service.CredentialService;
 
 import lombok.RequiredArgsConstructor;
 
 
 @Controller
-//@RequestMapping("/regist")
 @RequiredArgsConstructor
 public class DogetherController {
    
    @Autowired
    private final DogetherService dogetherService;
+   @Autowired
    private final CategoryService categoryService;
 //   private final AccountService accountService;
+   @Autowired
    private final CredentialService credentialService;
+   @Autowired
+   private final AccountDogetherService accountDogetherService;
+   
    private final ImageService imageService;
    
    //메인 페이지에서 '두게더 등록' 클릭 시 두게더 등록 페이지로 이동
@@ -70,11 +74,6 @@ public class DogetherController {
          // 대분류 조회 후 전달
          List<FirstCategory> firstCategory = dogetherService.selectFirstCategory();
          model.addAttribute("firstCategory", firstCategory);
-         
-//         //유저 정보 찾아오기
-//         String username = String.valueOf(request.getAttribute("id"));
-//         Account findUserInfo = accountService.findUserInfo(username);
-//         
          
          // 빈 객체 전달
          Dogether dogether = new Dogether();
@@ -88,10 +87,19 @@ public class DogetherController {
          return "dogether/dogether_regist";
       }
 
+   	// 인덱스 페이지에서 받은 소분류 카테고리를 이용해 두게더 썸네일 리스트 보여주기
     @GetMapping("/dogether/listForm/{thirdCategoryName}")
-      public String dogetherListForm(@PathVariable("thirdCategoryName") String thirdCategoryName) {
+      public String dogetherListForm(@PathVariable("thirdCategoryName") String thirdCategoryName, Model model) {
     	
-    	// System.out.println("thirdCategoryName : "+thirdCategoryName);
+    	model.addAttribute("thirdCategoryName", thirdCategoryName);
+    	
+    	List<Dogether> dogetherFromThirdList = dogetherService.findDogetherByThirdCategoryName(thirdCategoryName);
+    	
+    	System.out.println("두게더 사이즈 : "+dogetherFromThirdList.size());
+    	
+    	if(dogetherFromThirdList.size()>0) {
+    		model.addAttribute("dogetherList", dogetherFromThirdList);
+    	}
     	
         return "dogether/dogether_list";
     }
@@ -137,6 +145,7 @@ public class DogetherController {
                        ) throws IOException {//@RequestParam("thirdCateSelect") String thirdCateSelect,
       
       String selectedThird = dogetherForm.getThirdCateSelect();
+
       
       // 카테고리 아아디 가져오기 & Category 클래스의 id set
       Long categoryId = categoryService.findCategoryId(selectedThird);
@@ -179,10 +188,11 @@ public class DogetherController {
       // 두게더 상세보기로 바로 넘어가기 위해 redirect로 dogether_id 넘기기
       Long dogetherSeq = dogetherService.selectDogetherId();
       
+//      redirectAttributes.addAttribute("dogether", dogether);
       // where 이미지 아이디로 가져와서 넘기기!
       
       //가져온 시퀀스값 확인(currval)
-      System.out.println("두게더 시퀀스 :::: " + dogetherSeq);
+//      System.out.println("두게더 시퀀스 :::: " + dogetherSeq);
       
       redirectAttributes.addAttribute("dogetherSeq", dogetherSeq);
 //      redirectAttributes.addAttribute("dogether", dogether); //저장된 두게더 넘기기(두리더 프로필 위해)
@@ -192,11 +202,12 @@ public class DogetherController {
    
    
    @GetMapping("/dogether/detail/{dogetherSeq}")
-   public String dogetherDetail(@RequestParam("dogetherSeq")Long dogetherSeq,
+   public String dogetherDetail(@PathVariable("dogetherSeq")Long dogetherSeq,
 //		   						@RequestParam("dogether")Dogether dogether,
 		   						HttpServletRequest request,
 		   						Model model) throws IOException{
       
+	   
       Dogether findDogether = dogetherService.findDogether(dogetherSeq);
       model.addAttribute("findDogether", findDogether);
       
@@ -204,6 +215,33 @@ public class DogetherController {
       Account doleaderInfo = findDogether.getAccount();
       System.out.println("디테일 페이지로 넘어온 후 두리더 이름 :::: " + doleaderInfo.getName());
       model.addAttribute("doleaderInfo", doleaderInfo);
+      
+      // 이 게시물이 현재 로그인 한 유저가 쓴건지 판단하기
+      Credential credential = credentialService.findByAccountId(doleaderInfo.getId());
+      
+      String isCorrectId = "false";
+      
+      if(credential.getUsername().equals(request.getAttribute("id"))) {
+    	  isCorrectId = "true";
+      }
+      
+      model.addAttribute("isCorrectId", isCorrectId);
+      model.addAttribute("dogetherId", dogetherSeq);
+      
+      Account account = credentialService.findUserInfo(request.getAttribute("id").toString());
+      
+      // account , dogether로 accountDogether가 있는지 확인 후 없으면 현재 계정으로 해당 두게더를 수강신청 하지 않은 상태
+      AccountDogether ad = accountDogetherService.findByAccountAndDogether(account, findDogether);
+      
+      String isEnrolled = "false";
+      if(ad!=null) {
+    	  // ad가 null이 아니라면 현재 로그인 한 계정이 해당 두게더를 수강중인것
+    	  isEnrolled = "true";
+      }
+      
+      System.out.println("isEnrolled"+isEnrolled);
+      
+      model.addAttribute("isEnrolled", isEnrolled);
       
       // 사진 불러오기-------------------------
       Images fileInfo = imageService.getFileInfo(findDogether.getImages().getId()); // 파일 정보 찾기
@@ -239,6 +277,43 @@ public class DogetherController {
       return "dogether/dogether_detail";
    }
    
+   @PostMapping("/dogether/search")
+   public String dogetherSearch(@RequestParam("service_search") String requestText, Model model) {
+	   
+	   model.addAttribute("requestText", requestText);
+	   
+	   List<Dogether> dogetherList = dogetherService.findDogetherByTitle(requestText);
+	   
+	   if(dogetherList.size()>0) {
+		   model.addAttribute("dogetherList", dogetherList);
+	   }
+	   
+	   return "/dogether/dogether_search";
+   }
+   
+   @GetMapping("/dogether/enroll/{dogetherId}")
+   public String dogetherEnroll(@PathVariable("dogetherId") Long id, HttpServletRequest request, HttpServletResponse response) {
+	   
+	   Dogether dogether = dogetherService.findDogether(id);
+	   Account account = credentialService.findUserInfo(request.getAttribute("id").toString());
+	   
+//	   System.out.println("두게더 타이틀 :"+dogether.getTitle());
+//	   System.out.println("계정 이메일"+account.getEmail());
+	   
+	   //AccountDogether ad = accountDogetherService.findByAccountAndDogether(account, dogether);
+	   
+//	   if(ad==null) {
+		   AccountDogether accountDogether = new AccountDogether();
+		   accountDogether.setDogether(dogether);
+		   accountDogether.setAccount(account);
+		   accountDogetherService.save(accountDogether);
+//	   }
+	   
+	   return "redirect:/user/mypage";
+   }
+   
+
+
    @GetMapping("/test/{id}")
    public void imgTest(@PathVariable(name = "id") Long id, HttpServletResponse response)throws IOException {
 	// 사진 불러오기-------------------------

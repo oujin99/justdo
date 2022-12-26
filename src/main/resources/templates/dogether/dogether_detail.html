@@ -34,9 +34,9 @@
     <meta name="theme-color" content="#ffffff">
 
     <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/swiper-bundle.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.css">
+    <link rel="stylesheet" href="/css/style.css">
 <!--     <link rel="stylesheet" href="../css/mobile_css.css"> -->
     <link rel="stylesheet" href="/css/class_detail.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -209,59 +209,8 @@
                                 </div>
                             </section>
                             <!--// 튜터님을 소개합니다. -->
-
-                            <!-- 수강생 리뷰 -->
-                            <section class="idx sec_common p2p_class_cmt" id="review">
-                                <div class="p_col_left">
-                                    <p class="col_title">실제 수강생의 리뷰입니다.</p>
-                                </div>
-                                <!--//p_col_left-->
-                                <div class="p_col_right">
-                                    <div class="review_sum">
-                                        <ul class="review_list">
-                                            <li>커리큘럼<span class="avg">0</span></li>
-                                            <li>전달력<span class="avg">0</span></li>
-                                            <li>시간준수<span class="avg">0</span></li>
-                                            <li>준비성<span class="avg">0</span></li>
-                                            <li>친절도<span class="avg">0</span></li>
-                                        </ul>
-                                    </div>
-                                    <button type="button" class="btn_cmt" id="board_modal_btn">리뷰 작성하기</button>
-                                    <!-- 댓글 영역 -->
-                                    <div id="innerReviewDiv">
-                                        <span style="display: inline-block;margin-top: 15px;">
-                                            두리더님 수업에 리뷰를 달아주세요
-                                        </span>
-                                        <ul class="cmt_wrap">
-                                            
-                                            <li class="list">
-                                                <div class="tutee_info">
-                                                    <span class="img">
-                                                        <img src="../img/dog.jpg"
-                                                            onerror="profileImgError(this,0)" alt="">
-                                                    </span>
-                                                    <div class="tutee">
-                                                        <span class="name">현좌</span>
-                                                        <div class="date">
-                                                            <p>2022-12-01 13:18:51</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="cmt">
-                                                    <p>
-                                                        너무 만족스러웠어요! 남편이랑 같이 수업 들었었는데, 남자의 경우 머리랑 옷 스타일링도 잡아주셔서 만족했습니다.
-                                                        여자는 파운데이션 색도 알려주시고 맞는 메이크업 제품도 추천해주셔서 너무 만족했어요!! 다녀와서 지인들한테
-                                                        추천했습니다!
-                                                    </p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!--// 댓글영역 -->
-                                </div>
-                            </section>
-                        </div>
-                        <!--//수강생 리뷰 -->
+							<br>
+							<br>
                     </div>
                     <!--//detail_wrap-->
                     <!-- </div>추가추가 -->
@@ -288,18 +237,28 @@
                 <!-- // alert 디자인 팝업 -->
             </div>
 
-            <!-- 실시간톡 -->
-            <div class="btn_livechat p2p_class_wrap" style="padding-right: 30px;">
-                <!-- <div> -->
-                <a onclick="alert('로그인이 필요합니다'); " href="/Account/LoginPage.php" style="bottom: 20px;">수강하기</a>
-                <!-- </div> -->
-            </div>
-            <div class="btn_livechat2 p2p_class_wrap" style="padding-right: 160px;">
-                <!-- <div> -->
-                <a onclick="alert('로그인이 필요합니다'); " href="/Account/LoginPage.php" style="bottom: 20px;">1:1 채팅</a>
-                <!-- </div> -->
-            </div>
-            <!--// 실시간톡 -->
+
+			<th:block th:if="${isCorrectId}=='false'">
+	            <!-- 실시간톡 -->
+	            <th:block th:if="${isEnrolled}=='false'">
+		            <div class="btn_livechat p2p_class_wrap" style="padding-right: 30px;">
+		                <a onclick="javascript:enroll(); " href="#" style="bottom: 20px;">수강하기</a>
+		            </div>
+	            </th:block>
+	            
+	            <th:block th:if="${isEnrolled}=='true'">
+		            <div class="btn_livechat p2p_class_wrap" style="padding-right: 30px;">
+		                <a onclick="return false;" href="" style="bottom: 20px; background: gray;" >★수강중</a>
+		            </div>
+	            </th:block>
+	            
+	            <div class="btn_livechat2 p2p_class_wrap" style="padding-right: 160px;">
+	                <!-- <div> -->
+	                <a href="#" style="bottom: 20px;">1:1 채팅</a>
+	                <!-- </div> -->
+	            </div>
+	            <!--// 실시간톡 -->
+            </th:block>
         </div>
         <footer>
             <div id="footers"></div>
@@ -503,8 +462,15 @@
         }
     }
 
-
-               /*---------------------------댓글 남기기 모달창 끝---------------------------------*/
+    /*---------------------------댓글 남기기 모달창 끝---------------------------------*/
+    
+    // 수강하기 버튼 눌렀을 때
+    function enroll(){
+    	if(confirm('수강하시겠습니까?\n확인을 누르시면 마이페이지로 이동합니다.')){
+    		let id = [[${dogetherId}]];
+    		location.href='/dogether/enroll/'+id;
+    	}
+    }
 
 </script>
 </html>

@@ -1,10 +1,10 @@
 server:
   port: 9090
-
+jwt:
+  secret: Y29tLnBhdWxoYW4uand0LnByYWN0aWNlLm9uZW1vcmU=
 spring:
   datasource:
-    #   url: jdbc:oracle:thin:@220.85.6.86:50256:xe
-    url: jdbc:oracle:thin:@localhost:1521:xe
+    url: jdbc:oracle:thin:@localhost:1521:XE
     username: jd
     password: jd
     driver-class-name: oracle.jdbc.driver.OracleDriver

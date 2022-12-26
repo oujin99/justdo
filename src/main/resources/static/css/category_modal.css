@@ -221,6 +221,7 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    height: 1.7em;
 }
   .title {
     display: block;
@@ -268,7 +269,7 @@
 }
 
 .category_list > li > button{
-    width: 55%;
+    width: 64%;
     background-color: white;
     cursor: pointer;
  }

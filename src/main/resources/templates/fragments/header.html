@@ -36,13 +36,14 @@
 		                    <h1 class="logo"><a href="index.html" th:href="@{http://localhost:9090/}"><img src="/images/judo_logo.png" alt="로고"></a>
 		                    </h1>
 		                    <div class="h_search">
-		                        <form action="#" method="post" name="service_search_p">
+		                        <form action="/dogether/search" method="post" name="service_search_p">
 		                            <div class="search_icon"><img src="/img/icon-header-search.svg" alt="검색 아이콘">
 		                            </div>
 		                            <input type="text" name="service_search" id="service_search_pc"
 		                                placeholder="어떤 서비스가 필요하세요?">
 		                        </form>
-		                        <div class="search_tab_wrap">
+		                        
+		                        <!-- <div class="search_tab_wrap">
 		                            <div class="search_tab">
 		                                <div class="tab_title">
 		                                    <ul>
@@ -72,7 +73,9 @@
 		                                <div class="tab_delete">전체 삭제</div>
 		                                <div class="tab_close">닫기</div>
 		                            </div>
-		                        </div>
+		                        </div> -->
+		                        
+		                        
 		                    </div>
 		                </div>
 		                <div class="h_right">
@@ -123,12 +126,13 @@
 		                    <h1 class="logo"><a href="index.html" th:href="@{http://localhost:9090/}"><img src="/img/judo_logo.png" alt="로고"></a>
 		                    </h1>
 		                    <div class="h_search">
-		                        <form action="#" method="post" name="service_search_p">
+		                        <form action="/dogether/search" method="post" name="service_search_p">
 		                            <div class="search_icon"><img src="/img/icon-header-search.svg" alt="검색 아이콘">
 		                            </div>
 		                            <input type="text" name="service_search" id="service_search_pc"
 		                                placeholder="어떤 서비스가 필요하세요?">
 		                        </form>
+		                        
 		                        <div class="search_tab_wrap">
 		                            <div class="search_tab">
 		                                <div class="tab_title">
@@ -160,12 +164,13 @@
 		                                <div class="tab_close">닫기</div>
 		                            </div>
 		                        </div>
+		                        
 		                    </div>
 		                </div>
 		                <div class="h_right">
 		                    <nav>
 		                        <ul class="nav">
-		                            <li><a href="/html/board_list.html" th:href="@{/board/boardListForm}">게시판</a></li>
+		                            <li><a href="/html/board_list.html" th:href="@{/board/boardList}">게시판</a></li>
 		                            <li><a href="/html/dogether_regist.html" th:href="@{/dogether/registForm}">두게더 등록</a></li>
 		                        </ul>
 		                    </nav>

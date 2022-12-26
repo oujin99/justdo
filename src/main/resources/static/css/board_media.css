@@ -5,6 +5,23 @@
         padding: 0 30px;
         box-sizing: border-box;
     }
+    
+    .board_title {
+    margin-bottom: 13px;
+	}
+	
+	.board-search {
+    padding: 0.5em;
+    border-radius: 0.6em !important;
+    border: 1px solid #f67ff4;
+    background-color: #f1f1f1;
+    width: 83%;
+    margin-bottom: 2em;
+	}
+	
+	.board-header {
+    display: inline;
+	}
 
     .board_list .num,
     .board_list .writer,
@@ -17,7 +34,7 @@
     }
 
     .board_list .title {
-        text-indent: 10px;
+        text-align: center;
     }
 
     .board_list .top .title {
@@ -30,7 +47,7 @@
     }
 
     .board_page a.bt {
-        padding-top: 7px;
+        padding-top: 2px;
     }
     
     .board_page a.num {

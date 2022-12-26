@@ -54,7 +54,7 @@
                     <h1 class="mypage-title">마이페이지</h1>
 
                     <div class="profile-container underline">
-                        <a href="상세페이지">
+                        <a href="#">
                             <div class="thumb">
                                 <div class="user-profile-picture h-100">
                                     <div date-name="image" class="is-square" style="width: 68px; height: 68px; border-radius: 5px !important;">
@@ -82,9 +82,9 @@
                 <!-- 회원정보수정 -->
                 <div class="my-page-menu">
                     <ul class="underline">
-                        <li class="main-menu">두리더</li>
+                        <li class="main-menu">계정 관리</li>
                         <div class="sub-header"></div>
-                        <li class="sub-menu-container username-modify">
+                        <!-- <li class="sub-menu-container username-modify">
                             <a href="" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
@@ -92,12 +92,12 @@
                                     </div>
                                 </div>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="sub-menu-container username-modify">
                             <a href="" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
-                                        <span class="sub-menu-title updated">프로필 수정</span>
+                                        <span class="sub-menu-title updated">프로필 페이지 관리</span>
                                     </div>
                                 </div>
                             </a>
@@ -109,58 +109,34 @@
                 <!-- 클래스 -->
                 <div class="my-page-menu">
                     <ul class="underline">
-                        <li class="main-menu">두게더 목록</li>
+                        <li class="main-menu">두게더 관리</li>
                         <div class="sub-header"></div>
                         <li class="sub-menu-container username-modify">
                             <a href="" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
-                                        <span class="sub-menu-title updated">현재 수강 두게더</span>
+                                        <span class="sub-menu-title updated">팔로우 두게더</span>
                                     </div>
                                     <br>
                                     <br>
                                     <div class="story_S swiper mySwiper">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
-                                                    <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
-                                                    <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-3.jpg" alt="">
-                                                    <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-4.jpg" alt="">
-                                                    <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
-                                                    <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-6.png" alt="">
-                                                    <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-7.png" alt="">
-                                                    <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-8.jpg" alt="">
-                                                    <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
-                                                </a>
-                                            </div>
+                                        
+                                            <th:block th:each="followDogether : ${followDogetherList}">
+	                                            <div class="swiper-slide">
+	                                                <a href="javascript:" th:href="@{/dogether/detail/{dogetherId}(dogetherId=${followDogether.id})}">
+	                                                	<th:block th:if="${not #strings.isEmpty(followDogether.images)}">
+		                                                	<img src="../img/story-1.jpeg" alt="" th:src="|/dogether/${followDogether.images.savedNm}|">
+	                                                	</th:block>
+	                                                	<th:block th:if="${#strings.isEmpty(followDogether.images)}">
+		                                                	<img src="/img/no-thumbnail.png" alt="">
+	                                                	</th:block>
+		                                                    <p class="title" th:text="${followDogether.title}">두게더 타이틀</p>
+	                                                	
+	                                                </a>
+	                                            </div>
+		                                     </th:block>
+                                            
                                         </div>
                                         <!-- <div class="story_S_next swiper-button-next"></div>
                                         <div class="story_S_prev swiper-button-prev"></div> -->
@@ -168,56 +144,35 @@
                                 </div>
                             </a>
                         </li>
+                        <br>
+                        <br>
                         <li class="sub-menu-container username-modify">
                             <a href="" class="sub-menu-list">
                                 <div class="sub-content">
                                     <div class="sub-menu">
-                                        <span class="sub-menu-title updated">수강 완료 두게더</span>
+                                        <span class="sub-menu-title updated">리드 두게더</span>
                                     </div>
                                     <br>
                                     <br>
                                     <div class="story_S swiper mySwiper">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-1.jpeg" alt="">
-                                                    <p class="title">1:1 영어과외 후기, 비용 알아보고 선생님 찾기 고민 끝!</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-2.jpeg" alt="">
-                                                    <p class="title">[인터뷰] 축복이 되는 노래를 선물할게요! - 결혼식 축가 전이섬 고수</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-3.jpg" alt="">
-                                                    <p class="title">[뉴스레터] 맞아, 난생 처음이니까</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-4.jpg" alt="">
-                                                    <p class="title">벽걸이 TV 설치 궁금한 점 총정리 - 가격, 후기까지 한 번에!</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-5.jpeg" alt="">
-                                                    <p class="title">미리 준비하세요! 에어컨 청소 비용, 후기 알아보기</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-6.png" alt="">
-                                                    <p class="title">가정집부터 사무실까지 확실하게! 코로나 방역 소독 후기</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-7.png" alt="">
-                                                    <p class="title">[인터뷰] 강아지 문제 행동, 원인을 먼저 찾아보세요! - 반려동물 훈련 주용하 고수</p>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="javascript:"><img src="../img/story-8.jpg" alt="">
-                                                    <p class="title">슬라이딩, 여닫이 OK! 붙박이장 맞춤 제작 시 알아야 할 정보</p>
-                                                </a>
-                                            </div>
+		                                     
+		                                     <th:block th:each="leadDogether : ${leadDogetherList}">
+	                                            <div class="swiper-slide">
+	                                                <a href="javascript:" th:href="@{/dogether/detail/{dogetherId}(dogetherId=${leadDogether.id})}">
+	                                                	
+	                                                	<th:block th:if="${not #strings.isEmpty(leadDogether.images)}">
+		                                                	<img src="../img/story-1.jpeg" alt="" th:src="|/dogether/${leadDogether.images.savedNm}|">
+	                                                	</th:block>
+	                                                	<th:block th:if="${#strings.isEmpty(leadDogether.images)}">
+		                                                	<img src="/img/no-thumbnail.png" alt="">
+	                                                	</th:block>
+	                                                	
+	                                                    <p class="title" th:text="${leadDogether.title}">두게더 타이틀</p>
+	                                                </a>
+	                                            </div>
+		                                     </th:block>
+                                            
                                         </div>
                                         <!-- <div class="story_S_next swiper-button-next"></div>
                                         <div class="story_S_prev swiper-button-prev"></div> -->
@@ -228,7 +183,8 @@
                     </ul>
                 </div>
 
-                
+                <br>
+                <br>
                 
             </div>
         </div>

@@ -15,9 +15,8 @@ import lombok.RequiredArgsConstructor;
 public class AccountService {
 	@Autowired
 	private final AccountRepository accountRepository;
-	
-	
-//	public Account findUserInfo(String username) {
-//		return accountRepository.findUserInfo(username);
-//	}
+
+	public void save(Account account) {
+		accountRepository.save(account);
+	}
 }

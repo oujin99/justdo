@@ -45,20 +45,20 @@
     <div data-testid="login-page" class="login-page" data-v-9eec7faa>
         <h1 data-v-9eec7faa>로그인</h1>
         <div data-v-9eec7faa class="card">
-            <form action="#" method="POST">
+            <form th:action="@{/user/login}" method="POST" name="loginForm">
                 <div data-v-4598a076>
                     <label class="title">이메일</label>
-                    <input type="email" class="input-box" placeholder="이메일을 입력하세요" name="email" />
+                    <input type="email" class="input-box" placeholder="이메일을 입력하세요" name="username"/>
                     <label class="title">비밀번호</label>
                     <div class="password__input">
-                        <input type="password" class="input-box" placeholder="영문자와 숫자를 포함하여 8자 이상" name="password" />
+                        <input type="password" class="input-box" placeholder="영문자와 숫자를 포함하여 8자 이상" name="password"/>
                     </div>
                     <button type="submit" class="login-btn new-btn">이메일 로그인</button>
                     <div data-v-4598a076 class="reset-password-or-signup-wrapper col-12">
                         <div data-v-4598a076>
                             <!-- <a data-v-4598a076 href="#">비밀번호 찾기</a> -->
                             <!-- <div data-v-4598a076 class="line"></div> -->
-                            <a data-v-4598a076 href="/html/signup.html" th:href="@{/user/signup}">회원가입</a>
+                            <a data-v-4598a076 href="/user/signup">회원가입</a>
                         </div>
                     </div>
                     <button type="button" class="login-btn kakao-btn" th:onclick="|location.href='@{https://kauth.kakao.com/oauth/authorize?client_id=14fc3afe3224a3ab568b44392a0f3115&redirect_uri=http://localhost:9090/kakao/login&response_type=code}'|">카카오로 로그인</button>
@@ -70,6 +70,7 @@
     <footer>
         <div id="footers"></div>
     </footer>
+
 </body>
 
 </html>

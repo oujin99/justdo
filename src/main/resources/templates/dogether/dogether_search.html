@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='Title' content='저두'>
+    <meta name='Subject' content='저두'>
+    <meta name='Keywords' content='저두 레슨 취미 클래스 저스트두 이벤트'>
+    <meta name='Author' content='minjeong'>
+    <meta name='Publisher' content='minjeong'>
+    <meta name='Description' content='저두 오신 것을 환영합니다.'>
+    <meta name='Author-Date' content='20220323'>
+    <meta name='Robots' content='index,follow'>
+    <link rel="icon" type="images/png" href="/images/logo.png" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/infiniteScroll.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/js/script.js" defer></script>
+
+
+    <!-- header, footer 공통 부분 -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
+
+<body>
+    <ul id="skip">
+        <li><a href="#header">헤더 바로가기</a></li>
+        <li><a href="#nav">메뉴 바로가기</a></li>
+        <li><a href="#footer">푸터 바로가기</a></li>
+    </ul>
+    <header>
+    	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
+    </header>
+    <main>
+        <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
+
+		<section class="story">
+            <div class="container-header">
+                <div class="header">
+                    <h2 class="title" th:text="|'${requestText}' 검색 결과|">검색 내용</h2>
+                </div>
+                
+                <th:block th:if="${not #strings.isEmpty(dogetherList)}">
+	                <div class="infinite">
+	                	<th:block th:each="dogether:${dogetherList}">
+		                    <div class="infinite_item">
+		                        <a href="javascript:" th:href="@{/dogether/detail/{dogetherId}(dogetherId=${dogether.id})}">
+		        					<th:block th:if="${not #strings.isEmpty(dogether.images)}">                	
+			                        	<img src="/img/story-1.jpeg" alt="" th:src="|/dogether/${dogether.images.savedNm}|">
+			                            <p class="title" th:text="${dogether.title}">두게더 타이틀</p>
+		                            </th:block>
+		                            <th:block th:unless="${not #strings.isEmpty(dogether.images)}">
+			                        	<img src="/img/no-thumbnail.png" alt="">
+		                            <p class="title" th:text="${dogether.title}">두게더 타이틀</p>
+		                        </a>
+		                    </div>
+	                	</th:block>
+	                    
+					</div>
+                </th:block>
+                <th:block th:unless="${not #strings.isEmpty(dogetherList)}">
+                	<div class="infinite">
+                		<div class="infinite_item">
+                			<div>아직 등록된 두게더가 없어요!</div>
+                		</div>
+                	</div>
+                </th:block>
+                
+			</div>
+		</section>
+        <footer>
+        </footer>
+    </main>
+    <script>
+	    $(".infinite div").slice(6).hide();
+	
+	    var mincount = 9;
+	    var maxcount = 15;
+		
+// 		var scrolltop = $(document).scrollTop();	
+// 	 	console.log(scrolltop);
+//         var height = $(document).height();
+//         console.log(height);
+//         var height_win = $(window).height();
+//         console.log(height_win);
+		
+	
+	    $(window).scroll(function () {
+	        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 60) {
+	            $(".infinite div").slice(mincount, maxcount).slideDown(600);
+	
+	            mincount = mincount + 3;
+	            maxcount = maxcount + 6;
+
+        }
+    });
+    </script>
+</body>
+
+</html>

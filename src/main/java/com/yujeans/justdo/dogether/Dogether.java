@@ -29,7 +29,7 @@ public class Dogether {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Dogether_seq_generator")
 	private Long id;
 	private String title;
-//	private String image;
+	private String image;
 	
 	
 	

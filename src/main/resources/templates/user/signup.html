@@ -9,25 +9,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet" />
     <script src="https://kit.fontawesome.com/fc26219ee3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/signup.css" />
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/swiper-bundle.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/signup.css" />
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="../js/script.js" defer></script>
+    <script src="/js/script.js" defer></script>
 
     <!-- header, footer 공통 부분 -->
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript">   
-        $(document).ready( function() {
+    <script src="/code.jquery.com/jquery-1.11.0.min.js"></script>
 
-        $("#headers").load("common/header.html");  // 원하는 파일 경로를 삽입하면 된다
-        $("#footers").load("common/footer.html");  // 추가 인클루드를 원할 경우 이런식으로 추가하면 된다
-        $("#searcher").load("common/search.html");  
-    });
-    </script>
-
+<style type="text/css">
+	div.signup-error{
+		color:tomato;
+		margin-bottom:10px;
+	}
+	input.signup-error{
+		color: green;
+	}
+</style>
 </head>
 
 <body>
@@ -43,38 +44,42 @@
     <div data-testid=".signup-page" class=".signup-page" data-v-9eec7faa>
         <h1 data-v-9eec7faa>회원가입</h1>
         <div data-v-9eec7faa class="card">
-            <form action="/login" method="POST">
+            <form th:object="${signUpFormDto}" th:action action="/user/signup" method="POST">
                 <div data-v-4598a076>
-                    <fieldset>
-                        <label class="name">이름</label>
-                        <div>
-                            <input type="text" class="input-box" placeholder="이름을 입력하세요" name="name" />
-                        </div>
-                    </fieldset>
                     <fieldset>
                         <label class="email">이메일</label>
                         <div>
-                            <input type="email" class="input-box" placeholder="이메일을 입력하세요" name="email" />
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <label class="email">연락처</label>
-                        <div>
-                            <input type="text" class="input-box" placeholder="전화번호를 입력하세요" name="phone" />
+                            <input th:field="*{email}" th:errorclass="signup-error" name="email" type="email" class="input-box" placeholder="이메일을 입력하세요"/>
+                            <div class="signup-error" th:errors="*{email}">이메일 오류</div>
                         </div>
                     </fieldset>
                     <fieldset>
                         <label class="password">비밀번호</label>
                         <div class="password__input">
-                            <input type="password" class="input-box" placeholder="영문자와 숫자를 포함하여 8자 이상"
+                            <input th:field="*{password}" th:errorclass="signup-error" type="password" class="input-box" placeholder="영문자와 숫자를 포함하여 8자 이상"
                                 name="password" />
+                            <div class="signup-error" th:errors="*{password}">패스워드 오류</div>
                         </div>
                     </fieldset>
                     <fieldset>
                         <label class="rePassword">비밀번호 재입력</label>
                         <div class="rePassword__input">
-                            <input type="password" class="input-box" placeholder="영문자와 숫자를 포함하여 8자 이상"
-                                name="password" />
+                            <input th:field="*{rePassword}" name="rePassword" type="password" class="input-box" placeholder="영문자와 숫자를 포함하여 8자 이상"/>
+                            <div class="signup-error" th:errors="*{rePassword}">패스워드 오류</div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label class="name">이름</label>
+                        <div>
+                            <input th:field="*{name}" th:errorclass="signup-error" name="name" type="text" class="input-box" placeholder="이름을 입력하세요"/>
+                            <div class="signup-error" th:errors="*{name}">이름 오류</div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label class="email">연락처</label>
+                        <div>
+                            <input th:field="*{phone}" th:errorclass="signup-error" name="phone" type="text" class="input-box" placeholder="전화번호를 입력하세요"/>
+                            <div class="signup-error" th:errors="*{phone}">핸드폰 번호 오류</div>
                         </div>
                     </fieldset>
                     <button type="submit" class="signup-btn new-btn">회원가입</button>
