@@ -34,4 +34,8 @@ public interface DogetherRepository extends JpaRepository<Dogether, Long>{
 			+ "	LEFT JOIN c.thirdCategory tc "
 			+ "WHERE tc.name = :thirdCategoryName")
 	public List<Dogether> findDogetherByThirdCategoryName(@Param("thirdCategoryName")String thirdCategoryName);
+
+	@Query(value = "SELECT d FROM Dogether d "
+			+ "WHERE d.title LIKE %:requestText%")
+	public List<Dogether> findDogetherByTitle(@Param("requestText") String requestText);
 }

@@ -67,4 +67,9 @@ public class DogetherService {
 		return dogetherRepository.findDogether(id);
 		
 	}
+
+	// 타이틀로 검색
+	public List<Dogether> findDogetherByTitle(String requestText) {
+		return dogetherRepository.findDogetherByTitle(requestText);
+	}
 }

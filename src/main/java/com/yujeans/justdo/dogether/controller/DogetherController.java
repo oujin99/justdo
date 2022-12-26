@@ -34,7 +34,6 @@ import lombok.RequiredArgsConstructor;
 
 
 @Controller
-//@RequestMapping("/regist")
 @RequiredArgsConstructor
 public class DogetherController {
    
@@ -213,6 +212,22 @@ public class DogetherController {
       
       return "dogether/dogether_detail";
    }
+   
+   @PostMapping("/dogether/search")
+   public String dogetherSearch(@RequestParam("service_search") String requestText, Model model) {
+	   
+	   model.addAttribute("requestText", requestText);
+	   
+	   List<Dogether> dogetherList = dogetherService.findDogetherByTitle(requestText);
+	   
+	   if(dogetherList.size()>0) {
+		   model.addAttribute("dogetherList", dogetherList);
+	   }
+	   
+	   return "/dogether/dogether_search";
+   }
+   
+   
    
 
 }
