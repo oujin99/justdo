@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -28,11 +29,13 @@ public class Dogether {
 	private Long id;
 	private String title;
 	private String image;
-	private String content;
+	@Lob
 	private String leaderInfo;
 	private String summary;
 	private String recommendTo;
+	
 	private String detail;
+	
 	private String notice;
 	
 	@ManyToOne
