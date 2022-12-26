@@ -74,6 +74,8 @@ public class DogetherController {
     	
     	List<Dogether> dogetherFromThirdList = dogetherService.findDogetherByThirdCategoryName(thirdCategoryName);
     	
+    	System.out.println("두게더 사이즈 : "+dogetherFromThirdList.size());
+    	
     	if(dogetherFromThirdList.size()>0) {
     		model.addAttribute("dogetherList", dogetherFromThirdList);
     	}

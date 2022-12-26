@@ -48,8 +48,8 @@ public class BoardController {
     @PostMapping("/board/boardWriteSub")
     public String boardWritePro(@ModelAttribute BoardFormDto boardFormDto, Model model, HttpServletRequest request){
 		Board board = new Board();
-		request.setAttribute("id", "test144");
-		Account account  = credentialService.findByUsername((String)request.getAttribute("id"));
+		
+		Account account  = credentialService.findUserInfo((String)request.getAttribute("id")); 
 		
 		board.setContent(boardFormDto.getContent());
 		board.setTitle(boardFormDto.getTitle());
@@ -57,7 +57,7 @@ public class BoardController {
 		board.setAccount(account);
         boardService.write(board);
         
-        model.addAttribute("boardList", boardService.boardList()) ;
+        model.addAttribute("boardList", boardService.boardList());
         
         return "redirect:/board/boardList";
     }
@@ -111,15 +111,17 @@ public class BoardController {
         
         model.addAttribute("boardUpdate", boardService.boardList()) ;
         
-        return "redirect:/board/boardEdit/{id}";
+        return "redirect:/board/boardView/{id}";
     }
     
     // 게시판 리스트 페이징
-    @GetMapping("/board/boardList/{id}")                 
+    @GetMapping("/board/boardList")
     public String paging(Model model, @PageableDefault(sort = "id", direction = Direction.DESC, size=7)
             Pageable pageable) {
     	
     	Page<Board> boardList = boardService.getBoardList(pageable);
+    	
+//    	System.out.println("board.account : "+boardList.getContent().get(0).getAccount());
     	
         // 이전 다음 버튼
         model.addAttribute("first", pageable.first().getPageNumber());
