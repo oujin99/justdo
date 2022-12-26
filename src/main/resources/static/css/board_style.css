@@ -18,7 +18,26 @@ a {
 
 .board_wrap {
     width: 60%;
-    margin: 100px auto;
+    margin: 40px auto 100px auto;
+}
+
+.board-header{
+	display: flex;
+	justify-content: space-between;
+}
+
+.board-search{
+    padding: 0.5em;
+    border-radius: 0.6em !important;
+    border: 1px solid #f67ff4;
+    background-color: #f1f1f1;
+    width: 80%;
+}
+
+.board-search-btn{
+	padding: 9px;
+    border-radius: 0.6em;
+    background-color: #f6d5f9;
 }
 
 .board_title {
@@ -26,7 +45,7 @@ a {
 }
 
 .board_title strong {
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: #d29fd7;
 }
 
@@ -36,9 +55,10 @@ a {
 }
 
 .bt_wrap {
-    margin-top: 30px;
     text-align: center;
     font-size: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .bt_wrap a {
@@ -50,6 +70,7 @@ a {
     border-radius: 6px;
     font-size: 1rem;
     float: right;
+    margin-top: 10px
 }
 
 .bt_wrap a:hover {
@@ -74,6 +95,7 @@ a {
     border: 1px solid #d29fd7;
     font-size: 1rem;
     border-radius: 6px;
+    margin-top: 10px
 }
 
 .bt_wrap a.on:hover {
@@ -82,6 +104,7 @@ a {
     border: 1px solid #d29fd7;
     font-size: 1rem;
     border-radius: 6px;
+    margin-top: 10px
 }
 
 .board_list {
@@ -121,7 +144,7 @@ a {
 
 .board_list .title {
     width: 60%;
-    text-align: left;
+    text-align: center;
     font-size: 1rem;
 }
 
@@ -147,26 +170,28 @@ a {
 .board_page {
     margin-top: 30px;
     text-align: center;
-    font-size: 0;
+	font-size: 1.2em;
 }
 
 .board_page a {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     box-sizing: border-box;
     vertical-align: middle;
     border: 1px solid #ddd;
-    border-left: 0;
-    line-height: 100%;
+/*     line-height: 135%; */
+    background-color: #f6d5f9;
+    border-radius: 9px;
+    font-size: 0.8em;
 }
 
 .board_page a.bt {
-    padding-top: 10px;
-    font-size: 1.2rem;
+    padding-top: 3px;
     letter-spacing: -1px;
     font-size: 0.8rem;
     font-weight: 600;
+    margin: 1px;
 }
 
 .board_page a.num {
@@ -182,11 +207,11 @@ a {
     font-size: 1rem;
 }
 
-.board_page a:first-child {
-    border-left: 1px solid #ddd;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
+/* .board_page a:first-child { */
+/*     border-left: 1px solid #ddd; */
+/*     font-size: 0.8rem; */
+/*     font-weight: 600; */
+/* } */
 
 .board_view {
     width: 100%;
@@ -246,8 +271,7 @@ a {
 }
 
 .board_view .cont {
-    padding: 15px;
-    border-bottom: 1px solid #000;
+    padding: 20px;
     line-height: 160%;
     font-size: 1rem;
 }
@@ -288,7 +312,7 @@ a {
 
 .board_write .title dt,
 .board_write .info dt {
-    width: 100px;
+    width: 3em;
 }
 
 .board_write .title dd {
@@ -305,11 +329,12 @@ a {
 }
 
 .board_write .title input[type="text"] {
-    width: 80%;
+    width: 70%;
 }
 
 .board_write .cont {
     border-bottom: 1px solid #000;
+    margin-top: 1em; 
 }
 
 .board_write .cont textarea {
@@ -352,3 +377,73 @@ a {
     border: 1px solid #be61c6;
     border-radius: 6px;
 }
+
+.comment-box{
+	border-radius: 10px;
+	margin: 2em 0em 0em 4em;
+    padding: 1.5em;
+    background-color: #f3e7fb;
+}
+
+.comment{
+	display: flex;
+	float: left;
+}
+
+.com-content{
+	border-bottom: thin solid #b9b9b9;
+}
+
+.comment-up-del{
+	float: right;
+}
+
+.line{
+  display: flex;
+  float: left;
+  border-left: thin solid #b9b9b9;
+  height: 1.5em;
+  margin: 0em 1.5em 0em 0.5em;
+}
+
+.mt-3{
+	float: right !important;
+}
+
+.board-title{
+	margin-right: 0.5em;
+    font-size: 1.7em;
+    padding: 0.2em;
+}
+
+.title-line{
+	display: flex;
+    float: left;
+    border-left: thin solid #232020;
+    height: 2em;
+    margin-top: 0.7em;
+}
+
+.board-titlename{
+	padding: 0.5em;
+    font-size: 1.2em;
+}
+
+.comment-btn{
+    font-size: 1em;
+    background-color: #f3e7fb;
+}
+
+.com-date{
+	margin-right: 2em;
+}
+
+.card-body{
+    padding: 0px !important;
+}
+
+.mt-3{
+	float: right !important;
+	margin-top: 0rem !important;
+}
+
