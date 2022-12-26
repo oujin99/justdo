@@ -213,7 +213,7 @@ public class DogetherController {
       model.addAttribute("path", path);
       
       
-      model.addAttribute("leaderimage", request.getAttribute("profile_image"));
+//      model.addAttribute("leaderimage", request.getAttribute("profile_image"));
       
 //      StringBuilder sb = new StringBuilder(path); // 파일이 실제로 저장되어 있는 경로에
 //      String fileName = fileInfo.getSavedNm();
