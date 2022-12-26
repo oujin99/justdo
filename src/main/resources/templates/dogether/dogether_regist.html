@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name='Title' content='저두'>
+    <meta name=' Title' content='저두'>
     <meta name='Subject' content='저두'>
     <meta name='Keywords' content='저두 레슨 취미 클래스 저스트두 이벤트'>
     <meta name='Author' content='minjeong'>
@@ -53,7 +53,7 @@
             <section class="dogether-regist-wrapper">
                 <form action="" th:action="@{/dogether/regist}"
                 		class=""  method="post"
-                		th:object="${dogether}">
+                		th:object="${dogether}" enctype="multipart/form-data">
                     <div class="dogether-regist-title">
                         <h5>두게더 등록</h5>
                     </div>
@@ -76,10 +76,11 @@
                             <div class="dogether_cover_category_wrapper3" style="width: 60%;">
                                 <div class="dogether_img_wrapper" style="width: 100%;">
                                     <label for="dogether_image" class="form-label">커버 이미지</label><br>
-                                    <input id="dogether_image" th:field="*{image}" type="file" th:type="file" accept="image/*">
+                                    <input id="dogether_image" th:field="${images.orgNm}" type="file" th:type="file" accept="image/*">
                                     <div class="card mb-3" style="max-height: 500px;">
                                         <div class="row g-0" style="cursor: pointer;" id="image_card1">
-                                            <div class="col-md-4" style="width: 100%;" >
+                                            <div class="col-md-4" style="width: 100%; max-width: 90%;
+                                            		margin: auto;" >
                                                 <img src="./assets/images/no-images.png"
                                                 	th:src="@{/img/no-images.png}"
                                                 	 id="dogether_image_img" class="img-fluid rounded-start" alt="...">

@@ -30,7 +30,7 @@
    margin: 5% auto;
    padding: 10px;
    border: 1px solid #888;
-   width: 50%; 
+   width: 39%; 
    border-radius: 30px;
 }
 
@@ -66,7 +66,7 @@
 
 
 .profile-modal{
-   display: flex; 
+/*    display: flex;  */
    padding: 0.5em;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .col-lg-6{
-/*    margin: auto;  */
+   margin: auto; 
    padding: 0.5em;
    text-align: center
 }
