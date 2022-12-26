@@ -186,15 +186,17 @@ a, span {
 .p_col_right {
     margin-left: 60px;
     width: calc(100% - 212px);
+/*     background-color: rgba(0, 0, 0, 0.02);  */
 }
 
 .p_col_right .text_wrap {
+/* 	padding : 25px 97px 25px 20px; */
     position: relative;
 }
 .p2p_class_notice .text_wrap {
     /* position: relatvie; */
     padding: 25px 97px 25px 20px;
-    background-color: rgba(0, 0, 0, 0.02);
+/*     background-color: rgba(0, 0, 0, 0.02); */
 }
 
 .p_col_right .text_wrap .text_area {
@@ -219,6 +221,7 @@ a, span {
     font-size: 10px;
     line-height: 18px;
     color: #d29fd7;
+    
 }
 
 /* 글이 길 경우 더보기 버튼*/

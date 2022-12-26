@@ -109,6 +109,7 @@ public class DogetherController {
          return thirdCategoryList;
       }
 
+      
    // 작성된 두게더(클래스) 저장
    @PostMapping("/dogether/regist")
    public String saveDogether(@ModelAttribute DogetherRegistDTO dogetherForm, 
