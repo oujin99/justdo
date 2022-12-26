@@ -115,7 +115,7 @@ public class BoardController {
     }
     
     // 게시판 리스트 페이징
-    @GetMapping("/board/boardList/{id}")                 
+    @GetMapping("/board/boardList")                 
     public String paging(Model model, @PageableDefault(sort = "id", direction = Direction.DESC, size=7)
             Pageable pageable) {
     	
