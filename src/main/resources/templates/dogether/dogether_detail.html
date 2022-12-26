@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 
 <head>
@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/swiper-bundle.css">
     <link rel="stylesheet" href="/css/style.css">
-    <!-- <link rel="stylesheet" href="../css/mobile_css.css"> -->
+<!--     <link rel="stylesheet" href="../css/mobile_css.css"> -->
     <link rel="stylesheet" href="/css/class_detail.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/js/script.js" defer></script>
@@ -74,7 +74,7 @@
 
 
     <main id="wrap">
-	   <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
+        <div id="searcher"></div>
         <div>
             <div class="container" th:object="${findDogether}">
                 <div class="p2p_class_wrap">
@@ -90,8 +90,7 @@
                         <!-- 수업 이미지 -->
                         <div class="plus_left">
                             <section class="p2p_class_img">
-                            <!-- th:src="*{image}" -->
-                                <img src="../img/dog.jpg">
+                                <img src="/img/dog.jpg">
                             </section>
                             <!--//p2p_class_img-->
 
@@ -99,21 +98,15 @@
                         <!--// 수업 이미지 -->
                         <!-- 두리더 소개 부분 -->
                         <div class="plus_right">
+                            <div class="plus_right_div">
+                                <img class="plus_right_img" id="myBtn" src="/img/dog.jpg">
+                            </div>
+                            <div class="plus_right_text" th:text="*{leaderInfo}"
+                            		style="white-space: pre-wrap;">
+                                두리더 소개
+                            </div>
                             <div class="price">
                                 <div class="price_div">
-                            <div class="plus_right_div">
-                                <img class="plus_right_img" id="myBtn" src="../img/dog.jpg"><!-- th:src="${findAccount.image}" -->
-                            </div>
-                            <div class="plus_right_text" th:text="*{leaderInfo}">
-                                - 성신여대 미술대학 공예과 학사졸업<br>
-                                - 서울과학기술대 조형대학 금속공예디자인 석사수료<br>
-                                - 문화예술교육사 자격증 2급<br>
-                                - 홍대미대입시학원 경력 5년<br>
-                                - 아동문화센터 출강 1년<br>
-                                현재 홍대미대입시미술학원 강사로 재직중에 있으며,<br>
-                                기업/학교/센터/어린이집/유치원 등 출강도 매달 나가고 있습니다.<br>
-                                학교를 다니면서 아동연극치료, 미술치료, 심리적인 부분에도 관심을 가져왔습니다.<br>
-                            </div>
                                     <dl class="price_dl">
                                         <dt class="price_dt">
                                             <p>가격</p>
@@ -139,11 +132,9 @@
                                 </div>
                                 <div class="p_col_right">
                                     <div class="text_wrap">
-                                        <p class="text_area" th:text="*{notice}">
-                                            서울 정릉역에서 도보 10분입니다.<br><br>
-                                            무료주차 가능합니다.<br><br>
-                                            장소- 신청완료 후 문자로 공지해드립니다.<br><br>
-                                            기본 캔버스 1개 제공, 캔버스 1개 추가시 +2만원 추가비용 있습니다.
+                                        <p class="text_area" th:text="*{notice}"
+                                        		style="white-space: pre-wrap;">
+                                           	튜터 공지
                                         </p>
                                         <span class="badge_noti">튜터 공지</span>
                                     </div>
@@ -163,10 +154,9 @@
                                 </div>
                                 <div class="p_col_right">
                                     <div class="text_wrap">
-                                        <p class="text_area" th:text="*{summary}">
-                                            푸어링아트(플루이드아트)란? 물감을 흘려, 우연적인 효과로 캔버스에 무늬를 만들어내는 추상미술 입니다.<br>
-                                            심리적 요소를 함께 적용하여 진행하기 때문에 예상치 못한 다양한 형태로 작품이 만들어집니다.<br><br>
-                                            스튜디오 푸어링에서 진행하는 푸어링아트 클래스는 힐링과 심리치료를 접목합니다.<br><br>
+                                        <p class="text_area" th:text="*{summary}"
+                                        		style="white-space: pre-wrap;">
+                                            요약 부분
                                         </p>
                                     </div>
                                     <button class="btn_show" style="display: none;">
@@ -186,15 +176,9 @@
                                 <!--//p_col_left-->
                                 <div class="p_col_right">
                                     <div class="text_wrap">
-                                        <p class="text_area" th:text="*{recommendTo}">
-                                            심적으로 힐링하고 싶으신 분<br>
-                                            데이트 코스로 원데이클래스 듣고 싶으신 분<br>
-                                            가족들과 즐겁게 미술놀이하며, 멋진 작품도 가져가고 싶으신 분<br>
-                                            내 작품으로 집을 꾸미고 싶으신 분<br>
-                                            미술에 소질이 없는데 나만의 작품이 갖고 싶으신 분<br>
-                                            혼자하기 귀찮고 집이 어질러지는게 싫으신 분<br>
-                                            미술 원데이 듣고싶으신 분<br><br>
-                                            모든 연령이 즐겁게 즐길 수 있습니다!
+                                        <p class="text_area" th:text="*{recommendTo}"
+                                        		style="white-space: pre-wrap;">
+                                            추천 대상
                                         </p>
                                     </div>
                                     <button class="btn_show" style="display: none;">
@@ -211,22 +195,11 @@
                                     <p class="col_title">두게더 상세소개</p>
                                 </div>
                                 <div class="p_col_right">
-                                    <div class="text_wrap" th:text="*{detail}">
-                                            - 성신여대 미술대학 공예과 학사졸업<br>
-                                            - 서울과학기술대 조형대학 금속공예디자인 석사수료<br>
-                                            - 문화예술교육사 자격증 2급<br>
-                                            - 홍대미대입시학원 경력 5년<br>
-                                            - 아동문화센터 출강 1년<br><br>
-                                            현재 홍대미대입시미술학원 강사로 재직중에 있으며,<br>
-                                            기업/학교/센터/어린이집/유치원 등 출강도 매달 나가고 있습니다.<br><br>
-                                            학교를 다니면서 아동연극치료, 미술치료, 심리적인 부분에도 관심을 가져왔습니다.<br>
-                                            미술이라는 분야는 쉽게 접할 수 있지만, 내가 만든 멋진 작품이란 것은 누구에게나<br>
-                                            쉽지 않았습니다.<br><br>
-                                            하지만 푸어링아트는 누구나 쉽게 나만의 작품을 만들 수 있습니다.<br>
-                                            또한, 푸어링아트를 하며 심리적인 부분의 요소를 담아 만든다면,<br>
-                                            잊을 수 없는 나만의 작품이 탄생할 것입니다.<br><br>
-                                            힐링은 기본이며, 힘들었던 일, 즐거웠던 일들을 푸어링아트로 담아보세요.
-
+                                    <div class="text_wrap">
+                                        <p class="text_area" th:text="*{detail}"
+                                        		style="white-space: pre-wrap;">
+											상세소개
+                                        </p>
                                     </div>
                                     <button class="btn_show" style="display: none;">
                                         <span class="more">더보기</span>
@@ -259,6 +232,7 @@
                                             두리더님 수업에 리뷰를 달아주세요
                                         </span>
                                         <ul class="cmt_wrap">
+                                            
                                             <li class="list">
                                                 <div class="tutee_info">
                                                     <span class="img">
@@ -266,18 +240,17 @@
                                                             onerror="profileImgError(this,0)" alt="">
                                                     </span>
                                                     <div class="tutee">
-                                                        <span class="name">지윤</span>
+                                                        <span class="name">현좌</span>
                                                         <div class="date">
-                                                            <p>2022-12-16 10:56:13</p>
+                                                            <p>2022-12-01 13:18:51</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="cmt">
                                                     <p>
-                                                        처음 퍼스널컬러를 받아봤는데 자세하게 설명 해주시고 머리색상부터 얼굴톤까지 섬세하게 알려주셔서 신기했고 수업 듣는
-                                                        내내 즐거웠습니다 !<br>
-                                                        5인이서 같이 수업을 들었는데 내꺼 외에 다른 사람들껏도 같이 비교하며 들을 수 있어서 좋았습니다 봄웜인줄 알았으나
-                                                        생각지도 못한 여쿨을 진단 받아서 신기했습니당 !!
+                                                        너무 만족스러웠어요! 남편이랑 같이 수업 들었었는데, 남자의 경우 머리랑 옷 스타일링도 잡아주셔서 만족했습니다.
+                                                        여자는 파운데이션 색도 알려주시고 맞는 메이크업 제품도 추천해주셔서 너무 만족했어요!! 다녀와서 지인들한테
+                                                        추천했습니다!
                                                     </p>
                                                 </div>
                                             </li>
@@ -333,7 +306,7 @@
     </main>
     <!-- </div> -->
     <!--모달창 !!!!!!!!!!! 댓글 !!!!!!!!!!!!!!!!!!11-->
-	<div class="css-14gy7wr" id="modal_comment">
+    <div class="css-14gy7wr" id="modal_comment">
         <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
            <div class="css-1p257d1-modalAddStyle">
               <header title="" class="css-166ww79-HeaderBarPrimitive-headerAddStyle">
@@ -390,27 +363,28 @@
 
 
         <!-- 모달 페이지  -->
-        <div class="modal-content" >
+        <div class="modal-content" th:object="${doleaderInfo}">
             <div >
                 <span class="close">&times;</span>
             </div>
             <!-- 바디-->
+            <h1 class="profile_modal_title"> <span th:text="*{name}"></span>님 프로필</h1><br>
             <!-- 프로필 이미지-->
             <div class="profile-modal" >
 
                 <div class="col-lg-3">
                     <div>
-                        <img src="/images/avatar.jpg" class="card-img-top" alt="profile_img">
+                        <img src="/images/avatar.jpg" class="card-img-top" alt="profile_img"
+                        	style="border-radius: 30px;"><!-- th:text="*{image}" -->
                     </div>
                 </div>
 
                 <!-- 프로필 텍스트 -->
 
                 <div class="col-lg-6">
-                    <h1 > 프로필 페이지 </h1><br>
-                    <p class="fw-bold text-info">안효빈</p>
-                    <p class="text-muted">gyqlsdlrj@gmail.com</p>
-                    <p class="text-muted">010-8011-7313</p>
+                    <p class="fw-bold text-info" th:text="*{name}">안효빈</p>
+                    <p class="text-muted" th:text="*{email}">gyqlsdlrj@gmail.com</p>
+                    <p class="text-muted" th:text="*{phone}">010-8011-7313</p>
                     <br>
                     <br>
                     <button class="button-41" role="button" type="submit">프로필 수정</button>
@@ -419,7 +393,7 @@
             </div>
 
             <h1 class="profile-thumbnail"> 강의 썸네일 </h1><br>
-            <br>
+<!--             <br> -->
 
             <!-- 클래스 썸네일 -->
 
@@ -438,13 +412,13 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <a href="#"><img src="assets/img/best_pro-1.jpg" class="d-block w-100" alt="thumbnail"></a>
+                                <a href="#"><img src="/img/best_pro-1.jpg" class="d-block w-100" alt="thumbnail"></a>
                             </div>
                             <div class="carousel-item">
-                                <a href="#"><img src="assets/img/best_pro-10.jpg" class="d-block w-100" alt="thumbnail"></a>
+                                <a href="#"><img src="/img/best_pro-10.jpg" class="d-block w-100" alt="thumbnail"></a>
                             </div>
                             <div class="carousel-item">
-                                <a href="#"><img src="assets/img/best_pro-11.jpg" class="d-block w-100" alt="thumbnail"></a>
+                                <a href="#"><img src="/img/best_pro-11.jpg" class="d-block w-100" alt="thumbnail"></a>
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -465,6 +439,7 @@
         </div>
     </div>
     <!--------------------------------------------------->
+    
      <!-- 프로필 추가 JS-->
     <script src="/js/modal_profile.js"></script>
 
@@ -481,6 +456,10 @@
         crossorigin="anonymous">
     </script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+    <!--------------------------------------------------->
 
 <script type="text/javascript">
     var modal_comment = document.getElementById("modal_comment")
@@ -527,5 +506,4 @@
                /*---------------------------댓글 남기기 모달창 끝---------------------------------*/
 
 </script>
-
 </html>

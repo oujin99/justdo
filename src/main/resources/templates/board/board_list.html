@@ -2,29 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>게시글</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='Title' content='저두'>
+    <meta name='Subject' content='저두'>
+    <meta name='Keywords' content='저두 레슨 취미 클래스 저스트두 이벤트'>
+    <meta name='Author' content='minjeong'>
+    <meta name='Publisher' content='minjeong'>
+    <meta name='Description' content='저두 오신 것을 환영합니다.'>
+    <meta name='Author-Date' content='20220323'>
+    <meta name='Robots' content='index,follow'>
     <link rel="icon" type="images/png" href="/images/logo.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/fc26219ee3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/swiper-bundle.css">
-    <link rel="stylesheet" href="../css/board_style.css">
-    <link rel="stylesheet" href="../css/board_media.css">
+    <link rel="manifest" href="/manifest.json">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>저두: 저스트두 - 600만명이 선택한 생활서비스 멘토 매칭</title>
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="../css/board_style.css">
-    <link rel="stylesheet" href="../css/board_media.css">
-    
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="../js/script.js" defer></script>
+    <link rel="stylesheet" href="/css/board_style.css">
+    <link rel="stylesheet" href="/css/board_media.css">
+
+    <script src="/js/script.js" defer></script>
 
     <!-- header, footer 공통 부분 -->
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">   
         $(document).ready( function() {
 
@@ -42,14 +48,24 @@
         <li><a href="#nav">메뉴 바로가기</a></li>
         <li><a href="#footer">푸터 바로가기</a></li>
     </ul>
+    
     <header>
-    	<th:bloack th:replace="fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
+    	<th:bloack th:replace="/fragments/header.html :: header(${loginState}, ${nickname}, ${thumbnail_image}, ${profile_image})"></th:bloack>
     </header>
-    <div id="searcher"></div>
+    
+    <th:bloack th:replace="fragments/search.html :: search"></th:bloack>
+    
     <div class="board_wrap">
-        <div class="board_title">
-            <strong>저두 자유게시판</strong>
-        </div>
+    	<div class="board-header">
+	        <div class="board_title">
+	            <strong>저두 자유게시판</strong>
+	        </div>
+	    	<form action="" th:action="@{/board/boardSearchList}" method="get">
+	            <input class="board-search" type="text" name="keyword" id="search" placeholder="검색어를 입력하세요"></input>
+	            <button type="submit" class="board-search-btn">검색</button>
+	        </form>
+	    </div>
+	    
         <div class="board_list_wrap">
             <div class="board_list">
                 <div class="top">
@@ -59,42 +75,61 @@
                     <div class="date">작성일</div>
                     <div class="count">조회</div>
                 </div>
-                <div>
-                    <div class="num">5</div>
-                    <div class="title"><a href="/html/board_view.html">유진스 초코 중독 아저씨</a></div>
-                    <div class="writer">강태석</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
-                </div>
-                <div>
-                    <div class="num">4</div>
-                    <div class="title"><a href="/html/board_view.html">유진스 마루 아빠</a></div>
-                    <div class="writer">전상현</div>
-                    <div class="date">2021.1.15</div>
-                    <div class="count">33</div>
+                
+                <th:block th:if="${total < 0}">
+               		<div>
+	                    <div class="num" ></div>
+	                    <div class="title" style="padding: 3em 0em 3em 8em;">데이터가 없습니다.</div>
+						<div class="writer"></div>
+						<div class="date"></div>
+	                    <div class="count"></div>
+               		</div>
+               </th:block>
+                
+               <div th:each="board : ${boardList}">
+                    <div class="num" ><a href="view.html" th:text="${board.id}" th:href="@{/board/boardView/{id}(id=${board.id})}"></a></div>
+                    <div class="title" ><a href="view.html" th:text="${board.title}" th:href="@{/board/boardView/{id}(id=${board.id})}"></a></div>
+					<div class="writer" th:text="${board.account.name}"></div>
+					<div class="date" th:text="${board.startDate}"></div>
+                    <div class="count" th:text="${board.views}"></div>
                 </div>
             </div>
+            
             <div class="board_page">
-                <a href="#" class="bt first">
-                    <<< </a>
-                        <a href="#" class="bt prev">
-                            << </a>
-                                <a href="#" class="num on">1</a>
-                                <a href="#" class="num">2</a>
-                                <a href="#" class="num">3</a>
-                                <a href="#" class="num">4</a>
-                                <a href="#" class="num">5</a>
-                                <a href="#" class="bt next">></a>
-                                <a href="#" class="bt last">>></a>
+            			<th:block th:unless="${total < 0}">
+	            			<ul style="display: inline-flex;">
+		            			<li>
+			                	 	<a th:href="@{/board/boardList(page=${first})}" class="pg-bt2 bt first" th:if="${hasPrev} ? 'disabled'" >&lt;&lt;</a>
+			                        <a th:href="@{/board/boardList(page=${previous})}" class="pg-bt1 bt prev"  th:if="${hasPrev} ? 'disabled'">&lt; </a>
+		                        </li>
+		                        
+		                        <li>
+		                        	<th:block th:each="page:${#numbers.sequence(startPage, endPage)}">
+		                        		<a th:if="${page != nowPage}" th:href="@{/board/boardList(page=${page -1})}" th:text="${page}"></a>
+		                        		<strong th:if="${page == nowPage}"  th:text="${page}" style="color: #0076d3;"></strong>
+		                        	</th:block>
+		                        </li>
+		                        
+		                        <li>
+			                        <a th:href="@{/board/boardList(page=${next})}" class="pg-bt1 bt next" th:if="${hasNext} ? 'disabled'">&gt;</a>
+			                		<a th:href="@{/board/boardList(page=${total})}" class="pg-bt2 bt last" th:if="${hasNext} ? 'disabled'">&gt;&gt;</a>
+		                		</li>
+		                	</ul>
+            			</th:block>
             </div>
+            
             <div class="bt_wrap">
-                <a href="/html/board_write.html" class="on">등록</a>
+            	<div class="qwe"></div>
+                <a href="write.html" class="on" th:href="@{/board/boardWrite}">게시물 등록</a>
                 <!--<a href="#">수정</a>-->
             </div>
         </div>
     </div>
+    
+    <div style="padding: 15px"></div>
+   
     <footer>
-        <div id="footers"></div>
+<!--         <th:bolack th:replace="fragments/footer.html :: footer"></th:bolack> -->
     </footer>
 </body>
 

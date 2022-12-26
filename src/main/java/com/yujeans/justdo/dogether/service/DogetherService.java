@@ -38,7 +38,10 @@ public class DogetherService {
 //		dogetherRepository.saveDogether(dogether);
 	}
 	
-	
+	// 소분류 카테고리 이름을 이용해 해당 두게더 가져오기
+	public List<Dogether> findDogetherByThirdCategoryName(String thirdCategoryName) {
+		return dogetherRepository.findDogetherByThirdCategoryName(thirdCategoryName);
+	}
 	
 	
 	// class_detail에 두리더 정보 넣기 위함(두리더 사진)
@@ -63,5 +66,10 @@ public class DogetherService {
 		
 		return dogetherRepository.findDogether(id);
 		
+	}
+
+	// 타이틀로 검색
+	public List<Dogether> findDogetherByTitle(String requestText) {
+		return dogetherRepository.findDogetherByTitle(requestText);
 	}
 }

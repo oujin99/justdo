@@ -1,5 +1,5 @@
 #wrap {
-    margin-top: 150px;
+    margin-top: 100px;
     min-width: 1100px;
 }
 
@@ -138,6 +138,8 @@ li {
 .p2p_class_img img{
     border-radius: 10px;
 }
+
+
 
 img {
     max-width: 100%;
@@ -424,6 +426,11 @@ button {
     line-height: 2.5;
 }
 
+/*가격*/
+.price{
+    margin-top: 10px;
+}
+
 /* .price_div{ */
 /*     background-color: rgba(0, 0, 0, 0.02); */
 /* } */
@@ -438,7 +445,7 @@ button {
 }
 
 .price_dt{
-    padding: 20px 0px 20px 40px; 
+    padding: 20px 0px 20px 30px; 
     font-weight: bold
 }
 
@@ -448,7 +455,7 @@ button {
 }
 
 .price_dd{
-    padding: 20px 0px 0px 80px; 
+    padding: 40px 0px 0px 20px; 
     font-size: 20px;
 }
 

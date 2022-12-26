@@ -22,11 +22,7 @@ closeMenu.addEventListener("click", function(){
   menuWrap.classList.remove('active');
 });
 
-searchPc1.addEventListener("click", function (){
-  searchPcWrap1.classList.add('active')
-  searchPcBorder1.classList.add('active');
 
-});
 
 closeBtnPc.addEventListener("click", function (){
   searchPcWrap1.classList.remove('active')

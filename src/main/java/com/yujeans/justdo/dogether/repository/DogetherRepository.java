@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.dogether.Dogether;
+import com.yujeans.justdo.user.Account;
 
 
 @Repository
@@ -25,4 +26,16 @@ public interface DogetherRepository extends JpaRepository<Dogether, Long>{
 	@Query(value = "SELECT d FROM Dogether d "
 			+ "WHERE d.id = :id")
 	public Dogether findDogether(@Param("id")Long id);
+
+	@Query(value = "SELECT d FROM Dogether d "
+			+ "	LEFT JOIN d.category c "
+			+ "	LEFT JOIN c.firstCategory fc "
+			+ "	LEFT JOIN c.secondCategory sc "
+			+ "	LEFT JOIN c.thirdCategory tc "
+			+ "WHERE tc.name = :thirdCategoryName")
+	public List<Dogether> findDogetherByThirdCategoryName(@Param("thirdCategoryName")String thirdCategoryName);
+
+	@Query(value = "SELECT d FROM Dogether d "
+			+ "WHERE d.title LIKE %:requestText%")
+	public List<Dogether> findDogetherByTitle(@Param("requestText") String requestText);
 }
