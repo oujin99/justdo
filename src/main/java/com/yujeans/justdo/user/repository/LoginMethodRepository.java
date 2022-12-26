@@ -1,4 +1,4 @@
-package com.yujeans.justdo.user.service;
+package com.yujeans.justdo.user.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

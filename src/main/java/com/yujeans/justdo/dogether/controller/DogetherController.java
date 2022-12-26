@@ -1,8 +1,11 @@
 package com.yujeans.justdo.dogether.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -24,10 +25,13 @@ import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.category.SecondCategory;
 import com.yujeans.justdo.category.ThirdCategory;
 import com.yujeans.justdo.category.service.CategoryService;
+import com.yujeans.justdo.dogether.AccountDogether;
 import com.yujeans.justdo.dogether.Dogether;
 import com.yujeans.justdo.dogether.DogetherRegistDTO;
 import com.yujeans.justdo.dogether.service.DogetherService;
 import com.yujeans.justdo.user.Account;
+import com.yujeans.justdo.user.Credential;
+import com.yujeans.justdo.user.service.AccountDogetherService;
 import com.yujeans.justdo.user.service.CredentialService;
 
 import lombok.RequiredArgsConstructor;
@@ -39,9 +43,14 @@ public class DogetherController {
    
    @Autowired
    private final DogetherService dogetherService;
+   @Autowired
    private final CategoryService categoryService;
 //   private final AccountService accountService;
+   @Autowired
    private final CredentialService credentialService;
+   @Autowired
+   private final AccountDogetherService accountDogetherService;
+   
    
    //메인 페이지에서 '두게더 등록' 클릭 시 두게더 등록 페이지로 이동
    @GetMapping("/dogether/registForm")
@@ -52,11 +61,6 @@ public class DogetherController {
          // 대분류 조회 후 전달
          List<FirstCategory> firstCategory = dogetherService.selectFirstCategory();
          model.addAttribute("firstCategory", firstCategory);
-         
-//         //유저 정보 찾아오기
-//         String username = String.valueOf(request.getAttribute("id"));
-//         Account findUserInfo = accountService.findUserInfo(username);
-//         
          
          // 빈 객체 전달
          Dogether dogether = new Dogether();
@@ -122,15 +126,6 @@ public class DogetherController {
       
       String selectedThird = dogetherForm.getThirdCateSelect();
 
-      //---------------테스트---------------------
-//      System.out.println("닉네임 출력해보기 : " + request.getAttribute("nickname"));
-//      System.out.println("아이디 출력해보기 : " + request.getAttribute("id"));
-//
-//      System.out.println("dto에서 가져온 세번째 카테고리 value 값 ::" + dogetherForm.getThirdCateSelect());
-//      System.out.println("두게더 제목 : " + dogetherForm.getTitle());
-      
-//      System.out.println("requestParam에서 가져온 값 ::" + thirdCateSelect);
-      //---------------테스트---------------------
       
       // 카테고리 아아디 가져오기 & Category 클래스의 id set
       Long categoryId = categoryService.findCategoryId(selectedThird);
@@ -139,30 +134,15 @@ public class DogetherController {
       cate.setId(categoryId);
 //      System.out.println("****클래스 아이디**** : "+ cate.getId());
       
-      /*
-       *SELECT a.ID  FROM CREDENTIAL c 
-   LEFT OUTER JOIN ACCOUNT a ON a.id = c.ACCOUNT_ID WHERE c.USERNAME = 'bbbb@naver.com'; 
-       */
-
-      
       // id 세팅
       //유저 정보 찾아오기
       String username = String.valueOf(request.getAttribute("id")); //회원가입할 때 쓰는 아이디
       Account findUserInfo = credentialService.findUserInfo(username); // account 테이블
-//    		  accountService.findUserInfo(username); // account 테이블
-      System.out.println("****찾아온 어카운트 아이디 ::: " + findUserInfo.getId());
-      
-      // 기존 account 아이디 세팅(일반 로그인 하기 전, 카카오로그인만 구현됐을 때)
-//      Long accountId = Long.parseLong(String.valueOf(request.getAttribute("id"))); 
-//      //request.getAttribute("id") : Object타입 -> String으로 형변환 -> Long으로 형변환
-//      Account account = new Account();
-//      account.setId(accountId);
-//      System.out.println("**** 어카운트 아이디 **** : " + account.getId());
       
       Dogether dogether = new Dogether();
       dogether.setTitle(dogetherForm.getTitle());          // 제목
       dogether.setImage(dogetherForm.getImage());            // 두리더 이미지
-      System.out.println("이미지 경로 :: "+dogetherForm.getImage());
+//      System.out.println("이미지 경로 :: "+dogetherForm.getImage());
       dogether.setLeaderInfo(dogetherForm.getLeaderInfo());   // 두리더 정보
       dogether.setSummary(dogetherForm.getSummary());         // 요약
       dogether.setRecommendTo(dogetherForm.getRecommendTo());   // 추천 대상
@@ -192,7 +172,7 @@ public class DogetherController {
    
    @GetMapping("/dogether/detail/{dogetherSeq}")
 //   @RequestMapping(value = "/dogether/detail", method = RequestMethod.GET)
-   public String dogetherDetail(@PathVariable("dogetherSeq")Long dogetherSeq, Model model){
+   public String dogetherDetail(@PathVariable("dogetherSeq")Long dogetherSeq, Model model, HttpServletRequest request){
       
 	   
       Dogether findDogether = dogetherService.findDogether(dogetherSeq);
@@ -203,14 +183,32 @@ public class DogetherController {
       System.out.println("디테일 페이지로 넘어온 후 두리더 이름 :::: " + doleaderInfo.getName());
       model.addAttribute("doleaderInfo", doleaderInfo);
       
-      //강의 썸네일????
+      // 이 게시물이 현재 로그인 한 유저가 쓴건지 판단하기
+      Credential credential = credentialService.findByAccountId(doleaderInfo.getId());
       
-      //AccountDogether 테이블 select *
-//      AccountDogether userId = dogetherService.findAccountDogether(dogetherId);
+      String isCorrectId = "false";
       
-//      Account findAccount = dogetherService.findAccount(userId.getId());
-//      model.addAttribute("findAccount", findAccount); // 두리더 사진 넣기 위함
-//      
+      if(credential.getUsername().equals(request.getAttribute("id"))) {
+    	  isCorrectId = "true";
+      }
+      
+      model.addAttribute("isCorrectId", isCorrectId);
+      model.addAttribute("dogetherId", dogetherSeq);
+      
+      Account account = credentialService.findUserInfo(request.getAttribute("id").toString());
+      
+      // account , dogether로 accountDogether가 있는지 확인 후 없으면 현재 계정으로 해당 두게더를 수강신청 하지 않은 상태
+      AccountDogether ad = accountDogetherService.findByAccountAndDogether(account, findDogether);
+      
+      String isEnrolled = "false";
+      if(ad!=null) {
+    	  // ad가 null이 아니라면 현재 로그인 한 계정이 해당 두게더를 수강중인것
+    	  isEnrolled = "true";
+      }
+      
+      System.out.println("isEnrolled"+isEnrolled);
+      
+      model.addAttribute("isEnrolled", isEnrolled);
       
       return "dogether/dogether_detail";
    }
@@ -229,7 +227,26 @@ public class DogetherController {
 	   return "/dogether/dogether_search";
    }
    
-   
+   @GetMapping("/dogether/enroll/{dogetherId}")
+   public String dogetherEnroll(@PathVariable("dogetherId") Long id, HttpServletRequest request, HttpServletResponse response) {
+	   
+	   Dogether dogether = dogetherService.findDogether(id);
+	   Account account = credentialService.findUserInfo(request.getAttribute("id").toString());
+	   
+//	   System.out.println("두게더 타이틀 :"+dogether.getTitle());
+//	   System.out.println("계정 이메일"+account.getEmail());
+	   
+	   //AccountDogether ad = accountDogetherService.findByAccountAndDogether(account, dogether);
+	   
+//	   if(ad==null) {
+		   AccountDogether accountDogether = new AccountDogether();
+		   accountDogether.setDogether(dogether);
+		   accountDogether.setAccount(account);
+		   accountDogetherService.save(accountDogether);
+//	   }
+	   
+	   return "redirect:/user/mypage";
+   }
    
 
 }

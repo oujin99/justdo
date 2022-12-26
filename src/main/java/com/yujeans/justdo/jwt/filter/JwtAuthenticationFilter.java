@@ -40,12 +40,12 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 	
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-    	System.out.println("필터 시작----------------");
-    	System.out.println("requestUrI : " +((HttpServletRequest) request).getRequestURI()); 
+//    	System.out.println("필터 시작----------------");
+//    	System.out.println("requestUrI : " +((HttpServletRequest) request).getRequestURI()); 
     	
     	validUserAuthentication((HttpServletRequest)request);
     	
-    	System.out.println("필터 끝--------------");
+//    	System.out.println("필터 끝--------------");
         chain.doFilter(request, response);
     }
     

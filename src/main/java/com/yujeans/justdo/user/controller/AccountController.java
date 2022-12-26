@@ -7,8 +7,11 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.List;
 
+import javax.persistence.Tuple;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
@@ -16,6 +19,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -23,6 +27,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.yujeans.justdo.dogether.Dogether;
+import com.yujeans.justdo.dogether.SimpleDogetherDto;
+import com.yujeans.justdo.dogether.service.DogetherService;
 import com.yujeans.justdo.user.Account;
 import com.yujeans.justdo.user.Credential;
 import com.yujeans.justdo.user.dto.CredentialLoginRequestDto;
@@ -41,6 +48,9 @@ public class AccountController {
 	
 	@Autowired
 	private final CredentialService credentialService;
+	
+	@Autowired
+	private final DogetherService dogetherService;
 	
 	@GetMapping("/user/login")
 	public String loginForm() {
@@ -161,7 +171,16 @@ public class AccountController {
 	}
 	
 	@GetMapping("/user/mypage")
-	public String myPageForm() {
+	public String myPageForm(HttpServletRequest request, Model model) {
+		
+		Account account = credentialService.findUserInfo(request.getAttribute("id").toString());
+		
+		List<Dogether> leadDogetherList = dogetherService.findDogetherByAccountId(account);
+		List<Dogether> followDogetherList = dogetherService.findDogetherInfoByAccountIdOfAccountDogether(account);
+		
+		model.addAttribute("leadDogetherList", leadDogetherList);
+		model.addAttribute("followDogetherList", followDogetherList);
+		
 		return "/user/mypage";
 	}
 }

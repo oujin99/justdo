@@ -16,4 +16,6 @@ public interface CredentialRepository extends JpaRepository<Credential, Long> {
     		+ "WHERE c.username = :username")
     public Account findAccountByUsername(@Param(value = "username") String username);
     
+    @Query("SELECT c FROM Credential c WHERE c.account.id = :id")
+    public Credential findByAccountId(@Param(value = "id") Long id);
 }

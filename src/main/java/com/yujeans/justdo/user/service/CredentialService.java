@@ -17,6 +17,7 @@ import com.yujeans.justdo.user.Credential;
 import com.yujeans.justdo.user.LoginMethod;
 import com.yujeans.justdo.user.repository.AccountRepository;
 import com.yujeans.justdo.user.repository.CredentialRepository;
+import com.yujeans.justdo.user.repository.LoginMethodRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -77,4 +78,8 @@ public class CredentialService {
     public Account findUserInfo(String username) {
 		return credentialRepository.findAccountByUsername(username);
 	}
+    
+    public Credential findByAccountId(Long id) {
+    	return credentialRepository.findByAccountId(id);
+    }
 }

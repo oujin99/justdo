@@ -74,7 +74,7 @@ public class BoardController {
     }
     
     // 게시글 삭제
-    @DeleteMapping("/board/boardDelete/{id}")
+    @GetMapping("/board/boardDelete/{id}")
     public String boardDelete(@PathVariable("id") Long id){
     	System.out.println("board_id : "+id);
         boardService.boardDelete(id);

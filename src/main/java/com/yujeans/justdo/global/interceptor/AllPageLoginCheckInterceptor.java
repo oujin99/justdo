@@ -29,7 +29,7 @@ public class AllPageLoginCheckInterceptor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-			System.out.println("인터셉터 !_!_!_!__!!requestURI : "+request.getRequestURI());
+//			System.out.println("인터셉터 !_!_!_!__!!requestURI : "+request.getRequestURI());
 			
 			Cookie[] cookies = request.getCookies();
 			
@@ -55,7 +55,7 @@ public class AllPageLoginCheckInterceptor implements HandlerInterceptor{
 						request.setAttribute("loginState", "ok");
 					} else if (cookie.getName().equals("basic_token")) {
 						accessToken = cookie.getValue();
-						System.out.println("accessToken : " + accessToken);
+//						System.out.println("accessToken : " + accessToken);
 						// id , nickname , profile_image , thumbnail_image , email 담겨있음
 						Map<String, Object> userInfoMap = jwtTokenProvider.getUserInfo(accessToken);
 						
@@ -68,7 +68,7 @@ public class AllPageLoginCheckInterceptor implements HandlerInterceptor{
 						request.setAttribute("loginMethod", "basic");
 						request.setAttribute("loginState", "ok");
 						
-						System.out.println("id : "+userInfoMap.get("id"));
+//						System.out.println("id : "+userInfoMap.get("id"));
 					
 					}
 				}

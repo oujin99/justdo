@@ -287,18 +287,28 @@
                 <!-- // alert 디자인 팝업 -->
             </div>
 
-            <!-- 실시간톡 -->
-            <div class="btn_livechat p2p_class_wrap" style="padding-right: 30px;">
-                <!-- <div> -->
-                <a onclick="alert('로그인이 필요합니다'); " href="/Account/LoginPage.php" style="bottom: 20px;">수강하기</a>
-                <!-- </div> -->
-            </div>
-            <div class="btn_livechat2 p2p_class_wrap" style="padding-right: 160px;">
-                <!-- <div> -->
-                <a onclick="alert('로그인이 필요합니다'); " href="/Account/LoginPage.php" style="bottom: 20px;">1:1 채팅</a>
-                <!-- </div> -->
-            </div>
-            <!--// 실시간톡 -->
+
+			<th:block th:if="${isCorrectId}=='false'">
+	            <!-- 실시간톡 -->
+	            <th:block th:if="${isEnrolled}=='false'">
+		            <div class="btn_livechat p2p_class_wrap" style="padding-right: 30px;">
+		                <a onclick="javascript:enroll(); " href="#" style="bottom: 20px;">수강하기</a>
+		            </div>
+	            </th:block>
+	            
+	            <th:block th:if="${isEnrolled}=='true'">
+		            <div class="btn_livechat p2p_class_wrap" style="padding-right: 30px;">
+		                <a onclick="return false;" href="" style="bottom: 20px; background: gray;" >★수강중</a>
+		            </div>
+	            </th:block>
+	            
+	            <div class="btn_livechat2 p2p_class_wrap" style="padding-right: 160px;">
+	                <!-- <div> -->
+	                <a href="#" style="bottom: 20px;">1:1 채팅</a>
+	                <!-- </div> -->
+	            </div>
+	            <!--// 실시간톡 -->
+            </th:block>
         </div>
         <footer>
             <div id="footers"></div>
@@ -502,8 +512,15 @@
         }
     }
 
-
-               /*---------------------------댓글 남기기 모달창 끝---------------------------------*/
+    /*---------------------------댓글 남기기 모달창 끝---------------------------------*/
+    
+    // 수강하기 버튼 눌렀을 때
+    function enroll(){
+    	if(confirm('수강하시겠습니까?\n확인을 누르시면 마이페이지로 이동합니다.')){
+    		let id = [[${dogetherId}]];
+    		location.href='/dogether/enroll/'+id;
+    	}
+    }
 
 </script>
 </html>

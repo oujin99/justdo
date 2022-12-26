@@ -2,6 +2,8 @@ package com.yujeans.justdo.dogether.repository;
 
 import java.util.List;
 
+import javax.persistence.Tuple;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.yujeans.justdo.category.FirstCategory;
 import com.yujeans.justdo.dogether.Dogether;
+import com.yujeans.justdo.dogether.SimpleDogetherDto;
 import com.yujeans.justdo.user.Account;
 
 
@@ -38,4 +41,13 @@ public interface DogetherRepository extends JpaRepository<Dogether, Long>{
 	@Query(value = "SELECT d FROM Dogether d "
 			+ "WHERE d.title LIKE %:requestText%")
 	public List<Dogether> findDogetherByTitle(@Param("requestText") String requestText);
+
+	@Query(value = "SELECT d FROM Dogether d WHERE d.account = :account")
+	public List<Dogether> findDogetherByAccountId(@Param("account") Account account);
+	
+	@Query(value = "SELECT d FROM Dogether d "
+			+ "	LEFT JOIN AccountDogether ad on d.id = ad.dogether "
+			+ "WHERE ad.account = :account")
+	public List<Dogether> findDogetherInfoByAccountIdOfAccountDogether(@Param("account")Account account);
+	
 }

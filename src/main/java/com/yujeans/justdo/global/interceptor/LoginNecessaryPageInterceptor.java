@@ -22,7 +22,7 @@ public class LoginNecessaryPageInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
-		log.info("::::인터셉터 지나갑니다~~");
+//		log.info("::::인터셉터 지나갑니다~~");
 		boolean validToken = isValidToken(request);
 		
 		if(validToken) {
