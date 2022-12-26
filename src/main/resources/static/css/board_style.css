@@ -380,8 +380,8 @@ a {
 
 .comment-box{
 	border-radius: 10px;
-	margin: 2em 0em 0em 4em;
-    padding: 1.5em;
+	margin: 2em 0em 0em 0em;
+    padding: 1.5em 1.5em 1.7em 2em;
     background-color: #f3e7fb;
 }
 
@@ -390,12 +390,9 @@ a {
 	float: left;
 }
 
-.com-content{
-	border-bottom: thin solid #b9b9b9;
-}
-
 .comment-up-del{
 	float: right;
+	border-top: thin solid #cfb6d8;
 }
 
 .line{
@@ -431,11 +428,7 @@ a {
 
 .comment-btn{
     font-size: 1em;
-    background-color: #f3e7fb;
-}
-
-.com-date{
-	margin-right: 2em;
+    margin-left: 0.2em;
 }
 
 .card-body{
@@ -445,5 +438,16 @@ a {
 .mt-3{
 	float: right !important;
 	margin-top: 0rem !important;
+}
+
+.board-top-btn{
+	display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.comment-id{
+	float: left;
+    margin-right: 0.7em;
 }
 

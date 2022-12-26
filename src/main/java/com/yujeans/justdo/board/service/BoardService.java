@@ -40,6 +40,7 @@ public class BoardService {
 		return boardRepository.findAll();
 	}
 	
+
 	
 	 // 게시글 조회수
 	public int boardView(Long id, HttpServletRequest request, HttpServletResponse response) {
@@ -110,6 +111,7 @@ public class BoardService {
         return searchList;
     }
     
+    // 상세보기 / 수정 페이징 id값 이동
     public Optional<Board> findById(Long id) {
     	
     	return boardRepository.findById(id);

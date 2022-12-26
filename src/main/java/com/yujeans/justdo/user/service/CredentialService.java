@@ -1,7 +1,6 @@
 package com.yujeans.justdo.user.service;
 
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,13 +8,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.yujeans.justdo.jwt.provider.JwtTokenProvider;
 import com.yujeans.justdo.jwt.token.TokenInfo;
 import com.yujeans.justdo.user.Account;
 import com.yujeans.justdo.user.Credential;
 import com.yujeans.justdo.user.LoginMethod;
-import com.yujeans.justdo.user.repository.AccountRepository;
 import com.yujeans.justdo.user.repository.CredentialRepository;
 import com.yujeans.justdo.user.repository.LoginMethodRepository;
 

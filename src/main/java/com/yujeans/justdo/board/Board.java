@@ -2,7 +2,7 @@ package com.yujeans.justdo.board;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
-
 import com.yujeans.justdo.user.Account;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -46,7 +44,7 @@ public class Board {
 	@NotNull
 	private Account account;
 	
-	@OneToMany(mappedBy = "board")
+	@OneToMany(mappedBy = "board", cascade = {CascadeType.REMOVE})
     private List<Reply> replys = new ArrayList<Reply>();
 	
 	public void addReply(Reply reply) {
