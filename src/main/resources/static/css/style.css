@@ -116,8 +116,8 @@ header{width: 100%; height: 72px; display: grid; align-items: center; position: 
 .bannerS {margin-left: auto; margin-right: auto;}
 
 /* section3 category_wrap */
-.category_list{display: flex; justify-content: space-between; margin-bottom: 80px; margin-top: 3em;}
-.category_list li{width: 12.5%;}
+.category_list{display: flex; justify-content: space-between; margin-bottom: 80px; margin-top: 2em;}
+.category_list li{width: 20.6%;}
 .category_list li a{display: block; text-align: center; font-weight: 500;}
 .category_list li a img{display: block; width: 52px; margin: 0 auto;}
 
@@ -356,6 +356,16 @@ align-items: center;
 @media screen and (max-width:480px) {
     .container{padding: 0 16px;} 
 }
+
+/* .main-text{ */
+/*     display: flex; */
+/*     text-align: center; */
+/*     justify-content: center; */
+/* 	font-size: 4em; */
+/*     margin-top: 1.5em; */
+    
+/* } */
+
 
 /* -------------------- 등록 폼 css 시작 -------------------- */
 

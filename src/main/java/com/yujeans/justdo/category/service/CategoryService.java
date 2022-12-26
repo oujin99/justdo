@@ -2,12 +2,10 @@ package com.yujeans.justdo.category.service;
 
 import java.util.List;
 
-import javax.persistence.Tuple;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import com.yujeans.justdo.category.SecondCategory;
+import com.yujeans.justdo.category.ThirdCategory;
 import com.yujeans.justdo.category.repository.CategoryRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -15,18 +13,18 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class CategoryService {
-	
-	@Autowired
-	private final CategoryRepository categoryRepository;
-	
-//	@Transactional(readOnly = true)
-//	public List<Tuple> findSelectedCategory(String cateData){
-//		return categoryRepository.findCategory(cateData);
-//	}
-//	
-//	public List<Tuple> findThirdCategory(String sec_cateData){
-//		return categoryRepository.findSecondCategory(sec_cateData);
-//	}
-
-
+   private final CategoryRepository categoryRepostiory;
+   
+   public List<SecondCategory> findSecondCategory(String selectFirst){
+      return categoryRepostiory.findSecondCategory(selectFirst);
+   }
+   
+   public List<ThirdCategory> findThirdCategory(String selectSecond){
+      return categoryRepostiory.findThirdCategory(selectSecond);
+   }
+   
+   public Long findCategoryId(String selectedThird) {
+      
+      return categoryRepostiory.findCategoryId(selectedThird);
+   }
 }
