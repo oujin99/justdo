@@ -250,24 +250,7 @@ public class DogetherController {
       System.out.println("path : " + path);
       model.addAttribute("path", path);
       
-      
-//      model.addAttribute("leaderimage", request.getAttribute("profile_image"));
-      
-//      StringBuilder sb = new StringBuilder(path); // 파일이 실제로 저장되어 있는 경로에
-//      String fileName = fileInfo.getSavedNm();
-//      sb.append(fileName); // 파일 이름 더하기
-//      
-//      URL fileUrl = new URL(sb.toString()); // file URL 생성
-//      //-----------
-//      InputStream imageStream = new FileInputStream(path);
-//      
-//      IOUtils.copy(fileUrl.openStream(), response.getOutputStream());
-////      IOUtils.toByteArray(imageStream);
-//      imageStream.close();
-      //----------
-      
-      
-      //----------------------------------
+     
       try {
 		Thread.sleep(2000);
 	} catch (InterruptedException e) {
@@ -314,21 +297,21 @@ public class DogetherController {
    
 
 
-   @GetMapping("/test/{id}")
-   public void imgTest(@PathVariable(name = "id") Long id, HttpServletResponse response)throws IOException {
-	// 사진 불러오기-------------------------
-	      Images fileInfo = imageService.getFileInfo(1L); // 파일 정보 찾기
-	      String path = "file://img/"; // 파일의 공통 경로
-	      StringBuilder sb = new StringBuilder(path); // 파일이 실제로 저장되어 있는 경로에
-	      String fileName = fileInfo.getSavedNm();
-	      sb.append(fileName); // 파일 이름 더하기
-	      System.out.println("hi : " + sb.toString());
-	      URL fileUrl = new URL(sb.toString()); // file URL 생성
-	      //-----------
-	      InputStream imageStream = new FileInputStream(path);
-	      System.out.println("fileUrl : " + fileUrl);
-	      IOUtils.copy(fileUrl.openStream(), response.getOutputStream());
-//	      IOUtils.toByteArray(imageStream);
-	      imageStream.close();
-   }
+//   @GetMapping("/test/{id}")
+//   public void imgTest(@PathVariable(name = "id") Long id, HttpServletResponse response)throws IOException {
+//	// 사진 불러오기-------------------------
+//	      Images fileInfo = imageService.getFileInfo(1L); // 파일 정보 찾기
+//	      String path = "file://img/"; // 파일의 공통 경로
+//	      StringBuilder sb = new StringBuilder(path); // 파일이 실제로 저장되어 있는 경로에
+//	      String fileName = fileInfo.getSavedNm();
+//	      sb.append(fileName); // 파일 이름 더하기
+//	      System.out.println("hi : " + sb.toString());
+//	      URL fileUrl = new URL(sb.toString()); // file URL 생성
+//	      //-----------
+//	      InputStream imageStream = new FileInputStream(path);
+//	      System.out.println("fileUrl : " + fileUrl);
+//	      IOUtils.copy(fileUrl.openStream(), response.getOutputStream());
+////	      IOUtils.toByteArray(imageStream);
+//	      imageStream.close();
+//   }
 }

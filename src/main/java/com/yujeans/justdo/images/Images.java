@@ -26,9 +26,7 @@ public class Images {
 	private Long id;
 	
 	// 업로드된 파일의 이름이 겹칠 수 있기 때문에 파일의 원본이름, 파일을 저장한 이름 따로 설정
-//	@Column(nullable = false)
-	@Lob
-	@Column(name = "origin_name")
+	@Column(name = "origin_name", length = 300)
 	private String orgNm;
 //	@Column(nullable = false)
 	@Column(name = "saved_name")

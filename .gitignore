@@ -36,3 +36,8 @@ out/
 ### VS Code ###
 .vscode/
 /.metadata/
+
+.metadata
+gradlew
+gradlew.bat
+gradle/wrapper
